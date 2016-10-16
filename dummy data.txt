@@ -1,0 +1,88 @@
+dummy data
+
+
+University Name
+	Number of Undergrads Students
+	Cost to attend
+	Salary after attending
+	Graduation rate
+	Location (city)
+	Public/Private
+
+UT Austin
+	38,914
+	17,152
+	53,000
+	80%
+	Austin, TX
+	Public
+
+University of Southern California
+	18,392
+	28,344
+	67,700
+	91%
+	Los Angeles, CA
+	Private
+
+University of Virginia-Main Campus
+	15,515
+	17,863
+	60,100
+	94%
+	Charlottesville, VA
+	Public
+
+####################################################################
+City Name 
+	Population
+	Universities in the city
+	Majors in the city or most popular
+	average tuition in the city
+	Urban/Rural
+
+Austin, TX
+	1,362,416
+	UT Austin
+	Business, Management, Marketing, Communication, Journalism, Engineering, Social Sciences, Biological and Biomedical Sciences
+	17,152
+	Urban
+
+Los Angeles, CA
+	12,150,996
+	University of Southern California
+	Business, Management, Marketing, Visual and Performing arts, Social Sciences, Engineering, Communication, Journalism
+	28,344
+	Urban
+
+
+Charlottesville, VA
+	92,359
+	University of Virginia-Main Campus
+	Social Sciences, Engineering, Business, Management, Marketing, Liberal Arts and Sciences, General Studies and Humanities, Biological and Biomedical Sciences
+	17,863
+	Urban
+
+
+####################################################################
+
+Majors/Specialties
+	Count of students in Major
+	Graduation rate 
+	Diversity
+	Average Salary
+	List of schools containing this major
+	List of cities containing this major
+
+
+
+
+####################################################################
+
+Industry
+	Level of education required
+	Average salary
+	City location
+	Growth
+	Work experience
+
