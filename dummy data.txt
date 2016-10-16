@@ -44,14 +44,14 @@ City Name
 Austin, TX
 	1,362,416
 	UT Austin
-	Business, Management, Marketing, Communication, Journalism, Engineering, Social Sciences, Biological and Biomedical Sciences
+	Journalism, Engineering, Social Sciences
 	17,152
 	Urban
 
 Los Angeles, CA
 	12,150,996
 	University of Southern California
-	Business, Management, Marketing, Visual and Performing arts, Social Sciences, Engineering, Communication, Journalism
+	Journalism, Engineering, Social Sciences
 	28,344
 	Urban
 
@@ -59,7 +59,7 @@ Los Angeles, CA
 Charlottesville, VA
 	92,359
 	University of Virginia-Main Campus
-	Social Sciences, Engineering, Business, Management, Marketing, Liberal Arts and Sciences, General Studies and Humanities, Biological and Biomedical Sciences
+	Engineering, Social Sciences
 	17,863
 	Urban
 
@@ -69,10 +69,32 @@ Charlottesville, VA
 Majors/Specialties
 	Count of students in Major
 	Graduation rate 
-	Diversity
 	Average Salary
 	List of schools containing this major
 	List of cities containing this major
+
+Journalism
+	.055*38914+.045*18392+0 == 2967
+	.80*.055*38914+.91*.045*18392+0 == 2465/2967 == 83.1%
+	(mike is working on this one)
+	UT Austin, University of Southern California
+	Austin, TX; Los Angeles, CA
+
+
+Engineering
+	.11*38914+.10*18392+.13*15515 == 8136
+	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/8136 == 53.6%
+	(mike is working on this one)
+	UT Austin, University of Southern California, University of Virginia-Main Campus
+	Austin, TX; Los Angeles, CA; Charlottesville, VA 
+
+
+Social Sciences
+	.10*38914+.13*18392+.18*15515 == 9075
+	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/9075 == 48.1%
+	(mike is working on this one)
+	UT Austin, University of Southern California, University of Virginia-Main Campus
+	Austin, TX; Los Angeles, CA; Charlottesville, VA
 
 
 
