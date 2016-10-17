@@ -51,6 +51,7 @@ run:
 	python project/app.py
 
 update:
+	git pull
 	git pull origin phaseOne
 
 # Collatz.html: Collatz.py
