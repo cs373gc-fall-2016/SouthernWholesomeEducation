@@ -8,6 +8,7 @@ University Name
 	Graduation rate
 	Location (city)
 	Public/Private
+	Current year ethnicity count
 
 UT Austin
 	38,914
@@ -16,6 +17,9 @@ UT Austin
 	80%
 	Austin, TX
 	Public
+	10,000 Hispanic
+	20,000 White
+	8,000 Asian
 
 University of Southern California
 	18,392
@@ -24,6 +28,9 @@ University of Southern California
 	91%
 	Los Angeles, CA
 	Private
+	7,000 White
+	4,000 Asian
+	3,500 Hispanic
 
 University of Virginia-Main Campus
 	15,515
@@ -32,6 +39,9 @@ University of Virginia-Main Campus
 	94%
 	Charlottesville, VA
 	Public
+	8,000 White
+	3,000 Black
+	4,000 Asian
 
 ####################################################################
 City Name 
@@ -40,6 +50,7 @@ City Name
 	Majors in the city or most popular
 	average tuition in the city
 	Urban/Rural
+	Current year ethnicity count
 
 Austin, TX
 	1,362,416
@@ -78,7 +89,7 @@ Journalism
 	.80*.055*38914+.91*.045*18392+0 == 2465/2967 == 83.1%
 	UT Austin, University of Southern California
 	Austin, TX; Los Angeles, CA
-	TODO
+	11%
 
 
 Engineering
@@ -86,7 +97,7 @@ Engineering
 	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/8136 == 53.6%
 	UT Austin, University of Southern California, University of Virginia-Main Campus
 	Austin, TX; Los Angeles, CA; Charlottesville, VA 
-	TODO
+	15%
 
 
 Social Sciences
@@ -94,7 +105,7 @@ Social Sciences
 	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/9075 == 48.1%
 	UT Austin, University of Southern California, University of Virginia-Main Campus
 	Austin, TX; Los Angeles, CA; Charlottesville, VA
-	TODO
+	18%
 
 
 ####################################################################
@@ -106,6 +117,23 @@ Ethnicity
 	Top 10 Number by university
 	University population trend for last 5 years
 
+White
+	10,000,000
+	Make up city pops
+	Make up university pops
+	Make up trend
+
+Hispanic
+	6,000,000
+	Make up city pops
+	Make up university pops
+	Make up trend
+
+Asian
+	5,000,000
+	Make up city pops
+	Make up university pops
+	Make up trend
 
 
 
