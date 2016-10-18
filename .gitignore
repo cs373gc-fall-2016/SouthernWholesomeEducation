@@ -4,3 +4,4 @@ venv/
 *flask_server.out.log
 *supervisord.log
 *supervisord.pid
+*.un~
