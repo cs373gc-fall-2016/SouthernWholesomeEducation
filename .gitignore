@@ -1,2 +1,6 @@
 venv/
 *__pycache__
+*flask_server.err.log
+*flask_server.out.log
+*supervisord.log
+*supervisord.pid
