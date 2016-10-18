@@ -19,11 +19,6 @@ class University(db.Model):
     def __repr__(self):
         return '<University %r>' % self.universityName
 
-
-
-##########################################################
-
-
 class City(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	cityName = db.Column(db.String(80))
@@ -53,31 +48,31 @@ tags = db.Table('tags',
 
 
 
-City Name 
-	Population
-	Universities in the city
-	Majors in the city or most popular
-	average tuition in the city
-	Urban/Rural
+# City Name 
+# 	Population
+# 	Universities in the city
+# 	Majors in the city or most popular
+# 	average tuition in the city
+# 	Urban/Rural
 
-Austin, TX
-	1,362,416
-	UT Austin
-	Journalism, Engineering, Social Sciences
-	17,152
-	Urban
+# Austin, TX
+# 	1,362,416
+# 	UT Austin
+# 	Journalism, Engineering, Social Sciences
+# 	17,152
+# 	Urban
 
-Los Angeles, CA
-	12,150,996
-	University of Southern California
-	Journalism, Engineering, Social Sciences
-	28,344
-	Urban
+# Los Angeles, CA
+# 	12,150,996
+# 	University of Southern California
+# 	Journalism, Engineering, Social Sciences
+# 	28,344
+# 	Urban
 
 
-Charlottesville, VA
-	92,359
-	University of Virginia-Main Campus
-	Engineering, Social Sciences
-	17,863
-	Urban
+# Charlottesville, VA
+# 	92,359
+# 	University of Virginia-Main Campus
+# 	Engineering, Social Sciences
+# 	17,863
+# 	Urban
