@@ -101,6 +101,11 @@ Social Sciences
 
 ####################################################################
 
+
+
+
+
+
 Industry
 	Level of education required
 	Average salary
@@ -154,3 +159,11 @@ https://api.data.gov/ed/collegescorecard/v1/schools/?sort=2012.earnings.6_yrs_af
 "language": 0.0207,
 "visual_performing": 0.0278,
 "english": 0.028
+
+
+
+
+
+
+
+{"hispanic_2000":null,"nhpi":0.0,"aian_prior_2009":0.0045,"aian_2000":null,"white":0.0,"black_non_hispanic":0.0487,"api_2000":null,"unknown":0.0014,"hispanic":0.0,"asian":0.0,"unknown_2000":null,"black_2000":null,"non_resident_alien":0.0416,"white_2000":null,"hispanic_prior_2009":0.1819,"two_or_more":0.0,"asian_pacific_islander":0.1773,"aian":0.0,"white_non_hispanic":0.5446,"black":0.0}
