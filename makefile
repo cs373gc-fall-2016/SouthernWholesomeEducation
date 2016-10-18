@@ -56,7 +56,7 @@ update:
 
 push:
 	git push
-	ssh -i aws-private-key ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com /bin/bash -c "cd SouthernWholesomeEducation/project && git pull && ./deploy.sh"	
+	ssh -i aws-private-key ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com /bin/bash -c "cd SouthernWholesomeEducation/ && git pull && project/deploy.sh"	
 	
 
 # Collatz.html: Collatz.py
