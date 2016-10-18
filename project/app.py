@@ -1,9 +1,10 @@
 from flask import Flask, render_template
  
-app = Flask(__name__, static_url_path='/templates')
+app = Flask(__name__)
  
 @app.route('/<string:page_name>/')
 def render_static(page_name):
+    print(page_name)
     return render_template('%s' % page_name)
 
 @app.route('/')
