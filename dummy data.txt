@@ -97,21 +97,17 @@ Social Sciences
 	TODO
 
 
-
-
 ####################################################################
 
+Ethnicity
+	Name
+	Total count in country
+	Top 10 Number by city
+	Top 10 Number by university
+	University population trend for last 5 years
 
 
 
-
-
-Industry
-	Level of education required
-	Average salary
-	City location
-	Growth
-	Work experience
 
 
 https://api.data.gov/ed/collegescorecard/v1/schools?school.name=university%20texas%20at%20austin&api_key=UvIG23p13yTXK5PTit5MZEWcNXMCoKsl5QonaV8Y
