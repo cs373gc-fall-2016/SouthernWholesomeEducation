@@ -1,48 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Wholesome Education</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
-
-  </head>
-
-  <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/index.html">Wholesome Education</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/university.html">Universities</a></li>
-                <li><a href="/city.html">Cities</a></li>
-                <li><a href="/major.html">Majors</a></li>
-                <li><a href="/industry.html">Industries</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-
+{% extends "layout.html" %}
+{% block content %}
     <div class="container">
       <div>
         <h3>Cities</h3>
@@ -50,15 +7,15 @@
       </div>
 
       <div>
-        <h3>Data</h3>
+        <h3>Suuported Cities</h3>
         <ul>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
+          <li><a href="/city/Austin.html">Austin, TX</a></li>
+          <li><a href="/LosAngeles.html">Los Angeles, CA</a></li>
+          <li><a href="/Charlottesville.html">Charlottesville, VA</a></li>
         </ul>
       </div>
     </div>
-  
-  </body>
-</html>
+{% endblock %}
+
+    
+
