@@ -68,33 +68,33 @@ Charlottesville, VA
 
 Majors/Specialties
 	Count of students in Major
-	Graduation rate 
-	Average Salary
+	Graduation rate
 	List of schools containing this major
 	List of cities containing this major
+	Average percentage
 
 Journalism
 	.055*38914+.045*18392+0 == 2967
 	.80*.055*38914+.91*.045*18392+0 == 2465/2967 == 83.1%
-	(mike is working on this one)
 	UT Austin, University of Southern California
 	Austin, TX; Los Angeles, CA
+	TODO
 
 
 Engineering
 	.11*38914+.10*18392+.13*15515 == 8136
 	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/8136 == 53.6%
-	(mike is working on this one)
 	UT Austin, University of Southern California, University of Virginia-Main Campus
 	Austin, TX; Los Angeles, CA; Charlottesville, VA 
+	TODO
 
 
 Social Sciences
 	.10*38914+.13*18392+.18*15515 == 9075
 	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/9075 == 48.1%
-	(mike is working on this one)
 	UT Austin, University of Southern California, University of Virginia-Main Campus
 	Austin, TX; Los Angeles, CA; Charlottesville, VA
+	TODO
 
 
 
@@ -108,3 +108,49 @@ Industry
 	Growth
 	Work experience
 
+
+https://api.data.gov/ed/collegescorecard/v1/schools?school.name=university%20texas%20at%20austin&api_key=UvIG23p13yTXK5PTit5MZEWcNXMCoKsl5QonaV8Y
+
+
+
+https://api.data.gov/ed/collegescorecard/v1/schools/?sort=2012.earnings.6_yrs_after_entry.percent_greater_than_25000%3Adesc&school.operating=1&2014.student.size__range=0..&2014.academics.program_available.assoc_or_bachelors=true&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&fields=id%2Cschool.name%2Cschool.city%2Cschool.state%2C2014.student.size%2Cschool.ownership%2Cschool.degrees_awarded.predominant%2C2014.cost.avg_net_price.overall%2C2014.completion.rate_suppressed.overall%2C2012.earnings.10_yrs_after_entry.median%2C2012.earnings.6_yrs_after_entry.percent_greater_than_25000%2Cschool.under_investigation&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy
+
+
+"computer": 0.0242,
+"legal": 0,
+"resources": 0.0008,
+"multidiscipline": 0.0445,
+"mechanic_repair_technology": 0,
+"public_administration_social_service": 0.0073,
+"transportation": 0,
+"architecture": 0.0062,
+"education": 0,
+"philosophy_religious": 0.0092,
+"engineering": 0.1087,
+"communications_technology": 0.0018,
+"mathematics": 0.0238,
+"theology_religious_vocation": 0,
+"business_marketing": 0.1898,
+"military": 0,
+"physical_science": 0.0246,
+"precision_production": 0,
+"psychology": 0.0374,
+"humanities": 0.0114,
+"science_technology": 0,
+"security_law_enforcement": 0,
+"construction": 0,
+"communication": 0.1124,
+"agriculture": 0,
+"health": 0.0448,
+"engineering_technology": 0,
+"history": 0.0199,
+"biological": 0.081,
+"social_science": 0.1049,
+"personal_culinary": 0,
+"ethnic_cultural_gender": 0.013,
+"library": 0,
+"family_consumer_science": 0.0358,
+"parks_recreation_fitness": 0.0218,
+"language": 0.0207,
+"visual_performing": 0.0278,
+"english": 0.028

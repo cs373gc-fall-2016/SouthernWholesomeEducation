@@ -46,8 +46,7 @@ class City(db.Model):
         return '<University %r>' % self.universityName
 
 
-
- tags = db.Table('tags',
+tags = db.Table('tags',
     db.Column('city_id', db.Integer, db.ForeignKey('city.id')),
     db.Column('major_id', db.Integer, db.ForeignKey('major.id'))
 )
