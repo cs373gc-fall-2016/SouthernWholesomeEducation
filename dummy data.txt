@@ -137,27 +137,42 @@ Social Sciences
 
 Ethnicity
 	Name
-	Total count in country
+	Total count in country(universities)
 	Top 10 Number by city
 	Top 10 Number by university
 	University population trend for last 5 years
 
 White
-	10,000,000
-	Make up city pops
-	Make up university pops
+	33,985
+		Austin, TX
+		Charlottesville, VA
+		Los Angeles, CA
+
+		UT Austin
+		University of Virginia-Main Campus
+		University of Southern California
 	Make up trend
 
 Hispanic
-	6,000,000
-	Make up city pops
-	Make up university pops
+	11,135
+		Austin, TX
+		Los Angeles, CA
+		Charlottesville, VA 
+
+		UT Austin
+		University of Southern California
+		University of Virginia-Main Campus
 	Make up trend
 
 Asian
-	5,000,000
-	Make up city pops
-	Make up university pops
+	12,553
+		Austin, TX
+		Los Angeles, CA
+		Charlottesville, VA
+
+		UT Austin
+		University of Southern California
+		University of Virginia-Main Campus
 	Make up trend
 
 
