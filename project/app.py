@@ -9,6 +9,26 @@ def render_static(page_name):
     print(page_name)
     return render_template('%s' % page_name)
 
+@app.route('/city/<string:page_name>/')
+def render_static(page_name):
+    print(page_name)
+    return render_template('%s' % page_name)
+
+@app.route('/university/<string:page_name>/')
+def render_static(page_name):
+    print(page_name)
+    return render_template('%s' % page_name)
+
+@app.route('/major/<string:page_name>/')
+def render_static(page_name):
+    print(page_name)
+    return render_template('%s' % page_name)
+
+@app.route('/ethnicity/<string:page_name>/')
+def render_static(page_name):
+    print(page_name)
+    return render_template('%s' % page_name)
+
 
 @app.route('/')
 def render_home():
