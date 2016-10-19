@@ -14,6 +14,9 @@ def render_static(page_name):
 def render_home():
     return render_template('index.html')
 
+@app.route('/cities/<path:path>')
+def send_js(path):
+    return send_from_directory('cities', path)
 
 @app.route('/favicon.ico')
 def favicon():
