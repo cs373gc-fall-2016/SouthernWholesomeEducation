@@ -89,34 +89,48 @@ Charlottesville, VA
 ####################################################################
 
 Majors/Specialties
-	Count of students in Major
-	Graduation rate
-	List of schools containing this major
-	List of cities containing this major
-	Average percentage
+	name
+	numUndergrands
+	gradRate
+	universityList
+	cityList
+	avgPercentage
 
 Journalism
 	.055*38914+.045*18392+0 == 2967
 	.80*.055*38914+.91*.045*18392+0 == 2465/2967 == 83.1%
-	UT Austin, University of Southern California
-	Austin, TX; Los Angeles, CA
-	11%
+		UT Austin
+		University of Southern California
+	
+		Austin, TX
+		Los Angeles, CA
+	4.1%
 
 
 Engineering
 	.11*38914+.10*18392+.13*15515 == 8136
 	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/8136 == 53.6%
-	UT Austin, University of Southern California, University of Virginia-Main Campus
-	Austin, TX; Los Angeles, CA; Charlottesville, VA 
-	15%
+		UT Austin
+		University of Southern California
+		University of Virginia-Main Campus
+	
+		Austin, TX
+		Los Angeles, CA
+		Charlottesville, VA 
+	11.1%
 
 
 Social Sciences
 	.10*38914+.13*18392+.18*15515 == 9075
 	.80*.055*38914+.91*.045*18392+.94*.13*15515 == 4361/9075 == 48.1%
-	UT Austin, University of Southern California, University of Virginia-Main Campus
-	Austin, TX; Los Angeles, CA; Charlottesville, VA
-	18%
+		UT Austin
+		University of Southern California
+		University of Virginia-Main Campus
+	
+		Austin, TX
+		Los Angeles, CA
+		Charlottesville, VA 
+	12.5%
 
 
 ####################################################################
