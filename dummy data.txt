@@ -39,35 +39,51 @@ University of Virginia-Main Campus
 		930 Asian
 
 ####################################################################
-City Name 
-	Student Population
-	Universities in the city
-	Majors in the city or most popular
-	average tuition in the city
-	Urban/Rural
-	Current year ethnicity count
+City 
+	name
+	studentPopulation
+	universityList
+	majorList
+	avgTuition
+	urbanOrRural
+	ethnicityCount
 
 Austin, TX
 	38,914
 	UT Austin
-	Journalism, Engineering, Social Sciences
+		Journalism 
+		Engineering 
+		Social Sciences
 	$17,152
 	Urban
+		17,900 White
+		8,561 Hispanic
+		7,393 Asian
+
 
 Los Angeles, CA
 	18,392
 	University of Southern California
-	Journalism, Engineering, Social Sciences
+		Journalism
+		Engineering
+		Social Sciences
 	$28,344
 	Urban
+		6,621 White
+		4,230 Asian
+		2,574 Hispanic
 
 
 Charlottesville, VA
 	15,515
 	University of Virginia-Main Campus
-	Engineering, Social Sciences
+		Engineering
+		Social Sciences
 	$17,863
 	Urban
+		9,464 White
+		1,861 Black
+		930 Asian
 
 
 ####################################################################
