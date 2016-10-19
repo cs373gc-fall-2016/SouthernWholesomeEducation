@@ -12,7 +12,7 @@ def render_static(page_name):
 
 @app.route('/')
 def render_home():
-    return render_template('index.html')
+    return render_template('/index.html')
 
 
 @app.route('/favicon.ico')
