@@ -5,3 +5,4 @@ venv/
 *supervisord.log
 *supervisord.pid
 *.un~
+*ropeproject
