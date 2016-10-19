@@ -41,7 +41,7 @@ University of Virginia-Main Campus
 
 ####################################################################
 City Name 
-	Population
+	Student Population
 	Universities in the city
 	Majors in the city or most popular
 	average tuition in the city
@@ -49,25 +49,25 @@ City Name
 	Current year ethnicity count
 
 Austin, TX
-	1,362,416
+	38,914
 	UT Austin
 	Journalism, Engineering, Social Sciences
-	17,152
+	$17,152
 	Urban
 
 Los Angeles, CA
-	12,150,996
+	18,392
 	University of Southern California
 	Journalism, Engineering, Social Sciences
-	28,344
+	$28,344
 	Urban
 
 
 Charlottesville, VA
-	92,359
+	15,515
 	University of Virginia-Main Campus
 	Engineering, Social Sciences
-	17,863
+	$17,863
 	Urban
 
 
