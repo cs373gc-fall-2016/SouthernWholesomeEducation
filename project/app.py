@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route('/<string:page_name>/')
 def render_static(page_name):
-    print(page_name)
     return render_template('%s' % page_name)
 
 
@@ -14,9 +13,9 @@ def render_static(page_name):
 def render_home():
     return render_template('index.html')
 
-@app.route('/cities/<path:path>')
-def send_js(path):
-    return send_from_directory('cities', path)
+@app.route('/cities/<string:page_name>')
+def send_js(page_name):
+    return send_from_directory(os.path.join(app.root_path, 'templates/cities'), '%s' % page_name)
 
 @app.route('/favicon.ico')
 def favicon():
