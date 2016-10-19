@@ -2,8 +2,12 @@
 
 FILES :=                              \
     .gitignore                        \
-    # .travis.yml                       \
+    .travis.yml                       \
     makefile                          \
+    project/app.py					  \
+    project/models.py				  \
+    requirements.txt				  \
+    uml.png							  \
     
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -35,7 +39,7 @@ else                                   # UTCS
     AUTOPEP8 := autopep8
 endif
 
-.pylintrc:
+pylint:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
 venv:
@@ -51,14 +55,14 @@ run:
 	python project/app.py
 
 update:
-	git pull
-	git pull origin phaseOne
+	git pull --all
+	make install
 
-# Collatz.html: Collatz.py
-# 	pydoc3 -w Collatz
+html:
+	pydoc3 -w project/*.py
 
-# Collatz.log:
-# 	git log > Collatz.log
+log:
+	git log > app.log
 
 check:
 	@not_found=0;                                 \
@@ -85,10 +89,16 @@ clean:
 	rm -f  *.pyc
 	rm -rf __pycache__
 
-# format:
-# 	$(AUTOPEP8) -i Collatz.py
-# 	$(AUTOPEP8) -i RunCollatz.py
-# 	$(AUTOPEP8) -i TestCollatz.py
+format:
+	$(AUTOPEP8) -i project/*.py
+
+prep:
+	format
+	pylint
+	freeze
+	html
+	log
+	check
 
 status:
 	make clean

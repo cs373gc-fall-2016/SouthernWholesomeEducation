@@ -4,7 +4,6 @@ dummy data
 University Name
 	Number of Undergrads Students
 	Cost to attend
-	Salary after attending
 	Graduation rate
 	Location (city)
 	Public/Private
@@ -13,7 +12,6 @@ University Name
 UT Austin
 	38,914
 	17,152
-	53,000
 	80%
 	Austin, TX
 	Public
@@ -24,7 +22,6 @@ UT Austin
 University of Southern California
 	18,392
 	28,344
-	67,700
 	91%
 	Los Angeles, CA
 	Private
@@ -35,7 +32,6 @@ University of Southern California
 University of Virginia-Main Campus
 	15,515
 	17,863
-	60,100
 	94%
 	Charlottesville, VA
 	Public
