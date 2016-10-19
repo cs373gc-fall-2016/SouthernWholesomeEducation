@@ -1,13 +1,98 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://wholesomeeducation.me/
 
-# southernwholesomeeducation
+# Southern Wholesome Education
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Southern Wholesome Education API is a simple API that allows consumers to view information regarding universities, cities, majors, and ethnic groups.
 
-## Questions Collection [/questions]
+## Universities Collection [/universities]
 
-### List All Questions [GET]
+### List All Universities [GET]
+This action returns a 200 status code along with a JSON body that lists all universities and colleges.
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Southern Wholesome Education University"
+            },
+            {
+                "name": "Northern Wholesome Education University"
+            }
+        ]
+
+
+## University [/universities/{university_name}]
+
++ Parameters
+    + university_name (string) - Name of the university
+    
+### View a university in detail [GET]
+This action returns a 200 status code along with a JSON body that lists details about the specific university.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Southern Wholesome Education University",
+                "num_undergrads": 100,
+                "grad_rate": 0.89,
+                "cost_attend": 10000,
+                "location": "Austin",
+                "public_or_private": "public",
+                "ethnicity_count": 5
+            }
+        ]
+
+## Cities Collection [/cities]
+
+### List All Cities [GET]
+This action returns a 200 status code along with a JSON body that lists all cities.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Austin, TX"
+            },
+            {
+                "name": "Los Angeles, CA"
+            }
+        ]
+        
+## City [/cities/{city_name}]
+
++ Parameters
+    + city_name (string) - Name of the city
+    
+### View a city in detail [GET]
+This action returns a 200 status code along with a JSON body that lists details about the specific city.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Austin, TX",
+                "population": 1362416,
+                "university_list": [
+                    {
+                        "name": "Southern Wholesome Education University"
+                    }
+                ],
+                "major_list": [
+                    {
+                        "name": "Underwater Basket-weaving"
+                    }
+                ],
+                "avg_tuition": 10000,
+                "urban_or_rural": "urban",
+                "ethnicity_count": 5
+            }
+        ]
+        
+## Majors Collection [/majors]
+
+### List All Majors [GET]
+This action returns a 200 status code along with a JSON body that lists all majors and specialties.
 
 + Response 200 (application/json)
 
@@ -33,48 +118,88 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             }
         ]
 
-### Create a New Question [POST]
+## Major [/majors/{major_name}]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
++ Parameters
+    + major_name (string) - Name of the major
+    
+### View a major in detail [GET]
+This action returns a 200 status code along with a JSON body that lists details about the specific major.
 
-+ Request (application/json)
++ Response 200 (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+        [
+            {
+                "name": "Underwater Basket-weaving",
+                "num_undergrads": 1366,
+                "grad_rate": 0.76,
+                "university_list": [
+                    {
+                        "name": "Southern Wholesome Education University"
+                    }
+                ],
+                "city_list": [
+                    {
+                        "name": "Austin, TX"
+                    }
+                ],
+                "avg_percentage": 0.2
+            }
+        ]
+        
+## Ethnic Groups Collection [/ethnicities]
 
-+ Response 201 (application/json)
+### List All Ethnic Groups [GET]
+This action returns a 200 status code along with a JSON body that lists all ethnic and race groups.
 
-    + Headers
++ Response 200 (application/json)
 
-            Location: /questions/2
-
-    + Body
-
+        [
             {
                 "question": "Favourite programming language?",
                 "published_at": "2015-08-05T08:40:51.620Z",
                 "choices": [
                     {
                         "choice": "Swift",
-                        "votes": 0
+                        "votes": 2048
                     }, {
                         "choice": "Python",
-                        "votes": 0
+                        "votes": 1024
                     }, {
                         "choice": "Objective-C",
-                        "votes": 0
+                        "votes": 512
                     }, {
                         "choice": "Ruby",
-                        "votes": 0
+                        "votes": 256
                     }
                 ]
             }
+        ]
+
+## Ethnicities [/ethnicities/{ethnicity_name}]
+
++ Parameters
+    + ethnicity_name (string) - Name of the ethnic group
+    
+### View an ethnic group in detail [GET]
+This action returns a 200 status code along with a JSON body that lists details about the specific ethnic group.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "White",
+                "total_count": 136683462736,
+                "top_by_city": [
+                    {
+                        "name": "Austin, TX"
+                    }
+                ],
+                "top_by_university": [
+                    {
+                        "name": "Southern Wholesome Education University"
+                    }
+                ],
+                "population_trend": "growing"
+            }
+        ]
