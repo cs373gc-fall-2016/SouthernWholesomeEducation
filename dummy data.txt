@@ -151,8 +151,16 @@ White
 		UT Austin
 		University of Virginia-Main Campus
 		University of Southern California
-	Make up trend
+	
+	Trend
+	2010 = 28967
+	2011 = 29845
+	2012 = 30162
+	2013 = 33015
+	2014 = 34093
 
+
+	
 Hispanic
 	11,135
 		Austin, TX
@@ -162,7 +170,15 @@ Hispanic
 		UT Austin
 		University of Southern California
 		University of Virginia-Main Campus
-	Make up trend
+	
+	Trend
+	2010 = 9832
+	2011 = 10271
+	2012 = 10736
+	2013 = 11201
+	2014 = 11605
+	
+
 
 Asian
 	12,553
@@ -173,9 +189,29 @@ Asian
 		UT Austin
 		University of Southern California
 		University of Virginia-Main Campus
-	Make up trend
+	
+	Trend
+	2010 = 11291
+	2011 = 11739
+	2012 = 12382
+	2013 = 12984
+	2014 = 13416
+	
 
 
+#################### IGNORE STUFF BELOW THIS ####################
+
+UT2014 is "white": 0.4603
+Cali2014 is "white": 0.3644,
+Virginia2014 is "white": 0.6117
+
+UT2014 is "hispanic": 0.2192
+Cali2014 is "hispanic": 0.1353
+Virginia2014 is "hispanic": 0.0609
+
+UT2014 is "asian": 0.1895
+Cali2014 is "asian": 0.225
+Virginia2014 is "asian": 0.1227
 
 
 https://api.data.gov/ed/collegescorecard/v1/schools?school.name=university%20texas%20at%20austin&api_key=UvIG23p13yTXK5PTit5MZEWcNXMCoKsl5QonaV8Y
