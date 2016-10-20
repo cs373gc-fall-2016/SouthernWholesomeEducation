@@ -28,7 +28,9 @@ majorToUniversity = db.Table('majorToUniversity',
 
 class University(db.Model):
 	'''
-	TODO: documentation
+	Class for University pillar. The name, numUndergrads, costToAttend, gradRate, and publicOrPrivate
+	variables will be set from API data and the ethnicityList and majorList will be created from
+	relationships. A city variable will also be included from a backref with the City class.
 	'''
 	__tablename__ = 'UNIVERSITY'
 	id = db.Column(db.Integer, primary_key=True)
@@ -50,6 +52,7 @@ class University(db.Model):
 	def __repr__(self):
 		return '<University %r>' % self.name
 
+	# These functions create relationships between Universities and Majors and Ethnicities.
 	def addMajor(self, m):
 		majorList.append(m)
 
@@ -58,7 +61,9 @@ class University(db.Model):
 
 class City(db.Model):
 	'''
-	TODO: documentation
+	Class for City pillar. The name and urbanOrRural variables will be set from API data and the 
+	universityList, majorList, and ethnicityList will be created from relationships. The population
+	and avgTuition variables will be aggregated from university data in universityList. 
 	'''
 	__tablename__ = 'CITY'
 	id = db.Column(db.Integer, primary_key=True)
@@ -81,6 +86,7 @@ class City(db.Model):
 	def __repr__(self):
 		return '<City %r>' % self.name
 
+	# These functions create relationships between Cities and Majors, Ethnicities, and Universities.
 	def addUniversity(self, u):
 		universityList.append(u)
 
@@ -92,7 +98,9 @@ class City(db.Model):
 
 class Major(db.Model):
 	'''
-	TODO: documentation
+	Class for Major pillar. The name variable is passed in initially and the numUndergrads, gradRate,
+	and avgPercentage are calculated based on relationships. This class will include a backref table
+	from University (university) and City (city).
 	'''
 	__tablename__ = 'MAJOR'
 	id = db.Column(db.Integer, primary_key=True)
@@ -101,18 +109,17 @@ class Major(db.Model):
 	gradRate = db.Column(db.Float)	
 	avgPercentage = db.Column(db.Float)
 	
-	def __init__(self, name, numUndergrads, gradRate, avgPercentage):
+	def __init__(self, name):
 		self.name = name
-		self.numUndergrads = numUndergrads
-		self.gradRate = gradRate
-		self.avgPercentage = avgPercentage
 
 	def __repr__(self):
 		return '<Major %r>' % self.name
 
 class Ethnicity(db.Model):
 	'''
-	TODO: documentation
+	Class for Ethnicity pillar. The name variable is passed in initially and the totalCount variable
+	is calculated based on the University relationship. This class will include a backref table
+	from University (university) and City (city).
 	'''
 	__tablename__ = 'ETHNICITY'
 	id = db.Column(db.Integer, primary_key=True)
