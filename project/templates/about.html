@@ -1,57 +1,163 @@
 {% extends "layout.html" %}
 {% block content %}
 
+
     <div class="container">
-      <div>
-        <h3>Discription</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent viverra.</p>
-      </div>
 
-      <div>
-        <h3>Group Name</h3>
-        <p>SouthernWholesomeEducation</p>
-      </div>
-      
-      <div>
-        <h3>Group Members</h3>
-        <ul>
-          <li>Joaquin Casaubon</li>
-          <li>Brandon Dang</li>
-          <li>Jiyoung Min</li>
-          <li>Michael Volk</li>
-          <li>Matthew Xavier</li>
-          <li>Lauren Yu</li>
-        </ul>
-      </div>
-      
-      <div>
-        <h3>Stats</h3>
-        <ul>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-        </ul>
-      </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">About
+                        <strong>Southern Wholesome Education</strong>
+                    </h2>
+                    <hr>
+                <div class="clearfix"></div>
+            </div>
+        </div>
 
-      <div>
-        <h3>Data</h3>
-        <ul>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-        </ul>
-      </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Our
+                        <strong>Team</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <img class="displayed" src="../static/images/matthew-pls.jpg" align="middle" alt="">
+                    <h3>Matthew Xavier</h3>
+                    <p>Studying computer science at UT Austin. Interests include computer security and back-end development.
+                    <p><b>Responsibilities:</b> Setting up python Flask application; integration with nginx on AWS instance  
+                    <p><b>no. of commits:</b> 
+                    <p><b>no. of issues:</b> 
+                    <p><b>no. of unit tests:</b> 
+                </div>
+                <div class="col-sm-4 text-center">
+                    <img class="displayed" src="../static/images/laura-pls.jpg" align="middle" alt="">
+                    <h3>Laura Yu</h3>
+                    <p>I'm a 4th year MIS/CS student. I am always open to learning new things, and I like pizza.
+                    <p><b>Responsibilities:</b> Front End HTML and Bootstrap integration; general UI
+                    <p><b>no. of commits:</b> 
+                    <p><b>no. of issues:</b> 
+                    <p><b>no. of unit tests:</b> 
+                </div>
+                <div class="col-sm-4 text-center">
+                    <img class="displayed" src="../static/images/jiyoung-pls.jpg" alt="">
+                    <h3>Brandon Dang</h3>
+                    <p>I'm a 4th year CS major. I enjoy front-end development and have interest in machine learning.
+                    <p><b>Responsibilities:</b> 
+                    <p><b>no. of commits:</b> 
+                    <p><b>no. of issues:</b> 
+                    <p><b>no. of unit tests:</b> 
+                </div>
+                
+                <div class="clearfix"></div>
+            </div>
+        </div>
 
-      <div>
-        <h3>Tools</h3>
-        <ul>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-        </ul>
-      </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-sm-4 text-center">
+                    <img class="displayed" src="../static/images/jiyoung-pls.jpg" alt="">
+                    <h3>Jiyoung Min</h3>
+                    <p>I'm also a 4th year CS student. I enjoy back-end development, bouldering, and playing violin.
+                    <p><b>Responsibilities:</b> 
+                    <p>no. of commits
+                    <p>no. of issues
+                    <p>no. of unit tests
+                </div>
+                <div class="col-sm-4 text-center">
+                    <img class="displayed" src="../static/images/joaquin-pls.jpg" alt="">
+                    <h3>Joaquin Casaubon</h3>
+                    <p>Bio about John Smith
+                    <p><b>Responsibilities:</b> 
+                    <p><b>no. of commits:</b> 
+                    <p><b>no. of issues:</b> 
+                    <p><b>no. of unit tests:</b> 
+                </div>
+                <div class="col-sm-4 text-center">
+                    <img class="displayed" src="../static/images/michael-pls.jpg" alt="">
+                    <h3>Michael Volk</h3>
+                    <p>Bio about John Smith
+                    <p><b>Responsibilities:</b> 
+                    <p><b>no. of commits:</b> 
+                    <p><b>no. of issues:</b> 
+                    <p><b>no. of unit tests:</b> 
+                </div>
+            <div class="clearfix"></div>
+            </div>
+        </div>
+
+        
+
+
+        <div class="row">
+            <div class="box">
+                  <hr>
+                    <h2 class="intro-text text-center">
+                      <strong>Stats</strong>
+                    </h2>
+                  <hr>
+                    <ul>
+                      <li><strong>total no. of commits: </strong>##</li>
+                      <li><strong>total no. of issues: </strong>##</li>
+                      <li><strong>total no. of unite tests: </strong>##</li>
+                      <li><strong>Apiary API: </strong>
+                      <a href="http://docs.southernwholesomeeducation.apiary.io/#">http://docs.southernwholesomeeducation.apiary.io/#</a></li>
+                      <li><strong>GitHub Issue Tracker: </strong>
+                        <a href="https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation/issues">https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation/issues</a></li>
+                      <li><strong>GitHub Repo: </strong>
+                        <a href="https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation">https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation</a></li>
+                      <li><strong>GitHub Wiki: </strong>
+                      <a href="https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation/wiki">https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation/wiki</a></li>
+                      </li>
+                    </ul>
+            </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="box">
+                  <hr>
+                    <h2 class="intro-text text-center">
+                      <strong>Data</strong>
+                    </h2>
+                  <hr>
+                    <h3>Data Sources</h3>
+                    <ul>
+                      <li><a href="https://catalog.data.gov/dataset/college-scorecard">https://catalog.data.gov/dataset/college-scorecard</a><p>Will be scraped later</li>
+                    </ul>
+            </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                  <hr>
+                    <h2 class="intro-text text-center">
+                      <strong>Tools</strong>
+                    </h2>
+                  <hr>
+                    <ul>
+                      <li>Bootstrap <p>usage discription</li>
+                      <li>AWS <p>usage discription</li>
+                    </ul>
+            </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end template -->
+
 {% endblock %}
 
