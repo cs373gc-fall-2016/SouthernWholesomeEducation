@@ -145,7 +145,7 @@ class test(TestCase):
 		'''
 		city = City('Austin', 'urban')
 		university = University('UT', 0, 0, 0 , '')
-		major = Major('Business', 22, .55, .14)
+		major = Major('Business', 0, 0, 0)
 		ethnicity = Ethnicity('Asian')
 		city.addUniversity(university)
 		city.addMajor(major)
@@ -161,9 +161,9 @@ class test(TestCase):
 
 		self.assertEqual(name, 'Austin')
 		self.assertEqual(population, 0)
-		self.assertEqual(universityList, ['UT'])
-		self.assertEqual(majorList, ['Business'])
-		self.assertEqual(ethnicityList, ['Asian'])
+		self.assertEqual(universityList[0].__repr__(), '<University UT>'])
+		self.assertEqual(majorList[0].__repr__(), '<Major Business>'])
+		self.assertEqual(ethnicityList[0].__repr__(), '<Ethnicity Asian>'])
 		self.assertEqual(avgTuition, 0)
 		self.assertEqual(urbanOrRural, 'urban')
 
@@ -282,49 +282,91 @@ class test(TestCase):
 		city.addEthnicity(ethnicity)
 		self.assertEqual(city.ethnicityList[0].__repr__(), '<Ethnicity African American>');
 
-	# -----
-	# major
-	# -----
+	# -----------
+	# major class
+	# -----------
 
 	def test_major_1(self):
 		'''
 		Test Major class
 		'''
-		pass
+		major = Major('Economics', 22, .55, .14)
+		
+		name = major.name
+		numUndergrads = major.numUndergrads
+		gradRate = major.gradRate
+		avgPercentage = major.avgPercentage
 
-	def test_major_2(self):
-		'''
-		Test Major class
-		'''
-		pass
+		self.assertEqual(name, 'Economics')
+		self.assertEqual(numUndergrads, 22)
+		self.assertEqual(gradRate, .55)
+		self.assertEqual(avgPercentage, .14)
+		
+	# -------------
+	# major __repr__
+	# -------------
 
-	def test_major_3(self):
+	def test_major_repr_1(self):
 		'''
-		Test Major class
+		Test Major __repr__
 		'''
-		pass
+		major = Major('Economics', 0, 0, 0)
+		self.assertEqual(major.__repr__(), '<Major Economics>')
 
-	# ---------
-	# ethnicity
-	# ---------
+	def test_major_repr_2(self):
+		'''
+		Test Major __repr__
+		'''
+		major = Major('Engineering', 0, 0, 0)
+		self.assertEqual(major.__repr__(), '<Major Engineering>')
+
+	def test_major_repr_3(self):
+		'''
+		Test Major __repr__
+		'''
+		major = Major('Business', 0, 0, 0)
+		self.assertEqual(major.__repr__(), '<Major Business>')
+
+	# ---------------
+	# ethnicity class
+	# ---------------
 
 	def test_ethnicity_1(self):
 		'''
 		Test Ethnicity class
 		'''
-		pass
+		ethnicity = Ethnicity('Alaskan Indian')
 
-	def test_ethnicity_2(self):
-		'''
-		Test Ethnicity class
-		'''
-		pass
+		name = ethnicity.name
+		totalCount = ethnicity.totalCount
 
-	def test_ethnicity_3(self):
+		self.assertEqual(name, 'Alaskan Indian')
+		self.assertEqual(totalCount, 0)
+
+	# -------------
+	# ethnicity __repr__
+	# -------------
+
+	def test_major_repr_1(self):
 		'''
-		Test Ethnicity class
+		Test Ethnicity __repr__
 		'''
-		pass
+		ethnicity = Ethnicity('Alaskan Indian')
+		self.assertEqual(ethnicity.__repr__(), '<Ethnicity Alaskan Indian>')
+
+	def test_major_repr_2(self):
+		'''
+		Test Ethnicity __repr__
+		'''
+		ethnicity = Ethnicity('Native American')
+		self.assertEqual(ethnicity.__repr__(), '<Ethnicity Native American>')
+
+	def test_major_repr_3(self):
+		'''
+		Test Ethnicity __repr__
+		'''
+		ethnicity = Ethnicity('African American')
+		self.assertEqual(ethnicity.__repr__(), '<Ethnicity African American>')
 
 # ----
 # main
