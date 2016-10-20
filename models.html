@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/mxavier6/Dropbox/cs373/SouthernWholesomeEducation/project/models.py">/home/mxavier6/Dropbox/cs373/SouthernWholesomeEducation/project/models.py</a></font></td></tr></table>
+    <p><tt>Implements&nbsp;the&nbsp;models&nbsp;that&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;database</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">flask_sqlalchemy.Model(<a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="models.html#City">City</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Ethnicity">Ethnicity</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Major">Major</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#University">University</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="City">class <strong>City</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;<a href="#City">City</a>&nbsp;pillar.&nbsp;The&nbsp;name&nbsp;and&nbsp;urbanOrRural&nbsp;variables&nbsp;will&nbsp;be&nbsp;set&nbsp;from&nbsp;API&nbsp;data&nbsp;and&nbsp;the<br>
+universityList,&nbsp;majorList,&nbsp;and&nbsp;ethnicityList&nbsp;will&nbsp;be&nbsp;created&nbsp;from&nbsp;relationships.&nbsp;The&nbsp;population<br>
+and&nbsp;avgTuition&nbsp;variables&nbsp;will&nbsp;be&nbsp;aggregated&nbsp;from&nbsp;university&nbsp;data&nbsp;in&nbsp;universityList.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#City">City</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="City-__init__"><strong>__init__</strong></a>(self, name, urbanorrural)</dt></dl>
+
+<dl><dt><a name="City-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="City-addEthnicity"><strong>addEthnicity</strong></a>(self, eth)</dt><dd><tt>Adds&nbsp;new&nbsp;ethnicity&nbsp;to&nbsp;ethnicityList</tt></dd></dl>
+
+<dl><dt><a name="City-addMajor"><strong>addMajor</strong></a>(self, maj)</dt><dd><tt>Appends&nbsp;major&nbsp;to&nbsp;majorList</tt></dd></dl>
+
+<dl><dt><a name="City-addUniversity"><strong>addUniversity</strong></a>(self, uni)</dt><dd><tt>Appends&nbsp;university&nbsp;to&nbsp;universityList</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>avgTuition</strong></dt>
+</dl>
+<dl><dt><strong>ethnicityList</strong></dt>
+</dl>
+<dl><dt><strong>idNum</strong></dt>
+</dl>
+<dl><dt><strong>majorList</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>population</strong></dt>
+</dl>
+<dl><dt><strong>universityList</strong></dt>
+</dl>
+<dl><dt><strong>urbanOrRural</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f14521e9160; City&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('CITY', MetaData(bind=None), Column('idNum...', String(length=80), table=&lt;CITY&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'CITY'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Ethnicity">class <strong>Ethnicity</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;<a href="#Ethnicity">Ethnicity</a>&nbsp;pillar.&nbsp;The&nbsp;name&nbsp;variable&nbsp;is&nbsp;passed&nbsp;in&nbsp;initially&nbsp;and&nbsp;the&nbsp;totalCount&nbsp;variable<br>
+is&nbsp;calculated&nbsp;based&nbsp;on&nbsp;the&nbsp;<a href="#University">University</a>&nbsp;relationship.&nbsp;This&nbsp;class&nbsp;will&nbsp;include&nbsp;a&nbsp;backref&nbsp;table<br>
+from&nbsp;<a href="#University">University</a>&nbsp;(university)&nbsp;and&nbsp;<a href="#City">City</a>&nbsp;(city).<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Ethnicity">Ethnicity</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Ethnicity-__init__"><strong>__init__</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Ethnicity-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>idNum</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>totalCount</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f14521e9908; Ethnicity&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('ETHNICITY', MetaData(bind=None), Column('...unt', Integer(), table=&lt;ETHNICITY&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'ETHNICITY'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Major">class <strong>Major</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;<a href="#Major">Major</a>&nbsp;pillar.&nbsp;The&nbsp;name&nbsp;variable&nbsp;is&nbsp;passed&nbsp;in&nbsp;initially&nbsp;and<br>
+the&nbsp;numUndergrads,&nbsp;gradRate,&nbsp;and&nbsp;avgPercentage&nbsp;are&nbsp;calculated&nbsp;based<br>
+on&nbsp;relationships.&nbsp;This&nbsp;class&nbsp;will&nbsp;include&nbsp;a&nbsp;backref&nbsp;table<br>
+from&nbsp;<a href="#University">University</a>&nbsp;(university)&nbsp;and&nbsp;<a href="#City">City</a>&nbsp;(city).<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Major">Major</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Major-__init__"><strong>__init__</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Major-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>avgPercentage</strong></dt>
+</dl>
+<dl><dt><strong>gradRate</strong></dt>
+</dl>
+<dl><dt><strong>idNum</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>numUndergrads</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f14521e9588; Major&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('MAJOR', MetaData(bind=None), Column('idNu...ercentage', Float(), table=&lt;MAJOR&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'MAJOR'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="University">class <strong>University</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;<a href="#University">University</a>&nbsp;pillar.&nbsp;The&nbsp;name,&nbsp;numUndergrads,&nbsp;costToAttend,&nbsp;gradRate<br>
+,&nbsp;and&nbsp;publicOrPrivate&nbsp;variables&nbsp;will&nbsp;be&nbsp;set&nbsp;from&nbsp;API&nbsp;data&nbsp;and&nbsp;the<br>
+ethnicityList&nbsp;and&nbsp;majorList&nbsp;will&nbsp;be&nbsp;created&nbsp;from&nbsp;relationships.&nbsp;A&nbsp;city<br>
+variable&nbsp;will&nbsp;also&nbsp;be&nbsp;included&nbsp;from&nbsp;a&nbsp;backref&nbsp;with&nbsp;the&nbsp;<a href="#City">City</a>&nbsp;class.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#University">University</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="University-__init__"><strong>__init__</strong></a>(self, name, numundergrads, costtoattend, gradrate, publicorprivate)</dt></dl>
+
+<dl><dt><a name="University-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="University-addEthnicity"><strong>addEthnicity</strong></a>(self, eth)</dt><dd><tt>Appends&nbsp;new&nbsp;ethnicity&nbsp;to&nbsp;ethnicityList</tt></dd></dl>
+
+<dl><dt><a name="University-addMajor"><strong>addMajor</strong></a>(self, maj)</dt><dd><tt>Appends&nbsp;new&nbsp;major&nbsp;to&nbsp;majorList</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>costToAttend</strong></dt>
+</dl>
+<dl><dt><strong>ethnicityList</strong></dt>
+</dl>
+<dl><dt><strong>gradRate</strong></dt>
+</dl>
+<dl><dt><strong>idnum</strong></dt>
+</dl>
+<dl><dt><strong>majorList</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>numUndergrads</strong></dt>
+</dl>
+<dl><dt><strong>publicOrPrivate</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f14521caac8; University&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('UNIVERSITY', MetaData(bind=None), Column(...ing(length=80), table=&lt;UNIVERSITY&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'UNIVERSITY'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>APP</strong> = &lt;Flask 'models'&gt;<br>
+<strong>DB</strong> = &lt;SQLAlchemy engine='postgresql://localhost/swe'&gt;<br>
+<strong>ETHNICITYTOCITY</strong> = Table('ETHNICITYTOCITY', MetaData(bind=None), Co...city.id'), table=&lt;ETHNICITYTOCITY&gt;), schema=None)<br>
+<strong>ETHNICITYTOUNIVERSITY</strong> = Table('ETHNICITYTOUNIVERSITY', MetaData(bind=Non...d'), table=&lt;ETHNICITYTOUNIVERSITY&gt;), schema=None)<br>
+<strong>MAJORTOCITY</strong> = Table('majorsToCity', MetaData(bind=None), Colum...('major.id'), table=&lt;majorsToCity&gt;), schema=None)<br>
+<strong>MAJORTOUNIVERSITY</strong> = Table('MAJORTOUNIVERSITY', MetaData(bind=None), ...or.id'), table=&lt;MAJORTOUNIVERSITY&gt;), schema=None)</td></tr></table>
+</body></html>
