@@ -96,6 +96,9 @@ clean:
 format:
 	$(AUTOPEP8) -i project/*.py
 
+test:
+	echo No tests specified
+
 prep:
 	format
 	pylint
