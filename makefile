@@ -4,10 +4,15 @@ FILES :=                              \
     .gitignore                        \
     .travis.yml                       \
     makefile                          \
-    project/app.py					  \
+    apiary.apib						  \
+    project/IDB1.py					  \
     project/models.py				  \
+    project/tests.py				  \
     requirements.txt				  \
-    uml.png							  \
+    IDB1.html						  \
+	IDB1.log						  \
+    IDB1.pdf						  \
+    models.html
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -62,7 +67,7 @@ html:
 	pydoc3 -w project/*.py
 
 log:
-	git log > app.log
+	git log > IDB1.log
 
 push:
 	git push
