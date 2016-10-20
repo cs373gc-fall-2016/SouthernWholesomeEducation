@@ -1,4 +1,4 @@
-"""Implementation of flask app for serving HTML pages"""
+"""Implmentation of flask app for serving HTML pages"""
 
 import os
 from flask import Flask, render_template, send_from_directory
