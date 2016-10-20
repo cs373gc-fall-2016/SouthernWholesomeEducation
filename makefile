@@ -8,7 +8,7 @@ FILES :=                              \
     project/models.py				  \
     requirements.txt				  \
     uml.png							  \
-    
+
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
     PIP      := pip3.5
@@ -63,6 +63,10 @@ html:
 
 log:
 	git log > app.log
+
+push:
+	git push
+	ssh ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation/project && git pull && ./deploy.sh'
 
 check:
 	@not_found=0;                                 \
