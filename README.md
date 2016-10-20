@@ -2,9 +2,9 @@
 Joaquin Casaubon, Brandon Dang, Jiyoung Min, Michael Volk, Matthew Xavier, Lauren Yu
 
 
-## Group: IDB 5 **
-## Group Name: Southern Wholesome Education(SWE) **
-## Group URL: [http://wholesomeeducation.me](http://wholesomeeducation.me) **
+## Group: IDB 5
+## Group Name: Southern Wholesome Education(SWE)
+## Group URL: [http://wholesomeeducation.me](http://wholesomeeducation.me)
  
 APIs/Data:
 https://catalog.data.gov/dataset/college-scorecard
