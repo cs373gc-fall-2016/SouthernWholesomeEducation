@@ -4,7 +4,7 @@ FILES :=                              \
     .gitignore                        \
     # .travis.yml                       \
     makefile                          \
-    
+
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
     PIP      := pip3.5
@@ -54,11 +54,15 @@ update:
 	git pull
 	git pull origin phaseOne
 
+push:
+	git push
+	ssh ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation/project && git pull && ./deploy.sh'
+
 # Collatz.html: Collatz.py
-# 	pydoc3 -w Collatz
+#	pydoc3 -w Collatz
 
 # Collatz.log:
-# 	git log > Collatz.log
+#	git log > Collatz.log
 
 check:
 	@not_found=0;                                 \
@@ -86,9 +90,9 @@ clean:
 	rm -rf __pycache__
 
 # format:
-# 	$(AUTOPEP8) -i Collatz.py
-# 	$(AUTOPEP8) -i RunCollatz.py
-# 	$(AUTOPEP8) -i TestCollatz.py
+#	$(AUTOPEP8) -i Collatz.py
+#	$(AUTOPEP8) -i RunCollatz.py
+#	$(AUTOPEP8) -i TestCollatz.py
 
 status:
 	make clean
