@@ -1,0 +1,24 @@
+
+sudo: required
+dist: trusty
+
+language: python
+
+python:
+   - "3.5"
+
+before-install:
+    - pip install --upgrade pip
+
+install:
+    - make install
+
+before_script:
+    - uname -a
+    - printenv | sort
+    - make versions
+
+script:
+    - date
+    - ls -al
+    - make test
