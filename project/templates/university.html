@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="container">
+      <div>
+        <h3>Universities</h3>
+        <p>The following table contains information about all of the universities in the United States. (Project 1 contains a limited amount)</p>
+      </div>
+      <table>
+        <tr>
+          <th>University</th>
+          <th>Undergraduate Population</th>
+          <th>Cost to Attend</th>
+          <th>Graduation Rate</th>
+          <th>Location</th>
+          <th>Public or Private</th>
+          <th>Ethnicity Count</th>
+        </tr>
+        <tr>
+          <td><a href="/UTAustin.html">University of Texas at Austin</a></td>
+          <td>38,914</td>
+          <td>$17,152</td>
+          <td>80%</td>
+          <td><a href="/Austin.html">Austin, TX</a></td>
+          <td>Public</td>
+          <td>3</td>
+        </tr>
+
+        <tr>
+          <td><a href="/USC.html">University of Southern California</a></td>
+          <td>18,392</td>
+          <td>$28,344</td>
+          <td>91%</td>
+          <td><a href="/LosAngeles.html">Los Angeles, CA</a></td>
+          <td>Private</td>
+          <td>3</td>
+        </tr>
+
+        <tr>
+          <td><a href="/UVMain.html">University of Virginia-Main Campus</a></td>
+          <td>15,515</td>
+          <td>$17,863</td>
+          <td>94%</td>
+          <td><a href="/Charlottesville.html">Charlottesville, VA</a></td>
+          <td>Public</td>
+          <td>3</td>
+        </tr>
+      </table>
+      <div>
+        <br>
+        <p>University - Universities supported by our system.</p>
+        <p>Undergraduate Population - Total undergraduate student population across the US.</p>
+        <p>Cost to Attend - Cost of the university for a period of one school year.</p>
+        <p>Graduation Rate - Number of students graduation divided by entire enrollment.</p>
+        <p>Location - City and state for the given university.</p>
+        <p>Public or Private - Publicly owned vs privately owned institution.</p>
+        <p>Ethnicity Count - Number of enthnic groups in given university.</p>
+      </div>
+
+
+    </div>
+  
+{% endblock %}
