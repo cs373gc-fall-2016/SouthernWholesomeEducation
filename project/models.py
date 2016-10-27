@@ -52,6 +52,7 @@ class University(DB.Model):
                                     backref=DB.backref('university', lazy='dynamic'))
     major_list = DB.relationship('Major', secondary=MAJORTOUNIVERSITY, \
                                 backref=DB.backref('university', lazy='dynamic'))
+    city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
     def __init__(self, name, numundergrads, costtoattend, gradrate, publicorprivate):
         self.name = name
@@ -85,12 +86,11 @@ class City(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     population = DB.Column(DB.Integer)
-    university_id = DB.Column(DB.Integer, DB.ForeignKey('university.id_num'))
-    majorList = DB.relationship('Major', secondary=MAJORTOCITY,
+    major_list = DB.relationship('Major', secondary=MAJORTOCITY, \
                                 backref=DB.backref('city', lazy='dynamic'))
-    ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
+    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY, \
                                     backref=DB.backref('city', lazy='dynamic'))
-    universityList = DB.relationship('University', backref='city', lazy='dynamic')
+    university_list = DB.relationship('University', backref='city', lazy='dynamic')
     avg_tuition = DB.Column(DB.Integer)
     urban_or_rural = DB.Column(DB.String(80))
 
@@ -107,15 +107,15 @@ class City(DB.Model):
     # Ethnicities, and Universities.
     def add_university(self, uni):
         """Appends university to universityList"""
-        self.universityList.append(uni)
+        self.university_list.append(uni)
 
     def add_major(self, maj):
         """Appends major to major_list"""
-        self.major_list.append(maj)
+        self.major_list.append(Major(maj))
 
     def add_ethnicity(self, eth):
         """Adds new ethnicity to ethnicity_list"""
-        self.ethnicity_list.append(eth)
+        self.ethnicity_list.append(Ethnicity(eth))
 
 
 class Major(DB.Model):
@@ -149,6 +149,7 @@ class Ethnicity(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     total_count = DB.Column(DB.Integer)
+
 
     def __init__(self, name):
         self.name = name

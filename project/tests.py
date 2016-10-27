@@ -133,17 +133,15 @@ class Tests(TestCase):
 	# # city class
 	# # ----------
 
-	# def test_city_1(self):
-	# 	'''
-	# 	Test City class
-	# 	'''
-	# 	city = City('Austin', 'urban')
-	# 	university = University('UT', 0, 0, 0 , '')
-	# 	major = Major('Business', 0, 0, 0)
-	# 	ethnicity = Ethnicity('Asian')
-	# 	city.addUniversity(university)
-	# 	city.addMajor(major)
-	# 	city.addEthnicity(ethnicity)
+    def test_city_1(self):
+        '''
+        Test City class
+        '''
+        city = City('Austin', 'urban')
+        university = University('UT', 0, 0, 0, '')
+        city.add_university(university)
+        city.add_major('Business')
+        city.add_ethnicity('Asian')
 
 	# 	name = city.name
 	# 	population = city.population
