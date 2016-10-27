@@ -9,23 +9,23 @@ APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/swe'
 
 DB = SQLAlchemy(APP)
 
-MAJORTOCITY = DB.Table('majorsToCity',
-                       DB.Column('city_id', DB.Integer,
-                                 DB.ForeignKey('city.id')),
-                       DB.Column('major_id', DB.Integer,
-                                 DB.ForeignKey('major.id')))
+# MAJORTOCITY = DB.Table('majorsToCity',
+#                        DB.Column('city_id', DB.Integer,
+#                                  DB.ForeignKey('city.id')),
+#                        DB.Column('major_id', DB.Integer,
+#                                  DB.ForeignKey('major.id')))
 
-ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
-                           DB.Column('city_id', DB.Integer,
-                                     DB.ForeignKey('city.id')),
-                           DB.Column('ethnicity_id', DB.Integer,
-                                     DB.ForeignKey('ethnicity.id')))
+# ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
+#                            DB.Column('city_id', DB.Integer,
+#                                      DB.ForeignKey('city.id')),
+#                            DB.Column('ethnicity_id', DB.Integer,
+#                                      DB.ForeignKey('ethnicity.id')))
 
-ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
-                                 DB.Column('university_id', DB.Integer,
-                                           DB.ForeignKey('university.id')),
-                                 DB.Column('ethnicity_id', DB.Integer,
-                                           DB.ForeignKey('ethnicity.id')))
+# ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
+#                                  DB.Column('university_id', DB.Integer,
+#                                            DB.ForeignKey('university.id')),
+#                                  DB.Column('ethnicity_id', DB.Integer,
+#                                            DB.ForeignKey('ethnicity.id')))
 
 MAJORTOUNIVERSITY = DB.Table('MAJORTOUNIVERSITY',
                              DB.Column('university_id', DB.Integer,
@@ -48,8 +48,8 @@ class University(DB.Model):
     costToAttend = DB.Column(DB.Integer)
     gradRate = DB.Column(DB.Float)
     publicOrPrivate = DB.Column(DB.String(80))
-    ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY,
-                                    backref=DB.backref('university', lazy='dynamic'))
+    # ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY,
+    #                                 backref=DB.backref('university', lazy='dynamic'))
     majorList = DB.relationship('Major', secondary=MAJORTOUNIVERSITY,
                                 backref=DB.backref('university', lazy='dynamic'))
 
@@ -61,7 +61,7 @@ class University(DB.Model):
         self.publicorprivate = publicorprivate
 
     def __repr__(self):
-        return '<University %r>' % self.name
+        return '<University ' + self.name + '>'
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
@@ -85,12 +85,12 @@ class City(DB.Model):
     name = DB.Column(DB.String(80))
     population = DB.Column(DB.Integer)
 
-    universityList = DB.relationship(
-        'University', backref='city', lazy='dynamic')
-    majorList = DB.relationship('Major', secondary=MAJORTOCITY,
-                                backref=DB.backref('city', lazy='dynamic'))
-    ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
-                                    backref=DB.backref('city', lazy='dynamic'))
+    # universityList = DB.relationship(
+    #     'University', backref='city', lazy='dynamic')
+    # majorList = DB.relationship('Major', secondary=MAJORTOCITY,
+    #                             backref=DB.backref('city', lazy='dynamic'))
+    # ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
+    #                                 backref=DB.backref('city', lazy='dynamic'))
 
     avgTuition = DB.Column(DB.Integer)
     urbanOrRural = DB.Column(DB.String(80))
