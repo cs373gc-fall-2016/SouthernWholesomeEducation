@@ -48,17 +48,17 @@ class University(DB.Model):
     costToAttend = DB.Column(DB.Integer)
     gradRate = DB.Column(DB.Float)
     publicOrPrivate = DB.Column(DB.String(80))
-    # ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY,
-    #                                 backref=DB.backref('university', lazy='dynamic'))
+    ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY,
+                                    backref=DB.backref('university', lazy='dynamic'))
     majorList = DB.relationship('Major', secondary=MAJORTOUNIVERSITY,
                                 backref=DB.backref('university', lazy='dynamic'))
 
     def __init__(self, name, numundergrads, costtoattend, gradrate, publicorprivate):
         self.name = name
-        self.numundergrads = numundergrads
-        self.costtoattend = costtoattend
-        self.gradrate = gradrate
-        self.publicorprivate = publicorprivate
+        self.numUndergrads = numundergrads
+        self.costToAttend = costtoattend
+        self.gradRate = gradrate
+        self.publicOrPrivate = publicorprivate
 
     def __repr__(self):
         return '<University ' + self.name + '>'
@@ -72,7 +72,7 @@ class University(DB.Model):
 
     def addEthnicity(self, eth):
         """Appends new ethnicity to ethnicityList"""
-        University.ethnicityList.insert(eth)
+        self.ethnicityList.append(Ethnicity(eth))
 
 
 class City(DB.Model):
@@ -157,4 +157,4 @@ class Ethnicity(DB.Model):
         self.totalcount = 0
 
     def __repr__(self):
-        return '<Ethnicity %r>' % self.name
+        return '<Ethnicity ' + self.name + '>'
