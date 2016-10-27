@@ -101,7 +101,7 @@ class City(DB.Model):
         self.urban_or_rural = urbanorrural
 
     def __repr__(self):
-        return '<City %r>' % self.name
+        return '<City ' + self.name + '>'
 
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.

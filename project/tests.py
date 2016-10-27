@@ -1,4 +1,4 @@
-# pylint: disable=W0401,W0614
+# pylint: disable=W0401,W0614,R0904
 #!/usr/bin/env python3
 '''
 Unit tests for models.py
@@ -143,222 +143,213 @@ class Tests(TestCase):
         city.add_major('Business')
         city.add_ethnicity('Asian')
 
-	# 	name = city.name
-	# 	population = city.population
-	# 	universityList = city.universityList
-	# 	majorList = city.majorList
-	# 	ethnicityList = city.ethnicityList
-	# 	avgTuition = city.avgTuition
-	# 	urbanOrRural = city.urbanOrRural
+        name = city.name
+        population = city.population
+        university_list = city.university_list
+        major_list = city.major_list
+        ethnicity_list = city.ethnicity_list
+        avg_tuition = city.avg_tuition
+        urban_or_rural = city.urban_or_rural
 
-	# 	self.assertEqual(name, 'Austin')
-	# 	self.assertEqual(population, 0)
-	# 	self.assertEqual(universityList[0].__repr__(), '<University UT>')
-	# 	self.assertEqual(majorList[0].__repr__(), '<Major Business>')
-	# 	self.assertEqual(ethnicityList[0].__repr__(), '<Ethnicity Asian>')
-	# 	self.assertEqual(avgTuition, 0)
-	# 	self.assertEqual(urbanOrRural, 'urban')
+        self.assertEqual(name, 'Austin')
+        self.assertEqual(population, 0)
+        self.assertEqual(university_list[0].__repr__(), '<University UT>')
+        self.assertEqual(major_list[0].__repr__(), '<Major Business>')
+        self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
+        self.assertEqual(avg_tuition, 0)
+        self.assertEqual(urban_or_rural, 'urban')
 
 	# # -------------
 	# # city __repr__
 	# # -------------
 
-    # def test_city_repr_1(self):
-    #     '''
-    #     Test City __repr__
-    #     '''
-    #     city = City('Austin', 'urban')
-    #     self.assertEqual(city.__repr__(), '<City Austin>')
-    #
-    # def test_city_repr_2(self):
-    #     '''
-    #     Test City __repr__
-    #     '''
-    #     city = City('Salt Lake City', 'urban')
-    #     self.assertEqual(city.__repr__(), '<City Salt Lake City>')
-    #
-    # def test_city_repr_3(self):
-    #     '''
-    #     Test City __repr__
-    #     '''
-    #     city = City('New York', 'urban')
-    #     self.assertEqual(city.__repr__(), '<City New York>')
+    def test_city_repr_1(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('Austin', 'urban')
+        self.assertEqual(city.__repr__(), '<City Austin>')
+
+    def test_city_repr_2(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('Salt Lake City', 'urban')
+        self.assertEqual(city.__repr__(), '<City Salt Lake City>')
+
+    def test_city_repr_3(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('New York', 'urban')
+        self.assertEqual(city.__repr__(), '<City New York>')
 
 	# # ------------------
 	# # city addUniversity
 	# # ------------------
 
-	# def test_city_addUniversity_1(self):
-	# 	'''
-	# 	Test City addUniversity
-	# 	'''
-	# 	city = City('Austin', 'urban')
-	# 	university = University('UT', 0, 0, 0 , '')
-	# 	city.addUniversity(university)
-	# 	self.assertEqual(city.__repr__(), '<City Austin>')
+    def test_city_add_university_1(self):
+        '''
+        Test City addUniversity
+        '''
+        city = City('Austin', 'urban')
+        university = University('UT', 0, 0, 0, '')
+        city.add_university(university)
+        self.assertEqual(city.__repr__(), '<City Austin>')
 
-	# def test_city_addUniversity_2(self):
-	# 	'''
-	# 	Test City addUniversity
-	# 	'''
-	# 	city = City('Salt Lake City', 'urban')
-	# 	university = University('SLC', 0, 0, 0 , '')
-	# 	city.addUniversity(university)
-	# 	self.assertEqual(city.__repr__(), '<City Salt Lake City>')
+    def test_city_add_university_2(self):
+        '''
+        Test City addUniversity
+        '''
+        city = City('Salt Lake City', 'urban')
+        university = University('SLC', 0, 0, 0, '')
+        city.add_university(university)
+        self.assertEqual(city.__repr__(), '<City Salt Lake City>')
 
-	# def test_city_addUniversity_3(self):
-	# 	'''
-	# 	Test City addUniversity
-	# 	'''
-	# 	city = City('New York', 'urban')
-	# 	university = University('NY', 0, 0, 0 , '')
-	# 	city.addUniversity(university)
-	# 	self.assertEqual(city.__repr__(), '<City New York>')
+    def test_city_add_university_3(self):
+        '''
+        Test City addUniversity
+        '''
+        city = City('New York', 'urban')
+        university = University('NY', 0, 0, 0, '')
+        city.add_university(university)
+        self.assertEqual(city.__repr__(), '<City New York>')
 
 	# # -------------
 	# # city addMajor
 	# # -------------
 
-	# def test_university_addMajor_1(self):
-	# 	'''
-	# 	Test city addMajor
-	# 	'''
-	# 	city = City('Austin', 'urban')
-	# 	cirtt.addMajor('Physics')
-	# 	self.assertEqual(city.majorList[0].__repr__(), '<Major Physics>');
+    def test_city_add_major_1(self):
+        '''
+        Test city addMajor
+        '''
+        city = City('Austin', 'urban')
+        city.add_major('Physics')
+        self.assertEqual(city.major_list[0].__repr__(), '<Major Physics>')
 
-	# def test_university_addMajor_2(self):
-	# 	'''
-	# 	Test city addMajor
-	# 	'''
-	# 	city = City('Salt Lake City', 'urban')
-	# 	cirtt.addMajor('Chemistry')
-	# 	self.assertEqual(city.majorList[0].__repr__(), '<Major Chemistry>');
+    def test_city_add_major_2(self):
+        '''
+        Test city addMajor
+        '''
+        city = City('Salt Lake City', 'urban')
+        city.add_major('Chemistry')
+        self.assertEqual(city.major_list[0].__repr__(), '<Major Chemistry>')
 
-	# def test_university_addMajor_3(self):
-	# 	'''
-	# 	Test city addMajor
-	# 	'''
-	# 	city = City('New York', 'urban')
-	# 	cirtt.addMajor('Biology')
-	# 	self.assertEqual(city.majorList[0].__repr__(), '<Major Biology>');
+    def test_city_add_major_3(self):
+        '''
+        Test city addMajor
+        '''
+        city = City('New York', 'urban')
+        city.add_major('Biology')
+        self.assertEqual(city.major_list[0].__repr__(), '<Major Biology>')
 
 	# # -----------------------
 	# # city addEthnicity
 	# # -----------------------
 
-	# def test_university_addEthnicity_1(self):
-	# 	'''
-	# 	Test University addEthnicity
-	# 	'''
-	# 	city = City('Austin', 'urban')
-	# 	ethnicity = Ethnicity('Asian')
-	# 	city.addEthnicity(ethnicity)
-	# 	self.assertEqual(city.ethnicityList[0].__repr__(), '<Ethnicity Asian>');
+    def test_city_add_ethnicity_1(self):
+        '''
+        Test University addEthnicity
+        '''
+        city = City('Austin', 'urban')
+        city.add_ethnicity('Asian')
+        self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
 
-	# def test_university_addEthnicity_2(self):
-	# 	'''
-	# 	Test University addEthnicity
-	# 	'''
-	# 	city = City('Salt Lake City', 'urban')
-	# 	ethnicity = Ethnicity('White')
-	# 	city.addEthnicity(ethnicity)
-	# 	self.assertEqual(city.ethnicityList[0].__repr__(), '<Ethnicity White>');
+    def test_city_add_ethnicity_2(self):
+        '''
+        Test University addEthnicity
+        '''
+        city = City('Salt Lake City', 'urban')
+        city.add_ethnicity('White')
+        self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity White>')
 
-	# def test_university_addEthnicity_3(self):
-	# 	'''
-	# 	Test University addEthnicity
-	# 	'''
-	# 	city = City('New York', 'urban')
-	# 	ethnicity = Ethnicity('African American')
-	# 	city.addEthnicity(ethnicity)
-	# 	self.assertEqual(city.ethnicityList[0].__repr__(), '<Ethnicity African American>');
+    def test_city_add_ethnicity_3(self):
+        '''
+        Test University addEthnicity
+        '''
+        city = City('New York', 'urban')
+        city.add_ethnicity('African American')
+        self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity African American>')
 
 	# # -----------
 	# # major class
 	# # -----------
 
-	# def test_major_1(self):
-	# 	'''
-	# 	Test Major class
-	# 	'''
-	# 	major = Major('Economics', 22, .55, .14)
+    def test_major_1(self):
+        '''
+        Test Major class
+        '''
+        major = Major('Economics')
 
-	# 	name = major.name
-	# 	numUndergrads = major.numUndergrads
-	# 	gradRate = major.gradRate
-	# 	avgPercentage = major.avgPercentage
+        name = major.name
 
-	# 	self.assertEqual(name, 'Economics')
-	# 	self.assertEqual(numUndergrads, 22)
-	# 	self.assertEqual(gradRate, .55)
-	# 	self.assertEqual(avgPercentage, .14)
+        self.assertEqual(name, 'Economics')
 
 	# # -------------
 	# # major __repr__
 	# # -------------
 
-	# def test_major_repr_1(self):
-	# 	'''
-	# 	Test Major __repr__
-	# 	'''
-	# 	major = Major('Economics', 0, 0, 0)
-	# 	self.assertEqual(major.__repr__(), '<Major Economics>')
+    def test_major_repr_1(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('Economics')
+        self.assertEqual(major.__repr__(), '<Major Economics>')
 
-	# def test_major_repr_2(self):
-	# 	'''
-	# 	Test Major __repr__
-	# 	'''
-	# 	major = Major('Engineering', 0, 0, 0)
-	# 	self.assertEqual(major.__repr__(), '<Major Engineering>')
+    def test_major_repr_2(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('Engineering')
+        self.assertEqual(major.__repr__(), '<Major Engineering>')
 
-	# def test_major_repr_3(self):
-	# 	'''
-	# 	Test Major __repr__
-	# 	'''
-	# 	major = Major('Business', 0, 0, 0)
-	# 	self.assertEqual(major.__repr__(), '<Major Business>')
+    def test_major_repr_3(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('Business')
+        self.assertEqual(major.__repr__(), '<Major Business>')
 
 	# # ---------------
 	# # ethnicity class
 	# # ---------------
 
-	# def test_ethnicity_1(self):
-	# 	'''
-	# 	Test Ethnicity class
-	# 	'''
-	# 	ethnicity = Ethnicity('Alaskan Indian')
+    def test_ethnicity_1(self):
+        '''
+        Test Ethnicity class
+        '''
+        ethnicity = Ethnicity('Alaskan Indian')
 
-	# 	name = ethnicity.name
-	# 	totalCount = ethnicity.totalCount
+        name = ethnicity.name
+        total_count = ethnicity.total_count
 
-	# 	self.assertEqual(name, 'Alaskan Indian')
-	# 	self.assertEqual(totalCount, 0)
+        self.assertEqual(name, 'Alaskan Indian')
+        self.assertEqual(total_count, 0)
 
 	# # -------------
 	# # ethnicity __repr__
 	# # -------------
 
-	# def test_major_repr_1(self):
-	# 	'''
-	# 	Test Ethnicity __repr__
-	# 	'''
-	# 	ethnicity = Ethnicity('Alaskan Indian')
-	# 	self.assertEqual(ethnicity.__repr__(), '<Ethnicity Alaskan Indian>')
+    def test_ethnicity_repr_1(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        ethnicity = Ethnicity('Alaskan Indian')
+        self.assertEqual(ethnicity.__repr__(), '<Ethnicity Alaskan Indian>')
 
-	# def test_major_repr_2(self):
-	# 	'''
-	# 	Test Ethnicity __repr__
-	# 	'''
-	# 	ethnicity = Ethnicity('Native American')
-	# 	self.assertEqual(ethnicity.__repr__(), '<Ethnicity Native American>')
+    def test_ethnicity_repr_2(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        ethnicity = Ethnicity('Native American')
+        self.assertEqual(ethnicity.__repr__(), '<Ethnicity Native American>')
 
-	# def test_major_repr_3(self):
-	# 	'''
-	# 	Test Ethnicity __repr__
-	# 	'''
-	# 	ethnicity = Ethnicity('African American')
-	# 	self.assertEqual(ethnicity.__repr__(), '<Ethnicity African American>')
+    def test_ethnicity_repr_3(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        ethnicity = Ethnicity('African American')
+        self.assertEqual(ethnicity.__repr__(), '<Ethnicity African American>')
 
 # ----
 # main
