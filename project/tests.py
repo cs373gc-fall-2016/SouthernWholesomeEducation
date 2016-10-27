@@ -161,9 +161,9 @@ class test(TestCase):
 
 		self.assertEqual(name, 'Austin')
 		self.assertEqual(population, 0)
-		self.assertEqual(universityList[0].__repr__(), '<University UT>'])
-		self.assertEqual(majorList[0].__repr__(), '<Major Business>'])
-		self.assertEqual(ethnicityList[0].__repr__(), '<Ethnicity Asian>'])
+		self.assertEqual(universityList[0].__repr__(), '<University UT>')
+		self.assertEqual(majorList[0].__repr__(), '<Major Business>')
+		self.assertEqual(ethnicityList[0].__repr__(), '<Ethnicity Asian>')
 		self.assertEqual(avgTuition, 0)
 		self.assertEqual(urbanOrRural, 'urban')
 
