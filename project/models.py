@@ -1,4 +1,4 @@
-# pylint: disable=E1101, R0913, R0201, R0903
+# pylint: disable=E1101, R0913, R0903
 """Implements the models that will be used in database"""
 
 from flask import Flask
