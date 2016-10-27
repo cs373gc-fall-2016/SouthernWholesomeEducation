@@ -38,7 +38,7 @@ class University(DB.Model):
     '''
     Class for University pillar. The name, numUndergrads, costToAttend, gradRate
     , and publicOrPrivate variables will be set from API data and the
-    ethnicity_list and major_list will be created from relationships. A city
+    ethnicityList and major_list will be created from relationships. A city
     variable will also be included from a backref with the City class.
     '''
     __tablename__ = 'UNIVERSITY'
@@ -71,28 +71,26 @@ class University(DB.Model):
         self.major_list.append(maj)
 
     def add_ethnicity(self, eth):
-        """Appends new ethnicity to ethnicity_list"""
+        """Appends new ethnicity to ethnicityList"""
         self.ethnicity_list.append(Ethnicity(eth))
 
 
 class City(DB.Model):
     '''
     Class for City pillar. The name and urbanOrRural variables will be set from API data and the
-    universityList, major_list, and ethnicity_list will be created from relationships. The population
+    universityList, major_list, and ethnicityList will be created from relationships. The population
     and avgTuition variables will be aggregated from university data in universityList.
     '''
     __tablename__ = 'CITY'
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     population = DB.Column(DB.Integer)
-
-    # universityList = DB.relationship(
-    #     'University', backref='city', lazy='dynamic')
-    # majorList = DB.relationship('Major', secondary=MAJORTOCITY,
-    #                             backref=DB.backref('city', lazy='dynamic'))
-    # ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
-    #                                 backref=DB.backref('city', lazy='dynamic'))
-
+    university_id = DB.Column(DB.Integer, DB.ForeignKey('university.id_num'))
+    majorList = DB.relationship('Major', secondary=MAJORTOCITY,
+                                backref=DB.backref('city', lazy='dynamic'))
+    ethnicityList = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
+                                    backref=DB.backref('city', lazy='dynamic'))
+    universityList = DB.relationship('University', backref='city', lazy='dynamic')
     avg_tuition = DB.Column(DB.Integer)
     urban_or_rural = DB.Column(DB.String(80))
 
@@ -117,7 +115,7 @@ class City(DB.Model):
 
     def add_ethnicity(self, eth):
         """Adds new ethnicity to ethnicity_list"""
-        self.ethnicity_list.APPend(eth)
+        self.ethnicity_list.append(eth)
 
 
 class Major(DB.Model):

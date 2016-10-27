@@ -165,26 +165,26 @@ class Tests(TestCase):
 	# # city __repr__
 	# # -------------
 
-	# def test_city_repr_1(self):
-	# 	'''
-	# 	Test City __repr__
-	# 	'''
-	# 	city = City('Austin', 'urban')
-	# 	self.assertEqual(city.__repr__(), '<City Austin>')
-
-	# def test_city_repr_2(self):
-	# 	'''
-	# 	Test City __repr__
-	# 	'''
-	# 	city = City('Salt Lake City', 'urban')
-	# 	self.assertEqual(city.__repr__(), '<City Salt Lake City>')
-
-	# def test_city_repr_3(self):
-	# 	'''
-	# 	Test City __repr__
-	# 	'''
-	# 	city = City('New York', 'urban')
-	# 	self.assertEqual(city.__repr__(), '<City New York>')
+    # def test_city_repr_1(self):
+    #     '''
+    #     Test City __repr__
+    #     '''
+    #     city = City('Austin', 'urban')
+    #     self.assertEqual(city.__repr__(), '<City Austin>')
+    #
+    # def test_city_repr_2(self):
+    #     '''
+    #     Test City __repr__
+    #     '''
+    #     city = City('Salt Lake City', 'urban')
+    #     self.assertEqual(city.__repr__(), '<City Salt Lake City>')
+    #
+    # def test_city_repr_3(self):
+    #     '''
+    #     Test City __repr__
+    #     '''
+    #     city = City('New York', 'urban')
+    #     self.assertEqual(city.__repr__(), '<City New York>')
 
 	# # ------------------
 	# # city addUniversity
