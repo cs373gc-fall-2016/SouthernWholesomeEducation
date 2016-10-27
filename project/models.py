@@ -9,29 +9,29 @@ APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/swe'
 
 DB = SQLAlchemy(APP)
 
-# MAJORTOCITY = DB.Table('majorsToCity',
-#                        DB.Column('city_id', DB.Integer,
-#                                  DB.ForeignKey('city.id')),
-#                        DB.Column('major_id', DB.Integer,
-#                                  DB.ForeignKey('major.id')))
+MAJORTOCITY = DB.Table('majorsToCity',
+                       DB.Column('city_id', DB.Integer,
+                                 DB.ForeignKey('CITY.idNum')),
+                       DB.Column('major_id', DB.Integer,
+                                 DB.ForeignKey('MAJOR.idNum')))
 
-# ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
-#                            DB.Column('city_id', DB.Integer,
-#                                      DB.ForeignKey('city.id')),
-#                            DB.Column('ethnicity_id', DB.Integer,
-#                                      DB.ForeignKey('ethnicity.id')))
+ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
+                           DB.Column('city_id', DB.Integer,
+                                     DB.ForeignKey('CITY.idNum')),
+                           DB.Column('ethnicity_id', DB.Integer,
+                                     DB.ForeignKey('ETHNICITY.idNum')))
 
-# ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
-#                                  DB.Column('university_id', DB.Integer,
-#                                            DB.ForeignKey('university.id')),
-#                                  DB.Column('ethnicity_id', DB.Integer,
-#                                            DB.ForeignKey('ethnicity.id')))
+ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
+                                 DB.Column('university_id', DB.Integer,
+                                           DB.ForeignKey('UNIVERSITY.idNum')),
+                                 DB.Column('ethnicity_id', DB.Integer,
+                                           DB.ForeignKey('ETHNICITY.idNum')))
 
 MAJORTOUNIVERSITY = DB.Table('MAJORTOUNIVERSITY',
                              DB.Column('university_id', DB.Integer,
-                                       DB.ForeignKey('university.id')),
+                                       DB.ForeignKey('UNIVERSITY.idNum')),
                              DB.Column('major_id', DB.Integer,
-                                       DB.ForeignKey('major.id')))
+                                       DB.ForeignKey('MAJOR.idNum')))
 
 
 class University(DB.Model):
@@ -42,7 +42,7 @@ class University(DB.Model):
     variable will also be included from a backref with the City class.
     '''
     __tablename__ = 'UNIVERSITY'
-    idnum = DB.Column(DB.Integer, primary_key=True)
+    idNum = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     numUndergrads = DB.Column(DB.Integer)
     costToAttend = DB.Column(DB.Integer)
@@ -67,11 +67,12 @@ class University(DB.Model):
     # Ethnicities.
     def addMajor(self, maj):
         """Appends new major to majorList"""
-        University.majorList.APPend(maj)
+        maj = Major(maj)
+        self.majorList.append(maj)
 
     def addEthnicity(self, eth):
         """Appends new ethnicity to ethnicityList"""
-        University.ethnicityList.APPend(eth)
+        University.ethnicityList.insert(eth)
 
 
 class City(DB.Model):
@@ -137,7 +138,7 @@ class Major(DB.Model):
         self.name = name
 
     def __repr__(self):
-        return '<Major %r>' % self.name
+        return '<Major ' + self.name + '>'
 
 
 class Ethnicity(DB.Model):

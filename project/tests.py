@@ -1,3 +1,4 @@
+# pylint: disable=W0401,W0614
 #!/usr/bin/env python3
 '''
 Unit tests for models.py
@@ -14,8 +15,8 @@ from models import *
 # test
 # ----
 
-class test(TestCase):
-	'''
+class Tests(TestCase):
+    '''
 	Unit tests for models.py
 	'''
 
@@ -32,7 +33,7 @@ class test(TestCase):
 	# 	ethnicity = Ethnicity('White')
 	# 	university.addMajor(major)
 	# 	university.addEthnicity(ethnicity)
-		
+
 	# 	name = university.name
 	# 	numUndergrads = university.numUndergrads
 	# 	costToAttend = university.costToAttend
@@ -55,54 +56,54 @@ class test(TestCase):
 	# university __repr__
 	# -------------------
 
-	def test_university_repr_1(self):
-		'''
-		Test University __repr__
-		'''
-		university = University('UT', 0, 0, 0 , '')
-		self.assertEqual(university.__repr__(), '<University UT>');
+    def test_university_repr_1(self):
+        '''
+        Test University __repr__
+        '''
+        university = University('UT', 0, 0, 0, '')
+        self.assertEqual(university.__repr__(), '<University UT>')
 
-	def test_university_repr_2(self):
-		'''
-		Test University __repr__
-		'''
-		university = University('A&M', 0, 0, 0 , '')
-		self.assertEqual(university.__repr__(), '<University A&M>');
+    def test_university_repr_2(self):
+        '''
+        Test University __repr__
+        '''
+        university = University('A&M', 0, 0, 0, '')
+        self.assertEqual(university.__repr__(), '<University A&M>')
 
-	def test_university_repr_3(self):
-		'''
-		Test University __repr__
-		'''
-		university = University('Rice', 0, 0, 0 , '')
-		self.assertEqual(university.__repr__(), '<University Rice>');
+    def test_university_repr_3(self):
+        '''
+        Test University __repr__
+        '''
+        university = University('Rice', 0, 0, 0, '')
+        self.assertEqual(university.__repr__(), '<University Rice>')
 
 	# -------------------
 	# university addMajor
 	# -------------------
 
-	def test_university_addMajor_1(self):
-		'''
-		Test University addMajor
-		'''
-		university = University('UT', 0, 0, 0 , '')
-		university.addMajor('Physics')
-		self.assertEqual(university.majorList[0].__repr__(), '<Major Physics>');
+    def test_university_add_major_1(self):
+        '''
+        Test University addMajor
+        '''
+        university = University('UT', 0, 0, 0, '')
+        university.addMajor('Physics')
+        self.assertEqual(university.majorList[0].__repr__(), '<Major Physics>')
 
-	# def test_university_addMajor_2(self):
-	# 	'''
-	# 	Test University addMajor
-	# 	'''
-	# 	university = University('A&M', 0, 0, 0 , '')
-	# 	university.addMajor('Chemistry')
-	# 	self.assertEqual(university.majorList[0].__repr__(), '<Major Chemistry>');
+    def test_university_add_major_2(self):
+        '''
+        Test University addMajor
+        '''
+        university = University('A&M', 0, 0, 0, '')
+        university.addMajor('Chemistry')
+        self.assertEqual(university.majorList[0].__repr__(), '<Major Chemistry>')
 
-	# def test_university_addMajor_3(self):
-	# 	'''
-	# 	Test University addMajor
-	# 	'''
-	# 	university = University('Rice', 0, 0, 0 , '')
-	# 	university.addMajor('Biology')
-	# 	self.assertEqual(university.majorList[0].__repr__(), '<Major Biology>');
+    def test_university_addMajor_3(self):
+        '''
+        Test University addMajor
+        '''
+        university = University('Rice', 0, 0, 0, '')
+        university.addMajor('Biology')
+        self.assertEqual(university.majorList[0].__repr__(), '<Major Biology>');
 
 	# # -----------------------
 	# # university addEthnicity
@@ -291,7 +292,7 @@ class test(TestCase):
 	# 	Test Major class
 	# 	'''
 	# 	major = Major('Economics', 22, .55, .14)
-		
+
 	# 	name = major.name
 	# 	numUndergrads = major.numUndergrads
 	# 	gradRate = major.gradRate
@@ -301,7 +302,7 @@ class test(TestCase):
 	# 	self.assertEqual(numUndergrads, 22)
 	# 	self.assertEqual(gradRate, .55)
 	# 	self.assertEqual(avgPercentage, .14)
-		
+
 	# # -------------
 	# # major __repr__
 	# # -------------

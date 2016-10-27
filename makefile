@@ -102,7 +102,7 @@ format:
 	$(AUTOPEP8) -i project/*.py
 
 test:
-	echo No tests specified
+	python3 project/tests.py
 
 prep:
 	format
