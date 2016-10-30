@@ -103,7 +103,7 @@ format:
 	$(AUTOPEP8) -i project/IDB1.py
 
 test:
-	python3 project/tests.py
+	ssh ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation && python3 project/tests.py'
 
 prep:
 	format
