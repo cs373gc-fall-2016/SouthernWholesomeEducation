@@ -1,4 +1,4 @@
-# pylint: disable=W0401,W0614,R0904
+# pylint: disable=W0401,W0614,R0904,E1101
 #!/usr/bin/env python3
 '''
 Unit tests for models.py
@@ -15,19 +15,21 @@ from models import *
 # test
 # ----
 
+
 class Tests(TestCase):
     '''
-	Unit tests for models.py
-	'''
+        Unit tests for models.py
+        '''
 
-	# ----------------
-	# university class
-	# ----------------
+    # ----------------
+    # university class
+    # ----------------
 
     def test_university_1(self):
         '''
         Test University class
         '''
+
         university = University('UT', 10, 100, .80, 'public')
         university.add_major('Engineering')
         university.add_ethnicity('White')
@@ -47,10 +49,14 @@ class Tests(TestCase):
         self.assertEqual(public_or_private, "public")
         self.assertEqual(major_list[0].__repr__(), '<Major Engineering>')
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity White>')
+        DB.session.add(university)
+        DB.session.commit()
+        entries = University.query.filter_by(name='UT').first()
+        self.assertEqual(entries.num_undergrads, 10)
 
-	# -------------------
-	# university __repr__
-	# -------------------
+        # -------------------
+        # university __repr__
+        # -------------------
 
     def test_university_repr_1(self):
         '''
@@ -73,9 +79,9 @@ class Tests(TestCase):
         university = University('Rice', 0, 0, 0, '')
         self.assertEqual(university.__repr__(), '<University Rice>')
 
-	# -------------------
-	# university addMajor
-	# -------------------
+        # -------------------
+        # university addMajor
+        # -------------------
 
     def test_university_add_major_1(self):
         '''
@@ -101,9 +107,9 @@ class Tests(TestCase):
         university.add_major('Biology')
         self.assertEqual(university.major_list[0].__repr__(), '<Major Biology>')
 
-	# # -----------------------
-	# # university addEthnicity
-	# # -----------------------
+        # # -----------------------
+        # # university addEthnicity
+        # # -----------------------
 
     def test_university_add_ethnicity_1(self):
         '''
@@ -129,9 +135,9 @@ class Tests(TestCase):
         university.add_ethnicity('African American')
         self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity African American>')
 
-	# # ----------
-	# # city class
-	# # ----------
+        # # ----------
+        # # city class
+        # # ----------
 
     def test_city_1(self):
         '''
@@ -158,10 +164,16 @@ class Tests(TestCase):
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
         self.assertEqual(avg_tuition, 0)
         self.assertEqual(urban_or_rural, 'urban')
+        DB.session.add(university)
+        DB.session.add(city)
+        DB.session.commit()
+        entries = City.query.filter_by(name='Austin').first()
+        self.assertEqual(entries.urban_or_rural, 'urban')
+        self.assertEqual(university.city_id, entries.id_num)
 
-	# # -------------
-	# # city __repr__
-	# # -------------
+        # # -------------
+        # # city __repr__
+        # # -------------
 
     def test_city_repr_1(self):
         '''
@@ -184,9 +196,9 @@ class Tests(TestCase):
         city = City('New York', 'urban')
         self.assertEqual(city.__repr__(), '<City New York>')
 
-	# # ------------------
-	# # city addUniversity
-	# # ------------------
+        # # ------------------
+        # # city addUniversity
+        # # ------------------
 
     def test_city_add_university_1(self):
         '''
@@ -215,9 +227,9 @@ class Tests(TestCase):
         city.add_university(university)
         self.assertEqual(city.__repr__(), '<City New York>')
 
-	# # -------------
-	# # city addMajor
-	# # -------------
+        # # -------------
+        # # city addMajor
+        # # -------------
 
     def test_city_add_major_1(self):
         '''
@@ -243,9 +255,9 @@ class Tests(TestCase):
         city.add_major('Biology')
         self.assertEqual(city.major_list[0].__repr__(), '<Major Biology>')
 
-	# # -----------------------
-	# # city addEthnicity
-	# # -----------------------
+        # # -----------------------
+        # # city addEthnicity
+        # # -----------------------
 
     def test_city_add_ethnicity_1(self):
         '''
@@ -271,9 +283,9 @@ class Tests(TestCase):
         city.add_ethnicity('African American')
         self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity African American>')
 
-	# # -----------
-	# # major class
-	# # -----------
+        # # -----------
+        # # major class
+        # # -----------
 
     def test_major_1(self):
         '''
@@ -285,9 +297,9 @@ class Tests(TestCase):
 
         self.assertEqual(name, 'Economics')
 
-	# # -------------
-	# # major __repr__
-	# # -------------
+        # # -------------
+        # # major __repr__
+        # # -------------
 
     def test_major_repr_1(self):
         '''
@@ -310,9 +322,9 @@ class Tests(TestCase):
         major = Major('Business')
         self.assertEqual(major.__repr__(), '<Major Business>')
 
-	# # ---------------
-	# # ethnicity class
-	# # ---------------
+        # # ---------------
+        # # ethnicity class
+        # # ---------------
 
     def test_ethnicity_1(self):
         '''
@@ -326,9 +338,9 @@ class Tests(TestCase):
         self.assertEqual(name, 'Alaskan Indian')
         self.assertEqual(total_count, 0)
 
-	# # -------------
-	# # ethnicity __repr__
-	# # -------------
+        # # -------------
+        # # ethnicity __repr__
+        # # -------------
 
     def test_ethnicity_repr_1(self):
         '''

@@ -5,7 +5,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 APP = Flask(__name__)
-APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/swe'
+APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/swe'
 
 DB = SQLAlchemy(APP)
 
@@ -48,10 +48,10 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(80))
-    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY, \
-                                    backref=DB.backref('university', lazy='dynamic'))
-    major_list = DB.relationship('Major', secondary=MAJORTOUNIVERSITY, \
-                                backref=DB.backref('university', lazy='dynamic'))
+    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY,
+                                     backref=DB.backref('university', lazy='dynamic'))
+    major_list = DB.relationship('Major', secondary=MAJORTOUNIVERSITY,
+                                 backref=DB.backref('university', lazy='dynamic'))
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
     def __init__(self, name, numundergrads, costtoattend, gradrate, publicorprivate):
@@ -86,11 +86,12 @@ class City(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     population = DB.Column(DB.Integer)
-    major_list = DB.relationship('Major', secondary=MAJORTOCITY, \
-                                backref=DB.backref('city', lazy='dynamic'))
-    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY, \
-                                    backref=DB.backref('city', lazy='dynamic'))
-    university_list = DB.relationship('University', backref='city', lazy='dynamic')
+    major_list = DB.relationship('Major', secondary=MAJORTOCITY,
+                                 backref=DB.backref('city', lazy='dynamic'))
+    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
+                                     backref=DB.backref('city', lazy='dynamic'))
+    university_list = DB.relationship(
+        'University', backref='city', lazy='dynamic')
     avg_tuition = DB.Column(DB.Integer)
     urban_or_rural = DB.Column(DB.String(80))
 
@@ -149,7 +150,6 @@ class Ethnicity(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     total_count = DB.Column(DB.Integer)
-
 
     def __init__(self, name):
         self.name = name

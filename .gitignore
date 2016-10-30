@@ -6,3 +6,4 @@ venv/
 *supervisord.pid
 *.un~
 *ropeproject
+*.pyc

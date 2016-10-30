@@ -99,7 +99,8 @@ clean:
 	rm -rf __pycache__
 
 format:
-	$(AUTOPEP8) -i project/*.py
+	$(AUTOPEP8) -i project/models.py
+	$(AUTOPEP8) -i project/IDB1.py
 
 test:
 	python3 project/tests.py
