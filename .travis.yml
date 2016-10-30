@@ -14,7 +14,7 @@ before_script:
 script:
 - date
 - ls -al
-- make testTravist
+- make testTravis
 before_install:
 - openssl aes-256-cbc -K $encrypted_b0d60c8d1455_key -iv $encrypted_b0d60c8d1455_iv
   -in deploy_key.enc -out deploy_key -d
