@@ -14,6 +14,7 @@ before_script:
 script:
 - date
 - ls -al
+- chmod 400 deploy_key
 - make testTravis
 before_install:
 - openssl aes-256-cbc -K $encrypted_b0d60c8d1455_key -iv $encrypted_b0d60c8d1455_iv
