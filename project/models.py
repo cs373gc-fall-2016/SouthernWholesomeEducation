@@ -33,6 +33,11 @@ MAJORTOUNIVERSITY = DB.Table('MAJORTOUNIVERSITY',
                              DB.Column('major_id', DB.Integer,
                                        DB.ForeignKey('MAJOR.id_num')))
 
+def create_unique(model, **args):
+    is_exist = model.query.filter_by(**args).first()
+    if not is_exist:
+        DB.session.add(model(**args))
+        DB.session.commit()
 
 class University(DB.Model):
     '''

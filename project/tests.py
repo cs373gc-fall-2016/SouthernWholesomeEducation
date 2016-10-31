@@ -52,6 +52,7 @@ class Tests(TestCase):
         DB.session.commit()
         entries = University.query.filter_by(name='UT',cost_to_attend=100).first()
         self.assertEqual(entries.num_undergrads, 10)
+        print(vars(university))
 
         # -------------------
         # university __repr__
