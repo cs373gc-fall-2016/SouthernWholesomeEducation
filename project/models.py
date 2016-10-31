@@ -39,6 +39,12 @@ def create_unique(model, **args):
         DB.session.add(model(**args))
         DB.session.commit()
 
+def add_unique(model, obj):
+    is_exist = model.query.filter_by(dir(obj)).first()
+    if not is_exist:
+        DB.session.add(obj)
+        DB.session.commit()
+
 class University(DB.Model):
     '''
     Class for University pillar. The name, numUndergrads, costToAttend, gradRate
@@ -68,6 +74,10 @@ class University(DB.Model):
 
     def __repr__(self):
         return '<University ' + self.name + '>'
+
+    def __dir__(self):
+        return {'name': self.name, 'numundergrads': self.num_undergrads, 'costtoattend': self.cost_to_attend,
+            'gradrate': self.grad_rate, 'publicorprivate': self.public_or_private}
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
@@ -109,6 +119,9 @@ class City(DB.Model):
     def __repr__(self):
         return '<City ' + self.name + '>'
 
+    def __dir__(self):
+        return {'name': self.name, 'urbanorrural': self.urban_or_rural}
+
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
     def add_university(self, uni):
@@ -144,6 +157,9 @@ class Major(DB.Model):
     def __repr__(self):
         return '<Major ' + self.name + '>'
 
+    def __dir__(self):
+        return {'name': self.name}
+
 
 class Ethnicity(DB.Model):
     '''
@@ -162,3 +178,6 @@ class Ethnicity(DB.Model):
 
     def __repr__(self):
         return '<Ethnicity ' + self.name + '>'
+
+    def __dir__(self):
+        return {'name': self.name}

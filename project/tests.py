@@ -48,11 +48,9 @@ class Tests(TestCase):
         self.assertEqual(public_or_private, "public")
         self.assertEqual(major_list[0].__repr__(), '<Major Engineering>')
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity White>')
-        DB.session.add(university)
-        DB.session.commit()
+        add_unique(university)
         entries = University.query.filter_by(name='UT',cost_to_attend=100).first()
         self.assertEqual(entries.num_undergrads, 10)
-        print(dir(university))
 
         # -------------------
         # university __repr__
@@ -164,8 +162,8 @@ class Tests(TestCase):
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
         self.assertEqual(avg_tuition, 0)
         self.assertEqual(urban_or_rural, 'urban')
-        DB.session.add(university)
-        DB.session.add(city)
+        add_unique(university)
+        add_unique(city)
         DB.session.commit()
         entries = City.query.filter_by(name='Austin').first()
         self.assertEqual(entries.urban_or_rural, 'urban')
