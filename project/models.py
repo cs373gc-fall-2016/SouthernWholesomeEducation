@@ -39,8 +39,8 @@ def create_unique(model, **args):
         DB.session.add(model(**args))
         DB.session.commit()
 
-def add_unique(model, obj):
-    is_exist = model.query.filter_by(**obj.attributes()).first()
+def add_unique(obj):
+    is_exist = obj.__class__.query.filter_by(**obj.attributes()).first()
     if not is_exist:
         DB.session.add(obj)
         DB.session.commit()
@@ -76,8 +76,8 @@ class University(DB.Model):
         return '<University ' + self.name + '>'
 
     def attributes(self):
-        return {'name': self.name, 'numundergrads': self.num_undergrads, 'costtoattend': self.cost_to_attend,
-            'gradrate': self.grad_rate, 'publicorprivate': self.public_or_private}
+        return {'name': self.name, 'num_undergrads': self.num_undergrads, 'cost_to_attend': self.cost_to_attend,
+            'grad_rate': self.grad_rate, 'public_or_private': self.public_or_private}
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
@@ -120,7 +120,7 @@ class City(DB.Model):
         return '<City ' + self.name + '>'
 
     def attributes(self):
-        return {'name': self.name, 'urbanorrural': self.urban_or_rural}
+        return {'name': self.name, 'urban_or_rural': self.urban_or_rural}
 
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
