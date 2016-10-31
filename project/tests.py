@@ -164,7 +164,6 @@ class Tests(TestCase):
         self.assertEqual(urban_or_rural, 'urban')
         add_unique(university)
         add_unique(city)
-        DB.session.commit()
         entries = City.query.filter_by(name='Austin').first()
         self.assertEqual(entries.urban_or_rural, 'urban')
 
