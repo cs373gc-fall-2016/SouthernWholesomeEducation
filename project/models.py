@@ -76,8 +76,8 @@ class University(DB.Model):
         return '<University ' + self.name + '>'
 
     def __dir__(self):
-        return {'name': self.name, 'numundergrads': self.num_undergrads, 'costtoattend': self.cost_to_attend,
-            'gradrate': self.grad_rate, 'publicorprivate': self.public_or_private}
+        return {'name' = self.name, 'numundergrads' = self.num_undergrads, 'costtoattend' = self.cost_to_attend,
+            'gradrate' = self.grad_rate, 'publicorprivate' = self.public_or_private}
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
@@ -120,7 +120,7 @@ class City(DB.Model):
         return '<City ' + self.name + '>'
 
     def __dir__(self):
-        return {'name': self.name, 'urbanorrural': self.urban_or_rural}
+        return {'name' = self.name, 'urbanorrural' = self.urban_or_rural}
 
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
@@ -158,7 +158,7 @@ class Major(DB.Model):
         return '<Major ' + self.name + '>'
 
     def __dir__(self):
-        return {'name': self.name}
+        return {'name' = self.name}
 
 
 class Ethnicity(DB.Model):
@@ -180,4 +180,4 @@ class Ethnicity(DB.Model):
         return '<Ethnicity ' + self.name + '>'
 
     def __dir__(self):
-        return {'name': self.name}
+        return {'name' = self.name}
