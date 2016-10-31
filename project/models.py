@@ -39,8 +39,8 @@ def create_unique(model, **args):
         DB.session.add(model(**args))
         DB.session.commit()
 
-def add_unique(obj):
-    is_exist = obj.__class__.query.filter_by(**obj.attributes()).first()
+def add_unique(model, obj):
+    is_exist = model.query.filter_by(**obj.attributes()).first()
     if not is_exist:
         DB.session.add(obj)
         DB.session.commit()
