@@ -59,7 +59,7 @@ class Tests(TestCase):
         m = Major.query.filter_by(name='Engineering').first()
         self.assertEqual(m.id_num, 2)
         self.assertEqual(university.id_num, 2)
-        self.assertEqual(MAJORTOUNIVERSITY.query.filter_by(major_id=m.id_num, university_id=university.id_num).first().num_students, 500)
+        self.assertEqual(get_num_students(MAJORTOUNIVERSITY, major_id=m.num_id, university_id=university.num_id), 500)
         # self.assertEqual(num_students, 50000)
 
         # -------------------

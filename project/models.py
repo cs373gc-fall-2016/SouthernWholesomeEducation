@@ -27,6 +27,9 @@ def add_unique(obj):
         is_exist.update(obj)
     # DB.session.commit()
 
+def get_num_students(model, **args):
+    return model.query.filter_by(**args).first().num_students
+
 class MAJORTOCITY(DB.Model):
     __tablename__ = 'MAJORTOCITY'
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'), primary_key=True)
