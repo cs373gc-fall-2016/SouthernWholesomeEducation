@@ -6,8 +6,8 @@
         <p>Should list all universitie sin our system</p>
       </div>
         
-      {{var.name}}
-      {% for uni in myUni%}
+      {{myUni.name}}
+      {% for uni in myUni_all%}
         <li> {{uni.name}} </li>
       {% endfor %}
     </div>
