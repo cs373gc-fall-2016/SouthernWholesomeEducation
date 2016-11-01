@@ -2,7 +2,7 @@
 
 import os
 from flask import Flask, render_template, send_from_directory
-# from models import *
+from models import *
 
 APP = Flask(__name__)
 
