@@ -158,6 +158,7 @@ class Tests(TestCase):
         city.add_university(university)
         city.add_major('Business', 1000)
         city.add_ethnicity('Asian', 300)
+        city.add_ethnicity('White', 5000)
 
         name = city.name
         population = city.population
@@ -173,7 +174,9 @@ class Tests(TestCase):
         self.assertEqual(ethnicity_list[0].__repr__(), '<City Austin, Ethnicity Asian>')
         self.assertEqual(avg_tuition, 0)
         DB.session.commit()
-        entries = City.query.filter_by(name='Austin').first()
+        city_entry = City.query.filter_by(name='Austin').first()
+        # ethnicity_entry = Ethnicity.query.filter_by()
+        # self.assertEqual(entries.)
 
         # # -------------
         # # city __repr__
