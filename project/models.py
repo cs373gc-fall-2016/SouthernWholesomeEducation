@@ -9,17 +9,17 @@ APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhos
 
 DB = SQLAlchemy(APP)
 
-MAJORTOCITY = DB.Table('MAJORTOCITY',
-                       DB.Column('city_id', DB.Integer,
-                                 DB.ForeignKey('CITY.id_num')),
-                       DB.Column('major_id', DB.Integer,
-                                 DB.ForeignKey('MAJOR.id_num')))
+# MAJORTOCITY = DB.Table('MAJORTOCITY',
+#                        DB.Column('city_id', DB.Integer,
+#                                  DB.ForeignKey('CITY.id_num')),
+#                        DB.Column('major_id', DB.Integer,
+#                                  DB.ForeignKey('MAJOR.id_num')))
 
-ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
-                           DB.Column('city_id', DB.Integer,
-                                     DB.ForeignKey('CITY.id_num')),
-                           DB.Column('ethnicity_id', DB.Integer,
-                                     DB.ForeignKey('ETHNICITY.id_num')))
+# ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
+#                            DB.Column('city_id', DB.Integer,
+#                                      DB.ForeignKey('CITY.id_num')),
+#                            DB.Column('ethnicity_id', DB.Integer,
+#                                      DB.ForeignKey('ETHNICITY.id_num')))
 
 # ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
 #                                  DB.Column('university_id', DB.Integer,
@@ -47,8 +47,38 @@ def add_unique(obj):
         DB.session.add(obj)
         DB.session.commit()
 
-class AssociationMajor(DB.Model):
-    __tablename__ = 'associationmajor'
+class MAJORTOCITY(DB.Model):
+    __tablename__ = 'MAJORTOCITY'
+    city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'), primary_key=True)
+    major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
+    num_students = DB.Column(DB.Integer)
+    major = DB.relationship('Major', backref='cities')
+    university = DB.relationship('City', backref='majors')
+    def __init__(self, city, major, num_students):
+        self.city = city
+        self.major = major
+        self.num_students = num_students
+
+    def __repr__(self):
+        return '<City ' + self.city.name + ', Major ' + self.major.name + '>'
+
+class ETHNICITYTOCITY(DB.Model):
+    __tablename__ = 'ETHNICITYTOCITY'
+    city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'), primary_key=True)
+    ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
+    num_students = DB.Column(DB.Integer)
+    ethnicity = DB.relationship('Ethnicity', backref='cities')
+    city = DB.relationship('City', backref='ethnicities')
+    def __init__(self, city, ethnicity, num_students):
+        self.city = city
+        self.ethnicity = ethnicity
+        self.num_students = num_students
+
+    def __repr__(self):
+        return '<City ' + self.city.name + ', Ethnicity ' + self.ethnicity.name + '>'
+
+class MAJORTOUNIVERSITY(DB.Model):
+    __tablename__ = 'MAJORTOUNIVERSITY'
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
@@ -62,8 +92,8 @@ class AssociationMajor(DB.Model):
     def __repr__(self):
         return '<University ' + self.university.name + ', Major ' + self.major.name + '>'
 
-class AssociationEthnicity(DB.Model):
-    __tablename__ = 'associationethnicity'
+class ETHNICITYTOUNIVERSITY(DB.Model):
+    __tablename__ = 'ETHNICITYTOUNIVERSITY'
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
@@ -91,8 +121,8 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(80))
-    ethnicity_list = DB.relationship('AssociationEthnicity')
-    major_list = DB.relationship('AssociationMajor')
+    ethnicity_list = DB.relationship('ETHNICITYTOUNIVERSITY')
+    major_list = DB.relationship('MAJORTOUNIVERSITY')
     
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
@@ -115,13 +145,13 @@ class University(DB.Model):
     def add_major(self, maj, num):
         """Appends new major to major_list"""
         maj = Major(maj)
-        assoc_maj = AssociationMajor(self, maj, num)
+        assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
         self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
         eth = Ethnicity(eth)
-        assoc_eth = AssociationEthnicity(self, eth, num)
+        assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
         self.ethnicity_list.append(assoc_eth)
 
 
@@ -135,12 +165,10 @@ class City(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     population = DB.Column(DB.Integer)
-    major_list = DB.relationship('Major', secondary=MAJORTOCITY,
-                                 backref=DB.backref('city', lazy='dynamic'))
-    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOCITY,
-                                     backref=DB.backref('city', lazy='dynamic'))
     university_list = DB.relationship(
         'University', backref='city', lazy='dynamic')
+    ethnicity_list = DB.relationship('ETHNICITYTOCITY')
+    major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
     urban_or_rural = DB.Column(DB.String(80))
 
@@ -161,13 +189,17 @@ class City(DB.Model):
         """Appends university to universityList"""
         self.university_list.append(uni)
 
-    def add_major(self, maj):
+    def add_major(self, maj, num):
         """Appends major to major_list"""
-        self.major_list.append(Major(maj))
+        maj = Major(maj)
+        assoc_maj = MAJORTOCITY(self, maj, num)
+        self.major_list.append(assoc_maj)
 
-    def add_ethnicity(self, eth):
+    def add_ethnicity(self, eth, num):
         """Adds new ethnicity to ethnicity_list"""
-        self.ethnicity_list.append(Ethnicity(eth))
+        eth = Ethnicity(eth)
+        assoc_eth = ETHNICITYTOCITY(self, eth, num)
+        self.ethnicity_list.append(assoc_eth)
 
 
 class Major(DB.Model):
