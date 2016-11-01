@@ -2,11 +2,13 @@
 {% block content %}
     <div class="container">
       <div>
-        <h3>{{entries.__tablename__}}</h3>
+        <h3>{{title}}</h3>
         <p>Table list for entries in specified table</p>
       </div>
       
-
+      {% for entry in entries %}
+        <li> {{entry.name}} </li>
+      {% endfor %}
 
     </div>
 {% endblock %}
