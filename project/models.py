@@ -91,8 +91,8 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(80))
-    ethnicity_list = DB.relationship('Ethnicity', secondary='associationethnicity')
-    major_list = DB.relationship('Major', secondary='associationmajor')
+    ethnicity_list = DB.relationship('AssociationEthnicity', backref = 'university')
+    major_list = DB.relationship('AssociationMajor', backref= 'university')
     
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
@@ -115,13 +115,13 @@ class University(DB.Model):
     def add_major(self, maj, num):
         """Appends new major to major_list"""
         maj = Major(maj)
-        assoc_maj = AssociationMajor(self, maj, num)
+        assoc_maj = AssociationMajor(self, self, maj, num)
         self.major_list.append(maj)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
         eth = Ethnicity(eth)
-        assoc_eth = AssociationEthnicity(self, eth, num)
+        assoc_eth = AssociationEthnicity(self, self, eth, num)
         self.ethnicity_list.append(eth)
 
 
