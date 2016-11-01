@@ -170,14 +170,16 @@ class University(DB.Model):
     def add_major(self, maj, num):
         """Appends new major to major_list"""
         maj = create_unique(Major, name=maj)
-        assoc_maj = create_unique(MAJORTOUNIVERSITY, university_id=self.id_num, major_id=maj.id_num, num_students=num)
+        university_id = University.query.filter_by(**self.primary_attributes())
+        assoc_maj = create_unique(MAJORTOUNIVERSITY, university_id=university_id, major_id=maj.id_num, num_students=num)
         # assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
         self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
         eth = create_unique(Ethnicity, name=eth)
-        assoc_eth = create_unique(ETHNICITYTOUNIVERSITY, university_id=self.id_num, ethnicity_id=eth.id_num, num_students=num)
+        university_id = University.query.filter_by(**self.primary_attributes())
+        assoc_eth = create_unique(ETHNICITYTOUNIVERSITY, university_id=university_id, ethnicity_id=eth.id_num, num_students=num)
         self.ethnicity_list.append(assoc_eth)
 
 
@@ -224,15 +226,16 @@ class City(DB.Model):
     def add_major(self, maj, num):
         """Appends major to major_list"""
         maj = create_unique(Major, name=maj)
-        assoc_maj = create_unique(MAJORTOCITY, city_id=self.id_num, major_id=maj.id_num, num_students=num)
-        # assoc_maj = MAJORTOCITY(self, maj, num)
+        city_id = City.query.filter_by(name=self.name).id_num
+        assoc_maj = create_unique(MAJORTOCITY, city_id=city_id, major_id=maj.id_num, num_students=num)
         self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Adds new ethnicity to ethnicity_list"""
         eth = create_unique(Ethnicity, name=eth)
+        city_id = City.query.filter_by(name=self.name).id_num
         # assoc_eth = ETHNICITYTOCITY(self, eth, num)
-        assoc_eth = create_unique(ETHNICITYTOCITY, city_id=self.id_num, ethnicity_id=eth.id_num, num_students=num)
+        assoc_eth = create_unique(ETHNICITYTOCITY, city_id=city_id, ethnicity_id=eth.id_num, num_students=num)
         self.ethnicity_list.append(assoc_eth)
 
 
