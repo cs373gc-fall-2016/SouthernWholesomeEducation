@@ -9,7 +9,7 @@ ethnicities = dict()
 def api_call():
     # set_of_schools_nums = get_all_school_codes()
     print('testing two austin schools')
-    set_of_schools_nums = {228778, 227845} # TODO: Remove this and uncomment above for all schools (not just UT)
+    set_of_schools_nums = {228778, 227845} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
     for school_num in set_of_schools_nums:
         school_dict = call_for_data(school_num)
         setup_data(school_dict)
@@ -19,13 +19,16 @@ def api_call():
 def setup_data(individual_school_dict):
     # Universities
     uni_temp_dict = dict()
-    uni_temp_dict['University_name'] = individual_school_dict['school.name']
+    uni_temp_dict['university_name'] = individual_school_dict['school.name']
     uni_temp_dict['undergrand_population'] = individual_school_dict['2014.student.size']
     uni_temp_dict['cost_to_attend'] = individual_school_dict['2014.cost.avg_net_price.overall']
     uni_temp_dict['grad_rate'] = individual_school_dict['2014.completion.rate_suppressed.overall']
     uni_temp_dict['city'] = individual_school_dict['school.city']
     uni_temp_dict['public_or_private'] = 'Public' if individual_school_dict['school.ownership'] == 1 else 'Private'
     uni_temp_dict['ethnicity_count'] = ethnicity_and_major_counter(individual_school_dict, 'demographics')
+    uni_temp_dict['major_list'] = (major_and_ethnicity_list(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
+    uni_temp_dict['major_count'] = len(uni_temp_dict['major_list'])
+
     # adding temp university to universities dict
     universities[individual_school_dict['school.name']] = uni_temp_dict
 
@@ -42,6 +45,7 @@ def setup_data(individual_school_dict):
         cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
         cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_list(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
+        cities[individual_school_dict['school.city']]['ethnicity_count'] = len(cities[individual_school_dict['school.city']]['ethnicity_list'])
     else:
         # creating a new city
         citi_temp_dict = dict()
@@ -55,11 +59,34 @@ def setup_data(individual_school_dict):
         citi_temp_dict['ethnicity_count'] = len(citi_temp_dict['ethnicity_list'])
         cities[individual_school_dict['school.city']] = citi_temp_dict
 
-    #
-
+    # Majors
+    for major in individual_school_dict:
+        if major in majors:
+            print('in major need to update')
+            # print(major, end='') # key
+            # print(individual_school_dict[major]) #value
+        else:
+            # Not in major dict need to create
+            if '2014.academics.program_percentage.' in major and individual_school_dict[major] != None and individual_school_dict[major] > 0:
+                major_temp_dict = dict()
+                major_temp_dict['major_name'] = major
+                major_temp_dict['total_major_undergrad_population'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+                major_temp_dict['top_city_amt'] = int(major_temp_dict['total_major_undergrad_population'])
+                major_temp_dict['top_city_name'] = individual_school_dict['school.name']
+                major_temp_dict['avg_percentage'] = major_temp_dict['total_major_undergrad_population'] / total_undergrads_all_universities()
+                majors[major] = major_temp_dict
 
     print(universities)
     print(cities)
+    print(majors)
+
+
+
+def total_undergrads_all_universities():
+    total_undergraduates = 0
+    for school in universities:
+        total_undergraduates += universities[school]['undergrand_population']
+    return total_undergraduates
 
 
 def major_and_ethnicity_list(dict, text_to_search, str_to_remove):
@@ -67,7 +94,6 @@ def major_and_ethnicity_list(dict, text_to_search, str_to_remove):
     key_set = [key for key, value in dict.items() if text_to_search in key.lower()]
     for key in key_set:
         if (dict[key] != None) and (dict[key] > 0):
-            # print(str(key).split('2014.academics.program_percentage.')[1])
             temp_ethnicities.add(str(key).split(str_to_remove)[1])
     return temp_ethnicities
 
