@@ -2,7 +2,7 @@
 
 import os
 from flask import Flask, render_template, send_from_directory
-# from models import 
+from models import University
 
 APP = Flask(__name__)
 @APP.route('/')
@@ -19,8 +19,8 @@ def render_about():
 @APP.route('/detail/')
 def render_detail():
     """Return HTML page stored in templates directory"""
-
-    return render_template('detail.html', myVar = [42, 54, 34])
+    myUni = University.query.all()
+    return render_template('detail.html', myUni=myUni)
 
 
 # @APP.route('/university/<string:uni_name>/')
