@@ -9,8 +9,7 @@ APP = Flask(__name__)
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # db = SQLAlchemy(app)
 
-from models import DB
-
+from models import DB, University
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
