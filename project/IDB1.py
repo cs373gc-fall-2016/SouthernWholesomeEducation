@@ -1,21 +1,35 @@
-"""Implmentation of flask app for serving HTML pages"""
+#!/usr/bin/env python
+"""Implementation of flask app for serving HTML pages"""
 
 import os
 from flask import Flask, render_template, send_from_directory
+from models import University
 
 APP = Flask(__name__)
-
-
-@APP.route('/<string:page_name>/')
-def render_static(page_name):
-    """Return HTML page stored in templates directory"""
-    return render_template('%s' % page_name)
-
-
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
     return render_template('index.html')
+
+@APP.route('/about/')
+def render_about():
+    """Return HTML page stored in templates directory"""
+    return render_template('about.html')
+
+# We assume this will always list out database entries
+@APP.route('/detail/')
+def render_detail():
+    """Return HTML page stored in templates directory"""
+    myUni = University.query.all()
+    var = University.query.filter_by(idnum=1).first()
+    return render_template('detail.html', var = var, myVar = [42, 54, 34])
+
+
+# @APP.route('/university/<string:uni_name>/')
+# def render_uni_detail():
+#     """Return index.html page when no path is given"""
+#     myUni = University.query.all()
+#     return render_template('detail.html', myUni=myUni)
 
 
 @APP.route('/favicon.ico')
