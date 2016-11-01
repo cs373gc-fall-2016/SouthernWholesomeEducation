@@ -53,6 +53,14 @@ class Tests(TestCase):
         entries = University.query.filter_by(name='UT',cost_to_attend=100).first()
         self.assertEqual(entries.num_undergrads, 10)
 
+    def test_update(self):
+        university = University.query.filter_by(name='UT',cost_to_attend=0).first()
+        university.add_major('Engineering', 50000)
+        DB.session.commit()
+        Major m = Major.query.filter_by(name='Engineering')
+        num_students = MAJORTOUNIVERSITY.query.filter_by(university_id=university.id_num, major_id=m.id_num)
+        self.assertEqual(num_students, 50000)
+
         # -------------------
         # university __repr__
         # -------------------
