@@ -30,8 +30,8 @@ class Tests(TestCase):
         Test University class
         '''
         university = University('UT', 10, 100, .80, 'public')
-        university.add_major('Engineering')
-        university.add_ethnicity('White')
+        university.add_major('Engineering', 500)
+        university.add_ethnicity('White', 1000)
 
         name = university.name
         num_undergrads = university.num_undergrads
@@ -115,7 +115,7 @@ class Tests(TestCase):
         Test University addEthnicity
         '''
         university = University('UT', 0, 0, 0, '')
-        university.add_ethnicity('Asian')
+        university.add_ethnicity('Asian', 100)
         self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
 
     def test_university_add_ethnicity_2(self):
@@ -123,7 +123,7 @@ class Tests(TestCase):
         Test University addEthnicity
         '''
         university = University('A&M', 0, 0, 0, '')
-        university.add_ethnicity('White')
+        university.add_ethnicity('White', 1000)
         self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity White>')
 
     def test_university_add_ethnicity_3(self):
@@ -131,7 +131,7 @@ class Tests(TestCase):
         Test University addEthnicity
         '''
         university = University('Rice', 0, 0, 0, '')
-        university.add_ethnicity('African American')
+        university.add_ethnicity('African American', 400)
         self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity African American>')
 
         # # ----------
