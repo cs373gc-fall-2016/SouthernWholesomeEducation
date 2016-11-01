@@ -11,9 +11,7 @@ DB = SQLAlchemy(APP)
 
 def create_unique(model, **args):
     is_exist = model.query.filter_by(**args).first()
-    print(is_exist)
     if not is_exist:
-        assert False
         is_exist = model(**args)
         DB.session.add(is_exist)
     # DB.session.commit()
@@ -230,15 +228,19 @@ class City(DB.Model):
 
     def add_major(self, maj, num):
         """Appends major to major_list"""
-        maj = Major(maj)
-        assoc_maj = MAJORTOCITY(self, maj, num)
-        self.major_list.append(assoc_maj)
+        assoc = next((a for a in self.major_list if a.major.name == maj), None)
+        if not assoc:
+            maj = Major(maj)
+            assoc_maj = MAJORTOCITY(self, maj, num)
+            self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Adds new ethnicity to ethnicity_list"""
-        eth = Ethnicity(eth)
-        assoc_eth = ETHNICITYTOCITY(self, eth, num)
-        self.ethnicity_list.append(assoc_eth)
+        assoc = next((a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
+        if not assoc:
+            eth = Ethnicity(eth)
+            assoc_eth = ETHNICITYTOCITY(self, eth, num)
+            self.ethnicity_list.append(assoc_eth)
 
 
 class Major(DB.Model):
