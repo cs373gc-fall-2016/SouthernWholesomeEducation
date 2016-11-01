@@ -48,9 +48,7 @@ class Tests(TestCase):
         self.assertEqual(public_or_private, "public")
         self.assertEqual(major_list[0].__repr__(), '<Major Engineering>')
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity White>')
-        DB.session.flush()
-        DB.session.add(university)
-        DB.session.commit()
+        add_unique(university)
         entries = University.query.filter_by(name='UT',cost_to_attend=100).first()
         self.assertEqual(entries.num_undergrads, 10)
 

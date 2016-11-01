@@ -52,8 +52,8 @@ class AssociationMajor(DB.Model):
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    major = DB.relationship('Major', backref='university_associations')
-    university = DB.relationship('University', backref='major_associations')
+    major = DB.relationship('Major', backref='universities')
+    university = DB.relationship('University', backref='majors')
     def __init__(self, university, major, num_students):
         self.university = university
         self.major = major
@@ -67,8 +67,8 @@ class AssociationEthnicity(DB.Model):
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    ethnicity = DB.relationship('Ethnicity', backref='university_associations')
-    university = DB.relationship('University', backref='ethnicity_associations')
+    ethnicity = DB.relationship('Ethnicity', backref='universities')
+    university = DB.relationship('University', backref='ethnicities')
     def __init__(self, university, ethnicity, num_students):
         self.university = university
         self.ethnicity = ethnicity
@@ -91,8 +91,8 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(80))
-    ethnicity_list = DB.relationship('Ethnicity', secondary='associationethnicity')
-    major_list = DB.relationship('Major', secondary='associationmajor')
+    ethnicity_list = DB.relationship('AssociationEthnicity', backref='university')
+    major_list = DB.relationship('AssociationMajor', backref='university')
     
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
@@ -116,13 +116,13 @@ class University(DB.Model):
         """Appends new major to major_list"""
         maj = Major(maj)
         assoc_maj = AssociationMajor(self, maj, num)
-        self.major_list.append(maj)
+        self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
         eth = Ethnicity(eth)
         assoc_eth = AssociationEthnicity(self, eth, num)
-        self.ethnicity_list.append(eth)
+        self.ethnicity_list.append(assoc_maj)
 
 
 class City(DB.Model):
