@@ -56,8 +56,8 @@ class Tests(TestCase):
     def test_update(self):
         university = University.query.filter_by(name='UT',cost_to_attend=0).first()
         university.add_major('Engineering', 50000)
-        DB.session.commit()
         m = Major.query.filter_by(name='Engineering').first()
+        self.assertEqual(university)
         num_students = MAJORTOUNIVERSITY.query.filter_by(university_id=university.id_num, major_id=m.id_num).first().num_students
         self.assertEqual(num_students, 50000)
 
