@@ -28,24 +28,21 @@ def render_detail():
     myUni_all = University.query.all()
     # myUni = 1
     # myUni = University.query.filter_by(name='UT').first()
-    print (myUni)
-    print (myUni_all)
     return render_template('detail.html', myUni_all = myUni_all)
 
-@APP.route('/<string:table_name>/')
-def render_table():
+@APP.route('/<table_name>/')
+def render_table(table_name):
     """Return HTML page stored in templates directory"""
-    myUni_all = table_name.query.all()
+    table = str(table_name)
+    myUni_all = table.query.all()
     # myUni = 1
     # myUni = University.query.filter_by(name='UT').first()
-    print (myUni)
-    print (myUni_all)
     return render_template('detail.html', myUni_all = myUni_all)
-# @APP.route('/university/<string:uni_name>/')
-# def render_uni_detail():
-#     """Return index.html page when no path is given"""
-#     myUni = University.query.all()
-#     return render_template('detail.html', myUni=myUni)
+
+# @APP.route('/<string:page_name>/')
+# def render_static(page_name):
+#     """Return HTML page stored in templates directory"""
+# return render_template('%s' % page_name)
 
 
 @APP.route('/favicon.ico')
