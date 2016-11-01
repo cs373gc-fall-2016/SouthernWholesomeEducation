@@ -47,11 +47,11 @@ def render_major_table():
     entries = Major.query.all()
     return render_template('table.html', entries=entries, title="Majors")
 
-# @APP.route('/Ethnicity/')
-# def render_uni_table():
-#     """Return HTML page stored in templates directory"""
-#     entires = Ethnicity.query.all()
-#     return render_template('table.html', entries=entries, title="Ethnicities")
+@APP.route('/Ethnicity/')
+def render_ethnicity_table():
+    """Return HTML page stored in templates directory"""
+    entries = Ethnicity.query.all()
+    return render_template('table.html', entries=entries, title="Ethnicities")
 
 # @APP.route('/<string:page_name>/')
 # def render_static(page_name):
