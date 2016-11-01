@@ -116,7 +116,7 @@ class University(DB.Model):
         """Appends new ethnicity to ethnicityList"""
         eth = Ethnicity(eth)
         AssociationEthnicity(self, eth, num)
-        self.major_list.append(eth)
+        self.ethnicity_list.append(eth)
 
 
 class City(DB.Model):
