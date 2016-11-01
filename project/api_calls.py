@@ -62,9 +62,13 @@ def setup_data(individual_school_dict):
     # Majors
     for major in individual_school_dict:
         if major in majors:
-            print('in major need to update')
-            # print(major, end='') # key
-            # print(individual_school_dict[major]) #value
+            majors[major]['total_major_undergrad_population'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+            student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+            if (majors[major]['top_city_amt'] < student_count):
+                # need to update
+                majors[major]['top_city_amt'] = student_count
+                majors[major]['top_city_name'] = individual_school_dict['school.city']
+            majors[major]['avg_percentage'] = majors[major]['total_major_undergrad_population'] / total_undergrads_all_universities()
         else:
             # Not in major dict need to create
             if '2014.academics.program_percentage.' in major and individual_school_dict[major] != None and individual_school_dict[major] > 0:
@@ -72,13 +76,21 @@ def setup_data(individual_school_dict):
                 major_temp_dict['major_name'] = major
                 major_temp_dict['total_major_undergrad_population'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
                 major_temp_dict['top_city_amt'] = int(major_temp_dict['total_major_undergrad_population'])
-                major_temp_dict['top_city_name'] = individual_school_dict['school.name']
+                major_temp_dict['top_city_name'] = individual_school_dict['school.city']
                 major_temp_dict['avg_percentage'] = major_temp_dict['total_major_undergrad_population'] / total_undergrads_all_universities()
                 majors[major] = major_temp_dict
+
+    # Ethnicities
+    for major in individual_school_dict:
+
+
+
+
 
     print(universities)
     print(cities)
     print(majors)
+    print(ethnicities)
 
 
 
