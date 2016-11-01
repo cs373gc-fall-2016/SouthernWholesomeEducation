@@ -26,8 +26,6 @@ def render_index():
 def render_detail():
     """Return HTML page stored in templates directory"""
     myUni_all = University.query.all()
-    # myUni = 1
-    # myUni = University.query.filter_by(name='UT').first()
     return render_template('detail.html', myUni_all = myUni_all)
 
 @APP.route('/<table_name>/')
@@ -35,8 +33,6 @@ def render_table(table_name):
     """Return HTML page stored in templates directory"""
     table = str(table_name)
     myUni_all = table.query.all()
-    # myUni = 1
-    # myUni = University.query.filter_by(name='UT').first()
     return render_template('detail.html', myUni_all = myUni_all)
 
 # @APP.route('/<string:page_name>/')
