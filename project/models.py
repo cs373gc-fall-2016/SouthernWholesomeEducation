@@ -14,8 +14,6 @@ def create_unique(model, **args):
     if not is_exist:
         is_exist = model(**args)
         DB.session.add(is_exist)
-    else:
-        is_exist.update(model(**args))
     # DB.session.commit()
     return is_exist
 
