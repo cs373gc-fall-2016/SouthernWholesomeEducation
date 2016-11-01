@@ -59,7 +59,7 @@ class Tests(TestCase):
         assoc = get_association(MAJORTOUNIVERSITY, major_name='Engineering', university_name='UT')
         assoc.num_students = 70000
         DB.session.commit()
-        self.assertEqual(assoc.num_students, 50000)
+        self.assertEqual(assoc.num_students, 70000)
         # self.assertEqual(num_students, 50000)
 
         # -------------------
