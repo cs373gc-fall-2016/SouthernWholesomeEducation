@@ -27,7 +27,7 @@ def add_unique(obj):
         is_exist.update(obj)
     # DB.session.commit()
 
-def get_num_students(model, **args):
+def get_association(model, **args):
     return model.query.filter_by(**args).first().num_students
 
 class MAJORTOCITY(DB.Model):
@@ -173,6 +173,7 @@ class University(DB.Model):
     def add_major(self, maj, num):
         """Appends new major to major_list"""
         # major_id = Major.query.filter_by(name=maj).first().id_num
+
         maj = Major(maj)
         assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
         self.major_list.append(assoc_maj)
