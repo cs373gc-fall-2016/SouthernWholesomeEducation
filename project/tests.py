@@ -30,7 +30,7 @@ class Tests(TestCase):
         Test University class
         '''
         university = create_unique(University, name='UT', num_undergrads=10, cost_to_attend=100, grad_rate=0.8, public_or_private='public')
-        university.add_major(create_unique(Major, name='Business'), 1000)
+        university.add_major(create_unique(Major, name='Engineering'), 1000)
         university.add_ethnicity(create_unique(Ethnicity, name='White'), 1000)
 
         name = university.name
@@ -86,7 +86,7 @@ class Tests(TestCase):
         Test University addMajor
         '''
         university = University('UT', 0, 0, 0, '')
-        university.add_major('Physics', 1000)
+        university.add_major(create_unique(Major, name='Physics'), 1000)
         self.assertEqual(university.major_list[0].__repr__(), '<University UT, Major Physics>')
 
     def test_university_add_major_2(self):
@@ -94,7 +94,7 @@ class Tests(TestCase):
         Test University addMajor
         '''
         university = University('A&M', 0, 0, 0, '')
-        university.add_major('Chemistry', 1000)
+        university.add_major(create_unique(Major, name='Chemistry'), 1000)
         self.assertEqual(university.major_list[0].__repr__(), '<University A&M, Major Chemistry>')
 
     def test_university_add_major_3(self):
@@ -102,7 +102,7 @@ class Tests(TestCase):
         Test University addMajor
         '''
         university = University('Rice', 0, 0, 0, '')
-        university.add_major('Biology', 1000)
+        university.add_major(create_unique(Major, name='Biology'), 1000)
         self.assertEqual(university.major_list[0].__repr__(), '<University Rice, Major Biology>')
 
         # # -----------------------
@@ -144,7 +144,7 @@ class Tests(TestCase):
         city = City(name='Austin')
         university = create_unique(University, name='UT', num_undergrads=0, cost_to_attend=0, grad_rate=0, public_or_private='')
         city.add_university(university)
-        city.add_major('Business', 1000)
+        city.add_major(create_unique(name='Business'), 1000)
         city.add_ethnicity('Asian', 300)
 
         name = city.name
