@@ -22,15 +22,15 @@ def render_about():
     return render_template('index.html')
 
 # We assume this will always list out database entries
-@APP.route('/<string:table_name>/')
+@APP.route('/detail/')
 def render_detail():
     """Return HTML page stored in templates directory"""
     myUni_all = table_name.query.all()
-    myUni = 1
+    # myUni = 1
     # myUni = University.query.filter_by(name='UT').first()
     print (myUni)
     print (myUni_all)
-    return render_template('detail.html', myUni = myUni, myUni_all = myUni_all)
+    return render_template('detail.html', myUni_all = myUni_all)
 
 
 # @APP.route('/university/<string:uni_name>/')

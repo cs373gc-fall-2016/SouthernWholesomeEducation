@@ -2,11 +2,11 @@
 {% block content %}
     <div class="container">
       <div>
-        <h3>{{myUni.__tablename__}}</h3>
+        <h3>Title</h3>
         <p>Should list all universitie sin our system</p>
       </div>
         
-      {{myUni}}
+      <!-- {{myUni}} -->
       {% for uni in myUni_all%}
         <li> {{uni.name}} </li>
       {% endfor %}
