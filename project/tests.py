@@ -154,7 +154,7 @@ class Tests(TestCase):
         Test City class
         '''
         city = create_unique(City, name='Austin')
-        create_unique(University, name='UT', num_undergrads=0, cost_to_attend=0, grad_rate=0, public_or_private='')
+        university = create_unique(University, name='UT', num_undergrads=0, cost_to_attend=0, grad_rate=0, public_or_private='')
         city.add_university(university)
         city.add_major('Business', 1000)
         city.add_ethnicity('Asian', 300)
