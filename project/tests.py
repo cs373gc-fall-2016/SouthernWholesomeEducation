@@ -57,7 +57,7 @@ class Tests(TestCase):
         university = University.query.filter_by(name='UT',cost_to_attend=0).first()
         university.add_major('Engineering', 50000)
         m = Major.query.filter_by(name='Engineering').first()
-        num_students = MAJORTOUNIVERSITY.query.filter(c.university_id=university.id_num, c.major_id=m.id_num).first().num_students
+        num_students = MAJORTOUNIVERSITY.query.filter(c.university_id==university.id_num and c.major_id==m.id_num).first().num_students
         self.assertEqual(num_students, 50000)
 
         # -------------------
