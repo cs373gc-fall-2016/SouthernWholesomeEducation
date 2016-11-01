@@ -21,7 +21,7 @@ def render_about():
 def render_detail():
     """Return HTML page stored in templates directory"""
     myUni_all = University.query.all()
-    myUni = University.query.filter_by(id_num=1).first()
+    myUni = University.query.filter_by(name="UT").first()
     print (myUni)
     print (myUni_all)
     return render_template('detail.html', myUni = myUni, myUni_all = myUni_all)
