@@ -52,8 +52,8 @@ class AssociationMajor(DB.Model):
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    major = DB.relationship('Major', backref=DB.backref('university_associations', lazy='dynamic'))
-    university = DB.relationship('University', backref=DB.backref('major_associations', lazy='dynamic'))
+    major = DB.relationship('Major', backref='university_associations')
+    university = DB.relationship('University', backref='major_associations')
     def __init__(self, university, major, num_students):
         self.university = university
         self.major = major
@@ -67,8 +67,8 @@ class AssociationEthnicity(DB.Model):
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    ethnicity = DB.relationship('Ethnicity', backref=DB.backref('university_associations', lazy='dynamic'))
-    university = DB.relationship('University', backref=DB.backref('ethnicity_associations', lazy='dynamic'))
+    ethnicity = DB.relationship('Ethnicity', backref='university_associations')
+    university = DB.relationship('University', backref='ethnicity_associations')
     def __init__(self, university, ethnicity, num_students):
         self.university = university
         self.ethnicity = ethnicity
