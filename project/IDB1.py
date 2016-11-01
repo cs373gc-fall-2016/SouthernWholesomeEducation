@@ -20,9 +20,9 @@ def render_about():
 @APP.route('/detail/')
 def render_detail():
     """Return HTML page stored in templates directory"""
-    myUni = University.query.all()
-    var = University.query.filter_by(idnum=1).first()
-    return render_template('detail.html', var = var, myVar = [42, 54, 34])
+    myUni_all = University.query.all()
+    myUni = University.query.filter_by(id_num=1).first()
+    return render_template('detail.html', myUni = myUni, myUni_all = myUni_all)
 
 
 # @APP.route('/university/<string:uni_name>/')
