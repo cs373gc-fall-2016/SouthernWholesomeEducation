@@ -16,7 +16,7 @@ def create_unique(model, **args):
         DB.session.add(is_exist)
     else:
         is_exist.update(model(**args))
-    DB.session.commit()
+    # DB.session.commit()
     return is_exist
 
 def add_unique(obj):
@@ -25,7 +25,7 @@ def add_unique(obj):
         DB.session.add(obj)
     else:
         is_exist.update(obj)
-    DB.session.commit()
+    # DB.session.commit()
 
 class MAJORTOCITY(DB.Model):
     __tablename__ = 'MAJORTOCITY'
