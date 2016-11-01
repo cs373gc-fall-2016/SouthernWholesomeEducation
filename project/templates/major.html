@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-
+  <div ng-app="app" ng-controller="majorCtrl">
     <div class="container">
       <div>
         <h3>Majors</h3>
@@ -16,33 +16,16 @@
           <th>City Count</th>
           <th>Average Percentage</th>
         </tr>
-        <tr>
-          <td><a href="/journalism.html">Journalism</a></td>
-          <td>2,967</td>
-          <td>83.1%</td>
-          <td>2</td>
-          <td>2</td>
-          <td>4.1%</td>
-        </tr>
-
-        <tr>
-          <td><a href="/engineering.html">Engineering</a></td>
-          <td>8,136</td>
-          <td>53.6%</td>
-          <td>3</td>
-          <td>3</td>
-          <td>11.1%</td>
-        </tr>
-
-        <tr>
-          <td><a href="/socialsciences.html">Social Sciences</a></td>
-          <td>9,075</td>
-          <td>48.1%</td>
-          <td>3</td>
-          <td>3</td>
-          <td>12.5%</td>
+        <tr ng-repeat="major in majors">
+          <td><a href="./majors/{{ major.name.replace(' ', '-') }}"/></td>
+          <td>{{ major.undergraduate_population }}</td>
+          <td>{{ major.graduation_rate }}</td>
+          <td>{{ major.university_count }}</td>
+          <td>{{ major.city_count }}</td>
+          <td>{{ major.average_percentage }}</td>
         </tr>
       </table>
+
       <div>
         <br>
         <p>Major - A given major in a United States college or university.</p>
@@ -52,8 +35,6 @@
         <p>City Count - Number of cities containing given major.</p>
         <p>Average Percentage - Total students in given major over total undergraduate population.</p>
       </div>
-
-
     </div>
-  
+  </div>
 {% endblock %}

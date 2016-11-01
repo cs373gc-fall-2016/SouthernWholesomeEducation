@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-
+  <div ng-app="app" ng-controller="ethnicityCtrl">
     <div class="container">
       <div>
         <h3>Ethnicities</h3>
         <p>The following table contains information about all of the ethnicities in colleges and universities in the United States. (Project 1 contains a limited amount)</p>
       </div>
+      
       <table>
         <tr>
           <th>Ethnicity</th>
@@ -14,39 +15,14 @@
           <th>Top University</th>
           <th>Peak Enrollment Year</th>
         </tr>
-        <tr>
-          <td><a href="/white.html">White</a></td>
-          <td>33,985</td>
-          <td><a href="/Austin.html">Austin, TX</a></td>
-          <td><a href="/UTAustin.html">University of Texas at Austin</a></td>
-          <td>2013</td>
-        </tr>
-
-        <tr>
-          <td><a href="/hispanic.html">Hispanic</a></td>
-          <td>11,135</td>
-          <td><a href="/Austin.html">Austin, TX</a></td>
-          <td><a href="/UTAustin.html">University of Texas at Austin</a></td>
-          <td>2014</td>
-        </tr>
-
-        <tr>
-          <td><a href="/asian.html">Asian</a></td>
-          <td>12,553</td>
-          <td><a href="/Austin.html">Austin, TX</a></td>
-          <td><a href="/UTAustin.html">University of Texas at Austin</a></td>
-          <td>2012</td>
-        </tr>
-
-        <tr>
-          <td><a href="/black.html">Black</a></td>
-          <td>1,861</td>
-          <td><a href="/Charlottesville.html">Charlottesville, VA</a></td>
-          <td><a href="/UVMain.html">University of Virginia-Main Campus</a></td>
-          <td>2012</td>
+        <tr ng-repeat="ethnicity in ethnicities">
+          <td><a href="./ethnicities/{{ ethnicity.name.replace(' ', '-') }}"/></td>
+          <td>{{ ethnicity.total_undergraduate_population }}</td>
+          <td><a href="./cities/{{ ethnicity.top_city }}"/></td>
+          <td><a href="./universities/{{ ethnicity.top_university.replace(' ', '-') }}"/></td>
+          <td>{{ ethnicity.peak_enrollment_year }}</td>
         </tr>
       </table>
-
 
       <div>
         <br>
@@ -56,7 +32,6 @@
         <p>Top University - University which contains the highest amount of given ethnic group.</p>
         <p>Peak Enrollment Year - Year which had the peak enrollment amount of students for the given ethnic group.</p>
       </div>
-
     </div>
-
+  </div>
 {% endblock %}

@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
+  <div ng-app="app" ng-controller="cityCtrl">
     <div class="container">
       <div>
         <h3>Cities</h3>
         <p>The following table contains information about all cities which contain a college/university in the united states. (Project 1 contains a limited amount)</p>
       </div>
+
       <table>
         <tr>
           <th>City</th>
@@ -15,34 +17,14 @@
           <th>Urban or Rural</th>
           <th>Ethnicity Count</th>
         </tr>
-        <tr>
-          <td><a href="/Austin.html">Austin, TX</a></td>
-          <td>38,914</td>
-          <td>1</td>
-          <td>3</td>
-          <td>$17,152</td>
-          <td>Urban</td>
-          <td>3</td>
-        </tr>
-
-        <tr>
-          <td><a href="/LosAngeles.html">Los Angeles, CA</a></td>
-          <td>18,392</td>
-          <td>1</td>
-          <td>3</td>
-          <td>$28,344</td>
-          <td>Urban</td>
-          <td>3</td>
-        </tr>
-
-        <tr>
-          <td><a href="/Charlottesville.html">Charlottesville, VA</a></td>
-          <td>15,515</td>
-          <td>1</td>
-          <td>2</td>
-          <td>$17,863</td>
-          <td>Urban</td>
-          <td>3</td>
+        <tr ng-repeat="city in cities">
+          <td><a href="./cities/{{ city.name.replace(' ', '-') }}"/></td>
+          <td>{{ city.student_population }}</td>
+          <td>{{ city.university_count }}</td>
+          <td>{{ city.major_list }}</td>
+          <td>{{ city.average_tuition }}</td>
+          <td>{{ city.urban_or_rural }}</td>
+          <td>{{ city.ethnicity_count }}</td>
         </tr>
       </table>
       <div>
@@ -55,7 +37,6 @@
         <p>Urban or Rural - Urban is a classification of a density of 1,000 people per square mile, otherwise it is rural.</p>
         <p>Ethnicity Count - Number of enthnicities in the given city.</p>
       </div>
-
-
     </div>
+  </div>
 {% endblock %}
