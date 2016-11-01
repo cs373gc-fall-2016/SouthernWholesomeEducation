@@ -9,43 +9,21 @@ APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhos
 
 DB = SQLAlchemy(APP)
 
-# MAJORTOCITY = DB.Table('MAJORTOCITY',
-#                        DB.Column('city_id', DB.Integer,
-#                                  DB.ForeignKey('CITY.id_num')),
-#                        DB.Column('major_id', DB.Integer,
-#                                  DB.ForeignKey('MAJOR.id_num')))
-
-# ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
-#                            DB.Column('city_id', DB.Integer,
-#                                      DB.ForeignKey('CITY.id_num')),
-#                            DB.Column('ethnicity_id', DB.Integer,
-#                                      DB.ForeignKey('ETHNICITY.id_num')))
-
-# ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
-#                                  DB.Column('university_id', DB.Integer,
-#                                            DB.ForeignKey('UNIVERSITY.id_num')),
-#                                  DB.Column('ethnicity_id', DB.Integer,
-#                                            DB.ForeignKey('ETHNICITY.id_num')))
-
-# MAJORTOUNIVERSITY = DB.Table('MAJORTOUNIVERSITY',
-#                              DB.Column('university_id', DB.Integer,
-#                                        DB.ForeignKey('UNIVERSITY.id_num')),
-#                              DB.Column('major_id', DB.Integer,
-#                                        DB.ForeignKey('MAJOR.id_num')))
-
 def create_unique(model, **args):
     is_exist = model.query.filter_by(**args).first()
     if not is_exist:
         is_exist = model(**args)
         DB.session.add(is_exist)
-    DB.session.commit()
+    else:
+        is_exist.update(model(**args))
     return is_exist
 
 def add_unique(obj):
-    is_exist = obj.__class__.query.filter_by(**obj.attributes()).first()
+    is_exist = obj.__class__.query.filter_by(**obj.primary_attributes()).first()
     if not is_exist:
         DB.session.add(obj)
-    DB.session.commit()
+    else:
+        is_exist.update(obj)
 
 class MAJORTOCITY(DB.Model):
     __tablename__ = 'MAJORTOCITY'
@@ -58,6 +36,15 @@ class MAJORTOCITY(DB.Model):
         self.city = city
         self.major = major
         self.num_students = num_students
+
+    def attributes(self):
+        return {'city': self.city, 'major': self.major, 'num_students': self.num_students}
+
+    def primary_attributes(self):
+        return {'city': self.city, 'major': self.major}
+
+    def update(self, rhs):
+        self.num_students = rhs.num_students
 
     def __repr__(self):
         return '<City ' + self.city.name + ', Major ' + self.major.name + '>'
@@ -77,6 +64,15 @@ class ETHNICITYTOCITY(DB.Model):
     def __repr__(self):
         return '<City ' + self.city.name + ', Ethnicity ' + self.ethnicity.name + '>'
 
+    def primary_attributes(self):
+        return {'city': self.city, 'ethnicity': self.ethnicity}
+
+    def attributes(self):
+        return {'city': self.city, 'ethnicity': self.ethnicity, 'num_students': self.num_students}
+
+    def update(self, rhs):
+        self.num_students = rhs.num_students
+
 class MAJORTOUNIVERSITY(DB.Model):
     __tablename__ = 'MAJORTOUNIVERSITY'
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
@@ -92,6 +88,15 @@ class MAJORTOUNIVERSITY(DB.Model):
     def __repr__(self):
         return '<University ' + self.university.name + ', Major ' + self.major.name + '>'
 
+    def primary_attributes(self):
+        return {'university': self.university, 'major': self.major}
+
+    def attributes(self):
+        return {'university': self.university, 'major': self.major, 'num_students': self.num_students}
+
+    def update(self, rhs):
+        self.num_students = rhs.num_students
+
 class ETHNICITYTOUNIVERSITY(DB.Model):
     __tablename__ = 'ETHNICITYTOUNIVERSITY'
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
@@ -105,7 +110,16 @@ class ETHNICITYTOUNIVERSITY(DB.Model):
         self.num_students = num_students
 
     def __repr__(self):
-        return '<University ' + self.university.name + ', Ethnicity ' + self.ethnicity.name + '>'        
+        return '<University ' + self.university.name + ', Ethnicity ' + self.ethnicity.name + '>'
+
+    def primary_attributes(self):
+        return {'university': self.university, 'ethnicity': self.ethnicity}
+
+    def attributes(self):
+        return {'university': self.university, 'ethnicity': self.ethnicity, 'num_students': self.num_students}
+
+    def update(self, rhs):
+        self.num_students = rhs.num_students
 
 class University(DB.Model):
     '''
@@ -140,18 +154,28 @@ class University(DB.Model):
         return {'name': self.name, 'num_undergrads': self.num_undergrads, 'cost_to_attend': self.cost_to_attend,
             'grad_rate': self.grad_rate, 'public_or_private': self.public_or_private}
 
+    def primary_attributes(self):
+        return {'name': self.name, 'city_id': self.city_id}
+
+    def update(self, rhs):
+        self.num_undergrads = rhs.num_undergrads
+        self.cost_to_attend = rhs.cost_to_attend
+        self.grad_rate = rhs.grad_rate
+        self.public_or_private = rhs.public_or_private
+
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
     def add_major(self, maj, num):
         """Appends new major to major_list"""
         maj = Major(maj)
-        assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
+        assoc_maj = create_unique(MAJORTOUNIVERSITY, university=self, major=maj, num_students=num)
+        # assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
         self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
         eth = Ethnicity(eth)
-        assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
+        assoc_eth = create_unique(ETHNICITYTOUNIVERSITY, university=self, ethnicity=eth, num_students=num)
         self.ethnicity_list.append(assoc_eth)
 
 
@@ -182,6 +206,13 @@ class City(DB.Model):
     def attributes(self):
         return {'name': self.name}
 
+    def primary_attributes(self):
+        return {'name': self.name}
+
+    def update(self, rhs):
+        self.population = rhs.population
+        self.avg_tuition = rhs.avg_tuition
+
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
     def add_university(self, uni):
@@ -191,13 +222,15 @@ class City(DB.Model):
     def add_major(self, maj, num):
         """Appends major to major_list"""
         maj = Major(maj)
-        assoc_maj = MAJORTOCITY(self, maj, num)
+        assoc_maj = create_unique(MAJORTOCITY, city=self, major=maj, num_students=num)
+        # assoc_maj = MAJORTOCITY(self, maj, num)
         self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Adds new ethnicity to ethnicity_list"""
         eth = Ethnicity(eth)
-        assoc_eth = ETHNICITYTOCITY(self, eth, num)
+        # assoc_eth = ETHNICITYTOCITY(self, eth, num)
+        assoc_eth = create_unique(ETHNICITYTOCITY, city=self, ethnicity=eth, num_students=num)
         self.ethnicity_list.append(assoc_eth)
 
 
@@ -224,6 +257,14 @@ class Major(DB.Model):
     def attributes(self):
         return {'name': self.name}
 
+    def primary_attributes(self):
+        return {'name': self.name}
+
+    def update(self, rhs):
+        self.num_undergrads = rhs.num_undergrads
+        self.top_city = rhs.top_city
+        self.avg_percentage = rhs.avg_percentage
+
 
 class Ethnicity(DB.Model):
     '''
@@ -245,3 +286,9 @@ class Ethnicity(DB.Model):
 
     def attributes(self):
         return {'name': self.name}
+
+    def primary_attributes(self):
+        return {'name': self.name}
+
+    def update(self, rhs):
+        self.total_count = rhs.total_count
