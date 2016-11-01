@@ -142,7 +142,7 @@ class Tests(TestCase):
         '''
         Test City class
         '''
-        city = City('Austin', 'urban')
+        city = City('Austin')
         university = University('UT', 0, 0, 0, '')
         city.add_university(university)
         city.add_major('Business')
@@ -154,7 +154,6 @@ class Tests(TestCase):
         major_list = city.major_list
         ethnicity_list = city.ethnicity_list
         avg_tuition = city.avg_tuition
-        urban_or_rural = city.urban_or_rural
 
         self.assertEqual(name, 'Austin')
         self.assertEqual(population, 0)
@@ -162,11 +161,9 @@ class Tests(TestCase):
         self.assertEqual(major_list[0].__repr__(), '<Major Business>')
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
         self.assertEqual(avg_tuition, 0)
-        self.assertEqual(urban_or_rural, 'urban')
         add_unique(university)
         add_unique(city)
         entries = City.query.filter_by(name='Austin').first()
-        self.assertEqual(entries.urban_or_rural, 'urban')
 
         # # -------------
         # # city __repr__
@@ -176,21 +173,21 @@ class Tests(TestCase):
         '''
         Test City __repr__
         '''
-        city = City('Austin', 'urban')
+        city = City('Austin')
         self.assertEqual(city.__repr__(), '<City Austin>')
 
     def test_city_repr_2(self):
         '''
         Test City __repr__
         '''
-        city = City('Salt Lake City', 'urban')
+        city = City('Salt Lake City')
         self.assertEqual(city.__repr__(), '<City Salt Lake City>')
 
     def test_city_repr_3(self):
         '''
         Test City __repr__
         '''
-        city = City('New York', 'urban')
+        city = City('New York')
         self.assertEqual(city.__repr__(), '<City New York>')
 
         # # ------------------
@@ -201,7 +198,7 @@ class Tests(TestCase):
         '''
         Test City addUniversity
         '''
-        city = City('Austin', 'urban')
+        city = City('Austin')
         university = University('UT', 0, 0, 0, '')
         city.add_university(university)
         self.assertEqual(city.__repr__(), '<City Austin>')
@@ -210,7 +207,7 @@ class Tests(TestCase):
         '''
         Test City addUniversity
         '''
-        city = City('Salt Lake City', 'urban')
+        city = City('Salt Lake City')
         university = University('SLC', 0, 0, 0, '')
         city.add_university(university)
         self.assertEqual(city.__repr__(), '<City Salt Lake City>')
@@ -219,7 +216,7 @@ class Tests(TestCase):
         '''
         Test City addUniversity
         '''
-        city = City('New York', 'urban')
+        city = City('New York')
         university = University('NY', 0, 0, 0, '')
         city.add_university(university)
         self.assertEqual(city.__repr__(), '<City New York>')
@@ -232,7 +229,7 @@ class Tests(TestCase):
         '''
         Test city addMajor
         '''
-        city = City('Austin', 'urban')
+        city = City('Austin')
         city.add_major('Physics')
         self.assertEqual(city.major_list[0].__repr__(), '<Major Physics>')
 
@@ -240,7 +237,7 @@ class Tests(TestCase):
         '''
         Test city addMajor
         '''
-        city = City('Salt Lake City', 'urban')
+        city = City('Salt Lake City')
         city.add_major('Chemistry')
         self.assertEqual(city.major_list[0].__repr__(), '<Major Chemistry>')
 
@@ -248,7 +245,7 @@ class Tests(TestCase):
         '''
         Test city addMajor
         '''
-        city = City('New York', 'urban')
+        city = City('New York')
         city.add_major('Biology')
         self.assertEqual(city.major_list[0].__repr__(), '<Major Biology>')
 
@@ -260,7 +257,7 @@ class Tests(TestCase):
         '''
         Test University addEthnicity
         '''
-        city = City('Austin', 'urban')
+        city = City('Austin')
         city.add_ethnicity('Asian')
         self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
 
@@ -268,7 +265,7 @@ class Tests(TestCase):
         '''
         Test University addEthnicity
         '''
-        city = City('Salt Lake City', 'urban')
+        city = City('Salt Lake City')
         city.add_ethnicity('White')
         self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity White>')
 
@@ -276,7 +273,7 @@ class Tests(TestCase):
         '''
         Test University addEthnicity
         '''
-        city = City('New York', 'urban')
+        city = City('New York')
         city.add_ethnicity('African American')
         self.assertEqual(city.ethnicity_list[0].__repr__(), '<Ethnicity African American>')
 

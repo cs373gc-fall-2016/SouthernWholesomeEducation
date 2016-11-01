@@ -21,29 +21,55 @@ ETHNICITYTOCITY = DB.Table('ETHNICITYTOCITY',
                            DB.Column('ethnicity_id', DB.Integer,
                                      DB.ForeignKey('ETHNICITY.id_num')))
 
-ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
-                                 DB.Column('university_id', DB.Integer,
-                                           DB.ForeignKey('UNIVERSITY.id_num')),
-                                 DB.Column('ethnicity_id', DB.Integer,
-                                           DB.ForeignKey('ETHNICITY.id_num')))
+# ETHNICITYTOUNIVERSITY = DB.Table('ETHNICITYTOUNIVERSITY',
+#                                  DB.Column('university_id', DB.Integer,
+#                                            DB.ForeignKey('UNIVERSITY.id_num')),
+#                                  DB.Column('ethnicity_id', DB.Integer,
+#                                            DB.ForeignKey('ETHNICITY.id_num')))
 
-MAJORTOUNIVERSITY = DB.Table('MAJORTOUNIVERSITY',
-                             DB.Column('university_id', DB.Integer,
-                                       DB.ForeignKey('UNIVERSITY.id_num')),
-                             DB.Column('major_id', DB.Integer,
-                                       DB.ForeignKey('MAJOR.id_num')))
+# MAJORTOUNIVERSITY = DB.Table('MAJORTOUNIVERSITY',
+#                              DB.Column('university_id', DB.Integer,
+#                                        DB.ForeignKey('UNIVERSITY.id_num')),
+#                              DB.Column('major_id', DB.Integer,
+#                                        DB.ForeignKey('MAJOR.id_num')))
 
 def create_unique(model, **args):
     is_exist = model.query.filter_by(**args).first()
     if not is_exist:
-        DB.session.add(model(**args))
+        is_exist = model(**args)
+        DB.session.add(is_exist)
         DB.session.commit()
+    return is_exist
 
 def add_unique(obj):
     is_exist = obj.__class__.query.filter_by(**obj.attributes()).first()
     if not is_exist:
         DB.session.add(obj)
         DB.session.commit()
+
+class AssociationMajor(DB.Model):
+    __tablename__ = 'associationmajor'
+    university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
+    major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
+    num_students = DB.Column(DB.Integer)
+    major = DB.relationship('Major', backref=DB.backref('university_associations', lazy='dynamic'))
+    university = DB.relationship('University', backref=DB.backref('major_associations', lazy='dynamic'))
+    def __init__(self, university, major, num_students):
+        self.university = university
+        self.major = major
+        self.num_students = num_students
+
+class AssociationEthnicity(DB.Model):
+     __tablename__ = 'associationethnicity'
+    university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
+    ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
+    num_students = DB.Column(DB.Integer)
+    ethnicity = DB.relationship('Ethnicity', backref=DB.backref('university_associations', lazy='dynamic'))
+    university = DB.relationship('University', backref=DB.backref('ethnicity_associations', lazy='dynamic'))
+    def __init__(self, university, ethnicity, num_students):
+        self.university = university
+        self.ethnicity = ethnicity
+        self.num_students = num_students
 
 class University(DB.Model):
     '''
@@ -59,10 +85,9 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(80))
-    ethnicity_list = DB.relationship('Ethnicity', secondary=ETHNICITYTOUNIVERSITY,
-                                     backref=DB.backref('university', lazy='dynamic'))
-    major_list = DB.relationship('Major', secondary=MAJORTOUNIVERSITY,
-                                 backref=DB.backref('university', lazy='dynamic'))
+    ethnicity_list = DB.relationship('Ethnicity', secondary='associationethnicity')
+    major_list = DB.relationship('Major', secondary='associationmajor')
+    
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
     def __init__(self, name, numundergrads, costtoattend, gradrate, publicorprivate):
@@ -81,14 +106,15 @@ class University(DB.Model):
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
-    def add_major(self, maj):
+    def add_major(self, maj, num):
         """Appends new major to major_list"""
-        maj = Major(maj)
-        self.major_list.append(maj)
+        maj = create_unique(Major, name=maj)
+        AssociationMajor(self, maj, num)
 
-    def add_ethnicity(self, eth):
+    def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
-        self.ethnicity_list.append(Ethnicity(eth))
+        eth = create_unique(Ethnicity, name=eth)
+        AssociationEthnicity(self, eth, num)
 
 
 class City(DB.Model):
@@ -110,17 +136,16 @@ class City(DB.Model):
     avg_tuition = DB.Column(DB.Integer)
     urban_or_rural = DB.Column(DB.String(80))
 
-    def __init__(self, name, urbanorrural):
+    def __init__(self, name):
         self.name = name
         self.population = 0
         self.avg_tuition = 0
-        self.urban_or_rural = urbanorrural
 
     def __repr__(self):
         return '<City ' + self.name + '>'
 
     def attributes(self):
-        return {'name': self.name, 'urban_or_rural': self.urban_or_rural}
+        return {'name': self.name}
 
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
@@ -148,7 +173,7 @@ class Major(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     num_undergrads = DB.Column(DB.Integer)
-    grad_rate = DB.Column(DB.Float)
+    top_city = DB.Column(DB.String(80))
     avg_percentage = DB.Column(DB.Float)
 
     def __init__(self, name):
