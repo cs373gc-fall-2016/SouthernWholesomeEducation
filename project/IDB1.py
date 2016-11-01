@@ -17,7 +17,7 @@ def render_about():
     return render_template('about.html')
 
 @APP.route('/index/')
-def render_about():
+def render_index():
     """Return HTML page stored in templates directory"""
     return render_template('index.html')
 
