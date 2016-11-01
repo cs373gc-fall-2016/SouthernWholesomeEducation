@@ -172,8 +172,6 @@ class Tests(TestCase):
         self.assertEqual(major_list[0].__repr__(), '<City Austin, Major Business>')
         self.assertEqual(ethnicity_list[0].__repr__(), '<City Austin, Ethnicity Asian>')
         self.assertEqual(avg_tuition, 0)
-        add_unique(city)
-        add_unique(university)
         DB.session.commit()
         entries = City.query.filter_by(name='Austin').first()
 
