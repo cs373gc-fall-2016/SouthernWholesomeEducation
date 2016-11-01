@@ -81,7 +81,7 @@ def setup_data(individual_school_dict):
                 majors[major] = major_temp_dict
 
     # Ethnicities
-    for major in individual_school_dict:
+    # for major in individual_school_dict:
 
 
 
