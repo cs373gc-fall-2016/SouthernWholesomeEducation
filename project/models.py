@@ -333,6 +333,9 @@ class Ethnicity(DB.Model):
     def __init__(self, name, total_count=0, top_city='Default', top_university='Default', peak_year=0):
         self.name = name
         self.total_count = 0
+        self.top_city = top_city
+        self.top_university = top_university
+        self.peak_year = peak_year
 
     def __repr__(self):
         return '<Ethnicity ' + self.name + '>'
