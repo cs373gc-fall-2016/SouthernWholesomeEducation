@@ -38,14 +38,14 @@ def create_unique(model, **args):
     if not is_exist:
         is_exist = model(**args)
         DB.session.add(is_exist)
-        DB.session.commit()
+    DB.session.commit()
     return is_exist
 
 def add_unique(obj):
     is_exist = obj.__class__.query.filter_by(**obj.attributes()).first()
     if not is_exist:
         DB.session.add(obj)
-        DB.session.commit()
+    DB.session.commit()
 
 class MAJORTOCITY(DB.Model):
     __tablename__ = 'MAJORTOCITY'

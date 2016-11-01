@@ -30,7 +30,7 @@ class Tests(TestCase):
         Test University class
         '''
         university = University('UT', 10, 100, .80, 'public')
-        university.add_major('Engineering', 500)
+        university.add_major('Engineering', 1000)
         university.add_ethnicity('White', 1000)
 
         name = university.name
