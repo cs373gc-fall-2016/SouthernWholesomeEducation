@@ -47,7 +47,7 @@ def render_major_table():
     entries = Major.query.all()
     return render_template('table.html', entries=entries, title="Majors")
 
-@APP.route('/Ethnicity/')
+@APP.route('/ethnicity/')
 def render_ethnicity_table():
     """Return HTML page stored in templates directory"""
     entries = Ethnicity.query.all()
