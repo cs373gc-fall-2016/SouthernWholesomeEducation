@@ -11,6 +11,7 @@ DB = SQLAlchemy(APP)
 
 def create_unique(model, **args):
     is_exist = model.query.filter_by(**args).first()
+    print(is_exist)
     if not is_exist:
         assert False
         is_exist = model(**args)
