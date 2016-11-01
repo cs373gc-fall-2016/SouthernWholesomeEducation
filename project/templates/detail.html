@@ -6,6 +6,9 @@
         <p>Should list all universitie sin our system</p>
       </div>
         
-<!--      {{var}} --> 
+      {{var.name}}
+      {% for uni in myUni%}
+        <li> {{uni.name}} </li>
+      {% endfor %}
     </div>
 {% endblock %}
