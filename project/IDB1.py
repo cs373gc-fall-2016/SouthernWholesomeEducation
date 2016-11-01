@@ -1,7 +1,9 @@
+#!/usr/bin/env python
 """Implementation of flask app for serving HTML pages"""
 
 import os
 from flask import Flask, render_template, send_from_directory
+from models import models
 
 APP = Flask(__name__)
 @APP.route('/')

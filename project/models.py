@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/swe'
-APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 DB = SQLAlchemy(APP)
 
 MAJORTOCITY = DB.Table('majorsToCity',
