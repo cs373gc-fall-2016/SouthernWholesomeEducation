@@ -41,6 +41,7 @@ def setup_data(individual_school_dict):
         cities[individual_school_dict['school.city']]['major_count'] = len(cities[individual_school_dict['school.city']]['major_list'])
         cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
+        cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_list(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
     else:
         # creating a new city
         citi_temp_dict = dict()
@@ -53,6 +54,8 @@ def setup_data(individual_school_dict):
         citi_temp_dict['ethnicity_list'] = major_and_ethnicity_list(individual_school_dict, 'demographics','2014.student.demographics.race_ethnicity.')
         citi_temp_dict['ethnicity_count'] = len(citi_temp_dict['ethnicity_list'])
         cities[individual_school_dict['school.city']] = citi_temp_dict
+
+    #
 
 
     print(universities)
