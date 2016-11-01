@@ -87,7 +87,7 @@ class Tests(TestCase):
         Test University addMajor
         '''
         university = University('UT', 0, 0, 0, '')
-        university.add_major('Physics')
+        university.add_major('Physics', 1000)
         self.assertEqual(university.major_list[0].__repr__(), '<Major Physics>')
 
     def test_university_add_major_2(self):
@@ -95,7 +95,7 @@ class Tests(TestCase):
         Test University addMajor
         '''
         university = University('A&M', 0, 0, 0, '')
-        university.add_major('Chemistry')
+        university.add_major('Chemistry', 1000)
         self.assertEqual(university.major_list[0].__repr__(), '<Major Chemistry>')
 
     def test_university_add_major_3(self):
@@ -103,7 +103,7 @@ class Tests(TestCase):
         Test University addMajor
         '''
         university = University('Rice', 0, 0, 0, '')
-        university.add_major('Biology')
+        university.add_major('Biology', 1000)
         self.assertEqual(university.major_list[0].__repr__(), '<Major Biology>')
 
         # # -----------------------
