@@ -30,8 +30,8 @@ class Tests(TestCase):
         Test University class
         '''
         university = create_unique(University, name='UT', num_undergrads=10, cost_to_attend=100, grad_rate=0.8, public_or_private='public')
-        university.add_major('Engineering', 1000)
-        university.add_ethnicity('White', 1000)
+        university.add_major(create_unique(Major, name='Business'), 1000)
+        university.add_ethnicity(create_unique(Ethnicity, name='White'), 1000)
 
         name = university.name
         num_undergrads = university.num_undergrads
