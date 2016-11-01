@@ -42,7 +42,7 @@ def render_city_table():
     return render_template('table.html', entries=entries, title="Cities")
 
 @APP.route('/major/')
-def render_uni_table():
+def render_major_table():
     """Return HTML page stored in templates directory"""
     entries = Major.query.all()
     return render_template('table.html', entries=entries, title="Majors")
