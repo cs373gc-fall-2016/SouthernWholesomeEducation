@@ -19,8 +19,9 @@ def render_about():
 @APP.route('/detail/')
 def render_detail():
     """Return HTML page stored in templates directory"""
-    myUni = University.query.all()
-    return render_template('detail.html', myUni=myUni)
+    # myUni = University.query.all()
+    # return render_template('detail.html', myUni=myUni)
+    return render_template('detail.html', myUni=[{idnum: 1, name: "haha", ethnicityList: 2}])
 
 
 # @APP.route('/university/<string:uni_name>/')
