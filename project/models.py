@@ -170,7 +170,6 @@ class City(DB.Model):
     ethnicity_list = DB.relationship('ETHNICITYTOCITY')
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
-    urban_or_rural = DB.Column(DB.String(80))
 
     def __init__(self, name):
         self.name = name
