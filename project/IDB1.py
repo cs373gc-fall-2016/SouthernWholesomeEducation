@@ -2,15 +2,22 @@
 
 import os
 from flask import Flask, render_template, send_from_directory
-# from models import University, City, Major, Ethnicity
+from flask_sqlalchemy import SQLAlchemy
+# from models import DB
 APP = Flask(__name__)
 
 
-
-@APP.route('/<string:page_name>/')
+@APP.route('/about/')
 def render_static(page_name):
     """Return HTML page stored in templates directory"""
-    return render_template('%s' % page_name)
+    return render_template('about.html')
+
+# We assume this will always list out database entries
+@APP.route('/<string:table>/')
+def render_table(table):
+    """Return HTML page stored in templates directory"""
+    myTable = 
+    return render_template('detail.html',myTable = myTable)
 
 
 @APP.route('/')
