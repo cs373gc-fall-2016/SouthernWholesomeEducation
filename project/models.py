@@ -222,8 +222,8 @@ class City(DB.Model):
     def add_major(self, maj, num):
         """Appends major to major_list"""
         maj = Major(maj)
-        assoc_maj = create_unique(MAJORTOCITY, city=self, major=maj, num_students=num)
-        # assoc_maj = MAJORTOCITY(self, maj, num)
+        # assoc_maj = create_unique(MAJORTOCITY, city=self, major=maj, num_students=num)
+        assoc_maj = MAJORTOCITY(self, maj, num)
         self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
