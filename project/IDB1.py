@@ -16,6 +16,11 @@ def render_about():
     """Return HTML page stored in templates directory"""
     return render_template('about.html')
 
+@APP.route('/index/')
+def render_about():
+    """Return HTML page stored in templates directory"""
+    return render_template('index.html')
+
 # We assume this will always list out database entries
 @APP.route('/<string:table_name>/')
 def render_detail():
