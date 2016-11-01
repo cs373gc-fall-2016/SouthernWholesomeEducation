@@ -17,11 +17,10 @@ def render_about():
     return render_template('about.html')
 
 # We assume this will always list out database entries
-# @APP.route('/<string:table>/')
-# def render_table(table):
-#     """Return HTML page stored in templates directory"""
-#     myTable = 
-#     return render_template('detail.html',myTable = myTable)
+@APP.route('/detail/')
+def render_about():
+    """Return HTML page stored in templates directory"""
+    return render_template('detail.html', myVar = [42, 54, 34])
 
 
 # @APP.route('/university/<string:uni_name>/')
