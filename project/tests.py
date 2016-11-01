@@ -54,12 +54,10 @@ class Tests(TestCase):
         self.assertEqual(entries.num_undergrads, 10)
 
     def test_update(self):
-        university = University.query.filter_by(name='UT',cost_to_attend=100).first()
-        m = Major.query.filter_by(name='Engineering').first()
         # self.assertEqual(m.id_num, 2)
         # self.assertEqual(university.id_num, 2)
-        assoc = get_association(MAJORTOUNIVERSITY, major_id=m.id_num, university_id=university.id_num)
-        assoc.num_students = 50000
+        assoc = get_association(MAJORTOUNIVERSITY, major_name='Engineering', university_name='UT')
+        assoc.num_students = 70000
         DB.session.commit()
         self.assertEqual(assoc.num_students, 50000)
         # self.assertEqual(num_students, 50000)
