@@ -29,29 +29,29 @@ def render_detail():
     return render_template('detail.html', myUni_all = myUni_all)
 
 
-@APP.route('/University/')
+@APP.route('/university/')
 def render_uni_table():
     """Return HTML page stored in templates directory"""
     entires = University.query.all()
     return render_template('table.html', entries=entries, title="Universities")
 
-@APP.route('/City/')
-def render_city_table():
-    """Return HTML page stored in templates directory"""
-    entires = City.query.all()
-    return render_template('table.html', entries=entries, title="Cities")
+# @APP.route('/City/')
+# def render_city_table():
+#     """Return HTML page stored in templates directory"""
+#     entires = City.query.all()
+#     return render_template('table.html', entries=entries, title="Cities")
 
-@APP.route('/Major/')
-def render_uni_table():
-    """Return HTML page stored in templates directory"""
-    entires = Major.query.all()
-    return render_template('table.html', entries=entries, title="Majors")
+# @APP.route('/Major/')
+# def render_uni_table():
+#     """Return HTML page stored in templates directory"""
+#     entires = Major.query.all()
+#     return render_template('table.html', entries=entries, title="Majors")
 
-@APP.route('/Ethnicity/')
-def render_uni_table():
-    """Return HTML page stored in templates directory"""
-    entires = Ethnicity.query.all()
-    return render_template('table.html', entries=entries, title="Ethnicities")
+# @APP.route('/Ethnicity/')
+# def render_uni_table():
+#     """Return HTML page stored in templates directory"""
+#     entires = Ethnicity.query.all()
+#     return render_template('table.html', entries=entries, title="Ethnicities")
 
 # @APP.route('/<string:page_name>/')
 # def render_static(page_name):
