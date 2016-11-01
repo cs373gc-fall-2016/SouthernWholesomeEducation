@@ -28,7 +28,7 @@ def add_unique(obj):
     # DB.session.commit()
 
 def get_association(model, **args):
-    return model.query.filter_by(**args).first().num_students
+    return model.query.filter_by(**args).first()
 
 class MAJORTOCITY(DB.Model):
     __tablename__ = 'MAJORTOCITY'
