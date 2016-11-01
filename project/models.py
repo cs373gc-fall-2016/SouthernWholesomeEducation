@@ -60,7 +60,7 @@ class AssociationMajor(DB.Model):
         self.num_students = num_students
 
 class AssociationEthnicity(DB.Model):
-     __tablename__ = 'associationethnicity'
+    __tablename__ = 'associationethnicity'
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
