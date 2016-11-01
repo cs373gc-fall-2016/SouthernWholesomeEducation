@@ -32,7 +32,7 @@ def render_detail():
 @APP.route('/university/')
 def render_uni_table():
     """Return HTML page stored in templates directory"""
-    entires = University.query.all()
+    entries = University.query.all()
     return render_template('table.html', entries=entries, title="Universities")
 
 # @APP.route('/City/')
