@@ -13,7 +13,7 @@ def create_unique(model, **args):
     is_exist = model.query.filter_by(**args).first()
     print(is_exist)
     if not is_exist:
-        # assert False
+        assert False
         is_exist = model(**args)
         DB.session.add(is_exist)
     # DB.session.commit()
