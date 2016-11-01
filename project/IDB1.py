@@ -28,7 +28,7 @@ def render_detail():
     myUni_all = University.query.all()
     return render_template('detail.html', myUni_all = myUni_all)
 
-@APP.route('/<table_name>/')
+@APP.route('/<table_name>')
 def render_table(table_name):
     """Return HTML page stored in templates directory"""
     table = str(table_name)
