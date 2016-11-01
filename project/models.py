@@ -91,8 +91,8 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(80))
-    ethnicity_list = DB.relationship('AssociationEthnicity', backref = 'university')
-    major_list = DB.relationship('AssociationMajor', backref= 'university')
+    ethnicity_list = DB.relationship('Ethnicity', secondary='associationethnicity')
+    major_list = DB.relationship('Major', secondary='associationmajor')
     
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
