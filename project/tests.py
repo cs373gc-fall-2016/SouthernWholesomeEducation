@@ -162,6 +162,7 @@ class Tests(TestCase):
         self.assertEqual(avg_tuition, 0)
         add_unique(university)
         add_unique(city)
+        DB.session.commit()
         entries = City.query.filter_by(name='Austin').first()
 
         # # -------------
