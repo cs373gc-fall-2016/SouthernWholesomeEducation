@@ -60,7 +60,6 @@ class Tests(TestCase):
         self.assertEqual(m.id_num, 2)
         self.assertEqual(university.id_num, 2)
         assoc = get_association(MAJORTOUNIVERSITY, major_id=m.id_num, university_id=university.id_num)
-        self.assertEqual(assoc.num_students, 500)
         assoc.num_students = 50000
         DB.session.commit()
         self.assertEqual(assoc.num_students, 50000)
