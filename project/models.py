@@ -35,10 +35,14 @@ class MAJORTOCITY(DB.Model):
     num_students = DB.Column(DB.Integer)
     major = DB.relationship('Major', backref='cities')
     city = DB.relationship('City', backref='majors')
+    city_name = DB.Column(DB.String(80))
+    major_name = DB.Column(DB.String(80))
     def __init__(self, city, major, num_students):
         self.city = city
         self.major = major
         self.num_students = num_students
+        self.city_name = self.city.name
+        self.major_name = self.major.name
 
     def attributes(self):
         return {'city': self.city, 'major': self.major, 'num_students': self.num_students}
@@ -57,12 +61,16 @@ class ETHNICITYTOCITY(DB.Model):
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'), primary_key=True)
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
+    city_name = DB.Column(DB.String(80))
+    ethnicity_name = DB.Column(DB.String(80))
     ethnicity = DB.relationship('Ethnicity', backref='cities')
     city = DB.relationship('City', backref='ethnicities')
     def __init__(self, city, ethnicity, num_students):
         self.city = city
         self.ethnicity = ethnicity
         self.num_students = num_students
+        self.city_name = self.city.name
+        self.ethnicity_name = self.ethnicity.name
 
     def __repr__(self):
         return '<City ' + self.city.name + ', Ethnicity ' + self.ethnicity.name + '>'
@@ -81,12 +89,16 @@ class MAJORTOUNIVERSITY(DB.Model):
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
+    university_name = DB.Column(DB.String(80))
+    major_name = DB.Column(DB.String(80))
     major = DB.relationship('Major', backref='universities')
     university = DB.relationship('University', backref='majors')
     def __init__(self, university, major, num_students):
         self.university = university
         self.major = major
         self.num_students = num_students
+        self.university_name = self.university.name
+        self.major_name = self.major.name
 
     def __repr__(self):
         return '<University ' + self.university.name + ', Major ' + self.major.name + '>'
@@ -105,12 +117,16 @@ class ETHNICITYTOUNIVERSITY(DB.Model):
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey('ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
+    university_name = DB.Column(DB.String(80))
+    ethnicity_name = DB.Column(DB.String(80))
     ethnicity = DB.relationship('Ethnicity', backref='universities')
     university = DB.relationship('University', backref='ethnicities')
     def __init__(self, university, ethnicity, num_students):
         self.university = university
         self.ethnicity = ethnicity
         self.num_students = num_students
+        self.university_name = self.university.name
+        self.ethnicity_name = self.ethnicity.name
 
     def __repr__(self):
         return '<University ' + self.university.name + ', Ethnicity ' + self.ethnicity.name + '>'
