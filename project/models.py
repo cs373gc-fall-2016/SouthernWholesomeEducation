@@ -5,6 +5,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 APP = Flask(__name__)
+
 APP.config[
     'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhost/swe'
 
@@ -325,8 +326,11 @@ class Ethnicity(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     total_count = DB.Column(DB.Integer)
+    top_city = DB.Column(DB.String(80))
+    top_university = DB.Column(DB.String(80))
+    peak_year = DB.Column(DB.Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, total_count=0, top_city='Default', top_university='Default', peak_year=0):
         self.name = name
         self.total_count = 0
 
