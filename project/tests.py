@@ -58,7 +58,7 @@ class Tests(TestCase):
         university.add_major('Engineering', 50000)
         DB.session.commit()
         m = Major.query.filter_by(name='Engineering').first()
-        num_students = MAJORTOUNIVERSITY.query.filter_by(university_id=university.id_num, major_id=m.id_num)
+        num_students = MAJORTOUNIVERSITY.query.filter_by(university_id=university.id_num, major_id=m.id_num).first().num_students
         self.assertEqual(num_students, 50000)
 
         # -------------------
