@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+      <div>
+        <h3>Universities</h3>
+        <p>Should list all universitie sin our system</p>
+      </div>
+      
+      {%for uni in myVar%}
+      <li>{{uni}}</li>
+      {% endfor %}
+      <!-- {%for uni in myUni%}
+      <li>{{uni.idnum}} = ID, {{uni.name}} = NAME, {{uni.ethnicityList}} = ETH_LIST
+      {% endfor %} -->
+    </div>
+{% endblock %}
