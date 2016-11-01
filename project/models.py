@@ -108,12 +108,12 @@ class University(DB.Model):
     # Ethnicities.
     def add_major(self, maj, num):
         """Appends new major to major_list"""
-        maj = create_unique(Major, name=maj)
+        maj = Major(maj)
         AssociationMajor(self, maj, num)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
-        eth = create_unique(Ethnicity, name=eth)
+        eth = Ethnicity(eth)
         AssociationEthnicity(self, eth, num)
 
 
