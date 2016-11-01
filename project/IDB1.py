@@ -3,7 +3,7 @@
 import os
 from flask import Flask, render_template, send_from_directory
 # from flask_sqlalchemy import SQLAlchemy
-# from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
 APP = Flask(__name__)
 # app.config.from_object(os.environ['APP_SETTINGS'])
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
