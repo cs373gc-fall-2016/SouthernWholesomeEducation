@@ -31,9 +31,9 @@ def render_detail():
 @APP.route('/<table_name>/')
 def render_table(table_name):
     """Return HTML page stored in templates directory"""
-    # table = str(table_name)
-    # entires = table.query.all()
-    return render_template('table.html')
+    table = str(table_name)
+    entires = table.query.all()
+    return render_template('table.html', entries)
 
 # @APP.route('/<string:page_name>/')
 # def render_static(page_name):
