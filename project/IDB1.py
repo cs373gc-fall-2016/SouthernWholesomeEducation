@@ -25,14 +25,22 @@ def render_index():
 @APP.route('/detail/')
 def render_detail():
     """Return HTML page stored in templates directory"""
-    myUni_all = table_name.query.all()
+    myUni_all = University.query.all()
     # myUni = 1
     # myUni = University.query.filter_by(name='UT').first()
     print (myUni)
     print (myUni_all)
     return render_template('detail.html', myUni_all = myUni_all)
 
-
+@APP.route('/<string:table_name>/')
+def render_table():
+    """Return HTML page stored in templates directory"""
+    myUni_all = table_name.query.all()
+    # myUni = 1
+    # myUni = University.query.filter_by(name='UT').first()
+    print (myUni)
+    print (myUni_all)
+    return render_template('detail.html', myUni_all = myUni_all)
 # @APP.route('/university/<string:uni_name>/')
 # def render_uni_detail():
 #     """Return index.html page when no path is given"""
