@@ -2,7 +2,6 @@
 
 import os
 from flask import Flask, render_template, send_from_directory
-import models
 
 APP = Flask(__name__)
 @APP.route('/')
