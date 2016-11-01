@@ -2,9 +2,14 @@
 
 import os
 from flask import Flask, render_template, send_from_directory
-
+from models import University, City, Major, Ethnicity
 APP = Flask(__name__)
 
+@APP.route('/university/<string:uni_name>')
+def render_uni_detail():
+    """Return index.html page when no path is given"""
+    myUni = University.query.all()
+    return render_template('detail.html', myUni=myUni)
 
 @APP.route('/<string:page_name>/')
 def render_static(page_name):
