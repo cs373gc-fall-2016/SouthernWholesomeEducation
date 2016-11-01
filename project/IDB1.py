@@ -22,7 +22,7 @@ def render_detail():
     """Return HTML page stored in templates directory"""
     myUni = University.query.all()
     var = University.query.filter_by(idnum=1).first()
-    return render_template('detail.html', myVar = [42, 54, 34])
+    return render_template('detail.html', var = var, myVar = [42, 54, 34])
 
 
 # @APP.route('/university/<string:uni_name>/')
