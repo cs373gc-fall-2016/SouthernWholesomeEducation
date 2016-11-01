@@ -35,17 +35,17 @@ def render_uni_table():
     entries = University.query.all()
     return render_template('table.html', entries=entries, title="Universities")
 
-# @APP.route('/City/')
-# def render_city_table():
-#     """Return HTML page stored in templates directory"""
-#     entires = City.query.all()
-#     return render_template('table.html', entries=entries, title="Cities")
+@APP.route('/city/')
+def render_city_table():
+    """Return HTML page stored in templates directory"""
+    entries = City.query.all()
+    return render_template('table.html', entries=entries, title="Cities")
 
-# @APP.route('/Major/')
-# def render_uni_table():
-#     """Return HTML page stored in templates directory"""
-#     entires = Major.query.all()
-#     return render_template('table.html', entries=entries, title="Majors")
+@APP.route('/major/')
+def render_uni_table():
+    """Return HTML page stored in templates directory"""
+    entries = Major.query.all()
+    return render_template('table.html', entries=entries, title="Majors")
 
 # @APP.route('/Ethnicity/')
 # def render_uni_table():
