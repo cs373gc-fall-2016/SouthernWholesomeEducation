@@ -50,7 +50,6 @@ class Tests(TestCase):
         self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity White>')
         add_unique(university)
         entries = University.query.filter_by(name='UT',cost_to_attend=100).first()
-        print(type(entries.ethnicity_list))
         self.assertEqual(entries.num_undergrads, 10)
 
         # -------------------
