@@ -32,7 +32,7 @@ def render_detail():
 @APP.route('/<table_name>/')
 def render_table(table_name):
     """Return HTML page stored in templates directory"""
-    entires = table_name.query.all()
+    entires = models.table_name.query.all()
     return render_template('table.html', entries)
 
 # @APP.route('/<string:page_name>/')
