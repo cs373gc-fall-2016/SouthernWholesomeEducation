@@ -142,12 +142,12 @@ class University(DB.Model):
     
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
-    def __init__(self, name, numundergrads, costtoattend, gradrate, publicorprivate):
+    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private):
         self.name = name
-        self.num_undergrads = numundergrads
-        self.cost_to_attend = costtoattend
-        self.grad_rate = gradrate
-        self.public_or_private = publicorprivate
+        self.num_undergrads = num_undergrads
+        self.cost_to_attend = cost_to_attend
+        self.grad_rate = grad_rate
+        self.public_or_private = public_or_private
 
     def __repr__(self):
         return '<University ' + self.name + '>'
