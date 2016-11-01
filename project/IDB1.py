@@ -11,8 +11,8 @@ def render_home():
     """Return index.html page when no path is given"""
     return render_template('index.html')
 
-@APP.route('/about/')
-def render_static(page_name):
+@APP.route('about/')
+def render_about():
     """Return HTML page stored in templates directory"""
     return render_template('about.html')
 
