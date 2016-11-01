@@ -173,14 +173,16 @@ class University(DB.Model):
     def add_major(self, maj, num):
         """Appends new major to major_list"""
         # major_id = Major.query.filter_by(name=maj).first().id_num
-        if not Major.query.filter_by(name=maj).first():
+        assoc = next((a for a in self.major_list if a.major.name == maj), None)
+        if not assoc:
             maj = Major(maj)
             assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
             self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, eth, num):
         """Appends new ethnicity to ethnicityList"""
-        if not Ethnicity.query.filter_by(name=eth).first():
+        assoc = next((a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
+        if not assoc:
             eth = Ethnicity(eth)
             assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
             self.ethnicity_list.append(assoc_eth)
