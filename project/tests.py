@@ -46,8 +46,8 @@ class Tests(TestCase):
         self.assertEqual(cost_to_attend, 100)
         self.assertEqual(grad_rate, .80)
         self.assertEqual(public_or_private, "public")
-        self.assertEqual(major_list[0].__repr__(), '<Major Engineering>')
-        self.assertEqual(ethnicity_list[0].__repr__(), '<Ethnicity White>')
+        self.assertEqual(major_list[0].__repr__(), '<University UT, Major Engineering>')
+        self.assertEqual(ethnicity_list[0].__repr__(), '<University UT, Ethnicity White>')
         add_unique(university)
         entries = University.query.filter_by(name='UT',cost_to_attend=100).first()
         self.assertEqual(entries.num_undergrads, 10)
@@ -87,7 +87,7 @@ class Tests(TestCase):
         '''
         university = University('UT', 0, 0, 0, '')
         university.add_major('Physics', 1000)
-        self.assertEqual(university.major_list[0].__repr__(), '<Major Physics>')
+        self.assertEqual(university.major_list[0].__repr__(), '<University UT, Major Physics>')
 
     def test_university_add_major_2(self):
         '''
@@ -95,7 +95,7 @@ class Tests(TestCase):
         '''
         university = University('A&M', 0, 0, 0, '')
         university.add_major('Chemistry', 1000)
-        self.assertEqual(university.major_list[0].__repr__(), '<Major Chemistry>')
+        self.assertEqual(university.major_list[0].__repr__(), '<University A&M, Major Chemistry>')
 
     def test_university_add_major_3(self):
         '''
@@ -103,7 +103,7 @@ class Tests(TestCase):
         '''
         university = University('Rice', 0, 0, 0, '')
         university.add_major('Biology', 1000)
-        self.assertEqual(university.major_list[0].__repr__(), '<Major Biology>')
+        self.assertEqual(university.major_list[0].__repr__(), '<University Rice, Major Biology>')
 
         # # -----------------------
         # # university addEthnicity
@@ -115,7 +115,7 @@ class Tests(TestCase):
         '''
         university = University('UT', 0, 0, 0, '')
         university.add_ethnicity('Asian', 100)
-        self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity Asian>')
+        self.assertEqual(university.ethnicity_list[0].__repr__(), '<University UT, Ethnicity Asian>')
 
     def test_university_add_ethnicity_2(self):
         '''
@@ -123,7 +123,7 @@ class Tests(TestCase):
         '''
         university = University('A&M', 0, 0, 0, '')
         university.add_ethnicity('White', 1000)
-        self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity White>')
+        self.assertEqual(university.ethnicity_list[0].__repr__(), '<University A&M, Ethnicity White>')
 
     def test_university_add_ethnicity_3(self):
         '''
@@ -131,7 +131,7 @@ class Tests(TestCase):
         '''
         university = University('Rice', 0, 0, 0, '')
         university.add_ethnicity('African American', 400)
-        self.assertEqual(university.ethnicity_list[0].__repr__(), '<Ethnicity African American>')
+        self.assertEqual(university.ethnicity_list[0].__repr__(), '<University Rice, Ethnicity African American>')
 
         # # ----------
         # # city class

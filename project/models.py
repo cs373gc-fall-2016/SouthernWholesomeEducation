@@ -59,6 +59,9 @@ class AssociationMajor(DB.Model):
         self.major = major
         self.num_students = num_students
 
+    def __repr__(self):
+        return '<University ' + self.university.name + ', Major ' + self.major.name + '>'
+
 class AssociationEthnicity(DB.Model):
     __tablename__ = 'associationethnicity'
     university_id = DB.Column(DB.Integer, DB.ForeignKey('UNIVERSITY.id_num'), primary_key=True)
@@ -70,6 +73,9 @@ class AssociationEthnicity(DB.Model):
         self.university = university
         self.ethnicity = ethnicity
         self.num_students = num_students
+
+    def __repr__(self):
+        return '<University ' + self.university.name + ', Ethnicity ' + self.ethnicity.name + '>'        
 
 class University(DB.Model):
     '''
