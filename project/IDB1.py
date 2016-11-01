@@ -2,10 +2,14 @@
 
 import os
 from flask import Flask, render_template, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 # from models import DB
 APP = Flask(__name__)
 
+@APP.route('/')
+def render_home():
+    """Return index.html page when no path is given"""
+    return render_template('index.html')
 
 @APP.route('/about/')
 def render_static(page_name):
@@ -13,17 +17,12 @@ def render_static(page_name):
     return render_template('about.html')
 
 # We assume this will always list out database entries
-@APP.route('/<string:table>/')
-def render_table(table):
-    """Return HTML page stored in templates directory"""
-    myTable = 
-    return render_template('detail.html',myTable = myTable)
+# @APP.route('/<string:table>/')
+# def render_table(table):
+#     """Return HTML page stored in templates directory"""
+#     myTable = 
+#     return render_template('detail.html',myTable = myTable)
 
-
-@APP.route('/')
-def render_home():
-    """Return index.html page when no path is given"""
-    return render_template('index.html')
 
 # @APP.route('/university/<string:uni_name>/')
 # def render_uni_detail():
