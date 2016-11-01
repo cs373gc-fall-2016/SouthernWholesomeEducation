@@ -116,7 +116,7 @@ class University(DB.Model):
         """Appends new major to major_list"""
         maj = Major(maj)
         assoc_maj = AssociationMajor(self, maj, num)
-        self.major_list.append(assoc_maj)
+        self.major_list.append(maj)
         DB.session.add(assoc_maj)
         DB.session.commit()
 
@@ -124,7 +124,7 @@ class University(DB.Model):
         """Appends new ethnicity to ethnicityList"""
         eth = Ethnicity(eth)
         assoc_eth = AssociationEthnicity(self, eth, num)
-        self.ethnicity_list.append(assoc_eth)
+        self.ethnicity_list.append(eth)
         DB.session.add(assoc_eth)
         DB.session.commit()
 
