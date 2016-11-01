@@ -33,10 +33,10 @@ class MAJORTOCITY(DB.Model):
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'), primary_key=True)
     major_id = DB.Column(DB.Integer, DB.ForeignKey('MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    major = DB.relationship('Major', backref='cities')
-    city = DB.relationship('City', backref='majors')
     city_name = DB.Column(DB.String(80))
     major_name = DB.Column(DB.String(80))
+    major = DB.relationship('Major', backref='cities')
+    city = DB.relationship('City', backref='majors')
     def __init__(self, city, major, num_students):
         self.city = city
         self.major = major
