@@ -6,11 +6,8 @@
         <p>Should list all universitie sin our system</p>
       </div>
       
-      {%for uni in myVar%}
-      <li>{{uni}}</li>
-      {% endfor %}
       {%for uni in myUni%}
-      <li>{{uni.idnum}} = ID, {{uni.name}} = NAME, {{uni.ethnicityList}} = ETH_LIST</li>
+      <li>{{uni.idnum}} = ID</li>
       {% endfor %}
     </div>
 {% endblock %}
