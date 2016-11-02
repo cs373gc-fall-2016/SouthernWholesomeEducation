@@ -38,9 +38,11 @@ def get_models(model_name):
     elif model_name == 'City':
         return City.query.all()
     elif model_name == 'Major':
-        return Major.query.filter_by(assoc_university=1).all()
+        temp_list = MAJORTOCITY.query.all()
+        return [x.major for x in temp_list]
     elif model_name == 'Ethnicity':
-        return Ethnicity.query.filter_by(assoc_university=1).all()
+        temp_list = ETHNICITYTOCITY.query.all()
+        return [x.ethnicity for x in temp_list]
 
 
 class MAJORTOCITY(DB.Model):
