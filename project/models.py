@@ -226,7 +226,7 @@ class University(DB.Model):
     def add_major(self, num, **args):
         """Appends new major to major_list"""
         # major_id = Major.query.filter_by(name=maj).first().id_num
-        assoc = next((a for a in self.major_list if a.major.name == maj), None)
+        assoc = next((a for a in self.major_list if a.major.name == args['name']), None)
         if not assoc:
             maj = Major(**args)
             maj.assoc_university = 1
@@ -236,7 +236,7 @@ class University(DB.Model):
     def add_ethnicity(self, num, **args):
         """Appends new ethnicity to ethnicityList"""
         assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
+            (a for a in self.ethnicity_list if a.ethnicity.name == args['name']), None)
         if not assoc:
             eth = Ethnicity(**args)
             eth.assoc_university = 1
@@ -288,7 +288,7 @@ class City(DB.Model):
 
     def add_major(self, num, **args):
         """Appends major to major_list"""
-        print(args)
+        # print(args)
         assoc = next((a for a in self.major_list if a.major.name == args['name']), None)
         if not assoc:
             maj = Major(**args)
