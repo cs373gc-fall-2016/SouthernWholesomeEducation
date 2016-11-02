@@ -40,10 +40,20 @@ def setup_data(individual_school_dict):
         new_student_population = individual_school_dict['2014.student.size']
         cities[individual_school_dict['school.city']]['population'] += new_student_population
         cities[individual_school_dict['school.city']]['university_count'] += 1
-        cities[individual_school_dict['school.city']]['major_list'].update(major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
+
+        #print(cities[individual_school_dict['school.city']]['major_list'])
+        #print(major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
+        all_majors = major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.')
+        for major in all_majors:
+            if major not in cities[individual_school_dict['school.city']]['major_list']:
+                cities[individual_school_dict['school.city']]['major_list'][major] = all_majors[major]
+            else:
+                cities[individual_school_dict['school.city']]['major_list'][major] += all_majors[major]
+        #print(cities[individual_school_dict['school.city']]['major_list'])
         cities[individual_school_dict['school.city']]['major_count'] = len(cities[individual_school_dict['school.city']]['major_list'])
         cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
+
         cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
         cities[individual_school_dict['school.city']]['ethnicity_count'] = len(cities[individual_school_dict['school.city']]['ethnicity_list'])
     else:
@@ -95,10 +105,10 @@ def setup_data(individual_school_dict):
                 # print(ethnicity_temp_dict)
 
 
-    print(universities)
-    print(cities)
-    print(majors)
-    print(ethnicities)
+    #print(universities)
+    #print(cities)
+    #print(majors)
+    #print(ethnicities)
 
 
 
