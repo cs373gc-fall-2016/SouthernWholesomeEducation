@@ -3,6 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 
+<p>Hello</p>
 <div ng-include src="'/layout.html'" ng-app="myApp" ng-controller="table">
 <table>
   <thead>
@@ -20,7 +21,7 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('table', function($scope, $http, $location) {
-  $scope.path = '/api' + $location.absUrl().split('5000')[1];
+  $scope.path = '/api' + $location.absUrl().split('me')[1];
   // document.write($location.absUrl());
   $http.get($scope.path).then(function (response) {
       $scope.myData = response.data;
