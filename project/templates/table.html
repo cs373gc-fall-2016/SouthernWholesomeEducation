@@ -20,8 +20,44 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+    	width: 70%;
+    	margin: auto;
+    }
 
+    .displayed {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
 
+    .carousel {
+        max-height: 600px;
+        overflow: hidden;
+
+    /*
+    .item img {
+    	width: 100%;
+    	height: auto;
+    }
+    */
+
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
   </head>
 
   <body>
@@ -58,7 +94,7 @@
       </nav>
 
     </div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 
 <div ng-app="myApp" ng-controller="table">
 <table>
