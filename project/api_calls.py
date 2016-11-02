@@ -25,7 +25,8 @@ def setup_data(individual_school_dict):
     uni_temp_dict['grad_rate'] = individual_school_dict['2014.completion.rate_suppressed.overall']
     uni_temp_dict['city'] = individual_school_dict['school.city']
     uni_temp_dict['public_or_private'] = 'Public' if individual_school_dict['school.ownership'] == 1 else 'Private'
-    uni_temp_dict['ethnicity_count'] = ethnicity_and_major_counter(individual_school_dict, 'demographics')
+    uni_temp_dict['ethnicity_list'] = (major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
+    uni_temp_dict['ethnicity_count'] = len(uni_temp_dict['ethnicity_list'])
     uni_temp_dict['major_list'] = (major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
     uni_temp_dict['major_count'] = len(uni_temp_dict['major_list'])
 
@@ -99,10 +100,15 @@ def setup_data(individual_school_dict):
             if '2014.student.demographics.race_ethnicity.' in ethnicity and individual_school_dict[ethnicity] != None and individual_school_dict[ethnicity]:
                 ethnicity_temp_dict = dict()
                 ethnicity_temp_dict['ethnicity_name'] = ethnicity
-                ethnicity_temp_dict['total_undergraduate_count'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
-                # need top city
-                # need top university
-                # print(ethnicity_temp_dict)
+                if 'total_undergraduate_count' not in ethnicity_temp_dict:
+                    ethnicity_temp_dict['total_undergraduate_count'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+                else:
+                    ethnicity_temp_dict['total_undergraduate_count'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+                ethnicity_temp_dict['top_city_amt'] = top_city_for_ethnicity(ethnicity)[1]
+                ethnicity_temp_dict['top_city_name'] = top_city_for_ethnicity(ethnicity)[0]
+                ethnicity_temp_dict['top_university_amt'] = top_university_for_ethnicity(ethnicity)[1]
+                ethnicity_temp_dict['top_university_name'] = top_university_for_ethnicity(ethnicity)[0]
+                ethnicities[ethnicity] = ethnicity_temp_dict
 
 
     #print(universities)
@@ -123,6 +129,20 @@ def top_city_for_major(major_name):
     for city in cities:
         if major_name in cities[city]['major_list'] and cities[city]['major_list'][major_name] > result[1]:
             result = (city, cities[city]['major_list'][major_name])
+    return result
+
+def top_city_for_ethnicity(ethnicity_name):
+    result = ("", 0)
+    for city in cities:
+        if ethnicity_name in cities[city]['ethnicity_list'] and cities[city]['ethnicity_list'][ethnicity_name] > result[1]:
+            result = (city, cities[city]['ethnicity_list'][ethnicity_name])
+    return result
+
+def top_university_for_ethnicity(ethnicity_name):
+    result = ("", 0)
+    for uni in universities:
+        if ethnicity_name in universities[uni]['ethnicity_list'] and universities[uni]['ethnicity_list'][ethnicity_name] > result[1]:
+            result = (uni, universities[uni]['ethnicity_list'][ethnicity_name])
     return result
 
 
