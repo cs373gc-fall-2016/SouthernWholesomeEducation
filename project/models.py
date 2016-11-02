@@ -8,7 +8,7 @@ APP = Flask(__name__)
 
 APP.config[
     'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhost/swe'
-
+APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 DB = SQLAlchemy(APP)
 
 
@@ -31,6 +31,22 @@ def add_unique(obj):
 
 def get_association(model, **args):
     return model.query.filter_by(**args).first()
+
+def get_models(model_name):
+    if model_name == 'University':
+        return University.query.all()
+    elif model_name == 'City':
+        return City.query.all()
+    elif model_name == 'Major':
+        temp_list = []
+        for t in Major.query.distinct(Major.name):
+            temp_list.append(t)
+        return temp_list
+    elif model_name == 'Ethnicity':
+        temp_list = []
+        for t in Ethnicity.query.distinct(Ethnicity.name):
+            temp_list.append(t)
+        return temp_list
 
 
 class MAJORTOCITY(DB.Model):
@@ -207,22 +223,22 @@ class University(DB.Model):
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
-    def add_major(self, maj, num):
+    def add_major(self, num, **args):
         """Appends new major to major_list"""
         # major_id = Major.query.filter_by(name=maj).first().id_num
-        assoc = next((a for a in self.major_list if a.major.name == maj), None)
+        assoc = next((a for a in self.major_list if a.major.name == args['name']), None)
         if not assoc:
-            maj = Major(maj)
+            maj = Major(**args)
             maj.assoc_university = 1
             assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
             self.major_list.append(assoc_maj)
 
-    def add_ethnicity(self, eth, num):
+    def add_ethnicity(self, num, **args):
         """Appends new ethnicity to ethnicityList"""
         assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
+            (a for a in self.ethnicity_list if a.ethnicity.name == args['name']), None)
         if not assoc:
-            eth = Ethnicity(eth)
+            eth = Ethnicity(**args)
             eth.assoc_university = 1
             assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
             self.ethnicity_list.append(assoc_eth)
@@ -244,10 +260,10 @@ class City(DB.Model):
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, population=0, avg_tuition=0):
         self.name = name
-        self.population = 0
-        self.avg_tuition = 0
+        self.population = population
+        self.avg_tuition = avg_tuition
 
     def __repr__(self):
         return '<City ' + self.name + '>'
@@ -266,23 +282,26 @@ class City(DB.Model):
     # Ethnicities, and Universities.
     def add_university(self, uni):
         """Appends university to universityList"""
-        self.university_list.append(uni)
-
-    def add_major(self, maj, num):
-        """Appends major to major_list"""
-        assoc = next((a for a in self.major_list if a.major.name == maj), None)
+        assoc = next((a for a in self.university_list if a.name == uni.name), None)
         if not assoc:
-            maj = Major(maj)
+            self.university_list.append(uni)
+
+    def add_major(self, num, **args):
+        """Appends major to major_list"""
+        # print(args)
+        assoc = next((a for a in self.major_list if a.major.name == args['name']), None)
+        if not assoc:
+            maj = Major(**args)
             maj.assoc_university = 0
             assoc_maj = MAJORTOCITY(self, maj, num)
             self.major_list.append(assoc_maj)
 
-    def add_ethnicity(self, eth, num):
+    def add_ethnicity(self, num, **args):
         """Adds new ethnicity to ethnicity_list"""
         assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
+            (a for a in self.ethnicity_list if a.ethnicity.name == args['name']), None)
         if not assoc:
-            eth = Ethnicity(eth)
+            eth = Ethnicity(**args)
             eth.assoc_university = 0
             assoc_eth = ETHNICITYTOCITY(self, eth, num)
             self.ethnicity_list.append(assoc_eth)
@@ -303,8 +322,11 @@ class Major(DB.Model):
     avg_percentage = DB.Column(DB.Float)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
         self.name = name
+        self.num_undergrads = num_undergrads
+        self.top_city = top_city
+        self.avg_percentage = avg_percentage
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
