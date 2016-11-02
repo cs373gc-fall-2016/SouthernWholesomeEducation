@@ -30,13 +30,15 @@ def api_call():
 
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
+        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
         major_objs_uni[maj] = major
-        major_objs_city[maj] = major
+        major_objs_city[maj] = major2
 
     for eth in ethnicities:
         ethnicity = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
+        ethnicity2 = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
         eth_objs_uni[eth] = ethnicity
-        eth_objs_city[eth] = ethnicity
+        eth_objs_city[eth] = ethnicity2
 
     for city in cities:
         cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
