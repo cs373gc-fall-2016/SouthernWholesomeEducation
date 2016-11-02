@@ -1,4 +1,7 @@
 import requests
+from models import *
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 # dictionaries for each model
 universities = dict()
@@ -7,15 +10,31 @@ majors = dict()
 ethnicities = dict()
 
 def api_call():
-    set_of_schools_nums = get_all_school_codes()
+    # set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
-    #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
+    set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
     count = 0
     for school_num in set_of_schools_nums:
         school_dict = call_for_data(school_num)
         setup_data(school_dict)
         count += 1
         print (count)
+
+    for uni in universities:
+        # print(uni, end=' ') # key is university
+        # print(universities[uni]['undergrand_population'], end=' ')
+        # print(universities[uni]['cost_to_attend'], end=' ')
+        # print(universities[uni]['grad_rate'], end=' ')
+        # print(universities[uni]['public_or_private'], end=' ')
+        # print()
+        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrand_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
+
+    DB.session.commit()
+
+    # print(universities)
+    # print(cities)
+    # print(majors)
+    # print(ethnicities)
 
 
 
@@ -143,12 +162,6 @@ def setup_data(individual_school_dict):
                 ethnicities[ethnicity] = ethnicity_temp_dict
         # if ethnicity in ethnicities:
         #     print(ethnicities[ethnicity])
-
-
-    # print(universities)
-    # print(cities)
-    # print(majors)
-    # print(ethnicities)
 
 
 
