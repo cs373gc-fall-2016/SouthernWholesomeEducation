@@ -79,8 +79,12 @@ def setup_data(individual_school_dict):
         uni_temp_dict['university_name'] = individual_school_dict['school.name']
     if individual_school_dict['2014.student.size'] is not None:
         uni_temp_dict['undergrad_population'] = individual_school_dict['2014.student.size']
+    else:
+        uni_temp_dict['undergrad_population'] = 2312
     if individual_school_dict['2014.cost.avg_net_price.overall'] is not None:
         uni_temp_dict['cost_to_attend'] = individual_school_dict['2014.cost.avg_net_price.overall']
+    else:
+        uni_temp_dict['cost_to_attend'] = 7163
     if individual_school_dict['2014.completion.rate_suppressed.overall'] is not None:
         uni_temp_dict['grad_rate'] = individual_school_dict['2014.completion.rate_suppressed.overall']
     if individual_school_dict['school.city'] is not None:
