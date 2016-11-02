@@ -104,7 +104,7 @@
     <th ng-repeat="(key, value) in myData[0]">{{key}}</th>
   </thead>
   <tbody>
-  <tr ng-repeat="row in myData">
+  <tr ng-repeat="row in myData | orderBy: row.name">
    <td ng-repeat="cell in row">{{cell}}</td>
   </tr>
  </tbody>
