@@ -38,13 +38,15 @@ def get_models(model_name):
     elif model_name == 'City':
         return City.query.all()
     elif model_name == 'Major':
-        temp_list1 = MAJORTOCITY.query.all()
-        temp_list2 = MAJORTOUNIVERSITY.query.all()
-        return list({x.major for x in temp_list1} | {x.major for x in temp_list2})
+        temp_list = []
+        for t in Major.query.distinct(Major.name):
+            temp_list.append(t)
+        return temp_list
     elif model_name == 'Ethnicity':
-        temp_list1 = ETHNICITYTOCITY.query.all()
-        temp_list2 = ETHNICITYTOUNIVERSITY.query.all()
-        return list({x.ethnicity for x in temp_list1} | {x.ethnicity for x in temp_list2})
+        temp_list = []
+        for t in Ethnicity.query.distinct(Ethnicity.name):
+            temp_list.append(t)
+        return temp_list
 
 
 class MAJORTOCITY(DB.Model):
