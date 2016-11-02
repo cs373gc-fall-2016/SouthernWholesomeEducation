@@ -1,5 +1,6 @@
 # pylint: disable=W0401,W0614,R0904,E1101
 #!/usr/bin/env python3
+# 24 * 3 tests
 '''
 Unit tests for models.py
 '''
