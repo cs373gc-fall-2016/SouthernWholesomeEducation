@@ -354,16 +354,18 @@ class Ethnicity(DB.Model):
     name = DB.Column(DB.String(80))
     total_count = DB.Column(DB.Integer)
     top_city = DB.Column(DB.String(80))
+    top_city_amt = DB.Column(DB.Integer)
     top_university = DB.Column(DB.String(80))
-    peak_year = DB.Column(DB.Integer)
+    top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', top_university='Default', peak_year=0):
+    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
         self.name = name
         self.total_count = 0
         self.top_city = top_city
+        self.top_city_amt = top_city_amt
         self.top_university = top_university
-        self.peak_year = peak_year
+        self.top_university_amt = top_university_amt
 
     def __repr__(self):
         return '<Ethnicity ' + self.name + '>'
