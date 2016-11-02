@@ -9,6 +9,9 @@ cities = dict()
 majors = dict()
 ethnicities = dict()
 
+DB.drop_all()
+DB.create_all()
+
 def api_call():
     # set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
@@ -22,12 +25,21 @@ def api_call():
 
     for uni in universities:
         # print(uni, end=' ') # key is university
-        # print(universities[uni]['undergrand_population'], end=' ')
+        # print(universities[uni]['undergrad_population'], end=' ')
         # print(universities[uni]['cost_to_attend'], end=' ')
         # print(universities[uni]['grad_rate'], end=' ')
         # print(universities[uni]['public_or_private'], end=' ')
         # print()
-        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrand_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
+        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
+
+    for city in cities:
+        # print(uni, end=' ') # key is university
+        # print(universities[uni]['undergrad_population'], end=' ')
+        # print(universities[uni]['cost_to_attend'], end=' ')
+        # print(universities[uni]['grad_rate'], end=' ')
+        # print(universities[uni]['public_or_private'], end=' ')
+        # print()
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
 
     DB.session.commit()
 
@@ -44,7 +56,7 @@ def setup_data(individual_school_dict):
     if individual_school_dict['school.name'] is not None:
         uni_temp_dict['university_name'] = individual_school_dict['school.name']
     if individual_school_dict['2014.student.size'] is not None:
-        uni_temp_dict['undergrand_population'] = individual_school_dict['2014.student.size']
+        uni_temp_dict['undergrad_population'] = individual_school_dict['2014.student.size']
     if individual_school_dict['2014.cost.avg_net_price.overall'] is not None:
         uni_temp_dict['cost_to_attend'] = individual_school_dict['2014.cost.avg_net_price.overall']
     if individual_school_dict['2014.completion.rate_suppressed.overall'] is not None:
