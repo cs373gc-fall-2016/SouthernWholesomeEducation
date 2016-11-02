@@ -13,9 +13,9 @@ DB.drop_all()
 DB.create_all()
 
 def api_call():
-    # set_of_schools_nums = get_all_school_codes()
+    set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
-    set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
+    #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
     count = 0
     for school_num in set_of_schools_nums:
         school_dict = call_for_data(school_num)
@@ -303,7 +303,7 @@ def get_all_school_codes():
     api_key = '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
     school_set = set()
     # looping over all pages in the the api results
-    for page_num in range(0,78):
+    for page_num in range(0,1):
         print('collecting school numbers page ' + str(page_num), end='')
         output = requests.get(start_url + str(page_num) + api_key)
         dict = output.json()
