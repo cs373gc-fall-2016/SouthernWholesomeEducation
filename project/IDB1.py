@@ -2,7 +2,7 @@
 """Implementation of flask app for serving HTML pages"""
 
 import os
-from flask import Flask, render_template, send_from_directory, jsonify, make_response
+from flask import Flask, send_file, render_template, send_from_directory, jsonify, make_response
 from models import *
 
 @APP.route('/')
@@ -57,21 +57,21 @@ def render_home():
 #     """Return HTML page stored in templates directory"""
 # return render_template('%s' % page_name)
 
-@APP.route('/<string:model_name>/')
-def render_models(model_name):
-    if model_name == 'university' or model_name == 'major' or model_name == 'city' or model_name == 'ethnicity':
-        return make_response(open('templates/table.html').read())
-    else:
-        return render_template('index.html')
+# @APP.route('/<string:model_name>/')
+# def render_models(model_name):
+#     if model_name == 'university' or model_name == 'major' or model_name == 'city' or model_name == 'ethnicity':
+#         return make_response(open('templates/table.html').read())
+#     else:
+#         return render_template('index.html')
 
-@APP.route('/api/<string:model_name>/')
-def api_models(model_name):
-    model_name = model_name.title()
-    list_models = get_models(model_name)
-    json_list = []
-    for i in list_models:
-        json_list.append(i.attributes())
-    return jsonify(results=json_list)
+# @APP.route('/api/<string:model_name>/')
+# def api_models(model_name):
+#     model_name = model_name.title()
+#     list_models = get_models(model_name)
+#     json_list = []
+#     for i in list_models:
+#         json_list.append(i.attributes())
+#     return jsonify(results=json_list)
 
 
 @APP.route('/favicon.ico')
