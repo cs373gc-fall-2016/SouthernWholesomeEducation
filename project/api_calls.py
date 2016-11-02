@@ -9,7 +9,7 @@ ethnicities = dict()
 def api_call():
     # set_of_schools_nums = get_all_school_codes()
     print('testing two austin schools')
-    set_of_schools_nums = {228778, 227845} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
+    set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
     for school_num in set_of_schools_nums:
         school_dict = call_for_data(school_num)
         setup_data(school_dict)
@@ -74,10 +74,10 @@ def setup_data(individual_school_dict):
         if major in majors:
             majors[major]['total_major_undergrad_population'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
             student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
-            if (majors[major]['top_city_amt'] < student_count):
-                # need to update
-                majors[major]['top_city_amt'] = student_count
-                majors[major]['top_city_name'] = individual_school_dict['school.city']
+            top_city_amt = top_city_for_major(major)
+            if majors[major]['top_city_amt'] < top_city_amt[1]:
+                majors[major]['top_city_amt'] = top_city_amt[1]
+                majors[major]['top_city_name'] = top_city_amt[0]
             majors[major]['avg_percentage'] = majors[major]['total_major_undergrad_population'] / total_undergrads_all_universities()
         else:
             # Not in major dict need to create
@@ -118,6 +118,12 @@ def total_undergrads_all_universities():
         total_undergraduates += universities[school]['undergrand_population']
     return total_undergraduates
 
+def top_city_for_major(major_name):
+    result = ("", 0)
+    for city in cities:
+        if major_name in cities[city]['major_list'] and cities[city]['major_list'][major_name] > result[1]:
+            result = (city, cities[city]['major_list'][major_name])
+    return result
 
 
 def major_and_ethnicity_dict(dict, text_to_search, str_to_remove):
