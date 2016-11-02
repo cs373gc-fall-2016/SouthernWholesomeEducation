@@ -324,6 +324,9 @@ class Major(DB.Model):
 
     def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
         self.name = name
+        self.num_undergrads = num_undergrads
+        self.top_city = top_city
+        self.avg_percentage = avg_percentage
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
