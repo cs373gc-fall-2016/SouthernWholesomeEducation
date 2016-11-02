@@ -81,11 +81,11 @@ def setup_data(individual_school_dict):
     if individual_school_dict['2014.student.size'] is not None:
         uni_temp_dict['undergrad_population'] = individual_school_dict['2014.student.size']
     else:
-        uni_temp_dict['undergrad_population'] = random(513, 4763)
+        uni_temp_dict['undergrad_population'] = randint(513, 4763)
     if individual_school_dict['2014.cost.avg_net_price.overall'] is not None:
         uni_temp_dict['cost_to_attend'] = individual_school_dict['2014.cost.avg_net_price.overall']
     else:
-        uni_temp_dict['cost_to_attend'] = random(5750, 23755)
+        uni_temp_dict['cost_to_attend'] = randint(5750, 23755)
     if individual_school_dict['2014.completion.rate_suppressed.overall'] is not None:
         uni_temp_dict['grad_rate'] = individual_school_dict['2014.completion.rate_suppressed.overall']
     else:
@@ -139,14 +139,14 @@ def setup_data(individual_school_dict):
         if individual_school_dict['2014.student.size'] is not None:
             citi_temp_dict['population'] = individual_school_dict['2014.student.size']
         else:
-            citi_temp_dict['population'] = random(5412, 59348)
+            citi_temp_dict['population'] = randint(5412, 59348)
         citi_temp_dict['university_count'] = 1 #city just added
         citi_temp_dict['major_list'] = major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.')
         citi_temp_dict['major_count'] = len(citi_temp_dict['major_list'])
         if individual_school_dict['2014.cost.avg_net_price.overall'] is not None:
             citi_temp_dict['average_tuition'] = individual_school_dict['2014.cost.avg_net_price.overall']
         else:
-            citi_temp_dict['average_tuition'] = random(6143, 18975)
+            citi_temp_dict['average_tuition'] = randint(6143, 18975)
         citi_temp_dict['ethnicity_list'] = major_and_ethnicity_dict(individual_school_dict, 'demographics','2014.student.demographics.race_ethnicity.')
         citi_temp_dict['ethnicity_count'] = len(citi_temp_dict['ethnicity_list'])
         cities[individual_school_dict['school.city']] = citi_temp_dict
