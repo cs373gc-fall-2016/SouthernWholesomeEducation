@@ -27,6 +27,7 @@ def api_call():
     eth_objs_uni = dict()
     major_objs_city = dict()
     eth_objs_city = dict()
+    uni_objs = dict()
 
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
@@ -40,15 +41,6 @@ def api_call():
         eth_objs_uni[eth] = ethnicity
         eth_objs_city[eth] = ethnicity2
 
-    for city in cities:
-        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
-        for maj in cities[city]['major_list']:
-            if maj in major_objs_city:
-                cur_city.add_major(cities[city]['major_list'][maj], major_objs_city[maj])
-        for eth in cities[city]['ethnicity_list']:
-            if eth in eth_objs_city:
-                cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
-
     for uni in universities:
         university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
         for maj in universities[uni]['major_list']:
@@ -57,6 +49,19 @@ def api_call():
         for eth in universities[uni]['ethnicity_list']:
             if eth in eth_objs_uni:
                 university.add_ethnicity(universities[uni]['ethnicity_list'][eth], eth_objs_uni[eth])
+        uni_objs[uni] = university
+
+    for city in cities:
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
+        for uni in uni_objs:
+            if universities[uni]['city'] == city:
+                cur_city.add_university(uni_objs[uni])
+        for maj in cities[city]['major_list']:
+            if maj in major_objs_city:
+                cur_city.add_major(cities[city]['major_list'][maj], major_objs_city[maj])
+        for eth in cities[city]['ethnicity_list']:
+            if eth in eth_objs_city:
+                cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
 
     DB.session.commit()
 
