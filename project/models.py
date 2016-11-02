@@ -3,13 +3,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-
-APP = Flask(__name__)
-
-APP.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhost/swe'
-APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-DB = SQLAlchemy(APP)
+from IDB1 import APP, DB
 
 
 def create_unique(model, **args):
@@ -31,6 +25,16 @@ def add_unique(obj):
 
 def get_association(model, **args):
     return model.query.filter_by(**args).first()
+
+def get_models(model_name):
+    if model_name == 'University':
+        return University.query.all()
+    elif model_name == 'City':
+        return City.query.all()
+    elif model_name == 'Major':
+        return Major.query.all()
+    elif model_name == 'Ethnicity':
+        return Ethnicity.query.all()
 
 
 class MAJORTOCITY(DB.Model):

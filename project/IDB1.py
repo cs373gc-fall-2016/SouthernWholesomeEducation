@@ -2,10 +2,16 @@
 """Implementation of flask app for serving HTML pages"""
 
 import os
-from flask import Flask, render_template, send_from_directory, jsonify
+from flask import Flask, render_template, send_from_directory, jsonify, make_response
 from models import *
 
 APP = Flask(__name__)
+
+APP.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhost/swe'
+APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+DB = SQLAlchemy(APP)
+
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
@@ -21,42 +27,55 @@ def render_index():
     """Return HTML page stored in templates directory"""
     return render_template('index.html')
 
-# We assume this will always list out database entries
-@APP.route('/detail/')
-def render_detail():
-    """Return HTML page stored in templates directory"""
-    myUni_all = University.query.all()
-    return render_template('detail.html', myUni_all = myUni_all)
+# # We assume this will always list out database entries
+# @APP.route('/detail/')
+# def render_detail():
+#     """Return HTML page stored in templates directory"""
+#     myUni_all = University.query.all()
+#     return render_template('detail.html', myUni_all = myUni_all)
 
 
-@APP.route('/university/')
-def render_uni_table():
-    """Return HTML page stored in templates directory"""
-    entries = University.query.all()
-    return render_template('table.html', entries=jsonify(entries), title="Universities")
-
-@APP.route('/city/')
-def render_city_table():
-    """Return HTML page stored in templates directory"""
-    entries = City.query.all()
-    return render_template('table.html', entries=entries, title="Cities")
-
-@APP.route('/major/')
-def render_major_table():
-    """Return HTML page stored in templates directory"""
-    entries = Major.query.all()
-    return render_template('table.html', entries=entries, title="Majors")
-
-@APP.route('/ethnicity/')
-def render_ethnicity_table():
-    """Return HTML page stored in templates directory"""
-    entries = Ethnicity.query.all()
-    return render_template('table.html', entries=entries, title="Ethnicities")
+# @APP.route('/university/')
+# def render_uni_table():
+#     """Return HTML page stored in templates directory"""
+#     entries = University.query.all()
+#     return render_template('table.html', entries=jsonify(entries), title="Universities")
+#
+# @APP.route('/city/')
+# def render_city_table():
+#     """Return HTML page stored in templates directory"""
+#     entries = City.query.all()
+#     return render_template('table.html', entries=entries, title="Cities")
+#
+# @APP.route('/major/')
+# def render_major_table():
+#     """Return HTML page stored in templates directory"""
+#     entries = Major.query.all()
+#     return render_template('table.html', entries=entries, title="Majors")
+#
+# @APP.route('/ethnicity/')
+# def render_ethnicity_table():
+#     """Return HTML page stored in templates directory"""
+#     entries = Ethnicity.query.all()
+#     return render_template('table.html', entries=entries, title="Ethnicities")
 
 # @APP.route('/<string:page_name>/')
 # def render_static(page_name):
 #     """Return HTML page stored in templates directory"""
 # return render_template('%s' % page_name)
+
+@APP.route('/<string:model_name>/')
+def render_models(model_name):
+    return make_response(open('templates/table.html').read())
+
+@APP.route('/api/<string:model_name>/')
+def api_models(model_name):
+    model_name = model_name.title()
+    list_models = get_models(model_name)
+    json_list = []
+    for i in list_models:
+        json_list.append(i.attributes())
+    return jsonify(results=json_list)
 
 
 @APP.route('/favicon.ico')
