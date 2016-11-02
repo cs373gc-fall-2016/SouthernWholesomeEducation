@@ -94,7 +94,11 @@ def setup_data(individual_school_dict):
     # Ethnicities
     for ethnicity in individual_school_dict:
         if ethnicity in ethnicities:
-            print('found ethnicity need to update it')
+            ethnicities[ethnicity]['total_undergraduate_count'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+            ethnicities[ethnicity]['top_city_amt'] = top_city_for_ethnicity(ethnicity)[1]
+            ethnicities[ethnicity]['top_city_name'] = top_city_for_ethnicity(ethnicity)[0]
+            ethnicities[ethnicity]['top_university_amt'] = top_university_for_ethnicity(ethnicity)[1]
+            ethnicities[ethnicity]['top_university_name'] = top_university_for_ethnicity(ethnicity)[0]
         else:
             # Did not find any data need to create
             if '2014.student.demographics.race_ethnicity.' in ethnicity and individual_school_dict[ethnicity] != None and individual_school_dict[ethnicity]:
@@ -109,12 +113,14 @@ def setup_data(individual_school_dict):
                 ethnicity_temp_dict['top_university_amt'] = top_university_for_ethnicity(ethnicity)[1]
                 ethnicity_temp_dict['top_university_name'] = top_university_for_ethnicity(ethnicity)[0]
                 ethnicities[ethnicity] = ethnicity_temp_dict
+        # if ethnicity in ethnicities:
+        #     print(ethnicities[ethnicity])
 
 
-    #print(universities)
-    #print(cities)
-    #print(majors)
-    #print(ethnicities)
+    print(universities)
+    print(cities)
+    print(majors)
+    print(ethnicities)
 
 
 
