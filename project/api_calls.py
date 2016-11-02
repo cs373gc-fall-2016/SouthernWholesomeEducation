@@ -26,7 +26,7 @@ def setup_data(individual_school_dict):
     uni_temp_dict['city'] = individual_school_dict['school.city']
     uni_temp_dict['public_or_private'] = 'Public' if individual_school_dict['school.ownership'] == 1 else 'Private'
     uni_temp_dict['ethnicity_count'] = ethnicity_and_major_counter(individual_school_dict, 'demographics')
-    uni_temp_dict['major_list'] = (major_and_ethnicity_list(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
+    uni_temp_dict['major_list'] = (major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
     uni_temp_dict['major_count'] = len(uni_temp_dict['major_list'])
 
     # adding temp university to universities dict
@@ -40,11 +40,11 @@ def setup_data(individual_school_dict):
         new_student_population = individual_school_dict['2014.student.size']
         cities[individual_school_dict['school.city']]['population'] += new_student_population
         cities[individual_school_dict['school.city']]['university_count'] += 1
-        cities[individual_school_dict['school.city']]['major_list'].update(major_and_ethnicity_list(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
+        cities[individual_school_dict['school.city']]['major_list'].update(major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.'))
         cities[individual_school_dict['school.city']]['major_count'] = len(cities[individual_school_dict['school.city']]['major_list'])
         cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
-        cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_list(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
+        cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
         cities[individual_school_dict['school.city']]['ethnicity_count'] = len(cities[individual_school_dict['school.city']]['ethnicity_list'])
     else:
         # creating a new city
@@ -52,10 +52,10 @@ def setup_data(individual_school_dict):
         citi_temp_dict['city_name'] = individual_school_dict['school.city']
         citi_temp_dict['population'] = individual_school_dict['2014.student.size']
         citi_temp_dict['university_count'] = 1 #city just added
-        citi_temp_dict['major_list'] = major_and_ethnicity_list(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.')
+        citi_temp_dict['major_list'] = major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.')
         citi_temp_dict['major_count'] = len(citi_temp_dict['major_list'])
         citi_temp_dict['average_tuition'] = individual_school_dict['2014.cost.avg_net_price.overall']
-        citi_temp_dict['ethnicity_list'] = major_and_ethnicity_list(individual_school_dict, 'demographics','2014.student.demographics.race_ethnicity.')
+        citi_temp_dict['ethnicity_list'] = major_and_ethnicity_dict(individual_school_dict, 'demographics','2014.student.demographics.race_ethnicity.')
         citi_temp_dict['ethnicity_count'] = len(citi_temp_dict['ethnicity_list'])
         cities[individual_school_dict['school.city']] = citi_temp_dict
 
@@ -81,10 +81,18 @@ def setup_data(individual_school_dict):
                 majors[major] = major_temp_dict
 
     # Ethnicities
-    # for major in individual_school_dict:
-
-
-
+    for ethnicity in individual_school_dict:
+        if ethnicity in ethnicities:
+            print('found ethnicity need to update it')
+        else:
+            # Did not find any data need to create
+            if '2014.student.demographics.race_ethnicity.' in ethnicity and individual_school_dict[ethnicity] != None and individual_school_dict[ethnicity]:
+                ethnicity_temp_dict = dict()
+                ethnicity_temp_dict['ethnicity_name'] = ethnicity
+                ethnicity_temp_dict['total_undergraduate_count'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+                # need top city
+                # need top university
+                # print(ethnicity_temp_dict)
 
 
     print(universities)
@@ -101,13 +109,19 @@ def total_undergrads_all_universities():
     return total_undergraduates
 
 
-def major_and_ethnicity_list(dict, text_to_search, str_to_remove):
-    temp_ethnicities = set()
+
+def major_and_ethnicity_dict(dict, text_to_search, str_to_remove):
+    temp_dict = {}
     key_set = [key for key, value in dict.items() if text_to_search in key.lower()]
     for key in key_set:
         if (dict[key] != None) and (dict[key] > 0):
-            temp_ethnicities.add(str(key).split(str_to_remove)[1])
-    return temp_ethnicities
+            temp_dict[key] = int(dict[key] * dict['2014.student.size'])
+            # print(key)
+            # print(dict[key])
+            # temp_dict.add(str(key).split(str_to_remove)[1])
+    return temp_dict
+
+
 
 def ethnicity_and_major_counter(dict, text_to_search):
     count = 0
