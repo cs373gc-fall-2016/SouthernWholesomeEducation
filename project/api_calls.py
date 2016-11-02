@@ -41,6 +41,10 @@ def api_call():
         # print()
         cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
 
+    for maj in majors:
+        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
+
+
     DB.session.commit()
 
     # print(universities)
