@@ -44,10 +44,10 @@ def api_call():
         cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
         for maj in cities[city]['major_list']:
             if maj in major_objs_city:
-                cur_city.add_major(majors[maj]['total_major_undergrad_population'], major_objs_city[maj])
+                cur_city.add_major(cities[city]['major_list'][maj], major_objs_city[maj])
         for eth in cities[city]['ethnicity_list']:
             if eth in eth_objs_city:
-                cur_city.add_ethnicity(ethnicities[eth]['total_undergraduate_count'], eth_objs_city[eth])
+                cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
 
     for uni in universities:
         university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
