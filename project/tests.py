@@ -171,11 +171,11 @@ class Tests(TestCase):
         avg_tuition = city.avg_tuition
 
         self.assertEqual(name, 'Austin')
-        self.assertEqual(population, 0)
+        self.assertEqual(population, 42905)
         self.assertEqual(university_list[0].__repr__(), '<University UT>')
         self.assertEqual(major_list[0].__repr__(), '<City Austin, Major Business>')
         self.assertEqual(ethnicity_list[0].__repr__(), '<City Austin, Ethnicity Asian>')
-        self.assertEqual(avg_tuition, 0)
+        self.assertEqual(avg_tuition, 17357)
         DB.session.commit()
         assoc = get_association(ETHNICITYTOCITY, ethnicity_name='White', city_name='Austin')
         self.assertEqual(assoc.num_students, 5000)

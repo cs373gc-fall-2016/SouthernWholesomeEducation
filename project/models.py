@@ -361,7 +361,7 @@ class Ethnicity(DB.Model):
 
     def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
         self.name = name
-        self.total_count = 0
+        self.total_count = total_count
         self.top_city = top_city
         self.top_city_amt = top_city_amt
         self.top_university = top_university
