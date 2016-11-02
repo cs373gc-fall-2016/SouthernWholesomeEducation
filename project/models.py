@@ -3,6 +3,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from copy import deepcopy
 
 APP = Flask(__name__)
 
