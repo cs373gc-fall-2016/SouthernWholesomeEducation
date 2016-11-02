@@ -7,9 +7,9 @@ majors = dict()
 ethnicities = dict()
 
 def api_call():
-    # set_of_schools_nums = get_all_school_codes()
-    print('testing two austin schools')
-    set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
+    set_of_schools_nums = get_all_school_codes()
+    #print('testing two austin schools')
+    #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
     for school_num in set_of_schools_nums:
         school_dict = call_for_data(school_num)
         setup_data(school_dict)
@@ -39,7 +39,8 @@ def setup_data(individual_school_dict):
         current_population = cities[individual_school_dict['school.city']]['population']
         new_cost_to_attend = individual_school_dict['2014.cost.avg_net_price.overall']
         new_student_population = individual_school_dict['2014.student.size']
-        cities[individual_school_dict['school.city']]['population'] += new_student_population
+        if new_student_population is not None:
+            cities[individual_school_dict['school.city']]['population'] += new_student_population
         cities[individual_school_dict['school.city']]['university_count'] += 1
 
         #print(cities[individual_school_dict['school.city']]['major_list'])
@@ -47,12 +48,17 @@ def setup_data(individual_school_dict):
         all_majors = major_and_ethnicity_dict(individual_school_dict, 'program_percentage', '2014.academics.program_percentage.')
         for major in all_majors:
             if major not in cities[individual_school_dict['school.city']]['major_list']:
-                cities[individual_school_dict['school.city']]['major_list'][major] = all_majors[major]
+                if all_majors[major] is not None:
+                    cities[individual_school_dict['school.city']]['major_list'][major] = all_majors[major]
             else:
-                cities[individual_school_dict['school.city']]['major_list'][major] += all_majors[major]
+                if all_majors[major] is not None:
+                    cities[individual_school_dict['school.city']]['major_list'][major] += all_majors[major]
         #print(cities[individual_school_dict['school.city']]['major_list'])
         cities[individual_school_dict['school.city']]['major_count'] = len(cities[individual_school_dict['school.city']]['major_list'])
-        cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
+        # print(new_cost_to_attend)
+        # print(new_student_population)
+        if new_cost_to_attend is not None and new_student_population is not None and cities[individual_school_dict['school.city']]['average_tuition'] is not None and current_population is not None:
+            cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
 
         cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
@@ -73,28 +79,33 @@ def setup_data(individual_school_dict):
     # Majors
     for major in individual_school_dict:
         if major in majors:
-            majors[major]['total_major_undergrad_population'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
-            student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+            if individual_school_dict[major] is not None:
+                majors[major]['total_major_undergrad_population'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+                student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
             top_city_amt = top_city_for_major(major)
             if majors[major]['top_city_amt'] < top_city_amt[1]:
                 majors[major]['top_city_amt'] = top_city_amt[1]
                 majors[major]['top_city_name'] = top_city_amt[0]
-            majors[major]['avg_percentage'] = majors[major]['total_major_undergrad_population'] / total_undergrads_all_universities()
+            if majors[major]['total_major_undergrad_population'] is not None:
+                majors[major]['avg_percentage'] = majors[major]['total_major_undergrad_population'] / total_undergrads_all_universities()
         else:
             # Not in major dict need to create
             if '2014.academics.program_percentage.' in major and individual_school_dict[major] != None and individual_school_dict[major] > 0:
                 major_temp_dict = dict()
                 major_temp_dict['major_name'] = major
-                major_temp_dict['total_major_undergrad_population'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+                if individual_school_dict['2014.student.size'] is not None and individual_school_dict[major] is not None:
+                    major_temp_dict['total_major_undergrad_population'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
                 major_temp_dict['top_city_amt'] = int(major_temp_dict['total_major_undergrad_population'])
                 major_temp_dict['top_city_name'] = individual_school_dict['school.city']
-                major_temp_dict['avg_percentage'] = major_temp_dict['total_major_undergrad_population'] / total_undergrads_all_universities()
+                if major_temp_dict['total_major_undergrad_population'] is not None:
+                    major_temp_dict['avg_percentage'] = major_temp_dict['total_major_undergrad_population'] / total_undergrads_all_universities()
                 majors[major] = major_temp_dict
 
     # Ethnicities
     for ethnicity in individual_school_dict:
         if ethnicity in ethnicities:
-            ethnicities[ethnicity]['total_undergraduate_count'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+            if individual_school_dict['2014.student.size'] is not None and individual_school_dict[ethnicity] is not None:
+                ethnicities[ethnicity]['total_undergraduate_count'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
             ethnicities[ethnicity]['top_city_amt'] = top_city_for_ethnicity(ethnicity)[1]
             ethnicities[ethnicity]['top_city_name'] = top_city_for_ethnicity(ethnicity)[0]
             ethnicities[ethnicity]['top_university_amt'] = top_university_for_ethnicity(ethnicity)[1]
@@ -105,9 +116,11 @@ def setup_data(individual_school_dict):
                 ethnicity_temp_dict = dict()
                 ethnicity_temp_dict['ethnicity_name'] = ethnicity
                 if 'total_undergraduate_count' not in ethnicity_temp_dict:
-                    ethnicity_temp_dict['total_undergraduate_count'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+                    if individual_school_dict['2014.student.size'] is not None and individual_school_dict[ethnicity] is not None:
+                        ethnicity_temp_dict['total_undergraduate_count'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
                 else:
-                    ethnicity_temp_dict['total_undergraduate_count'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
+                    if individual_school_dict['2014.student.size'] is not None and individual_school_dict[ethnicity] is not None:
+                        ethnicity_temp_dict['total_undergraduate_count'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[ethnicity])
                 ethnicity_temp_dict['top_city_amt'] = top_city_for_ethnicity(ethnicity)[1]
                 ethnicity_temp_dict['top_city_name'] = top_city_for_ethnicity(ethnicity)[0]
                 ethnicity_temp_dict['top_university_amt'] = top_university_for_ethnicity(ethnicity)[1]
@@ -127,7 +140,8 @@ def setup_data(individual_school_dict):
 def total_undergrads_all_universities():
     total_undergraduates = 0
     for school in universities:
-        total_undergraduates += universities[school]['undergrand_population']
+        if universities[school]['undergrand_population'] is not None:
+            total_undergraduates += universities[school]['undergrand_population']
     return total_undergraduates
 
 def top_city_for_major(major_name):
@@ -157,7 +171,8 @@ def major_and_ethnicity_dict(dict, text_to_search, str_to_remove):
     key_set = [key for key, value in dict.items() if text_to_search in key.lower()]
     for key in key_set:
         if (dict[key] != None) and (dict[key] > 0):
-            temp_dict[key] = int(dict[key] * dict['2014.student.size'])
+            if dict[key] is not None and dict['2014.student.size'] is not None:
+                temp_dict[key] = int(dict[key] * dict['2014.student.size'])
             # print(key)
             # print(dict[key])
             # temp_dict.add(str(key).split(str_to_remove)[1])
@@ -221,7 +236,7 @@ def call_for_data(school_num):
 def get_all_school_codes():
     # setting up url to collect all school codes
     start_url = 'https://api.data.gov/ed/collegescorecard/v1/schools/?fields=id&per_page=100&page='
-    api_key = '&api_key=UvIG23p13yTXK5PTit5MZEWcNXMCoKsl5QonaV8Y'
+    api_key = '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
     school_set = set()
     # looping over all pages in the the api results
     for page_num in range(0,78):
