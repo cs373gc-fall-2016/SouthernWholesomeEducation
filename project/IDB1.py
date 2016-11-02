@@ -2,7 +2,7 @@
 """Implementation of flask app for serving HTML pages"""
 
 import os
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, jsonify
 from models import *
 
 APP = Flask(__name__)
@@ -33,7 +33,7 @@ def render_detail():
 def render_uni_table():
     """Return HTML page stored in templates directory"""
     entries = University.query.all()
-    return render_template('table.html', entries=entries, title="Universities")
+    return render_template('table.html', entries=jsonify(entries), title="Universities")
 
 @APP.route('/city/')
 def render_city_table():
