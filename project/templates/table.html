@@ -22,7 +22,7 @@
 var app = angular.module('myApp', []);
 app.controller('table', function($scope, $http, $location) {
   $scope.path = '/api' + $location.absUrl().split('me')[1];
-  // document.write($location.absUrl());
+  document.write($location.absUrl());
   $http.get($scope.path).then(function (response) {
       $scope.myData = response.data;
   });
