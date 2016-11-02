@@ -101,7 +101,12 @@
 <div ng-app="myApp" ng-controller="table">
 <table>
   <thead>
-    <th ng-repeat="(key, value) in myData[0]">{{key}}</th>
+	  <th id="col" ng-repeat="(key, value) in myData[0]">
+		  <a href="" ng-click="sortType = key; sortReverse= !sortReverse; sort()">{{key}}</a>
+			  <!--ng-repeat="(key, value) in myData[0]">{{key}}-->
+		   <span ng-show="sortType == key && sortReverse" class="fa fa-caret-down"></span>
+		   <span ng-show="sortType == key && !sortReverse" class="fa fa-caret-up"></span>
+	  </th>
   </thead>
   <tbody>
   <tr ng-repeat="row in myData | orderBy: row.name">
