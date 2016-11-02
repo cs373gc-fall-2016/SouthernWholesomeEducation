@@ -44,6 +44,7 @@ def api_call():
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
 
+
     DB.session.commit()
 
     # print(universities)
