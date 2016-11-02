@@ -260,10 +260,10 @@ class City(DB.Model):
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, population=0, avg_tuition=0):
         self.name = name
-        self.population = 0
-        self.avg_tuition = 0
+        self.population = population
+        self.avg_tuition = avg_tuition
 
     def __repr__(self):
         return '<City ' + self.name + '>'
