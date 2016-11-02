@@ -323,7 +323,7 @@ class Major(DB.Model):
     assoc_university = DB.Column(DB.Integer)
 
     def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
-        self.name = name
+        self.name = name.replace("2014.academics.program_percentage.", "")
         self.num_undergrads = num_undergrads
         self.top_city = top_city
         self.avg_percentage = avg_percentage
@@ -360,7 +360,7 @@ class Ethnicity(DB.Model):
     assoc_university = DB.Column(DB.Integer)
 
     def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
-        self.name = name
+        self.name = name.replace("2014.student.demographics.race_ethnicity.", "")
         self.total_count = total_count
         self.top_city = top_city
         self.top_city_amt = top_city_amt
