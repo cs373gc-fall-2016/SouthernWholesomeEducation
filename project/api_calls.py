@@ -87,6 +87,8 @@ def setup_data(individual_school_dict):
         uni_temp_dict['cost_to_attend'] = 7163
     if individual_school_dict['2014.completion.rate_suppressed.overall'] is not None:
         uni_temp_dict['grad_rate'] = individual_school_dict['2014.completion.rate_suppressed.overall']
+    else:
+        uni_temp_dict['grad_rate'] = .73195073219268
     if individual_school_dict['school.city'] is not None:
         uni_temp_dict['city'] = individual_school_dict['school.city']
     uni_temp_dict['public_or_private'] = 'Public' if individual_school_dict['school.ownership'] == 1 else 'Private'
