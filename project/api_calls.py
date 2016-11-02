@@ -50,6 +50,7 @@ def api_call():
         # print(universities[uni]['public_or_private'], end=' ')
         # print()
         cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
+        
 
     DB.session.commit()
 
