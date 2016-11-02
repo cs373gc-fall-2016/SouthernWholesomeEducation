@@ -57,7 +57,7 @@ install:
 	pip install -r requirements.txt
 
 run:
-	python project/app.py
+	python project/IDB1.py
 
 update:
 	git pull --all

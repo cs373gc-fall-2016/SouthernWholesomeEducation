@@ -4,6 +4,7 @@
 import os
 from flask import Flask, render_template, send_from_directory, jsonify, make_response
 from models import *
+DEFAULT_PAGE = 10
 
 @APP.route('/')
 def render_home():
@@ -65,14 +66,32 @@ def render_models(model_name):
         return render_template('index.html')
 
 @APP.route('/api/<string:model_name>/')
-def api_models(model_name):
+@APP.route('/api/<string:model_name>/<int:page>')
+def api_models(model_name, page=0):
     model_name = model_name.title()
-    list_models = get_models(model_name)
+    page_size = DEFAULT_PAGE
+    if 'page_size' in request.args:
+        page_size = int(request.args['page_size'])
+    json['page_size'] = page_size
+
+    offset = (page - 1) * page_size if page > 0 else 0
+    json['total_entries'] = get_count(model_name)
+
+    if 'sort' in request.args:
+        # TODO add sort as a request arg
+        sort_by = request.args['sort']
+
+        order = request.args['order'] if request.args['order'] else ""
+        models = eval('{0}.query.order_by({0}.{1}.{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
+    else:
+        models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
+
+    # list_models = get_models(model_name)
+    list_models = models
     json_list = []
     for i in list_models:
         json_list.append(i.attributes())
     return jsonify(results=json_list)
-
 
 @APP.route('/favicon.ico')
 def favicon():

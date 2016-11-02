@@ -48,6 +48,15 @@ def get_models(model_name):
             temp_list.append(t)
         return temp_list
 
+def get_count(model_name):
+    if model_name == 'University':
+        return University.query.count()
+    elif model_name == 'City':
+        return City.query.count()
+    elif model_name == 'Major':
+        return Major.query.distinct(Major.name).count()
+    elif model_name == 'Ethnicity':
+        return Ethnicity.query.distinct(Ethnicity.name).count()
 
 class MAJORTOCITY(DB.Model):
     __tablename__ = 'MAJORTOCITY'
