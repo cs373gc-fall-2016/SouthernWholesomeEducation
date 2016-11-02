@@ -3,9 +3,12 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import IDB1
 
-APP = IDB1.APP
+APP = Flask(__name__)
+
+APP.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhost/swe'
+APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 DB = SQLAlchemy(APP)
 
 

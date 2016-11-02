@@ -5,13 +5,6 @@ import os
 from flask import Flask, render_template, send_from_directory, jsonify, make_response
 from models import *
 
-APP = Flask(__name__)
-
-APP.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@localhost/swe'
-APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
-
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
