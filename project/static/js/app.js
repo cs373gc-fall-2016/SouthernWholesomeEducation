@@ -3,9 +3,9 @@ var app = angular.module('Myapp', ['ngRoute']);
 app.config(function($routeProvider) {
 
 	$routeProvider.
-            when('/', {
-                templateUrl : '/static/partials/splash.html',
-            }).
+        when('/', {
+            templateUrl : '../partials/splash.html',
+        }).
             // when('/university', {
             //     templateUrl : '/static/partials/table.html',
             // }).
@@ -18,11 +18,11 @@ app.config(function($routeProvider) {
             // when('/ethnicity', {
             //     templateUrl : '/static/partials/table.html',
             // }).
-            when('/about', {
-                templateUrl : '/static/partials/about.html',
-            }).
-            otherwise({
-                 redirectTo: '/'
-             });
+        when('/about', {
+             templateUrl : '../partials/about.html',
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
 
 });
