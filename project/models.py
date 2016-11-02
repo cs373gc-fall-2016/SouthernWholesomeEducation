@@ -3,7 +3,10 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from IDB1 import APP, DB
+import IDB1
+
+APP = IDB1.APP
+DB = SQLAlchemy(APP)
 
 
 def create_unique(model, **args):
