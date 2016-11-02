@@ -223,6 +223,7 @@ class University(DB.Model):
         assoc = next((a for a in self.major_list if a.major.name == maj), None)
         if not assoc:
             maj = Major(maj)
+            maj.assoc_university = 1
             assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
             self.major_list.append(assoc_maj)
 
@@ -232,6 +233,7 @@ class University(DB.Model):
             (a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
         if not assoc:
             eth = Ethnicity(eth)
+            eth.assoc_university = 1
             assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
             self.ethnicity_list.append(assoc_eth)
 
@@ -281,6 +283,7 @@ class City(DB.Model):
         assoc = next((a for a in self.major_list if a.major.name == maj), None)
         if not assoc:
             maj = Major(maj)
+            maj.assoc_university = 0
             assoc_maj = MAJORTOCITY(self, maj, num)
             self.major_list.append(assoc_maj)
 
@@ -290,6 +293,7 @@ class City(DB.Model):
             (a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
         if not assoc:
             eth = Ethnicity(eth)
+            eth.assoc_university = 0
             assoc_eth = ETHNICITYTOCITY(self, eth, num)
             self.ethnicity_list.append(assoc_eth)
 
@@ -307,6 +311,7 @@ class Major(DB.Model):
     num_undergrads = DB.Column(DB.Integer)
     top_city = DB.Column(DB.String(80))
     avg_percentage = DB.Column(DB.Float)
+    assoc_university = DB.Column(DB.Integer)
 
     def __init__(self, name):
         self.name = name
@@ -336,10 +341,17 @@ class Ethnicity(DB.Model):
     id_num = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(80))
     total_count = DB.Column(DB.Integer)
+    top_city = DB.Column(DB.String(80))
+    top_university = DB.Column(DB.String(80))
+    peak_year = DB.Column(DB.Integer)
+    assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, total_count=0, top_city='Default', top_university='Default', peak_year=0):
         self.name = name
         self.total_count = 0
+        self.top_city = top_city
+        self.top_university = top_university
+        self.peak_year = peak_year
 
     def __repr__(self):
         return '<Ethnicity ' + self.name + '>'
