@@ -2,7 +2,7 @@
 """Implementation of flask app for serving HTML pages"""
 
 import os
-from flask import Flask, send_file, render_template, send_from_directory, jsonify, make_response
+from flask import send_file, send_from_directory
 from models import *
 
 @APP.route('/')
