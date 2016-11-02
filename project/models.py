@@ -288,6 +288,7 @@ class City(DB.Model):
 
     def add_major(self, num, **args):
         """Appends major to major_list"""
+        print(args)
         assoc = next((a for a in self.major_list if a.major.name == args[name]), None)
         if not assoc:
             maj = Major(**args)
