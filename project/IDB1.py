@@ -59,7 +59,10 @@ def render_index():
 
 @APP.route('/<string:model_name>/')
 def render_models(model_name):
-    return make_response(open('templates/table.html').read())
+    if model_name == 'university' or model_name == 'major' or model_name == 'city' or model_name == 'ethnicity':
+        return make_response(open('templates/table.html').read())
+    else:
+        return render_template('index.html')
 
 @APP.route('/api/<string:model_name>/')
 def api_models(model_name):

@@ -21,8 +21,9 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('table', function($scope, $http, $location) {
-  $scope.path = '/api' + $location.absUrl().split('.me')[1];
-  document.write($location.absUrl());
+  $scope.path = '/api'
+  $scope.urlPath = $location.absUrl().split('.me')[1];
+  $scope.path = $scope.path + $scope.urlPath
   $http.get($scope.path).success(function (data, status, headers, config) {
         $scope.myData = data.results;
   });
