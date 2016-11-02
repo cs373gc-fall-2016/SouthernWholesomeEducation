@@ -3,7 +3,6 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from copy import deepcopy
 
 APP = Flask(__name__)
 
@@ -290,7 +289,6 @@ class City(DB.Model):
         # print(args)
         assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
         if not assoc:
-            maj = deepcopy(maj)
             maj.assoc_university = 0
             assoc_maj = MAJORTOCITY(self, maj, num)
             self.major_list.append(assoc_maj)
@@ -300,7 +298,6 @@ class City(DB.Model):
         assoc = next(
             (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
         if not assoc:
-            eth = deepcopy(eth)
             eth.assoc_university = 0
             assoc_eth = ETHNICITYTOCITY(self, eth, num)
             self.ethnicity_list.append(assoc_eth)
