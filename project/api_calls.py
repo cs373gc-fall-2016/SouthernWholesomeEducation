@@ -23,51 +23,38 @@ def api_call():
         count += 1
         print (count)
 
-    major_objs = dict()
-    eth_objs = dict()
+    major_objs_uni = dict()
+    eth_objs_uni = dict()
+    major_objs_city = dict()
+    eth_objs_city = dict()
 
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
-        major_objs[maj] = major
+        major_objs_uni[maj] = major
+        major_objs_city[maj] = major
 
     for eth in ethnicities:
         ethnicity = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
-        eth_objs[eth] = ethnicity
+        eth_objs_uni[eth] = ethnicity
+        eth_objs_city[eth] = ethnicity
 
     for city in cities:
-        # print(uni, end=' ') # key is university
-        # print(universities[uni]['undergrad_population'], end=' ')
-        # print(universities[uni]['cost_to_attend'], end=' ')
-        # print(universities[uni]['grad_rate'], end=' ')
-        # print(universities[uni]['public_or_private'], end=' ')
-        # print()
         cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
         for maj in cities[city]['major_list']:
-            if maj in major_objs:
-                cur_city.add_major(majors[maj]['total_major_undergrad_population'], major_objs[maj])
+            if maj in major_objs_city:
+                cur_city.add_major(majors[maj]['total_major_undergrad_population'], major_objs_city[maj])
         for eth in cities[city]['ethnicity_list']:
-            if eth in eth_objs:
-                cur_city.add_ethnicity(ethnicities[eth]['total_undergraduate_count'], eth_objs[eth])
+            if eth in eth_objs_city:
+                cur_city.add_ethnicity(ethnicities[eth]['total_undergraduate_count'], eth_objs_city[eth])
 
     for uni in universities:
-        # print(uni, end=' ') # key is university
-        # print(universities[uni]['undergrad_population'], end=' ')
-        # print(universities[uni]['cost_to_attend'], end=' ')
-        # print(universities[uni]['grad_rate'], end=' ')
-        # print(universities[uni]['public_or_private'], end=' ')
-        # print()
         university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
         for maj in universities[uni]['major_list']:
-            if maj in major_objs:
-                university.add_major(majors[maj]['total_major_undergrad_population'], major_objs[maj])
+            if maj in major_objs_uni:
+                university.add_major(majors[maj]['total_major_undergrad_population'], major_objs_uni[maj])
         for eth in universities[uni]['ethnicity_list']:
-            if eth in eth_objs:
-                university.add_ethnicity(ethnicities[eth]['total_undergraduate_count'], eth_objs[eth])
-        # for eth in universities[uni]['ethnicity_list']:
-        #     university.add_ethnicity(universities[uni]['ethnicity_list'][eth], name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
-        # for maj in universities[uni]['major_list']:
-        #     university.add_major(universities[uni]['major_list'][maj], name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
-
+            if eth in eth_objs_uni:
+                university.add_ethnicity(ethnicities[eth]['total_undergraduate_count'], eth_objs_uni[eth])
 
     DB.session.commit()
 
