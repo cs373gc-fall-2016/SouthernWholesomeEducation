@@ -353,9 +353,12 @@ def call_for_data(school_num):
                 '2014.academics.program_percentage.parks_recreation_fitness,2014.academics.program_percentage.language,' \
                 '2014.academics.program_percentage.visual_performing,2014.academics.program_percentage.english' \
                 '&id=' + str(school_num) + '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
-
-    output = requests.get(data_url)
-    school_dict = output.json()
+    try:
+        output = requests.get(data_url)
+        school_dict = output.json()
+    except JSONDecodeError:
+        output = requests.get(data_url)
+        school_dict = output.json()
     # returning dictionary with school data
     return school_dict['results'][0]
 
