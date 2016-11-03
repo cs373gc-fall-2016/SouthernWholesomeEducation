@@ -215,7 +215,7 @@ class University(DB.Model):
             'Cost to Attend': self.cost_to_attend,
             'Graduation Rate': self.grad_rate, 
             'Public/Private': self.public_or_private
-            }
+        }
 
     def primary_attributes(self):
         return {'name': self.name, 'city_id': self.city_id}
@@ -281,7 +281,7 @@ class City(DB.Model):
             # 'Ethnicities': len(self.ethnicity_list),
             # 'Majors': len(self.major_list),
             'Average Tuition': self.avg_tuition
-            }
+        }
 
     def primary_attributes(self):
         return {'name': self.name}
@@ -341,12 +341,12 @@ class Major(DB.Model):
 
     def attributes(self):
         return {
-            'Major': self.name,
-            'Total Number': self.num_undergrads,
-            'Top City': self.top_city,
-            'Average Percentage': self.avg_percentage,
-            'Number of Supported Universities': assoc_university
-            }
+            'Major': self.name
+            # 'Total Number': self.num_undergrads,
+            # 'Top City': self.top_city,
+            # 'Average Percentage': self.avg_percentage,
+            # 'Number of Supported Universities': assoc_university
+        }
 
     def primary_attributes(self):
         return {'name': self.name}
@@ -388,8 +388,8 @@ class Ethnicity(DB.Model):
             'Total Count': self.total_count,
             'Top City': self.top_city,
             'Top University': self.top_university,
-            'Peak Year': self.peak_year,
-            }
+            'Peak Year': self.peak_year
+        }
 
     def primary_attributes(self):
         return {'name': self.name}
