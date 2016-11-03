@@ -30,43 +30,11 @@ class Tests(TestCase):
         '''
         Test University class
         '''
-        university = create_unique(University, name='UT', num_undergrads=10, \
-            cost_to_attend=100, grad_rate=0.8, public_or_private='public')
-        university.add_major(500, name='Engineering')
-        university.add_major(700, name='Computer Science')
-        university.add_ethnicity(1000, name='White')
+        # uni = University.query.filter_by('name=')
 
-        name = university.name
-        num_undergrads = university.num_undergrads
-        cost_to_attend = university.cost_to_attend
-        grad_rate = university.grad_rate
-        public_or_private = university.public_or_private
-        major_list = university.major_list
-        ethnicity_list = university.ethnicity_list
-
-        self.assertEqual(name, "UT")
-        self.assertEqual(num_undergrads, 10)
-        self.assertEqual(cost_to_attend, 100)
-        self.assertEqual(grad_rate, .80)
-        self.assertEqual(public_or_private, "public")
-        self.assertEqual(major_list[0].__repr__(), '<University UT, Major Engineering>')
-        self.assertEqual(ethnicity_list[0].__repr__(), '<University UT, Ethnicity White>')
-        DB.session.commit()
-        entries = University.query.filter_by(name='UT', cost_to_attend=100).first()
-        self.assertEqual(entries.num_undergrads, 10)
-
-    def test_update(self):
-        """
-        Test update database
-        """
-        assoc = get_association(MAJORTOUNIVERSITY, major_name='Engineering', university_name='UT')
-        assoc.num_students = 70000
-        DB.session.commit()
-        self.assertEqual(assoc.num_students, 70000)
-
-        # -------------------
-        # university __repr__
-        # -------------------
+    # -------------------
+    # university __repr__
+    # -------------------
 
     def test_university_repr_1(self):
         '''
