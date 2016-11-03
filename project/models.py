@@ -267,8 +267,12 @@ class City(DB.Model):
         self.population = population
         self.avg_tuition = avg_tuition
         self.top_university = top_university
-        self.top_major = top_major
-        self.top_ethnicity = top_ethnicity
+        self.top_major = top_major.replace("2014.academics.program_percentage.", "").replace("_", " ").title()
+        self.top_ethnicity = top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace('nhpi', 'native_hawaiian_pacific_islander')
+        self.top_ethnicity = self.top_ethnicity.replace('aian', 'american_indian_alaska_native')
+        self.top_ethnicity = self.top_ethnicity.replace("_", " ").title()
 
     def __repr__(self):
         return '<City ' + self.name + '>'
