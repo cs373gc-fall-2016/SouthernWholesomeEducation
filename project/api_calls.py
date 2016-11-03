@@ -14,10 +14,10 @@ majors = dict()
 ethnicities = dict()
 
 print('droping now')
-    models.DB.drop_all()
+DB.drop_all()
 
 print('creating all now')
-models.DB.create_all()
+DB.create_all()
 
 def api_call():
     set_of_schools_nums = get_all_school_codes()
