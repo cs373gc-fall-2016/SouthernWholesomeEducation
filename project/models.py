@@ -357,7 +357,7 @@ class Major(DB.Model):
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
             'avg_percentage': self.avg_percentage,
-            'assoc_university': assoc_university
+            'assoc_university': self.assoc_university
         }
 
     # def primary_attributes(self):
@@ -403,7 +403,7 @@ class Ethnicity(DB.Model):
             'total_count': self.total_count,
             'top_city': self.top_city,
             'top_university': self.top_university,
-            'peak_year': self.peak_year
+            'top_university_amt': self.top_university_amt
         }
 
     # def primary_attributes(self):

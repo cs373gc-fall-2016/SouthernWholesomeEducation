@@ -66,7 +66,7 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
     });
   }
 
-  $http.get($scope.path+query).success(function (data, status, headers, config) {
+  $http.get($scope.path).success(function (data, status, headers, config) {
         $scope.myData = data.results;
   });
 });
