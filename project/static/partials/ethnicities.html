@@ -1,11 +1,5 @@
 <table>
   <thead>
-    <th id="id_numCol">
-      Detail
-        <a href="" ng-click="query('?sort=id_num&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=id_num&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
-    </th>
-
     <th id="nameCol">
       Ethnicity
         <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
@@ -22,6 +16,12 @@
       Top City
         <a href="" ng-click="query('?sort=top_city&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=top_city&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="top_city_amtCol">
+      Top City Amount
+        <a href="" ng-click="query('?sort=top_city_amt&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=top_city_amt&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="top_universityCol">
@@ -42,14 +42,21 @@
   <td ng-repeat="cell in row">{{cell}}</td> -->
   <tr ng-repeat="eth in myData">
                 <td>
-                    <a ng-href="#/ethnicities/{{eth.id_num}}">
-                        <span>Details</span>
-                    </a>
+                  <a ng-href="#/ethnicities/{{eth.id_num}}">
+                    <span>{{eth.name}}</span>
+                  </a>
                 </td>
-                <td>{{eth.name}}</td>
                 <td>{{eth.total_count}}</td>
-                <td>{{eth.top_city}}</td>
-                <td>{{eth.top_university}}</td>
+                <td>
+                  <a ng-href="#/cities/{{eth.top_city_id}}">
+                    <span>{{eth.top_city}}</span>
+                  </a>
+                </td>
+                <td>{{eth.top_city_amt}}</td>
+                <td>
+                  <a ng-href="#/universities/{{eth.top_university_id}}">
+                    <span>{{eth.top_university}}</span>
+                  </a></td>
                 <td>{{eth.top_university_amt}}</td>
 </tr>
  </tbody>

@@ -1,10 +1,5 @@
 <table>
   <thead>
-    <th id="idCol">
-      Detail
-        <a href="" ng-click="query('?sort=id_num&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=id_num&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
-    </th>
 
     <th id="nameCol">
       City
@@ -47,11 +42,10 @@
   <td ng-repeat="cell in row">{{cell}}</td> -->
   <tr ng-repeat="city in myData">
                 <td>
-                    <a ng-href="#/cities/{{city.id_num}}">
-                        <span>Details</span>
-                    </a>
+                  <a ng-href="#/cities/{{city.id_num}}">
+                        <span>{{city.name}}</span>
+                  </a>
                 </td>
-                <td>{{city.name}}</td>
                 <td>{{city.population}}</td>
                 <td>{{city.university_list}}</td>
                 <td>{{city.ethnicity_list}}</td>

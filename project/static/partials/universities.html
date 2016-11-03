@@ -1,11 +1,5 @@
 <table>
   <thead>
-    <th id="idCol">
-      Detail
-        <a href="" ng-click="query('?sort=id_num&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=id_num&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
-    </th>
-
     <th id="universityCol">
       University
         <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
@@ -40,12 +34,12 @@
   <!-- <tr ng-repeat="row in myData">
   <td ng-repeat="cell in row">{{cell}}</td> -->
   <tr ng-repeat="uni in myData">
+
                 <td>
-                    <a ng-href="#/universities/{{uni.id_num}}">
-                        <span>Details</span>
-                    </a>
+                  <a ng-href="#/universities/{{uni.id_num}}">
+                        <span>{{uni.name}}</span>
+                  </a>
                 </td>
-                <td>{{uni.name}}</td>
                 <td>{{uni.num_undergrads}}</td>
                 <td>{{uni.cost_to_attend}}</td>
                 <td>{{uni.grad_rate}}</td>

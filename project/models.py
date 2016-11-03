@@ -32,6 +32,17 @@ def create_unique(model, **args):
 def get_association(model, **args):
     return model.query.filter_by(**args).first()
 
+def get_model(model_name):
+    model_name = model_name.lower()
+    if model_name == 'university':
+        return University
+    elif model_name == 'city':
+        return City
+    elif model_name == 'major':
+        return Major
+    elif model_name == 'ethnicity':
+        return Ethnicity
+
 def get_models(model_name):
     if model_name == 'University':
         return University.query.all()
@@ -217,14 +228,33 @@ class University(DB.Model):
     def __repr__(self):
         return '<University ' + self.name + '>'
 
+    def get_ethnicities(self):
+        ethnic_list = ETHNICITYTOUNIVERSITY.query.filter_by(university_name=self.name).all()        
+        ethnic_list_json = []
+        for i in ethnic_list:
+            ethnic_list_json.append({'name': i.ethnicity_name, 'id': i.ethnicity_id, 'num_students': i.num_students})
+        return ethnic_list_json
+
+    def get_majors(self):
+        maj_list = MAJORTOUNIVERSITY.query.filter_by(university_name=self.name).all()
+        major_list_json = []
+        for i in maj_list:
+            major_list_json.append({'name': i.major_name, 'id': i.major_id, 'num_students': i.num_students})
+        return major_list_json
+
     def attributes(self):
+        city_name = City.query.filter_by(id_num=self.city_id).first().name
         return {
             'id_num': self.id_num,
             'name': self.name, 
             'num_undergrads': self.num_undergrads, 
             'cost_to_attend': self.cost_to_attend,
             'grad_rate': self.grad_rate, 
-            'public_or_private': self.public_or_private
+            'public_or_private': self.public_or_private,
+            'city_id': self.city_id,
+            'city_name': city_name,
+            'majors': self.get_majors(),
+            'ethnicities': self.get_ethnicities()
         }
 
     # def primary_attributes(self):
@@ -351,11 +381,13 @@ class Major(DB.Model):
         return '<Major ' + self.name + '>'
 
     def attributes(self):
+        top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, city_name=self.top_city).first().city_id
         return {
             'id_num': self.id_num,
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
+            'top_city_id': top_city_id,
             'avg_percentage': self.avg_percentage,
             'assoc_university': self.assoc_university
         }
@@ -397,12 +429,17 @@ class Ethnicity(DB.Model):
         return '<Ethnicity ' + self.name + '>'
 
     def attributes(self):
+        top_city_id = ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name, city_name=self.top_city).first().city_id
+        top_university_id = ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name, university_name=self.top_university).first().university_id
         return {
             'id_num': self.id_num,
             'name': self.name,
             'total_count': self.total_count,
             'top_city': self.top_city,
+            'top_city_id': top_city_id,
+            'top_city_amt': self.top_city_amt,
             'top_university': self.top_university,
+            'top_university_id': top_university_id,
             'top_university_amt': self.top_university_amt
         }
 

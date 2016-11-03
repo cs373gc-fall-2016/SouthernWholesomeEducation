@@ -1,0 +1,50 @@
+{{myData}}
+<div class="container">
+      <div class=".col-md-6">
+      <div>
+        <h3>{{myData.name}}</h3>
+      </div>
+
+      <div>
+        <h3>Number of Undergraduate Students</h3>
+        <p>{{myData.num_undergrads}}</p>
+      </div>
+
+      <div>
+        <h3>Cost to Attend</h3>
+        <p>${{myData.cost_to_attend}}</p>
+      </div>
+
+      <div>
+        <h3>Graduation Rate</h3>
+        <p>{{myData.grad_rate}}</p>
+      </div>
+
+      <div>
+        <h3>Location</h3>
+        <ul>
+          <li><a ng-href="#/cities/{{myData.city_id}}">{{myData.city_name}}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Public/Private</h3>
+        <p>{{myData.public_or_private}}</p>
+      </div>
+
+      {{myData.ethnicity_list}}
+
+      <!-- <div>
+        <h3>Current year ethnicity count</h3>
+        <ul>
+          <li><a href="/hispanic.html">Hispanic</a>: 17,900</li>
+          <li><a href="/white.html">White</a>: 8,561</li>
+          <li><a href="/asian.html">Asian</a>: 7,393</li>
+        </ul>
+      </div>
+ -->
+
+
+    </div>
+
+</div>

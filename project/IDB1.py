@@ -6,13 +6,20 @@ import sys
 import requests
 from flask import Flask, render_template, send_from_directory, jsonify, make_response, request, send_file
 from models import *
-import requests
 DEFAULT_PAGE = 10
 
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
     return send_file('templates/index.html')
+
+
+
+@APP.route('/api/<string:model_name>/id/<int:id_param>')
+def lookup_model(model_name, id_param):
+    model = get_association(get_model(model_name), id_num=id_param)
+
+    return jsonify(results=model.attributes())
 
 @APP.route('/api/<string:model_name>/')
 @APP.route('/api/<string:model_name>/<int:page>')
@@ -40,6 +47,10 @@ def api_models(model_name, page=0):
     for i in list_models:
         json_list.append(i.attributes())
     return jsonify(results=json_list)
+
+
+
+
 
 @APP.route('/favicon.ico')
 def favicon():

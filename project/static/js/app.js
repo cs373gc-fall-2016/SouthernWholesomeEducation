@@ -23,6 +23,13 @@ myApp.config(function($routeProvider) {
                 model: function ($route) { $route.current.params.model = "university"; }
     		}
         }).
+        when('/universities/:ID', {
+                templateUrl : '../static/partials/university-detail.html',
+                controller : 'DetailCtrl',
+                resolve: {
+                    model: function ($route) { $route.current.params.model = "university"; }
+                }
+        }).
         when('/majors', {
              templateUrl : '../static/partials/majors.html',
              controller : 'TableCtrl',
@@ -65,6 +72,18 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
       $scope.myData = data.results;
     });
   }
+
+  $http.get($scope.path).success(function (data, status, headers, config) {
+        $scope.myData = data.results;
+  });
+});
+
+
+
+myApp.controller('DetailCtrl',function($scope, $routeParams, $http, $location) {
+  $scope.path = '/api/'
+  $scope.urlPath = $routeParams.model;
+  $scope.path = $scope.path + $scope.urlPath +'/id/' + $routeParams.ID;
 
   $http.get($scope.path).success(function (data, status, headers, config) {
         $scope.myData = data.results;
