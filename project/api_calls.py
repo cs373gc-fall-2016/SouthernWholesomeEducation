@@ -28,25 +28,20 @@ def api_call():
     set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
     #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
-    count = 0
-    for school_num in set_of_schools_nums:
-        school_dict = call_for_data(school_num)
-        setup_data(school_dict)
-        count += 1
-        print (count)
-    
-
-    print('finished the API call... Going to dump pickles(not really pickling)')
-
-
     if not load_pickle:
+        count = 0
+        for school_num in set_of_schools_nums:
+            school_dict = call_for_data(school_num)
+            setup_data(school_dict)
+            count += 1
+            print (count)
+        print('finished the API call... Going to dump pickles(not really pickling)')
         # pickle to save items locally
         pickle.dump( universities, open( "universities.p", "wb" ) )
         pickle.dump( cities, open( "cities.p", "wb" ) )
         pickle.dump( majors, open( "majors.p", "wb" ) )
         pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
-
-    print('finished creating pickle files... Going to drop the current database tables')
+        print('finished creating pickle files... Going to drop the current database tables')
 
     major_objs_uni = dict()
     eth_objs_uni = dict()
