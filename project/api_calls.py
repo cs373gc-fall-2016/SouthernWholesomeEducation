@@ -180,7 +180,7 @@ def setup_data(individual_school_dict):
         all_eths = major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.')
         for eth in all_eths:
             if eth not in cities[individual_school_dict['school.city']]['ethnicity_list']:
-                if all_eths[eths] is not None:
+                if all_eths[eth] is not None:
                     cities[individual_school_dict['school.city']]['ethnicity_list'][eth] = all_eths[eth]
             else:
                 if all_eths[eth] is not None:
