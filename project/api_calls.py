@@ -177,8 +177,15 @@ def setup_data(individual_school_dict):
         if new_cost_to_attend is not None and new_student_population is not None and cities[individual_school_dict['school.city']]['average_tuition'] is not None and current_population is not None:
             cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
-
-        cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
+        all_eths = major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.')
+        for eth in all_eths:
+            if eth not in cities[individual_school_dict['school.city']]['ethnicity_list']:
+                if all_eths[eths] is not None:
+                    cities[individual_school_dict['school.city']]['ethnicity_list'][eth] = all_eths[eth]
+            else:
+                if all_eths[eth] is not None:
+                    cities[individual_school_dict['school.city']]['ethnicity_list'][eth] += all_eths[eth]
+        #cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
         cities[individual_school_dict['school.city']]['ethnicity_count'] = len(cities[individual_school_dict['school.city']]['ethnicity_list'])
     else:
         # creating a new city

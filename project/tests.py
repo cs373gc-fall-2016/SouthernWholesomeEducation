@@ -749,6 +749,14 @@ class Tests(TestCase):
     # ethnicity class
     # ---------------
 
+    # def test_ethnicity_1(self):
+    #     '''
+    #     Test Ethnicity class
+    #     '''
+    #     eth = Ethnicity.query.filter_by(name='Computer').first()
+    #     self.assertEqual(maj.num_undergrads, 533608)
+    #     self.assertEqual(maj.top_city, "Tempe")
+
 # ----
 # main
 # ----
