@@ -262,7 +262,37 @@ class Tests(TestCase):
             major_name='Computer').first()
         self.assertEqual(majorcity.__repr__(), '<City Hialeah, Major Computer>')
 
+    def test_majortocity_repr_7(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Reno', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.__repr__(), '<City Reno, Major Health>')
 
+    def test_majortocity_repr_8(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Chicago', \
+            major_name='Business Marketing').first()
+        self.assertEqual(majorcity.__repr__(), '<City Chicago, Major Business Marketing>')
+
+    def test_majortocity_repr_9(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Memphis', \
+            major_name='Personal Culinary').first()
+        self.assertEqual(majorcity.__repr__(), '<City Memphis, Major Personal Culinary>')
+
+    def test_majortocity_repr_10(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Philadelphia', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.__repr__(), '<City Philadelphia, Major Health>')
 
     # -------------
     # city __repr__
@@ -288,6 +318,34 @@ class Tests(TestCase):
         '''
         city = City('New York')
         self.assertEqual(city.__repr__(), '<City New York>')
+
+    def test_city_repr_4(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('Seattle')
+        self.assertEqual(city.__repr__(), '<City Seattle>')
+
+    def test_city_repr_5(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('Milledgeville')
+        self.assertEqual(city.__repr__(), '<City Milledgeville>')
+
+    def test_city_repr_6(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('Tampa')
+        self.assertEqual(city.__repr__(), '<City Tampa>')
+
+    def test_city_repr_7(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('West Palm Beach')
+        self.assertEqual(city.__repr__(), '<City West Palm Beach>')
 
         # # -----------
         # # major class
