@@ -219,11 +219,12 @@ class University(DB.Model):
 
     def attributes(self):
         return {
-            'University': self.name, 
-            'Number of Undergraduates': self.num_undergrads, 
-            'Cost to Attend': self.cost_to_attend,
-            'Graduation Rate': self.grad_rate, 
-            'Public/Private': self.public_or_private
+            'id_num': self.id_num,
+            'name': self.name, 
+            'num_undergrads': self.num_undergrads, 
+            'cost_to_attend': self.cost_to_attend,
+            'grad_rate': self.grad_rate, 
+            'public_or_private': self.public_or_private
         }
 
     # def primary_attributes(self):
@@ -267,7 +268,7 @@ class City(DB.Model):
     name = DB.Column(DB.String(225))
     population = DB.Column(DB.Integer)
     university_list = DB.relationship(
-        'University', backref='city', lazy='dynamic')
+        'University', backref='city')
     ethnicity_list = DB.relationship('ETHNICITYTOCITY')
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
@@ -282,12 +283,13 @@ class City(DB.Model):
 
     def attributes(self):
         return {
-            'City': self.name, 
-            'Population': self.population, 
-            # 'Universities': len(self.university_list),
-            # 'Ethnicities': len(self.ethnicity_list),
-            # 'Majors': len(self.major_list),
-            'Average Tuition': self.avg_tuition
+            'id_num': self.id_num,
+            'name': self.name, 
+            'population': self.population, 
+            'university_list': len(self.university_list),
+            'ethnicity_list': len(self.ethnicity_list),
+            'major_list': len(self.major_list),
+            'avg_tuition': self.avg_tuition
         }
 
     # def primary_attributes(self):
@@ -350,11 +352,12 @@ class Major(DB.Model):
 
     def attributes(self):
         return {
-            'Major': self.name
-            # 'Total Number': self.num_undergrads,
-            # 'Top City': self.top_city,
-            # 'Average Percentage': self.avg_percentage,
-            # 'Number of Supported Universities': assoc_university
+            'id_num': self.id_num,
+            'name': self.name,
+            'num_undergrads': self.num_undergrads,
+            'top_city': self.top_city,
+            'avg_percentage': self.avg_percentage,
+            'assoc_university': self.assoc_university
         }
 
     # def primary_attributes(self):
@@ -395,11 +398,12 @@ class Ethnicity(DB.Model):
 
     def attributes(self):
         return {
-            'Ethnicity': self.name,
-            'Total Count': self.total_count,
-            'Top City': self.top_city,
-            'Top University': self.top_university,
-            'Peak Year': self.peak_year
+            'id_num': self.id_num,
+            'name': self.name,
+            'total_count': self.total_count,
+            'top_city': self.top_city,
+            'top_university': self.top_university,
+            'top_university_amt': self.top_university_amt
         }
 
     # def primary_attributes(self):

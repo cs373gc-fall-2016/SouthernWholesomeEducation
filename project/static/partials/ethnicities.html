@@ -1,0 +1,76 @@
+<table>
+  <thead>
+    <th id="id_numCol">
+      Detail
+        <a href="" ng-click="query('?sort=id_num&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=id_num&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="nameCol">
+      Ethnicity
+        <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=name&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="total_countCol">
+      Total Count
+        <a href="" ng-click="query('?sort=total_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=total_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="top_cityCol">
+      Top City
+        <a href="" ng-click="query('?sort=top_city&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=top_city&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="top_universityCol">
+      Top University
+        <a href="" ng-click="query('?sort=top_university&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=top_university&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="top_university_amtCol">
+      Top University Amount
+        <a href="" ng-click="query('?sort=top_university_amt&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=top_university_amt&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+  </thead>
+  <tbody>
+  <!-- <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="eth in myData">
+                <td>
+                    <a ng-href="#/ethnicities/{{eth.id_num}}">
+                        <span>Details</span>
+                    </a>
+                </td>
+                <td>{{eth.name}}</td>
+                <td>{{eth.total_count}}</td>
+                <td>{{eth.top_city}}</td>
+                <td>{{eth.top_university}}</td>
+                <td>{{eth.top_university_amt}}</td>
+</tr>
+ </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

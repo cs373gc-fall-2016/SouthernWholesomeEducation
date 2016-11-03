@@ -1,0 +1,76 @@
+<table>
+  <thead>
+    <th id="idCol">
+      Detail
+        <a href="" ng-click="query('?sort=id_num&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=id_num&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="universityCol">
+      University
+        <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=name&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="undergradsCol">
+      Number of Undergraduates
+        <a href="" ng-click="query('?sort=num_undergrads&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=num_undergrads&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="costCol">
+      Cost to Attend
+        <a href="" ng-click="query('?sort=cost_to_attend&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=cost_to_attend&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="gradrateCol">
+      Graduation Rate
+        <a href="" ng-click="query('?sort=grad_rate&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=grad_rate&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="publicprivateCol">
+      Public/Private
+        <a href="" ng-click="query('?sort=public_or_private&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=public_or_private&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+  </thead>
+  <tbody>
+  <!-- <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="uni in myData">
+                <td>
+                    <a ng-href="#/universities/{{uni.id_num}}">
+                        <span>Details</span>
+                    </a>
+                </td>
+                <td>{{uni.name}}</td>
+                <td>{{uni.num_undergrads}}</td>
+                <td>{{uni.cost_to_attend}}</td>
+                <td>{{uni.grad_rate}}</td>
+                <td>{{uni.public_or_private}}</td>
+</tr>
+  </tr>
+ </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

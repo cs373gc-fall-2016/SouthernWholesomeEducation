@@ -6,6 +6,7 @@ import sys
 import requests
 from flask import Flask, render_template, send_from_directory, jsonify, make_response, request, send_file
 from models import *
+import requests
 DEFAULT_PAGE = 10
 
 COLUMN_KEYS = { "University": {
