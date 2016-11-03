@@ -3,10 +3,10 @@
 	  <th id="col" ng-repeat="(key, value) in myData[0]">
 		{{key}}
 		<a>
-		  <span ng-click="query()" class="glyphicon glyphicon-triangle-bottom"></span>
+		  <span ng-click="query('desc')" class="glyphicon glyphicon-triangle-bottom"></span>
 		</a>
 		<a>
-		  <span ng-click="query()" class="glyphicon glyphicon-triangle-top"></span>
+		  <span ng-click="query('asc')" class="glyphicon glyphicon-triangle-top"></span>
 		</a>
 	  </th>
   </thead>

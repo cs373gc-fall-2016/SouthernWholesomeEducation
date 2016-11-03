@@ -48,16 +48,11 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath;
 
-  $scope.order = 'asc';
-  $scope.query = function() {
-    if($scope.order = 'asc')
-      $scope.order = 'desc';
-    else
-      $scope.order = 'asc';
-    
-    $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
-    
-    $http.get($scope.path).success(function (data, status, headers, config) {
+  $scope.query = function(order) {
+    $scope.order = order;
+    $scope.newPath = $scope.path + '?sort=' + $scope.urlPath + '&order=' + $scope.order;
+
+    $http.get($scope.newPath).success(function (data, status, headers, config) {
       $scope.myData = data.results;
     });
   }
