@@ -102,10 +102,14 @@
 <table>
   <thead>
 	  <th id="col" ng-repeat="(key, value) in myData[0]">
-		  <a href="" ng-click="sortType = key; sortReverse= !sortReverse; sort()">{{key}}</a>
-			  <!--ng-repeat="(key, value) in myData[0]">{{key}}-->
-		   <span ng-show="sortType == key && sortReverse" class="fa fa-caret-down"></span>
-		   <span ng-show="sortType == key && !sortReverse" class="fa fa-caret-up"></span>
+				{{key}}
+				
+				<a ng-href="?sort={{ key }}&order=desc">
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
+				</a>
+				<a ng-href="?sort={{ key }}&order=asc">
+						<span class="glyphicon glyphicon-triangle-top"></span>
+				</a>
 	  </th>
   </thead>
   <tbody>
@@ -121,11 +125,18 @@
 var app = angular.module('myApp', []);
 app.controller('table', function($scope, $http, $location) {
   $scope.path = '/api'
-  $scope.urlPath = $location.absUrl().split('.me')[1];
+  $scope.urlPath = window.location.pathname + window.location.search;
   $scope.path = $scope.path + $scope.urlPath
   $http.get($scope.path).success(function (data, status, headers, config) {
         $scope.myData = data.results;
   });
+	$scope.order = "asc";
+  $scope.setOrder = function() {
+    if ($scope.order == "asc")
+      $scope.order = "desc";
+	  else
+		  $scope.order = "asc";
+  };
 });
 </script>
 </body>
