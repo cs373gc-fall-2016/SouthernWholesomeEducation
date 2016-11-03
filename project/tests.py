@@ -30,70 +30,71 @@ class Tests(TestCase):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=University of East-West Medicine').first()
+        uni = University.query.filter_by(name='University of East-West Medicine').first()
         self.assertEqual(uni.num_undergrads, 2460)
 
     def test_university_2(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=Charlotte School of Law').first()
+        uni = University.query.filter_by(name='Charlotte School of Law').first()
         self.assertEqual(uni.num_undergrads, 3764)
 
     def test_university_3(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=Marinello School of Beauty-Visalia').first()
+        uni = University.query.filter_by(name='Marinello School of Beauty-Visalia').first()
         self.assertEqual(uni.num_undergrads, 2185)
 
     def test_university_4(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=Brite Divinity School').first()
+        uni = University.query.filter_by(name='Brite Divinity School').first()
         self.assertEqual(uni.num_undergrads, 3357)
 
     def test_university_5(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=J Renee College').first()
+        uni = University.query.filter_by(name='J Renee College').first()
         self.assertEqual(uni.num_undergrads, 83)
 
     def test_university_6(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=American Sentinel University').first()
+        uni = University.query.filter_by(name='American Sentinel University').first()
         self.assertEqual(uni.num_undergrads, 1701)
 
     def test_university_7(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=Center for Natural Wellness School of Massage Therapy').first()
+        uni = University.query.filter_by(name='Center for Natural Wellness School \
+            of Massage Therapy').first()
         self.assertEqual(uni.num_undergrads, 45)
 
     def test_university_8(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=Trenz Beauty Academy').first()
+        uni = University.query.filter_by(name='Trenz Beauty Academy').first()
         self.assertEqual(uni.num_undergrads, 54)
 
     def test_university_9(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=SOLEX College').first()
+        uni = University.query.filter_by(name='SOLEX College').first()
         self.assertEqual(uni.num_undergrads, 85)
 
     def test_university_10(self):
         '''
         Test University class
         '''
-        uni = University.query.filter_by('name=Star Career Academy-Audubon').first()
+        uni = University.query.filter_by(name='Star Career Academy-Audubon').first()
         self.assertEqual(uni.num_undergrads, 221)
 
     # -------------------
@@ -157,50 +158,57 @@ class Tests(TestCase):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='Madison', major_name='Visual Performing')
-        self.assertEqual(mc.num_students, 14)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Madison', \
+            major_name='Visual Performing').first()
+        self.assertEqual(majorcity.num_students, 14)
 
     def test_majortocity_2(self):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='Pensacola', major_name='Construction')
-        self.assertEqual(mc.num_students, 7)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Pensacola', \
+            major_name='Construction').first()
+        self.assertEqual(majorcity.num_students, 7)
 
     def test_majortocity_3(self):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='Warner Robins', major_name='Health')
-        self.assertEqual(mc.num_students, 1124)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Warner Robins', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.num_students, 1124)
 
     def test_majortocity_4(self):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='New York', major_name='Health')
-        self.assertEqual(mc.num_students, 1221)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='New York', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.num_students, 1221)
 
     def test_majortocity_5(self):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='Bethlehem', major_name='Construction')
-        self.assertEqual(mc.num_students, 73)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Bethlehem', \
+            major_name='Construction').first()
+        self.assertEqual(majorcity.num_students, 73)
 
     def test_majortocity_6(self):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='Oklahoma City', major_name='Computer')
-        self.assertEqual(mc.num_students, 8)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Oklahoma City', \
+            major_name='Computer').first()
+        self.assertEqual(majorcity.num_students, 8)
 
     def test_majortocity_7(self):
         '''
         Test MAJORTOCITY class
         '''
-        mc = MAJORTOCITY.query.filter_by(city_name='Phoenix', major_name='Health')
-        self.assertEqual(mc.num_students, 542)
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Phoenix', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.num_students, 542)
 
     # -------------
     # city __repr__
@@ -258,11 +266,9 @@ class Tests(TestCase):
         major = Major('Business')
         self.assertEqual(major.__repr__(), '<Major Business>')
 
-        # # ---------------
-        # # ethnicity class
-        # # ---------------
-
-    
+    # ---------------
+    # ethnicity class
+    # ---------------
 
 # ----
 # main
