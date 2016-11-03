@@ -204,6 +204,7 @@ class University(DB.Model):
         self.cost_to_attend = cost_to_attend
         self.grad_rate = grad_rate
         self.public_or_private = public_or_private
+        
 
     def __repr__(self):
         return '<University ' + self.name + '>'
@@ -257,11 +258,17 @@ class City(DB.Model):
     ethnicity_list = DB.relationship('ETHNICITYTOCITY')
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
+    top_university = DB.Column(DB.String(225))
+    top_major = DB.Column(DB.String(225))
+    top_ethnicity = DB.Column(DB.String(225))
 
-    def __init__(self, name, population=0, avg_tuition=0):
+    def __init__(self, name, population=0, avg_tuition=0, top_university, top_major, top_ethnicity):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
+        self.top_university = top_university
+        self.top_major = top_major
+        self.top_ethnicity = top_ethnicity
 
     def __repr__(self):
         return '<City ' + self.name + '>'
