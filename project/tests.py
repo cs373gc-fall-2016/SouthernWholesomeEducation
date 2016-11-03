@@ -149,7 +149,7 @@ class Tests(TestCase):
         '''
         university = University('McGovern Medical School', 0, 0, 0, '')
         self.assertEqual(university.__repr__(), '<University McGovern Medical School>')
-        
+
 
     # -----------------
     # MAJORTOCITY class
@@ -295,6 +295,66 @@ class Tests(TestCase):
             major_name='Health').first()
         self.assertEqual(majorcity.__repr__(), '<City Philadelphia, Major Health>')
 
+    # ----------
+    # city class
+    # ----------
+
+    def test_city_1(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Richfield').first()
+        self.assertEqual(city.population, 673)
+        self.assertEqual(city.top_major, 'Business Marketing')
+
+    def test_city_2(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Lakeland').first()
+        self.assertEqual(city.population, 6988)
+        self.assertEqual(city.top_major, 'Health')
+
+    def test_city_3(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Sunnyvale').first()
+        self.assertEqual(city.population, 35598)
+        self.assertEqual(city.top_major, 'Visual Performing')
+
+    def test_city_4(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Pittsburgh').first()
+        self.assertEqual(city.population, 67755)
+        self.assertEqual(city.top_major, 'Health')
+
+    def test_city_5(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Santa Barbara').first()
+        self.assertEqual(city.population, 37657)
+        self.assertEqual(city.top_major, 'Humanities')
+
+    def test_city_6(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Villanova').first()
+        self.assertEqual(city.population, 34845)
+        self.assertEqual(city.top_major, 'Business Marketing')
+
+    def test_city_7(self):
+        '''
+        Test City class
+        '''
+        city = City.query.filter_by(name='Miami').first()
+        self.assertEqual(city.population, 127001)
+        self.assertEqual(city.top_major, 'Humanities')
+
     # -------------
     # city __repr__
     # -------------
@@ -348,9 +408,9 @@ class Tests(TestCase):
         city = City('West Palm Beach')
         self.assertEqual(city.__repr__(), '<City West Palm Beach>')
 
-        # # -----------
-        # # major class
-        # # -----------
+    # # -----------
+    # # major class
+    # # -----------
 
     def test_major_1(self):
         '''
@@ -432,9 +492,9 @@ class Tests(TestCase):
         self.assertEqual(maj.num_undergrads, 125860)
         self.assertEqual(maj.top_city, "College Station")
 
-        # # -------------
-        # # major __repr__
-        # # -------------
+    # # -------------
+    # # major __repr__
+    # # -------------
 
     def test_major_repr_1(self):
         '''
