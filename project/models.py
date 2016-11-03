@@ -20,13 +20,13 @@ def create_unique(model, **args):
     return is_exist
 
 
-def add_unique(obj):
-    is_exist = obj.__class__.query.filter_by(
-        **obj.primary_attributes()).first()
-    if not is_exist:
-        DB.session.add(obj)
-    else:
-        is_exist.update(obj)
+# def add_unique(obj):
+#     is_exist = obj.__class__.query.filter_by(
+#         **obj.primary_attributes()).first()
+#     if not is_exist:
+#         DB.session.add(obj)
+#     else:
+#         is_exist.update(obj)
 
 
 def get_association(model, **args):
@@ -56,8 +56,8 @@ class MAJORTOCITY(DB.Model):
     major_id = DB.Column(DB.Integer, DB.ForeignKey(
         'MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    city_name = DB.Column(DB.String(80))
-    major_name = DB.Column(DB.String(80))
+    city_name = DB.Column(DB.String(225))
+    major_name = DB.Column(DB.String(225))
     major = DB.relationship('Major', backref='cities')
     city = DB.relationship('City', backref='majors')
 
@@ -71,11 +71,11 @@ class MAJORTOCITY(DB.Model):
     def attributes(self):
         return {'city': self.city, 'major': self.major, 'num_students': self.num_students}
 
-    def primary_attributes(self):
-        return {'city': self.city, 'major': self.major}
+    # def primary_attributes(self):
+    #     return {'city': self.city, 'major': self.major}
 
-    def update(self, rhs):
-        self.num_students = rhs.num_students
+    # def update(self, rhs):
+    #     self.num_students = rhs.num_students
 
     def __repr__(self):
         return '<City ' + self.city.name + ', Major ' + self.major.name + '>'
@@ -88,8 +88,8 @@ class ETHNICITYTOCITY(DB.Model):
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey(
         'ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    city_name = DB.Column(DB.String(80))
-    ethnicity_name = DB.Column(DB.String(80))
+    city_name = DB.Column(DB.String(225))
+    ethnicity_name = DB.Column(DB.String(225))
     ethnicity = DB.relationship('Ethnicity', backref='cities')
     city = DB.relationship('City', backref='ethnicities')
 
@@ -103,14 +103,14 @@ class ETHNICITYTOCITY(DB.Model):
     def __repr__(self):
         return '<City ' + self.city.name + ', Ethnicity ' + self.ethnicity.name + '>'
 
-    def primary_attributes(self):
-        return {'city': self.city, 'ethnicity': self.ethnicity}
+    # def primary_attributes(self):
+    #     return {'city': self.city, 'ethnicity': self.ethnicity}
 
     def attributes(self):
         return {'city': self.city, 'ethnicity': self.ethnicity, 'num_students': self.num_students}
 
-    def update(self, rhs):
-        self.num_students = rhs.num_students
+    # def update(self, rhs):
+    #     self.num_students = rhs.num_students
 
 
 class MAJORTOUNIVERSITY(DB.Model):
@@ -120,8 +120,8 @@ class MAJORTOUNIVERSITY(DB.Model):
     major_id = DB.Column(DB.Integer, DB.ForeignKey(
         'MAJOR.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    university_name = DB.Column(DB.String(80))
-    major_name = DB.Column(DB.String(80))
+    university_name = DB.Column(DB.String(225))
+    major_name = DB.Column(DB.String(225))
     major = DB.relationship('Major', backref='universities')
     university = DB.relationship('University', backref='majors')
 
@@ -135,15 +135,15 @@ class MAJORTOUNIVERSITY(DB.Model):
     def __repr__(self):
         return '<University ' + self.university.name + ', Major ' + self.major.name + '>'
 
-    def primary_attributes(self):
-        return {'university': self.university, 'major': self.major}
+    # def primary_attributes(self):
+    #     return {'university': self.university, 'major': self.major}
 
     def attributes(self):
         return {'university': self.university, 'major': self.major, \
             'num_students': self.num_students}
 
-    def update(self, rhs):
-        self.num_students = rhs.num_students
+    # def update(self, rhs):
+    #     self.num_students = rhs.num_students
 
 
 class ETHNICITYTOUNIVERSITY(DB.Model):
@@ -153,8 +153,8 @@ class ETHNICITYTOUNIVERSITY(DB.Model):
     ethnicity_id = DB.Column(DB.Integer, DB.ForeignKey(
         'ETHNICITY.id_num'), primary_key=True)
     num_students = DB.Column(DB.Integer)
-    university_name = DB.Column(DB.String(80))
-    ethnicity_name = DB.Column(DB.String(80))
+    university_name = DB.Column(DB.String(225))
+    ethnicity_name = DB.Column(DB.String(225))
     ethnicity = DB.relationship('Ethnicity', backref='universities')
     university = DB.relationship('University', backref='ethnicities')
 
@@ -168,15 +168,15 @@ class ETHNICITYTOUNIVERSITY(DB.Model):
     def __repr__(self):
         return '<University ' + self.university.name + ', Ethnicity ' + self.ethnicity.name + '>'
 
-    def primary_attributes(self):
-        return {'university': self.university, 'ethnicity': self.ethnicity}
+    # def primary_attributes(self):
+    #     return {'university': self.university, 'ethnicity': self.ethnicity}
 
     def attributes(self):
         return {'university': self.university, 'ethnicity': self.ethnicity, \
             'num_students': self.num_students}
 
-    def update(self, rhs):
-        self.num_students = rhs.num_students
+    # def update(self, rhs):
+    #     self.num_students = rhs.num_students
 
 
 class University(DB.Model):
@@ -188,11 +188,11 @@ class University(DB.Model):
     '''
     __tablename__ = 'UNIVERSITY'
     id_num = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String(80))
+    name = DB.Column(DB.String(225))
     num_undergrads = DB.Column(DB.Integer)
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
-    public_or_private = DB.Column(DB.String(80))
+    public_or_private = DB.Column(DB.String(225))
     ethnicity_list = DB.relationship('ETHNICITYTOUNIVERSITY')
     major_list = DB.relationship('MAJORTOUNIVERSITY')
 
@@ -217,36 +217,34 @@ class University(DB.Model):
             'Public/Private': self.public_or_private
         }
 
-    def primary_attributes(self):
-        return {'name': self.name, 'city_id': self.city_id}
+    # def primary_attributes(self):
+    #     return {'name': self.name, 'city_id': self.city_id}
 
-    def update(self, rhs):
-        self.num_undergrads = rhs.num_undergrads
-        self.cost_to_attend = rhs.cost_to_attend
-        self.grad_rate = rhs.grad_rate
-        self.public_or_private = rhs.public_or_private
+    # def update(self, rhs):
+    #     self.num_undergrads = rhs.num_undergrads
+    #     self.cost_to_attend = rhs.cost_to_attend
+    #     self.grad_rate = rhs.grad_rate
+    #     self.public_or_private = rhs.public_or_private
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
-    def add_major(self, num, **args):
+    def add_major(self, num, maj):
         """Appends new major to major_list"""
         # major_id = Major.query.filter_by(name=maj).first().id_num
-        assoc = next((a for a in self.major_list if a.major.name == maj), None)
-        if not assoc:
-            maj = Major(**args)
-            maj.assoc_university = 1
-            assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
-            self.major_list.append(assoc_maj)
+        # assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
+        # if not assoc:
+        maj.assoc_university = 1
+        assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
+        self.major_list.append(assoc_maj)
 
-    def add_ethnicity(self, num, **args):
+    def add_ethnicity(self, num, eth):
         """Appends new ethnicity to ethnicityList"""
-        assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == eth), None)
-        if not assoc:
-            eth = Ethnicity(**args)
-            eth.assoc_university = 1
-            assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
-            self.ethnicity_list.append(assoc_eth)
+        # assoc = next(
+        #     (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
+        # if not assoc:
+        eth.assoc_university = 1
+        assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
+        self.ethnicity_list.append(assoc_eth)
 
 
 class City(DB.Model):
@@ -257,7 +255,7 @@ class City(DB.Model):
     '''
     __tablename__ = 'CITY'
     id_num = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String(80))
+    name = DB.Column(DB.String(225))
     population = DB.Column(DB.Integer)
     university_list = DB.relationship(
         'University', backref='city', lazy='dynamic')
@@ -265,10 +263,10 @@ class City(DB.Model):
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, population=0, avg_tuition=0):
         self.name = name
-        self.population = 0
-        self.avg_tuition = 0
+        self.population = population
+        self.avg_tuition = avg_tuition
 
     def __repr__(self):
         return '<City ' + self.name + '>'
@@ -283,39 +281,38 @@ class City(DB.Model):
             'Average Tuition': self.avg_tuition
         }
 
-    def primary_attributes(self):
-        return {'name': self.name}
-
-    def update(self, rhs):
-        self.population = rhs.population
-        self.avg_tuition = rhs.avg_tuition
+    # def primary_attributes(self):
+    #     return {'name': self.name}
+    #
+    # def update(self, rhs):
+    #     self.population = rhs.population
+    #     self.avg_tuition = rhs.avg_tuition
 
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
     def add_university(self, uni):
         """Appends university to universityList"""
-        assoc = next((a for a in self.university_list if a.name == uni.name), None)
-        if not assoc:
-            self.university_list.append(uni)
+        # assoc = next((a for a in self.university_list if a.name == uni.name), None)
+        # if not assoc:
+        self.university_list.append(uni)
 
-    def add_major(self, num, **args):
+    def add_major(self, num, maj):
         """Appends major to major_list"""
-        assoc = next((a for a in self.major_list if a.major.name == args[name]), None)
-        if not assoc:
-            maj = Major(**args)
-            maj.assoc_university = 0
-            assoc_maj = MAJORTOCITY(self, maj, num)
-            self.major_list.append(assoc_maj)
+        # print(args)
+        # assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
+        # if not assoc:
+        maj.assoc_university = 0
+        assoc_maj = MAJORTOCITY(self, maj, num)
+        self.major_list.append(assoc_maj)
 
-    def add_ethnicity(self, num, **args):
+    def add_ethnicity(self, num, eth):
         """Adds new ethnicity to ethnicity_list"""
-        assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == args[name]), None)
-        if not assoc:
-            eth = Ethnicity(**args)
-            eth.assoc_university = 0
-            assoc_eth = ETHNICITYTOCITY(self, eth, num)
-            self.ethnicity_list.append(assoc_eth)
+        # assoc = next(
+        #     (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
+        # if not assoc:
+        eth.assoc_university = 0
+        assoc_eth = ETHNICITYTOCITY(self, eth, num)
+        self.ethnicity_list.append(assoc_eth)
 
 
 class Major(DB.Model):
@@ -327,14 +324,17 @@ class Major(DB.Model):
     '''
     __tablename__ = 'MAJOR'
     id_num = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String(80))
+    name = DB.Column(DB.String(225))
     num_undergrads = DB.Column(DB.Integer)
-    top_city = DB.Column(DB.String(80))
+    top_city = DB.Column(DB.String(225))
     avg_percentage = DB.Column(DB.Float)
     assoc_university = DB.Column(DB.Integer)
 
     def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
-        self.name = name
+        self.name = name.replace("2014.academics.program_percentage.", "")
+        self.num_undergrads = num_undergrads
+        self.top_city = top_city
+        self.avg_percentage = avg_percentage
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
@@ -348,13 +348,13 @@ class Major(DB.Model):
             # 'Number of Supported Universities': assoc_university
         }
 
-    def primary_attributes(self):
-        return {'name': self.name}
-
-    def update(self, rhs):
-        self.num_undergrads = rhs.num_undergrads
-        self.top_city = rhs.top_city
-        self.avg_percentage = rhs.avg_percentage
+    # def primary_attributes(self):
+    #     return {'name': self.name}
+    #
+    # def update(self, rhs):
+    #     self.num_undergrads = rhs.num_undergrads
+    #     self.top_city = rhs.top_city
+    #     self.avg_percentage = rhs.avg_percentage
 
 
 class Ethnicity(DB.Model):
@@ -365,19 +365,21 @@ class Ethnicity(DB.Model):
     '''
     __tablename__ = 'ETHNICITY'
     id_num = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String(80))
+    name = DB.Column(DB.String(225))
     total_count = DB.Column(DB.Integer)
-    top_city = DB.Column(DB.String(80))
-    top_university = DB.Column(DB.String(80))
-    peak_year = DB.Column(DB.Integer)
+    top_city = DB.Column(DB.String(225))
+    top_city_amt = DB.Column(DB.Integer)
+    top_university = DB.Column(DB.String(225))
+    top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', top_university='Default', peak_year=0):
-        self.name = name
-        self.total_count = 0
+    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
+        self.name = name.replace("2014.student.demographics.race_ethnicity.", "")
+        self.total_count = total_count
         self.top_city = top_city
+        self.top_city_amt = top_city_amt
         self.top_university = top_university
-        self.peak_year = peak_year
+        self.top_university_amt = top_university_amt
 
     def __repr__(self):
         return '<Ethnicity ' + self.name + '>'
@@ -391,8 +393,8 @@ class Ethnicity(DB.Model):
             'Peak Year': self.peak_year
         }
 
-    def primary_attributes(self):
-        return {'name': self.name}
-
-    def update(self, rhs):
-        self.total_count = rhs.total_count
+    # def primary_attributes(self):
+    #     return {'name': self.name}
+    #
+    # def update(self, rhs):
+    #     self.total_count = rhs.total_count
