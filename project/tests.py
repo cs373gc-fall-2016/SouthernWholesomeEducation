@@ -97,6 +97,93 @@ class Tests(TestCase):
         uni = University.query.filter_by(name='Star Career Academy-Audubon').first()
         self.assertEqual(uni.num_undergrads, 221)
 
+
+    
+    def test_university_attr_1(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='Star Career Academy-Audubon').first()
+        self.assertEqual(uni.attributes()['name'], 'Star Career Academy-Audubon')
+
+
+    def test_university_attr_2(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='CUNY LaGuardia Community College').first()
+        self.assertEqual(uni.attributes()['num_undergrads'], 17069)
+
+
+
+    def test_university_attr_3(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='Pepperdine University').first()
+        self.assertEqual(uni.attributes()['cost_to_attend'], 26876)
+
+
+
+    def test_university_attr_4(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='South Texas Training Center').first()
+        self.assertEqual(uni.attributes()['public_or_private'], 'Private')
+
+
+
+    def test_university_attr_5(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='Young Harris College').first()
+        self.assertEqual(uni.attributes()['grad_rate'], 0.38154256198347)
+
+
+    def test_university_attr_6(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='Everest Institute-Bensalem').first()
+        self.assertEqual(uni.attributes()['name'], 'Everest Institute-Bensalem')
+
+
+    def test_university_attr_7(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='University of Hartford').first()
+        self.assertEqual(uni.attributes()['num_undergrads'], 4956)
+
+
+
+    def test_university_attr_8(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='Grayson College').first()
+        self.assertEqual(uni.attributes()['cost_to_attend'], 6941)
+
+
+
+    def test_university_attr_9(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='Point University').first()
+        self.assertEqual(uni.attributes()['public_or_private'], 'Private')
+
+
+
+    def test_university_attr_10(self):
+        '''
+        Test University attributes
+        '''
+        uni = University.query.filter_by(name='College of the Marshall Islands').first()
+        self.assertEqual(uni.attributes()['grad_rate'], 0.04389054054054)
+
     # -------------------
     # university __repr__
     # -------------------
