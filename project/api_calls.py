@@ -25,13 +25,13 @@ def api_call():
         print (count)
     
 
-    print('finished the API call... Going to dump pickles')
+    print('finished the API call... Going to dump pickles(not really pickling)')
 
         # pickle to save items locally
-    pickle.dump( universities, open( "universities.p", "wb" ) )
-    pickle.dump( cities, open( "cities.p", "wb" ) )
-    pickle.dump( majors, open( "majors.p", "wb" ) )
-    pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
+    # pickle.dump( universities, open( "universities.p", "wb" ) )
+    # pickle.dump( cities, open( "cities.p", "wb" ) )
+    # pickle.dump( majors, open( "majors.p", "wb" ) )
+    # pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
 
     print('finished creating pickle files... Going to drop the current database tables')
 
