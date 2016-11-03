@@ -4,7 +4,7 @@
 
 import os
 from flask import Flask, send_from_directory, jsonify, \
-    make_response, request, send_file
+    make_response, request, send_file, render_template
 from models import *
 DEFAULT_PAGE = 10
 
@@ -13,13 +13,18 @@ def render_home():
     """Return index.html page when no path is given"""
     return send_file('templates/index.html')
 
-
+@APP.errorhandler(404)
+@APP.errorhandler(500)
+def error_page(error):
+    """Error handler for Flask"""
+    return render_template('error.html', status=error.code)
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
     """Return information for a model given the model type and ID"""
     model = get_association(get_model(model_name), id_num=id_param)
-
+    # if model is None:
+        # return error_page()
     return jsonify(results=model.attributes())
 
 @APP.route('/api/<string:model_name>/name/<string:name>')
@@ -27,6 +32,8 @@ def lookup_model_by_name(model_name, name):
     """Return information for a model given the model type and name"""
     name = name.title()
     model = get_association(get_model(model_name), name=name)
+    # if model is None:
+        # return error_page()
 
     return jsonify(results=model.attributes())
 
@@ -52,6 +59,8 @@ def api_models(model_name, page=0):
             offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
+    # if models is None:
+        # return error_page()
 
     list_models = models
     json_list = []
