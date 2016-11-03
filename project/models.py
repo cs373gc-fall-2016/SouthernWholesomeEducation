@@ -13,6 +13,7 @@ DB = SQLAlchemy(APP)
 
 
 def create_unique(model, **args):
+    """Creates unique model object"""
     is_exist = model.query.filter_by(**args).first()
     if not is_exist:
         is_exist = model(**args)
@@ -30,9 +31,11 @@ def create_unique(model, **args):
 
 
 def get_association(model, **args):
+    """Gets model object given arguments"""
     return model.query.filter_by(**args).first()
 
 def get_model(model_name):
+    """Gets the model class given model name"""
     model_name = model_name.lower()
     if model_name == 'university':
         return University
@@ -44,22 +47,24 @@ def get_model(model_name):
         return Ethnicity
 
 def get_models(model_name):
+    """Gets all model objects given model name"""
     if model_name == 'University':
         return University.query.all()
     elif model_name == 'City':
         return City.query.all()
     elif model_name == 'Major':
         temp_list = []
-        for t in Major.query.distinct(Major.name):
-            temp_list.append(t)
+        for t_model in Major.query.distinct(Major.name):
+            temp_list.append(t_model)
         return temp_list
     elif model_name == 'Ethnicity':
         temp_list = []
-        for t in Ethnicity.query.distinct(Ethnicity.name):
-            temp_list.append(t)
+        for t_model in Ethnicity.query.distinct(Ethnicity.name):
+            temp_list.append(t_model)
         return temp_list
 
 def get_count(model_name):
+    """Get the number of models given model name"""
     if model_name == 'University':
         return University.query.count()
     elif model_name == 'City':
@@ -70,6 +75,7 @@ def get_count(model_name):
         return Ethnicity.query.distinct(Ethnicity.name).count()
 
 class MAJORTOCITY(DB.Model):
+    """Major to City Association Table"""
     __tablename__ = 'MAJORTOCITY'
     city_id = DB.Column(DB.Integer, DB.ForeignKey(
         'CITY.id_num'), primary_key=True)
@@ -89,6 +95,7 @@ class MAJORTOCITY(DB.Model):
         self.major_name = self.major.name
 
     def attributes(self):
+        """Attributes of MAJORTOCITY"""
         return {'city': self.city, 'major': self.major, 'num_students': self.num_students}
 
     # def primary_attributes(self):
@@ -102,6 +109,7 @@ class MAJORTOCITY(DB.Model):
 
 
 class ETHNICITYTOCITY(DB.Model):
+    """Ethnicity to city association table"""
     __tablename__ = 'ETHNICITYTOCITY'
     city_id = DB.Column(DB.Integer, DB.ForeignKey(
         'CITY.id_num'), primary_key=True)
@@ -127,6 +135,7 @@ class ETHNICITYTOCITY(DB.Model):
     #     return {'city': self.city, 'ethnicity': self.ethnicity}
 
     def attributes(self):
+        """Get attributes from ETHNICITYTOCITY"""
         return {'city': self.city, 'ethnicity': self.ethnicity, 'num_students': self.num_students}
 
     # def update(self, rhs):
@@ -134,6 +143,7 @@ class ETHNICITYTOCITY(DB.Model):
 
 
 class MAJORTOUNIVERSITY(DB.Model):
+    """Major to university association table"""
     __tablename__ = 'MAJORTOUNIVERSITY'
     university_id = DB.Column(DB.Integer, DB.ForeignKey(
         'UNIVERSITY.id_num'), primary_key=True)
@@ -159,6 +169,7 @@ class MAJORTOUNIVERSITY(DB.Model):
     #     return {'university': self.university, 'major': self.major}
 
     def attributes(self):
+        """Get attributes for MAJORTOUNIVERSITY"""
         return {'university': self.university, 'major': self.major, \
             'num_students': self.num_students}
 
@@ -167,6 +178,7 @@ class MAJORTOUNIVERSITY(DB.Model):
 
 
 class ETHNICITYTOUNIVERSITY(DB.Model):
+    """Ethnicity to university association table"""
     __tablename__ = 'ETHNICITYTOUNIVERSITY'
     university_id = DB.Column(DB.Integer, DB.ForeignKey(
         'UNIVERSITY.id_num'), primary_key=True)
@@ -192,6 +204,7 @@ class ETHNICITYTOUNIVERSITY(DB.Model):
     #     return {'university': self.university, 'ethnicity': self.ethnicity}
 
     def attributes(self):
+        """Attributes for ETHNICITYTOUNIVERSITY"""
         return {'university': self.university, 'ethnicity': self.ethnicity, \
             'num_students': self.num_students}
 
@@ -229,20 +242,25 @@ class University(DB.Model):
         return '<University ' + self.name + '>'
 
     def get_ethnicities(self):
+        """Get all ethnicities for university"""
         ethnic_list = ETHNICITYTOUNIVERSITY.query.filter_by(university_name=self.name).all()
         ethnic_list_json = []
         for i in ethnic_list:
-            ethnic_list_json.append({'name': i.ethnicity_name, 'id': i.ethnicity_id, 'num_students': i.num_students})
+            ethnic_list_json.append({'name': i.ethnicity_name, \
+                'id': i.ethnicity_id, 'num_students': i.num_students})
         return ethnic_list_json
 
     def get_majors(self):
+        """Get all majors for university"""
         maj_list = MAJORTOUNIVERSITY.query.filter_by(university_name=self.name).all()
         major_list_json = []
         for i in maj_list:
-            major_list_json.append({'name': i.major_name, 'id': i.major_id, 'num_students': i.num_students})
+            major_list_json.append({'name': i.major_name, \
+                'id': i.major_id, 'num_students': i.num_students})
         return major_list_json
 
     def attributes(self):
+        """Get attributes for university"""
         city_name = City.query.filter_by(id_num=self.city_id).first().name
         return {
             'id_num': self.id_num,
@@ -312,6 +330,7 @@ class City(DB.Model):
         return '<City ' + self.name + '>'
 
     def attributes(self):
+        """Get attributes for city"""
         return {
             'id_num': self.id_num,
             'name': self.name,
@@ -326,20 +345,25 @@ class City(DB.Model):
         }
 
     def get_ethnicities(self):
+        """Get ethnicities for city"""
         ethnic_list = ETHNICITYTOCITY.query.filter_by(city_name=self.name).all()
         ethnic_list_json = []
         for i in ethnic_list:
-            ethnic_list_json.append({'name': i.ethnicity_name, 'id': i.ethnicity_id, 'num_students': i.num_students})
+            ethnic_list_json.append({'name': i.ethnicity_name, \
+                'id': i.ethnicity_id, 'num_students': i.num_students})
         return ethnic_list_json
 
     def get_majors(self):
+        """Get majors for city"""
         maj_list = MAJORTOCITY.query.filter_by(city_name=self.name).all()
         major_list_json = []
         for i in maj_list:
-            major_list_json.append({'name': i.major_name, 'id': i.major_id, 'num_students': i.num_students})
+            major_list_json.append({'name': i.major_name, \
+                'id': i.major_id, 'num_students': i.num_students})
         return major_list_json
 
     def get_universities(self):
+        """Get universities for city"""
         uni_list = University.query.filter_by(city_id=self.id_num).all()
         uni_list_json = []
         for i in uni_list:
@@ -406,7 +430,9 @@ class Major(DB.Model):
         return '<Major ' + self.name + '>'
 
     def attributes(self):
-        top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, city_name=self.top_city).first().city_id
+        """Get attributes for major"""
+        top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, \
+            city_name=self.top_city).first().city_id
         num_universities = len(MAJORTOUNIVERSITY.query.filter_by(major_name=self.name).all())
         num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
         return {
@@ -445,7 +471,8 @@ class Ethnicity(DB.Model):
     top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
+    def __init__(self, name, total_count=0, top_city='Default', \
+        top_city_amt=0, top_university='Default', top_university_amt=0):
         self.name = name.replace("2014.student.demographics.race_ethnicity.", "")
         self.total_count = total_count
         self.top_city = top_city
@@ -457,9 +484,13 @@ class Ethnicity(DB.Model):
         return '<Ethnicity ' + self.name + '>'
 
     def attributes(self):
-        top_city_id = ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name, city_name=self.top_city).first().city_id
-        top_university_id = ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name, university_name=self.top_university).first().university_id
-        num_universities = len(ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name).all())
+        """Get attributes for ethnicity"""
+        top_city_id = ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name, \
+            city_name=self.top_city).first().city_id
+        top_university_id = ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name, \
+            university_name=self.top_university).first().university_id
+        num_universities = len(ETHNICITYTOUNIVERSITY.query.filter_by( \
+            ethnicity_name=self.name).all())
         num_cities = len(ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name).all())
         return {
             'id_num': self.id_num,
