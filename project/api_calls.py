@@ -13,12 +13,6 @@ cities = dict()
 majors = dict()
 ethnicities = dict()
 
-print('droping now')
-DB.drop_all()
-
-print('creating all now')
-DB.create_all()
-
 def api_call():
     set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
@@ -47,7 +41,11 @@ def api_call():
     eth_objs_city = dict()
     uni_objs = dict()
 
+    print('droping now')
+    DB.drop_all()
 
+    print('creating all now')
+    DB.create_all()
     
 
     print('finished droping tables... creating objects (majors)')
