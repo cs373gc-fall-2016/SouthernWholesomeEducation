@@ -226,20 +226,20 @@ class University(DB.Model):
     def add_major(self, num, maj):
         """Appends new major to major_list"""
         # major_id = Major.query.filter_by(name=maj).first().id_num
-        assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
-        if not assoc:
-            maj.assoc_university = 1
-            assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
-            self.major_list.append(assoc_maj)
+        # assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
+        # if not assoc:
+        maj.assoc_university = 1
+        assoc_maj = MAJORTOUNIVERSITY(self, maj, num)
+        self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, num, eth):
         """Appends new ethnicity to ethnicityList"""
-        assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
-        if not assoc:
-            eth.assoc_university = 1
-            assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
-            self.ethnicity_list.append(assoc_eth)
+        # assoc = next(
+        #     (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
+        # if not assoc:
+        eth.assoc_university = 1
+        assoc_eth = ETHNICITYTOUNIVERSITY(self, eth, num)
+        self.ethnicity_list.append(assoc_eth)
 
 
 class City(DB.Model):
@@ -280,27 +280,27 @@ class City(DB.Model):
     # Ethnicities, and Universities.
     def add_university(self, uni):
         """Appends university to universityList"""
-        assoc = next((a for a in self.university_list if a.name == uni.name), None)
-        if not assoc:
-            self.university_list.append(uni)
+        # assoc = next((a for a in self.university_list if a.name == uni.name), None)
+        # if not assoc:
+        self.university_list.append(uni)
 
     def add_major(self, num, maj):
         """Appends major to major_list"""
         # print(args)
-        assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
-        if not assoc:
-            maj.assoc_university = 0
-            assoc_maj = MAJORTOCITY(self, maj, num)
-            self.major_list.append(assoc_maj)
+        # assoc = next((a for a in self.major_list if a.major.name == maj.name), None)
+        # if not assoc:
+        maj.assoc_university = 0
+        assoc_maj = MAJORTOCITY(self, maj, num)
+        self.major_list.append(assoc_maj)
 
     def add_ethnicity(self, num, eth):
         """Adds new ethnicity to ethnicity_list"""
-        assoc = next(
-            (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
-        if not assoc:
-            eth.assoc_university = 0
-            assoc_eth = ETHNICITYTOCITY(self, eth, num)
-            self.ethnicity_list.append(assoc_eth)
+        # assoc = next(
+        #     (a for a in self.ethnicity_list if a.ethnicity.name == eth.name), None)
+        # if not assoc:
+        eth.assoc_university = 0
+        assoc_eth = ETHNICITYTOCITY(self, eth, num)
+        self.ethnicity_list.append(assoc_eth)
 
 
 class Major(DB.Model):
