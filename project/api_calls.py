@@ -8,7 +8,7 @@ import pickle
 requests.adapters.DEFAULT_RETRIES = 50
 
 
-load_pickle = True # if true not calling college scoreboard API
+load_pickle = False # if true not calling college scoreboard API
 
 # dictionaries for each model
 if not load_pickle:
