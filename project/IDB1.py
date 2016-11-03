@@ -84,10 +84,8 @@ def api_models(model_name, page=0):
         sort_by = request.args['sort']
 
         order = ".desc()" if request.args['order'] == 'desc' else ""
-        # print('{0}.query.order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
         models = eval('{0}.query.order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
-        # print('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
 
     list_models = models
