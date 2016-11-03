@@ -13,28 +13,28 @@ myApp.config(function($routeProvider) {
              templateUrl : '../static/partials/table.html',
              controller : 'TableCtrl',
              resolve: {
-        		test: function ($route) { $route.current.params.test = "city"; }
+                model: function ($route) { $route.current.params.model = "city"; }
     		}
         }).
         when('/universities', {
              templateUrl : '../static/partials/table.html',
              controller : 'TableCtrl',
              resolve: {
-        		test: function ($route) { $route.current.params.test = "university"; }
+                model: function ($route) { $route.current.params.model = "university"; }
     		}
         }).
         when('/majors', {
              templateUrl : '../static/partials/table.html',
              controller : 'TableCtrl',
              resolve: {
-        		test: function ($route) { $route.current.params.test = "major"; }
+                model: function ($route) { $route.current.params.model = "major"; }
     		}
         }).
         when('/ethnicities', {
              templateUrl : '../static/partials/table.html',
              controller : 'TableCtrl',
              resolve: {
-        		test: function ($route) { $route.current.params.test = "ethnicity"; }
+                 model: function ($route) { $route.current.params.model = "ethnicity"; }
     		}
         }).
         otherwise({
@@ -45,8 +45,7 @@ myApp.config(function($routeProvider) {
 
 myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/'
-  // $scope.urlPath = window.location.pathname;
-  $scope.urlPath = $routeParams.test;
+  $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath;
   $http.get($scope.path).success(function (data, status, headers, config) {
         $scope.myData = data.results;
