@@ -149,6 +149,7 @@ class Tests(TestCase):
         '''
         university = University('McGovern Medical School', 0, 0, 0, '')
         self.assertEqual(university.__repr__(), '<University McGovern Medical School>')
+        
 
     # -----------------
     # MAJORTOCITY class
