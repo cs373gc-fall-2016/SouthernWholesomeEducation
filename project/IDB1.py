@@ -16,7 +16,7 @@ def render_home():
 @APP.errorhandler(404)
 @APP.errorhandler(500)
 def error_page(error):
-    return render_template('error.html', status=error)
+    return render_template('error.html', status=error.code)
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
