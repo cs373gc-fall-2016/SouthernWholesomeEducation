@@ -267,7 +267,7 @@ class City(DB.Model):
     name = DB.Column(DB.String(225))
     population = DB.Column(DB.Integer)
     university_list = DB.relationship(
-        'University', backref='city', lazy='dynamic')
+        'University', backref='city')
     ethnicity_list = DB.relationship('ETHNICITYTOCITY')
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
@@ -284,9 +284,9 @@ class City(DB.Model):
         return {
             'City': self.name, 
             'Population': self.population, 
-            # 'Universities': len(self.university_list),
-            # 'Ethnicities': len(self.ethnicity_list),
-            # 'Majors': len(self.major_list),
+            'Universities': len(self.university_list),
+            'Ethnicities': len(self.ethnicity_list),
+            'Majors': len(self.major_list),
             'Average Tuition': self.avg_tuition
         }
 
