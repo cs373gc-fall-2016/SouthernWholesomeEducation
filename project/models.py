@@ -262,7 +262,7 @@ class City(DB.Model):
     top_major = DB.Column(DB.String(225))
     top_ethnicity = DB.Column(DB.String(225))
 
-    def __init__(self, name, population=0, avg_tuition=0, top_university, top_major, top_ethnicity):
+    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none'):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
