@@ -13,7 +13,7 @@ cities = dict()
 majors = dict()
 ethnicities = dict()
 
-def api_call():
+def api_call(DB):
     set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
     #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
