@@ -1,0 +1,76 @@
+<table>
+  <thead>
+    <th id="id_numCol">
+      Detail
+        <a href="" ng-click="query('?sort=id_num&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=id_num&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="nameCol">
+      Major
+        <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=name&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="num_undergradsCol">
+      Undergraduates
+        <a href="" ng-click="query('?sort=num_undergrads&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=num_undergrads&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="top_cityCol">
+      Top City
+        <a href="" ng-click="query('?sort=top_city&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=top_city&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="avg_percentageCol">
+      Average Percent
+        <a href="" ng-click="query('?sort=avg_percentage&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=avg_percentage&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="assoc_universityCol">
+      Accosiated Universities
+        <a href="" ng-click="query('?sort=assoc_university&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=assoc_university&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+  </thead>
+  <tbody>
+  <!-- <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="major in myData">
+                <td>
+                    <a ng-href="#/majors/{{major.id_num}}">
+                        <span>Details</span>
+                    </a>
+                </td>
+                <td>{{majors.name}}</td>
+                <td>{{majors.num_undergrads}}</td>
+                <td>{{majors.top_city}}</td>
+                <td>{{majors.avg_percentage}}</td>
+                <td>{{majors.assoc_university}}</td>
+</tr>
+ </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

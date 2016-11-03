@@ -10,7 +10,7 @@ myApp.config(function($routeProvider) {
              templateUrl : '../static/partials/about.html'
         }).
         when('/cities', {
-             templateUrl : '../static/partials/table.html',
+             templateUrl : '../static/partials/cities.html',
              controller : 'TableCtrl',
              resolve: {
                 model: function ($route) { $route.current.params.model = "city"; }
@@ -18,20 +18,20 @@ myApp.config(function($routeProvider) {
         }).
         when('/universities', {
              templateUrl : '../static/partials/universities.html',
-             controller : 'UniversityCtrl',
+             controller : 'TableCtrl',
              resolve: {
                 model: function ($route) { $route.current.params.model = "university"; }
     		}
         }).
         when('/majors', {
-             templateUrl : '../static/partials/table.html',
+             templateUrl : '../static/partials/majors.html',
              controller : 'TableCtrl',
              resolve: {
                 model: function ($route) { $route.current.params.model = "major"; }
     		}
         }).
         when('/ethnicities', {
-             templateUrl : '../static/partials/table.html',
+             templateUrl : '../static/partials/ethnicities.html',
              controller : 'TableCtrl',
              resolve: {
                  model: function ($route) { $route.current.params.model = "ethnicity"; }
@@ -43,20 +43,19 @@ myApp.config(function($routeProvider) {
 
 });
 
+// myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
+//   $scope.path = '/api/'
+//   $scope.urlPath = $routeParams.model;
+//   $scope.path = $scope.path + $scope.urlPath;
+//   $http.get($scope.path).success(function (data, status, headers, config) {
+//         $scope.myData = data.results;
+//   });
+// });
+
 myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/'
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath;
-  $http.get($scope.path).success(function (data, status, headers, config) {
-        $scope.myData = data.results;
-  });
-});
-
-myApp.controller('UniversityCtrl',function($scope, $routeParams, $http, $location) {
-  $scope.path = '/api/'
-  $scope.urlPath = $routeParams.model;
-  $scope.path = $scope.path + $scope.urlPath;
-
 
   $scope.order = 'asc';
   $scope.query = function(query) {
@@ -67,7 +66,7 @@ myApp.controller('UniversityCtrl',function($scope, $routeParams, $http, $locatio
     });
   }
 
-  $http.get($scope.path).success(function (data, status, headers, config) {
+  $http.get($scope.path+query).success(function (data, status, headers, config) {
         $scope.myData = data.results;
   });
 });
