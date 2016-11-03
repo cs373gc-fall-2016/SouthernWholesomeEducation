@@ -13,12 +13,6 @@ cities = dict()
 majors = dict()
 ethnicities = dict()
 
-# pickle to save items locally
-pickle.dump( universities, open( "universities.p", "wb" ) )
-pickle.dump( cities, open( "cities.p", "wb" ) )
-pickle.dump( majors, open( "majors.p", "wb" ) )
-pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
-
 def api_call():
     set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
@@ -29,8 +23,17 @@ def api_call():
         setup_data(school_dict)
         count += 1
         print (count)
+    
 
-    print('finished the API call... Going to drop current tables')
+    print('finished the API call... Going to dump pickles')
+
+        # pickle to save items locally
+    pickle.dump( universities, open( "universities.p", "wb" ) )
+    pickle.dump( cities, open( "cities.p", "wb" ) )
+    pickle.dump( majors, open( "majors.p", "wb" ) )
+    pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
+
+    print('finished creating pickle files... Going to drop the current database tables')
 
     major_objs_uni = dict()
     eth_objs_uni = dict()
