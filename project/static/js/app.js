@@ -47,7 +47,22 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/'
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath;
+
+  $scope.order = 'asc';
+  $scope.query = function() {
+    if($scope.order = 'asc')
+      $scope.order = 'desc';
+    else
+      $scope.order = 'asc';
+    
+    $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
+    
+    $http.get($scope.path).success(function (data, status, headers, config) {
+      $scope.myData = data.results;
+    });
+  }
+
   $http.get($scope.path).success(function (data, status, headers, config) {
-        $scope.myData = data.results;
+    $scope.myData = data.results;
   });
 });

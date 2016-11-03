@@ -2,11 +2,11 @@
   <thead>
 	  <th id="col" ng-repeat="(key, value) in myData[0]">
 		{{key}}
-		<a ng-href="?sort={{ key }}&order=desc">
-		  <span class="glyphicon glyphicon-triangle-bottom"></span>
+		<a>
+		  <span ng-click="query()" class="glyphicon glyphicon-triangle-bottom"></span>
 		</a>
-		<a ng-href="?sort={{ key }}&order=asc">
-		  <span class="glyphicon glyphicon-triangle-top"></span>
+		<a>
+		  <span ng-click="query()" class="glyphicon glyphicon-triangle-top"></span>
 		</a>
 	  </th>
   </thead>
