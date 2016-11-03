@@ -222,6 +222,46 @@ class Tests(TestCase):
             major_name='Business Marketing').first()
         self.assertEqual(majorcity.__repr__(), '<City Chicago, Major Business Marketing>')
 
+    def test_majortocity_repr_2(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Perth Amboy', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.__repr__(), '<City Perth Amboy, Major Health>')
+
+    def test_majortocity_repr_3(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Rockville', \
+            major_name='Personal Culinary').first()
+        self.assertEqual(majorcity.__repr__(), '<City Rockville, Major Personal Culinary>')
+
+    def test_majortocity_repr_4(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Audubon', \
+            major_name='Health').first()
+        self.assertEqual(majorcity.__repr__(), '<City Audubon, Major Health>')
+
+    def test_majortocity_repr_5(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Calumet', \
+            major_name='Personal Culinary').first()
+        self.assertEqual(majorcity.__repr__(), '<City Calumet, Major Personal Culinary>')
+
+    def test_majortocity_repr_6(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Hialeah', \
+            major_name='Computer').first()
+        self.assertEqual(majorcity.__repr__(), '<City Hialeah, Major Computer>')
+
 
 
     # -------------
