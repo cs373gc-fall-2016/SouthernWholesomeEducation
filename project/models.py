@@ -219,11 +219,12 @@ class University(DB.Model):
 
     def attributes(self):
         return {
-            'University': self.name, 
-            'Number of Undergraduates': self.num_undergrads, 
-            'Cost to Attend': self.cost_to_attend,
-            'Graduation Rate': self.grad_rate, 
-            'Public/Private': self.public_or_private
+            'id_num': self.id_num,
+            'name': self.name, 
+            'num_undergrads': self.num_undergrads, 
+            'cost_to_attend': self.cost_to_attend,
+            'grad_rate': self.grad_rate, 
+            'public_or_private': self.public_or_private
         }
 
     # def primary_attributes(self):
@@ -282,6 +283,7 @@ class City(DB.Model):
 
     def attributes(self):
         return {
+            'ID': self.id_num,
             'City': self.name, 
             'Population': self.population, 
             'Universities': len(self.university_list),
