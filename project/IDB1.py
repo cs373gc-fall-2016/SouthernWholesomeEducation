@@ -55,7 +55,9 @@ def api_models(model_name, page=0):
     return jsonify(results=json_list)
 
 
-
+@APP.route('/api/<string:model_name>/num_pages')
+def get_num_pages(model_name):
+    return jsonify(result=5)
 
 
 @APP.route('/favicon.ico')
