@@ -30,14 +30,20 @@ def api_call():
         count += 1
         print (count)
 
+    print('finished the API call... Going to drop current tables')
+
     major_objs_uni = dict()
     eth_objs_uni = dict()
     major_objs_city = dict()
     eth_objs_city = dict()
     uni_objs = dict()
 
+
     DB.drop_all()
     DB.create_all()
+
+    print('finished droping tables... creating objects (majors)')
+
 
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
@@ -45,11 +51,15 @@ def api_call():
         major_objs_uni[maj] = major
         major_objs_city[maj] = major2
 
+    print('finished majors... working on ethnicities')
+
     for eth in ethnicities:
         ethnicity = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
         ethnicity2 = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
         eth_objs_uni[eth] = ethnicity
         eth_objs_city[eth] = ethnicity2
+
+    print('finished ethnicities... starting universities')
 
     for uni in universities:
         university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
@@ -60,6 +70,8 @@ def api_call():
             if eth in eth_objs_uni:
                 university.add_ethnicity(universities[uni]['ethnicity_list'][eth], eth_objs_uni[eth])
         uni_objs[uni] = university
+
+    print('finished universities... starting cities')
 
     for city in cities:
         cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
@@ -73,8 +85,11 @@ def api_call():
             if eth in eth_objs_city:
                 cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
 
+    print('finished cities... starting to commit')
+
     DB.session.commit()
 
+    print('FINISHED')
 
 def setup_data(individual_school_dict):
     # Universities
