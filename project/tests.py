@@ -31,28 +31,28 @@ class Tests(TestCase):
         Test University class
         '''
         uni = University.query.filter_by(name='University of East-West Medicine').first()
-        self.assertEqual(uni.num_undergrads, 4225)
+        self.assertEqual(uni.num_undergrads, 2426)
 
     def test_university_2(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Charlotte School of Law').first()
-        self.assertEqual(uni.num_undergrads, 3011)
+        self.assertEqual(uni.num_undergrads, 4396)
 
     def test_university_3(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Marinello School of Beauty-Visalia').first()
-        self.assertEqual(uni.num_undergrads, 2009)
+        self.assertEqual(uni.num_undergrads, 599)
 
     def test_university_4(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Brite Divinity School').first()
-        self.assertEqual(uni.num_undergrads, 2273)
+        self.assertEqual(uni.num_undergrads, 1110)
 
     def test_university_5(self):
         '''
@@ -160,7 +160,7 @@ class Tests(TestCase):
         '''
         majorcity = MAJORTOCITY.query.filter_by(city_name='Madison', \
             major_name='Visual Performing').first()
-        self.assertEqual(majorcity.num_students, 14)
+        self.assertEqual(majorcity.num_students, 2111)
 
     def test_majortocity_2(self):
         '''
@@ -168,7 +168,7 @@ class Tests(TestCase):
         '''
         majorcity = MAJORTOCITY.query.filter_by(city_name='Pensacola', \
             major_name='Construction').first()
-        self.assertEqual(majorcity.num_students, 7)
+        self.assertEqual(majorcity.num_students, 96)
 
     def test_majortocity_3(self):
         '''
@@ -184,7 +184,7 @@ class Tests(TestCase):
         '''
         majorcity = MAJORTOCITY.query.filter_by(city_name='New York', \
             major_name='Health').first()
-        self.assertEqual(majorcity.num_students, 1221)
+        self.assertEqual(majorcity.num_students, 14801)
 
     def test_majortocity_5(self):
         '''
@@ -192,7 +192,7 @@ class Tests(TestCase):
         '''
         majorcity = MAJORTOCITY.query.filter_by(city_name='Bethlehem', \
             major_name='Construction').first()
-        self.assertEqual(majorcity.num_students, 73)
+        self.assertEqual(majorcity.num_students, 78)
 
     def test_majortocity_6(self):
         '''
@@ -200,7 +200,7 @@ class Tests(TestCase):
         '''
         majorcity = MAJORTOCITY.query.filter_by(city_name='Oklahoma City', \
             major_name='Computer').first()
-        self.assertEqual(majorcity.num_students, 8)
+        self.assertEqual(majorcity.num_students, 946)
 
     def test_majortocity_7(self):
         '''
@@ -208,7 +208,7 @@ class Tests(TestCase):
         '''
         majorcity = MAJORTOCITY.query.filter_by(city_name='Phoenix', \
             major_name='Health').first()
-        self.assertEqual(majorcity.num_students, 542)
+        self.assertEqual(majorcity.num_students, 39500)
 
     # --------------------
     # majortocity __repr__
@@ -351,7 +351,85 @@ class Tests(TestCase):
         # # major class
         # # -----------
 
+    def test_major_1(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Computer').first()
+        self.assertEqual(maj.num_undergrads, 533608)
+        self.assertEqual(maj.top_city, "Tempe")
 
+    def test_major_2(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Humanities').first()
+        self.assertEqual(maj.num_undergrads, 2180469)
+        self.assertEqual(maj.top_city, "Miami")
+
+    def test_major_3(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='History').first()
+        self.assertEqual(maj.num_undergrads, 150196)
+        self.assertEqual(maj.top_city, "Los Angeles")
+
+    def test_major_4(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Mathematics').first()
+        self.assertEqual(maj.num_undergrads, 110280)
+        self.assertEqual(maj.top_city, "Los Angeles")
+
+    def test_major_5(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Social Science').first()
+        self.assertEqual(maj.num_undergrads, 748209)
+        self.assertEqual(maj.top_city, "New York")
+
+    def test_major_6(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Engineering').first()
+        self.assertEqual(maj.num_undergrads, 452359)
+        self.assertEqual(maj.top_city, "Atlanta")
+
+    def test_major_7(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Communication').first()
+        self.assertEqual(maj.num_undergrads, 452121)
+        self.assertEqual(maj.top_city, "New York")
+
+    def test_major_8(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Education').first()
+        self.assertEqual(maj.num_undergrads, 598088)
+        self.assertEqual(maj.top_city, "Salt Lake City")
+
+    def test_major_9(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Legal').first()
+        self.assertEqual(maj.num_undergrads, 93870)
+        self.assertEqual(maj.top_city, "Orlando")
+
+    def test_major_10(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Agriculture').first()
+        self.assertEqual(maj.num_undergrads, 125860)
+        self.assertEqual(maj.top_city, "College Station")
 
         # # -------------
         # # major __repr__
@@ -377,6 +455,59 @@ class Tests(TestCase):
         '''
         major = Major('Business')
         self.assertEqual(major.__repr__(), '<Major Business>')
+
+    def test_major_repr_4(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('Computer Science')
+        self.assertEqual(major.__repr__(), '<Major Computer Science>')
+
+    def test_major_repr_5(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('Humanities')
+        self.assertEqual(major.__repr__(), '<Major Humanities>')
+
+    # ----------------
+    # major attributes
+    # ----------------
+
+    def test_major_attr_1(self):
+        '''
+        Test Major attributes
+        '''
+        major = Major('Economics')
+        self.assertEqual(major.attributes(), {'name': 'Economics'})
+
+    def test_major_attr_2(self):
+        '''
+        Test Major attributes
+        '''
+        major = Major('Engineering')
+        self.assertEqual(major.attributes(), {'name': 'Engineering'})
+
+    def test_major_attr_3(self):
+        '''
+        Test Major attributes
+        '''
+        major = Major('Business')
+        self.assertEqual(major.attributes(), {'name': 'Business'})
+
+    def test_major_attr_4(self):
+        '''
+        Test Major attributes
+        '''
+        major = Major('Computer Science')
+        self.assertEqual(major.attributes(), {'name': 'Computer Science'})
+
+    def test_major_attr_5(self):
+        '''
+        Test Major attributes
+        '''
+        major = Major('Humanities')
+        self.assertEqual(major.attributes(), {'name': 'Humanities'})
 
     # ---------------
     # ethnicity class
