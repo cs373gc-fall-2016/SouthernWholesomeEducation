@@ -2,6 +2,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from models import *
 from random import *
+import pickle
 
 # setting retries in case of failed attempts
 requests.adapters.DEFAULT_RETRIES = 50
@@ -12,8 +13,11 @@ cities = dict()
 majors = dict()
 ethnicities = dict()
 
-DB.drop_all()
-DB.create_all()
+# pickle to save items locally
+pickle.dump( universities, open( "universities.p", "wb" ) )
+pickle.dump( cities, open( "cities.p", "wb" ) )
+pickle.dump( majors, open( "majors.p", "wb" ) )
+pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
 
 def api_call():
     set_of_schools_nums = get_all_school_codes()
@@ -31,6 +35,9 @@ def api_call():
     major_objs_city = dict()
     eth_objs_city = dict()
     uni_objs = dict()
+
+    DB.drop_all()
+    DB.create_all()
 
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
@@ -67,12 +74,6 @@ def api_call():
                 cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
 
     DB.session.commit()
-
-    # print(universities)
-    # print(cities)
-    # print(majors)
-    # print(ethnicities)
-
 
 
 def setup_data(individual_school_dict):
