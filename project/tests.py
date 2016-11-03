@@ -100,7 +100,7 @@ class Tests(TestCase):
 
     # ---------------------
     # university attributes
-    # --------------------
+    # ---------------------
 
     def test_university_attr_1(self):
         '''
