@@ -4,7 +4,7 @@ from models import *
 from random import *
 
 # setting retries in case of failed attempts
-requests.adapters.DEFAULT_RETRIES = 5
+requests.adapters.DEFAULT_RETRIES = 50
 
 # dictionaries for each model
 universities = dict()
