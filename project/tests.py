@@ -97,8 +97,11 @@ class Tests(TestCase):
         uni = University.query.filter_by(name='Star Career Academy-Audubon').first()
         self.assertEqual(uni.num_undergrads, 221)
 
+    # ---------------------
+    # university attributes
+    # ---------------------
 
-    
+
     def test_university_attr_1(self):
         '''
         Test University attributes
