@@ -42,12 +42,10 @@
   <tr ng-repeat="uni in myData">
 
                 <td>
-                  <a ng-href="#/universities/{{uni.id_num}}">
-                        <span>{{uni.name}}</span>
-                  </a>
-                </td>
-                <td>{{uni.name}}</td>
-                <td>{{uni.city_name}}</td>
+                  <a ng-href="/#/universities/{{uni.id_num}}">
+                    <span>{{uni.name}}</span></a></td>
+                <td><a ng-href="/#/cities/{{uni.city_id}}">
+                  <span>{{uni.city_name}}</span></a></td>
                 <td>{{uni.num_undergrads}}</td>
                 <td>{{uni.cost_to_attend}}</td>
                 <td>{{uni.grad_rate}}</td>

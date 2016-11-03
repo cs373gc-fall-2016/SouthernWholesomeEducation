@@ -23,6 +23,7 @@ def lookup_model(model_name, id_param):
 
 @APP.route('/api/<string:model_name>/name/<string:name>')
 def lookup_model_by_name(model_name, name):
+    name = name.title()
     model = get_association(get_model(model_name), name=name)
 
     return jsonify(results=model.attributes())

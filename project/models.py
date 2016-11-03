@@ -319,8 +319,33 @@ class City(DB.Model):
             'university_list': len(self.university_list),
             'ethnicity_list': len(self.ethnicity_list),
             'major_list': len(self.major_list),
-            'avg_tuition': self.avg_tuition
+            'avg_tuition': self.avg_tuition,
+            'universities': self.get_universities(),
+            'majors': self.get_majors(),
+            'ethnicities': self.get_ethnicities()
         }
+
+    def get_ethnicities(self):
+        ethnic_list = ETHNICITYTOCITY.query.filter_by(city_name=self.name).all()
+        ethnic_list_json = []
+        for i in ethnic_list:
+            ethnic_list_json.append({'name': i.ethnicity_name, 'id': i.ethnicity_id, 'num_students': i.num_students})
+        return ethnic_list_json
+
+    def get_majors(self):
+        maj_list = MAJORTOCITY.query.filter_by(city_name=self.name).all()
+        major_list_json = []
+        for i in maj_list:
+            major_list_json.append({'name': i.major_name, 'id': i.major_id, 'num_students': i.num_students})
+        return major_list_json
+
+    def get_universities(self):
+        uni_list = University.query.filter_by(city_id=self.id_num).all()
+        uni_list_json = []
+        for i in uni_list:
+            uni_list_json.append({'name': i.name, 'id': i.id_num})
+        return uni_list_json
+
 
     # def primary_attributes(self):
     #     return {'name': self.name}
@@ -382,6 +407,8 @@ class Major(DB.Model):
 
     def attributes(self):
         top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, city_name=self.top_city).first().city_id
+        num_universities = len(MAJORTOUNIVERSITY.query.filter_by(major_name=self.name).all())
+        num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
         return {
             'id_num': self.id_num,
             'name': self.name,
@@ -389,7 +416,8 @@ class Major(DB.Model):
             'top_city': self.top_city,
             'top_city_id': top_city_id,
             'avg_percentage': self.avg_percentage,
-            'assoc_university': self.assoc_university
+            'num_universities': num_universities,
+            'num_cities': num_cities
         }
 
     # def primary_attributes(self):
@@ -431,6 +459,8 @@ class Ethnicity(DB.Model):
     def attributes(self):
         top_city_id = ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name, city_name=self.top_city).first().city_id
         top_university_id = ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name, university_name=self.top_university).first().university_id
+        num_universities = len(ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name).all())
+        num_cities = len(ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name).all())
         return {
             'id_num': self.id_num,
             'name': self.name,
@@ -440,7 +470,9 @@ class Ethnicity(DB.Model):
             'top_city_amt': self.top_city_amt,
             'top_university': self.top_university,
             'top_university_id': top_university_id,
-            'top_university_amt': self.top_university_amt
+            'top_university_amt': self.top_university_amt,
+            'num_universities': num_universities,
+            'num_cities': num_cities
         }
 
     # def primary_attributes(self):
