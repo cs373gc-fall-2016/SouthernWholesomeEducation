@@ -56,12 +56,41 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/'
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath;
+  
+	$http.get($scope.path+'/num_pages').success(function (data, status, headers, config) {
+		$scope.numPages = data.result;
+	});
+
+  $scope.currentPage = 0;
+  $scope.prevPage = function() {
+    if ($scope.currentPage > 0) {
+		  $scope.currentPage--;	
+		}
+  }
+
+  $scope.nextPage = function() {
+    if ($scope.currentPage < $scope.pages.length - 1) {
+		  $scope.currentPage++;	
+		}
+  }
+
+	$scope.setPage = function() {
+		$scope.currentPage = this.n;		
+	}
 
   $scope.order = 'asc';
   $scope.query = function(query) {
     // $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
     
     $http.get($scope.path+query).success(function (data, status, headers, config) {
+      $scope.myData = data.results;
+    });
+  }
+
+  $scope.page = function(page) {
+    // $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
+    
+    $http.get($scope.path+page).success(function (data, status, headers, config) {
       $scope.myData = data.results;
     });
   }

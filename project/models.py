@@ -218,13 +218,15 @@ class University(DB.Model):
         return '<University ' + self.name + '>'
 
     def attributes(self):
+        city_name = City.query.filter_by(id_num=self.city_id).first().name
         return {
             'id_num': self.id_num,
             'name': self.name, 
             'num_undergrads': self.num_undergrads, 
             'cost_to_attend': self.cost_to_attend,
             'grad_rate': self.grad_rate, 
-            'public_or_private': self.public_or_private
+            'public_or_private': self.public_or_private,
+            'city_name': city_name
         }
 
     # def primary_attributes(self):

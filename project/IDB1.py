@@ -9,32 +9,6 @@ from models import *
 import requests
 DEFAULT_PAGE = 10
 
-COLUMN_KEYS = { "University": {
-					"University": "name",
-					"Number of Undergraduates": "num_undergrads",
-					"Cost to Attend": "cost_to_attend",
-					"Graduation Rate": "grad_rate",
-					"Public/Private": "public_or_private"},
-				"City": {
-					"City": "name",
-				  "Population": "population",
-				  "Universities": "university_list",
-				  "Ethnicities": "ethnicity_list",
-				  "Majors": "major_list",
-				  "Average Tuition": "avg_tuition"},
-				"Major": {
-					"Major": "name",
-					"Total Number": "num_undergrads",
-					"Top City": "top_city",
-					"Average Percentage": "avg_percentage",
-					"Number of Supported Universities": "assoc_university"},
-				"Ethnicity": {
-				  "Ethnicity": "name",
-				  "Total Count": "total_count",
-		      "Top City": "top_city",
-				  "Top University": "top_university",
-				  "Peak Year": "peak_year"}}
-
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
@@ -54,10 +28,10 @@ def api_models(model_name, page=0):
     json['total_entries'] = get_count(model_name)
 
     if 'sort' in request.args:
-        sort_by = COLUMN_KEYS[model_name][request.args['sort']]
+        sort_by = request.args['sort']
 
         order = ".desc()" if request.args['order'] == 'desc' else ""
-        models = eval('{0}.query.order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
+        models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
 
@@ -66,6 +40,11 @@ def api_models(model_name, page=0):
     for i in list_models:
         json_list.append(i.attributes())
     return jsonify(results=json_list)
+
+@APP.route('/api/<string:model_name>/num_pages')
+def get_num_pages(model_name):
+    return jsonify(result=5)
+
 
 @APP.route('/favicon.ico')
 def favicon():
