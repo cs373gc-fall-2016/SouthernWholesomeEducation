@@ -385,6 +385,107 @@ class Tests(TestCase):
             major_name='Health').first()
         self.assertEqual(majorcity.__repr__(), '<City Philadelphia, Major Health>')
 
+
+    # -----------------------
+    # MAJORTOUNIVERSITY class
+    # -----------------------
+
+    def test_majortouniversity_1(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Delaware College of Art and Design', \
+            major_name='Computer').first()
+        self.assertEqual(majoruni.num_students, 2)
+
+
+    def test_majortouniversity_2(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Erskine College', \
+            major_name='Mathematics').first()
+        self.assertEqual(majoruni.num_students, 16)
+
+
+    def test_majortouniversity_3(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Ohio Business College-Sheffield', \
+            major_name='Legal').first()
+        self.assertEqual(majoruni.num_students, 24)
+
+
+    def test_majortouniversity_4(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='East Central College', \
+            major_name='Engineering').first()
+        self.assertEqual(majoruni.num_students, 70)
+
+
+    def test_majortouniversity_5(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Baker College of Port Huron', \
+            major_name='Health').first()
+        self.assertEqual(majoruni.num_students, 391)
+
+
+    def test_majortouniversity_6(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='William Penn University', \
+            major_name='Education').first()
+        self.assertEqual(majoruni.num_students, 243)
+
+
+    def test_majortouniversity_7(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Midland University', \
+            major_name='English').first()
+        self.assertEqual(majoruni.num_students, 6)
+
+
+    def test_majortouniversity_8(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Advance Tech College', \
+            major_name='Health').first()
+        self.assertEqual(majoruni.num_students, 1)
+
+
+    def test_majortouniversity_9(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Herzing University-Kenner', \
+            major_name='Transportation').first()
+        self.assertEqual(majoruni.num_students, 7)
+
+
+    def test_majortouniversity_10(self):
+        '''
+        Test MAJORTOUNIVERSITY class
+        '''
+        majoruni = MAJORTOUNIVERSITY.query.filter_by(university_name='Antonelli College-Jackson', \
+            major_name='Visual Performing').first()
+        self.assertEqual(majoruni.num_students, 16)
+
+
+    # --------------------------
+    # MAJORTOUNIVERSITY __repr__
+    # --------------------------
+
+
+
     # ----------
     # city class
     # ----------
