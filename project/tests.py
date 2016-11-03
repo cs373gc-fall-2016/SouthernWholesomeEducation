@@ -31,28 +31,28 @@ class Tests(TestCase):
         Test University class
         '''
         uni = University.query.filter_by(name='University of East-West Medicine').first()
-        self.assertEqual(uni.num_undergrads, 2460)
+        self.assertEqual(uni.num_undergrads, 4225)
 
     def test_university_2(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Charlotte School of Law').first()
-        self.assertEqual(uni.num_undergrads, 3764)
+        self.assertEqual(uni.num_undergrads, 3011)
 
     def test_university_3(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Marinello School of Beauty-Visalia').first()
-        self.assertEqual(uni.num_undergrads, 2185)
+        self.assertEqual(uni.num_undergrads, 2009)
 
     def test_university_4(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Brite Divinity School').first()
-        self.assertEqual(uni.num_undergrads, 3357)
+        self.assertEqual(uni.num_undergrads, 2273)
 
     def test_university_5(self):
         '''
@@ -72,8 +72,8 @@ class Tests(TestCase):
         '''
         Test University class
         '''
-        uni = University.query.filter_by(name='Center for Natural Wellness School \
-            of Massage Therapy').first()
+        uni = University.query.filter_by(
+            name='Center for Natural Wellness School of Massage Therapy').first()
         self.assertEqual(uni.num_undergrads, 45)
 
     def test_university_8(self):
