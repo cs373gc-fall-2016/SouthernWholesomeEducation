@@ -1,179 +1,534 @@
 FORMAT: 1A
-HOST: http://wholesomeeducation.me/
+HOST: http://wholesomeeducation.me/api/
 
 # Southern Wholesome Education
 
 Southern Wholesome Education API is a simple API that allows consumers to view information regarding universities, cities, majors, and ethnic groups.
 
-## Universities Collection [/universities]
+## Universities Collection [/university]
 
 ### List All Universities [GET]
 Returns a list of all universities and colleges and basic details about them.
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "Southern Wholesome Education University"
-            },
-            {
-                "name": "Northern Wholesome Education University"
+        {
+            "results": [
+                {
+                    "city_id": 21, 
+                    "city_name": "Riverside", 
+                    "cost_to_attend": 30410, 
+                    "ethnicities": [
+                        {
+                          "id": 11, 
+                          "name": "Black", 
+                          "num_students": 43
+                        }, 
+                        {
+                          "id": 5, 
+                          "name": "Hispanic", 
+                          "num_students": 247
+                        }, 
+                        {
+                          "id": 7, 
+                          "name": "Two Or More", 
+                          "num_students": 19
+                        }, 
+                        {
+                          "id": 9, 
+                          "name": "American Indian Alaska Native", 
+                          "num_students": 0
+                        }, 
+                        {
+                          "id": 13, 
+                          "name": "Unknown", 
+                          "num_students": 0
+                        }, 
+                        {
+                          "id": 15, 
+                          "name": "Asian", 
+                          "num_students": 10
+                        }, 
+                        {
+                          "id": 17, 
+                          "name": "White", 
+                          "num_students": 93
+                        }
+                    ], 
+                    "grad_rate": 0.584764547443469, 
+                    "id_num": 636, 
+                    "majors": [
+                        {
+                          "id": 63, 
+                          "name": "Legal", 
+                          "num_students": 31
+                        }, 
+                        {
+                          "id": 17, 
+                          "name": "Security Law Enforcement", 
+                          "num_students": 82
+                        }, 
+                        {
+                          "id": 33, 
+                          "name": "Visual Performing", 
+                          "num_students": 25
+                        }, 
+                        {
+                          "id": 29, 
+                          "name": "Health", 
+                          "num_students": 275
+                        }
+                    ], 
+                    "name": "Platt College-Riverside", 
+                    "num_undergrads": 415, 
+                    "public_or_private": "Private"
+                }
+            ]
+        }
+
+
+## University by ID [/university/id/{university_id}]
+
++ Parameters
+    + university_id (int) - ID number of the university
+    
+### View a university in detail [GET]
+Returns a list of details about the specific university when searching by ID.
+
++ Response 200 (application/json)
+
+        {
+            "results": {
+                "city_id": 710, 
+                "city_name": "Chicago", 
+                "cost_to_attend": 22483, 
+                "ethnicities": [
+                    {
+                        "id": 11, 
+                        "name": "Black", 
+                        "num_students": 11
+                    }, 
+                    {
+                        "id": 5, 
+                        "name": "Hispanic", 
+                        "num_students": 15
+                    }, 
+                    {
+                        "id": 7, 
+                        "name": "Two Or More", 
+                        "num_students": 5
+                    }, 
+                    {
+                        "id": 13, 
+                        "name": "Unknown", 
+                        "num_students": 3
+                    }, 
+                    {
+                        "id": 15, 
+                        "name": "Asian", 
+                        "num_students": 3
+                    }, 
+                    {
+                        "id": 17, 
+                        "name": "White", 
+                        "num_students": 31
+                    }
+                ], 
+                "grad_rate": 0.708451654287928, 
+                "id_num": 663, 
+                "majors": [
+                    {
+                        "id": 29, 
+                        "name": "Health", 
+                        "num_students": 71
+                    }
+                ], 
+                "name": "Pacific College of Oriental Medicine-Chicago", 
+                "num_undergrads": 71, 
+                "public_or_private": "Private"
             }
-        ]
+        }
 
-
-## University [/universities/{university_name}]
+## University by Name [/university/name/{university_name}]
 
 + Parameters
     + university_name (string) - Name of the university
     
 ### View a university in detail [GET]
-Returns a list of details about the specific university.
+Returns a list of details about the specific university when searching by name.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "Southern Wholesome Education University",
-                "num_undergrads": 100,
-                "grad_rate": 0.89,
-                "cost_attend": 10000,
-                "location": "Austin",
-                "public_or_private": "public",
-                "ethnicity_count": 5
+        {
+            "results": {
+                "city_id": 852, 
+                "city_name": "Brookville", 
+                "cost_to_attend": 28372, 
+                "ethnicities": [
+                    {
+                        "id": 1, 
+                        "name": "Non Resident Alien", 
+                        "num_students": 397
+                    }, 
+                    {
+                        "id": 3, 
+                        "name": "Native Hawaiian Pacific Islander", 
+                        "num_students": 1
+                    }, 
+                    {
+                        "id": 5, 
+                        "name": "Hispanic", 
+                        "num_students": 506
+                    }, 
+                    {
+                        "id": 7, 
+                        "name": "Two Or More", 
+                        "num_students": 61
+                    }, 
+                    {
+                        "id": 9, 
+                        "name": "American Indian Alaska Native", 
+                        "num_students": 4
+                    }, 
+                    {
+                        "id": 11, 
+                        "name": "Black", 
+                        "num_students": 426
+                    }, 
+                    {
+                        "id": 13, 
+                        "name": "Unknown", 
+                        "num_students": 438
+                    }, 
+                    {
+                        "id": 15, 
+                        "name": "Asian", 
+                        "num_students": 161
+                    }, 
+                    {
+                        "id": 17, 
+                        "name": "White", 
+                        "num_students": 1774
+                    }
+                ], 
+                "grad_rate": 0.39784694181999, 
+                "id_num": 6433, 
+                "majors": [
+                    {
+                        "id": 1, 
+                        "name": "Multidiscipline", 
+                        "num_students": 26
+                    }, 
+                    {
+                        "id": 3, 
+                        "name": "Mathematics", 
+                        "num_students": 21
+                    }, 
+                    {
+                        "id": 33, 
+                        "name": "Visual Performing", 
+                        "num_students": 327
+                    }, 
+                    {
+                        "id": 39, 
+                        "name": "Humanities", 
+                        "num_students": 30
+                    }, 
+                    {
+                        "id": 17, 
+                        "name": "Security Law Enforcement", 
+                        "num_students": 349
+                    }, 
+                    {
+                        "id": 43, 
+                        "name": "Engineering Technology", 
+                        "num_students": 17
+                    }, 
+                    {
+                        "id": 21, 
+                        "name": "English", 
+                        "num_students": 103
+                    }, 
+                    {
+                        "id": 23, 
+                        "name": "Psychology", 
+                        "num_students": 314
+                    }, 
+                    {
+                        "id": 27, 
+                        "name": "Communication", 
+                        "num_students": 124
+                    }, 
+                    {
+                        "id": 29, 
+                        "name": "Health", 
+                        "num_students": 599
+                    }, 
+                    {
+                        "id": 35, 
+                        "name": "Business Marketing", 
+                        "num_students": 681
+                    }, 
+                    {
+                        "id": 9, 
+                        "name": "Philosophy Religious", 
+                        "num_students": 4
+                    }, 
+                    {
+                        "id": 47, 
+                        "name": "Education", 
+                        "num_students": 646
+                    }, 
+                    {
+                        "id": 51, 
+                        "name": "Social Science", 
+                        "num_students": 228
+                    }, 
+                    {
+                        "id": 55, 
+                        "name": "Language", 
+                        "num_students": 8
+                    }, 
+                    {
+                        "id": 57, 
+                        "name": "Computer", 
+                        "num_students": 43
+                    }, 
+                    {
+                        "id": 37, 
+                        "name": "Ethnic Cultural Gender", 
+                        "num_students": 8
+                    }, 
+                    {
+                        "id": 61, 
+                        "name": "Biological", 
+                        "num_students": 81
+                    }, 
+                    {
+                        "id": 7, 
+                        "name": "History", 
+                        "num_students": 12
+                    }, 
+                    {
+                        "id": 69, 
+                        "name": "Public Administration Social Service", 
+                        "num_students": 51
+                    }, 
+                    {
+                        "id": 71, 
+                        "name": "Physical Science", 
+                        "num_students": 21
+                    }, 
+                    {
+                        "id": 75, 
+                        "name": "Communications Technology", 
+                        "num_students": 69
+                    }
+                ], 
+                "name": "LIU Post", 
+                "num_undergrads": 3774, 
+                "public_or_private": "Private"
             }
-        ]
+        }
 
-## Cities Collection [/cities]
+
+## Cities Collection [/city]
 
 ### List All Cities [GET]
 Returns a list of all cities and basic details about them.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "Austin, TX"
-            },
-            {
-                "name": "Los Angeles, CA"
-            }
-        ]
+        {
+            "results": [
+                {
+                  "avg_tuition": 11024, 
+                  "ethnicity_list": 9, 
+                  "id_num": 1, 
+                  "major_list": 14, 
+                  "name": "Calmar", 
+                  "population": 2677, 
+                  "university_list": 1
+                }
+            ]
+        }
         
-## City [/cities/{city_name}]
+## City by ID [/city/id/{city_id}]
+
++ Parameters
+    + city_id (int) - ID number of the city
+    
+### View a city in detail [GET]
+Returns a list of details about the specific city when searching by ID.
+
++ Response 200 (application/json)
+
+        {
+            "results": {
+                "avg_tuition": 11024, 
+                "ethnicity_list": 9, 
+                "id_num": 1, 
+                "major_list": 14, 
+                "name": "Calmar", 
+                "population": 2677, 
+                "university_list": 1
+            }
+        }
+       
+
+## City by Name [/city/name/{city_name}]
 
 + Parameters
     + city_name (string) - Name of the city
     
 ### View a city in detail [GET]
-Returns a list of details about the specific city.
+Returns a list of details about the specific city when searching by name.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "Austin, TX",
-                "population": 1362416,
-                "university_list": [
-                    {
-                        "name": "Southern Wholesome Education University"
-                    }
-                ],
-                "major_list": [
-                    {
-                        "name": "Underwater Basket-weaving"
-                    }
-                ],
-                "avg_tuition": 10000,
-                "urban_or_rural": "urban",
-                "ethnicity_count": 5
+        {
+            "results": {
+                "avg_tuition": 14406, 
+                "ethnicity_list": 9, 
+                "id_num": 645, 
+                "major_list": 36, 
+                "name": "Austin", 
+                "population": 87397, 
+                "university_list": 34
             }
-        ]
+        }   
         
-## Majors Collection [/majors]
+## Majors Collection [/major]
 
 ### List All Majors [GET]
 Returns a list of all majors and specialties and basic details about them.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "Underwater Basket-weaving"
-            },
-            {
-                "name": "Blacksmithing"
-            }
-        ]
+        {
+            "results": [
+                {
+                  "assoc_university": 1, 
+                  "avg_percentage": 0.0335169138041924, 
+                  "id_num": 33, 
+                  "name": "Visual Performing", 
+                  "num_undergrads": 603466, 
+                  "top_city": "New York", 
+                  "top_city_id": 2495
+                }
+            ]
+        }
 
-## Major [/majors/{major_name}]
+## Major by ID [/major/id/{major_id}]
+
++ Parameters
+    + major_id (int) - ID number of the major
+    
+### View a major in detail [GET]
+Returns a list of details about the specific major when searching by ID.
+
++ Response 200 (application/json)
+
+        {
+            "results": {
+                "assoc_university": 1, 
+                "avg_percentage": 0.0296369527715356, 
+                "id_num": 57, 
+                "name": "Computer", 
+                "num_undergrads": 533608, 
+                "top_city": "Tempe", 
+                "top_city_id": 1178
+            }
+        }
+
+## Major by Name [/major/name/{major_name}]
 
 + Parameters
     + major_name (string) - Name of the major
     
 ### View a major in detail [GET]
-Returns a list of details about the specific major.
+Returns a list of details about the specific major when searching by name.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "Underwater Basket-weaving",
-                "num_undergrads": 1366,
-                "grad_rate": 0.76,
-                "university_list": [
-                    {
-                        "name": "Southern Wholesome Education University"
-                    }
-                ],
-                "city_list": [
-                    {
-                        "name": "Austin, TX"
-                    }
-                ],
-                "avg_percentage": 0.2
+        {
+            "results": {
+                "assoc_university": 1, 
+                "avg_percentage": 0.0296369527715356, 
+                "id_num": 57, 
+                "name": "Computer", 
+                "num_undergrads": 533608, 
+                "top_city": "Tempe", 
+                "top_city_id": 1178
             }
-        ]
+        }     
         
-## Ethnic Groups Collection [/ethnicities]
+## Ethnic Groups Collection [/ethnicity]
 
 ### List All Ethnic Groups [GET]
 Returns a list of all ethnic and race groups and basic details about them.
 
 + Response 200 (application/json)
 
-          [
-            {
-                "name": "Caucasian"
-            },
-            {
-                "name": "Asian"
-            }
-        ]
+        {
+            "results": [
+                {
+                  "id_num": 1, 
+                  "name": "Non Resident Alien", 
+                  "top_city": "West Lafayette", 
+                  "top_city_amt": 5239, 
+                  "top_city_id": 715, 
+                  "top_university": "Houston Community College", 
+                  "top_university_amt": 5291, 
+                  "top_university_id": 7468, 
+                  "total_count": 474025
+                }
+            ]
+        }
 
-## Ethnicities [/ethnicities/{ethnicity_name}]
+## Ethnic Group by ID [/ethnicity/id/{ethnicity_id}]
+
++ Parameters
+    + ethnicity_id (int) - ID number of the ethnic group
+    
+### View an ethnic group in detail [GET]
+Returns a list of details about the specific ethnic group when searching by ID.
+
++ Response 200 (application/json)
+
+        {
+            "results": {
+                "id_num": 1, 
+                "name": "Non Resident Alien", 
+                "top_city": "West Lafayette", 
+                "top_city_amt": 5239, 
+                "top_city_id": 715, 
+                "top_university": "Houston Community College", 
+                "top_university_amt": 5291, 
+                "top_university_id": 7468, 
+                "total_count": 474025
+            }
+        }
+
+## Ethnic Group by Name [/ethnicity/name/{ethnicity_name}]
 
 + Parameters
     + ethnicity_name (string) - Name of the ethnic group
     
 ### View an ethnic group in detail [GET]
-Returns a list of details about the specific ethnic group.
+Returns a list of details about the specific ethnic group when searching by name.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "name": "White",
-                "total_count": 136683462736,
-                "top_by_city": [
-                    {
-                        "name": "Austin, TX"
-                    }
-                ],
-                "top_by_university": [
-                    {
-                        "name": "Southern Wholesome Education University"
-                    }
-                ],
-                "population_trend": "growing"
+        {
+            "results": {
+                "id_num": 17, 
+                "name": "White", 
+                "top_city": "College Station", 
+                "top_city_amt": 31028, 
+                "top_city_id": 1815, 
+                "top_university": "Ivy Tech Community College", 
+                "top_university_amt": 54779, 
+                "top_university_id": 1997, 
+                "total_count": 8356122
             }
-        ]
+        }
