@@ -4,7 +4,7 @@
 import os
 import sys
 import requests
-from flask import Flask, render_template, send_from_directory, jsonify, make_response, request
+from flask import Flask, render_template, send_from_directory, jsonify, make_response, request, send_file
 from models import *
 DEFAULT_PAGE = 10
 
