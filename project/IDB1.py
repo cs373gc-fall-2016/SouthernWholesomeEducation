@@ -16,7 +16,7 @@ def render_home():
 @APP.errorhandler(404)
 @APP.errorhandler(500)
 def error_page(error):
-    return render_template('error.html', status=error)
+    return render_template('error.html')
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
@@ -53,7 +53,11 @@ def api_models(model_name, page=0):
         sort_by = request.args['sort']
 
         order = ".desc()" if request.args['order'] == 'desc' else ""
-        models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
+        if model_name == "Unversity" and sort_by == "city_id":
+            models = University.query.distinct(University.name).filter_by(city_id=city_id)
+            models = models.order_by(City.query.filter_by(id_num=city_id).name)
+        else:
+            models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
     # if models is None:
