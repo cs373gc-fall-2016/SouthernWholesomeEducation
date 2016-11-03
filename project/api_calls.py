@@ -78,6 +78,8 @@ def setup_data(individual_school_dict):
     uni_temp_dict = dict()
     if individual_school_dict['school.name'] is not None:
         uni_temp_dict['university_name'] = individual_school_dict['school.name']
+    else:
+        uni_temp_dict['university_name'] = "Unknown"
     if individual_school_dict['2014.student.size'] is not None:
         uni_temp_dict['undergrad_population'] = individual_school_dict['2014.student.size']
     else:
@@ -92,6 +94,8 @@ def setup_data(individual_school_dict):
         uni_temp_dict['grad_rate'] = uniform(.5, .92)
     if individual_school_dict['school.city'] is not None:
         uni_temp_dict['city'] = individual_school_dict['school.city']
+    else:
+        uni_temp_dict['city'] = "Unknown"
     uni_temp_dict['public_or_private'] = 'Public' if individual_school_dict['school.ownership'] == 1 else 'Private'
     uni_temp_dict['ethnicity_list'] = (major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
     uni_temp_dict['ethnicity_count'] = len(uni_temp_dict['ethnicity_list'])
@@ -136,6 +140,8 @@ def setup_data(individual_school_dict):
         citi_temp_dict = dict()
         if individual_school_dict['school.city'] is not None:
             citi_temp_dict['city_name'] = individual_school_dict['school.city']
+        else:
+            citi_temp_dict['city_name'] = "Unknown"
         if individual_school_dict['2014.student.size'] is not None:
             citi_temp_dict['population'] = individual_school_dict['2014.student.size']
         else:
