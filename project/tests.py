@@ -97,10 +97,10 @@ class Tests(TestCase):
         uni = University.query.filter_by(name='Star Career Academy-Audubon').first()
         self.assertEqual(uni.num_undergrads, 221)
 
+
     # ---------------------
     # university attributes
-    # ---------------------
-
+    # --------------------
 
     def test_university_attr_1(self):
         '''
@@ -497,6 +497,91 @@ class Tests(TestCase):
         '''
         city = City('West Palm Beach')
         self.assertEqual(city.__repr__(), '<City West Palm Beach>')
+
+
+    # ---------------------
+    # City attributes
+    # --------------------
+
+    def test_city_attr_1(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Seattle')
+        self.assertEqual(city.attributes()['name'], 'Seattle')
+
+
+    def test_city_attr_2(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Miami')
+        self.assertEqual(city.attributes()['name'], 'Miami')
+
+
+    def test_city_attr_3(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Newberg')
+        self.assertEqual(city.attributes()['name'], 'Newberg')
+
+
+    def test_city_attr_4(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Findlay')
+        self.assertEqual(city.attributes()['name'], 'Findlay')
+
+
+    def test_city_attr_5(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Keshena')
+        self.assertEqual(city.attributes()['name'], 'Keshena')
+
+
+    def test_city_attr_5(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Las Vegas')
+        self.assertEqual(city.attributes()['name'], 'Las Vegas')
+
+
+    def test_city_attr_6(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Ontario')
+        self.assertEqual(city.attributes()['name'], 'Ontario')
+
+
+    def test_city_attr_7(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Lawrenceburg')
+        self.assertEqual(city.attributes()['name'], 'Lawrenceburg')
+
+
+    def test_city_attr_9(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Dobson')
+        self.assertEqual(city.attributes()['name'], 'Dobson')
+
+
+    def test_city_attr_10(self):
+        '''
+        Test City attributes
+        '''
+        city = City('Bessemer')
+        self.assertEqual(city.attributes()['name'], 'Bessemer')
+
 
     # # -----------
     # # major class
