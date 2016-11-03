@@ -13,7 +13,7 @@ cities = dict()
 majors = dict()
 ethnicities = dict()
 
-def api_call(DB):
+def api_call():
     set_of_schools_nums = get_all_school_codes()
     #print('testing two austin schools')
     #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
@@ -43,10 +43,10 @@ def api_call(DB):
 
 
     print('droping now')
-    DB.drop_all()
+    models.DB.drop_all()
 
     print('creating all now')
-    DB.create_all()
+    models.DB.create_all()
 
     print('finished droping tables... creating objects (majors)')
 
