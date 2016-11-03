@@ -1,8 +1,10 @@
 import requests
+from requests.adapters import HTTPAdapter
 from models import *
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from random import *
+
+# setting retries in case of failed attempts
+requests.adapters.DEFAULT_RETRIES = 50
 
 # dictionaries for each model
 universities = dict()
@@ -301,9 +303,7 @@ def call_for_data(school_num):
                 '2014.academics.program_percentage.parks_recreation_fitness,2014.academics.program_percentage.language,' \
                 '2014.academics.program_percentage.visual_performing,2014.academics.program_percentage.english' \
                 '&id=' + str(school_num) + '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
-    # printing result json data
-    # print('url called: ', end ='')
-    # print(data_url)
+
     output = requests.get(data_url)
     school_dict = output.json()
     # returning dictionary with school data
