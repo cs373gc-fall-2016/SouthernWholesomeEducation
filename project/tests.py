@@ -851,13 +851,45 @@ class Tests(TestCase):
     # ---------------
 
 
-    # def test_ethnicity_1(self):
-    #     '''
-    #     Test Ethnicity class
-    #     '''
-    #     eth = Ethnicity.query.filter_by(name='Computer').first()
-    #     self.assertEqual(maj.num_undergrads, 533608)
-    #     self.assertEqual(maj.top_city, "Tempe")
+    def test_ethnicity_1(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='White').first()
+        self.assertEqual(eth.total_count, 8356122)
+        self.assertEqual(eth.top_city, "College Station")
+
+    def test_ethnicity_2(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Hispanic').first()
+        self.assertEqual(eth.total_count, 2893839)
+        self.assertEqual(eth.top_city, "The Woodlands")
+
+    def test_ethnicity_3(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Asian').first()
+        self.assertEqual(eth.total_count, 914889)
+        self.assertEqual(eth.top_city, "San Jose")
+
+    def test_ethnicity_4(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Black').first()
+        self.assertEqual(eth.total_count, 2261288)
+        self.assertEqual(eth.top_city, "Davenport")
+
+    def test_ethnicity_5(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Native Hawaiian Pacific Islander').first()
+        self.assertEqual(eth.total_count, 53897)
+        self.assertEqual(eth.top_city, "Pohnpei")
 
 
 
