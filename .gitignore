@@ -9,3 +9,4 @@ venv/
 *.pyc
 *dropbox.attr
 deploy_key
+*~

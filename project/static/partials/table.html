@@ -1,0 +1,10 @@
+<table>
+  <thead>
+    <th ng-repeat="(key, value) in myData[0]">{{key}}</th>
+  </thead>
+  <tbody>
+  <tr ng-repeat="row in myData">
+   <td ng-repeat="cell in row">{{cell}}</td>
+  </tr>
+ </tbody>
+</table>
