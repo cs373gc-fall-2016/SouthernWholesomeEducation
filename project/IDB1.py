@@ -21,6 +21,12 @@ def lookup_model(model_name, id_param):
 
     return jsonify(results=model.attributes())
 
+@APP.route('/api/<string:model_name>/name/<string:name>')
+def lookup_model_by_name(model_name, name):
+    model = get_association(get_model(model_name), name=name)
+
+    return jsonify(results=model.attributes())
+
 @APP.route('/api/<string:model_name>/')
 @APP.route('/api/<string:model_name>/<int:page>')
 def api_models(model_name, page=0):
