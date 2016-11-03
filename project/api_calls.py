@@ -1,7 +1,5 @@
 import requests
 from models import *
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from random import *
 
 # dictionaries for each model
