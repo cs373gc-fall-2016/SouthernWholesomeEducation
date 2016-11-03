@@ -2,11 +2,11 @@
   <thead>
 	  <th id="col" ng-repeat="(key, value) in myData[0]">
 		{{key}}
-		<a ng-href="?sort={{ key }}&order=desc">
-		  <span class="glyphicon glyphicon-triangle-bottom"></span>
+		<a>
+		  <span ng-click="query('desc')" class="glyphicon glyphicon-triangle-bottom"></span>
 		</a>
-		<a ng-href="?sort={{ key }}&order=asc">
-		  <span class="glyphicon glyphicon-triangle-top"></span>
+		<a>
+		  <span ng-click="query('asc')" class="glyphicon glyphicon-triangle-top"></span>
 		</a>
 	  </th>
   </thead>
@@ -23,11 +23,11 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <li><a href="/1">1</a></li>
+    <li><a href="/2">2</a></li>
+    <li><a href="/3">3</a></li>
+    <li><a href="/4">4</a></li>
+    <li><a href="/5">5</a></li>
     <li>
       <a href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

@@ -229,7 +229,7 @@ class University(DB.Model):
         return '<University ' + self.name + '>'
 
     def get_ethnicities(self):
-        ethnic_list = ETHNICITYTOUNIVERSITY.query.filter_by(university_name=self.name).all()        
+        ethnic_list = ETHNICITYTOUNIVERSITY.query.filter_by(university_name=self.name).all()
         ethnic_list_json = []
         for i in ethnic_list:
             ethnic_list_json.append({'name': i.ethnicity_name, 'id': i.ethnicity_id, 'num_students': i.num_students})
@@ -246,10 +246,10 @@ class University(DB.Model):
         city_name = City.query.filter_by(id_num=self.city_id).first().name
         return {
             'id_num': self.id_num,
-            'name': self.name, 
-            'num_undergrads': self.num_undergrads, 
+            'name': self.name,
+            'num_undergrads': self.num_undergrads,
             'cost_to_attend': self.cost_to_attend,
-            'grad_rate': self.grad_rate, 
+            'grad_rate': self.grad_rate,
             'public_or_private': self.public_or_private,
             'city_id': self.city_id,
             'city_name': city_name,
@@ -314,8 +314,8 @@ class City(DB.Model):
     def attributes(self):
         return {
             'id_num': self.id_num,
-            'name': self.name, 
-            'population': self.population, 
+            'name': self.name,
+            'population': self.population,
             'university_list': len(self.university_list),
             'ethnicity_list': len(self.ethnicity_list),
             'major_list': len(self.major_list),
