@@ -42,7 +42,10 @@ def api_call():
     uni_objs = dict()
 
 
+    print('droping now')
     DB.drop_all()
+
+    print('creating all now')
     DB.create_all()
 
     print('finished droping tables... creating objects (majors)')
