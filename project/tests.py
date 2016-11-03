@@ -210,6 +210,20 @@ class Tests(TestCase):
             major_name='Health').first()
         self.assertEqual(majorcity.num_students, 542)
 
+    # --------------------
+    # majortocity __repr__
+    # --------------------
+
+    def test_majortocity_repr_1(self):
+        '''
+        Test MAJORTOCITY __repr__
+        '''
+        majorcity = MAJORTOCITY.query.filter_by(city_name='Chicago', \
+            major_name='Business Marketing')
+        self.assertEqual(majorcity.__repr__(), '<City Chicago, Major Business Marketing>')
+
+    
+
     # -------------
     # city __repr__
     # -------------
