@@ -1,10 +1,10 @@
+# pylint: disable=W0401,W0123,W0614,W0612,W0613,W0611
 #!/usr/bin/env python
 """Implementation of flask app for serving HTML pages"""
 
 import os
-import sys
-import requests
-from flask import Flask, render_template, send_from_directory, jsonify, make_response, request, send_file
+from flask import Flask, send_from_directory, jsonify, \
+    make_response, request, send_file, render_template
 from models import *
 DEFAULT_PAGE = 10
 
@@ -16,11 +16,12 @@ def render_home():
 @APP.errorhandler(404)
 @APP.errorhandler(500)
 def error_page(error):
+    """Error handler for Flask"""
     return render_template('error.html')
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
-    model_name = model_name.title()
+    """Return information for a model given the model type and ID"""
     model = get_association(get_model(model_name), id_num=id_param)
     # if model is None:
         # return error_page()
@@ -28,7 +29,7 @@ def lookup_model(model_name, id_param):
 
 @APP.route('/api/<string:model_name>/name/<string:name>')
 def lookup_model_by_name(model_name, name):
-    model_name = model_name.title()
+    """Return information for a model given the model type and name"""
     name = name.title()
     model = get_association(get_model(model_name), name=name)
     # if model is None:
@@ -39,6 +40,7 @@ def lookup_model_by_name(model_name, name):
 @APP.route('/api/<string:model_name>/')
 @APP.route('/api/<string:model_name>/<int:page>')
 def api_models(model_name, page=0):
+    """Return list of models for the Models table page"""
     model_name = model_name.title()
     json = {'page': page}
     page_size = DEFAULT_PAGE
@@ -57,7 +59,8 @@ def api_models(model_name, page=0):
             models = University.query.distinct(University.name).filter_by(city_id=city_id)
             models = models.order_by(City.query.filter_by(id_num=city_id).name)
         else:
-            models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}).offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
+            models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}). \
+            offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
     # if models is None:
@@ -72,6 +75,7 @@ def api_models(model_name, page=0):
 
 @APP.route('/api/<string:model_name>/num_pages')
 def get_num_pages(model_name):
+    """Return number of pages"""
     return jsonify(result=5)
 
 

@@ -30,6 +30,13 @@ myApp.config(function($routeProvider) {
                     model: function ($route) { $route.current.params.model = "university"; }
                 }
         }).
+        when('/cities/:ID', {
+                templateUrl : '../static/partials/city-detail.html',
+                controller : 'DetailCtrl',
+                resolve: {
+                    model: function ($route) { $route.current.params.model = "city"; }
+                }
+        }).
         when('/majors', {
              templateUrl : '../static/partials/majors.html',
              controller : 'TableCtrl',
@@ -37,12 +44,26 @@ myApp.config(function($routeProvider) {
                 model: function ($route) { $route.current.params.model = "major"; }
     		}
         }).
+        when('/majors/:ID', {
+                templateUrl : '../static/partials/major-detail.html',
+                controller : 'DetailCtrl',
+                resolve: {
+                    model: function ($route) { $route.current.params.model = "major"; }
+                }
+        }).
         when('/ethnicities', {
              templateUrl : '../static/partials/ethnicities.html',
              controller : 'TableCtrl',
              resolve: {
                  model: function ($route) { $route.current.params.model = "ethnicity"; }
     		}
+        }).
+        when('/ethnicities/:ID', {
+                templateUrl : '../static/partials/ethnicity-detail.html',
+                controller : 'DetailCtrl',
+                resolve: {
+                    model: function ($route) { $route.current.params.model = "ethnicity"; }
+                }
         }).
         otherwise({
             redirectTo: '/'

@@ -26,7 +26,7 @@
     </th>
 
     <th id="assoc_universityCol">
-      Associated Universities
+      University Count
         <a href="" ng-click="query('?sort=assoc_university&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=assoc_university&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
@@ -37,18 +37,18 @@
   <td ng-repeat="cell in row">{{cell}}</td> -->
   <tr ng-repeat="major in myData">
                 <td>
-                  <a ng-href="#/majors/{{major.id_num}}">
+                  <a ng-href="/#/majors/{{major.id_num}}">
                     <span>{{major.name}}</span>
                   </a>
                  </td>
                 <td>{{major.num_undergrads}}</td>
                 <td>
-                  <a ng-href="#/cities/{{major.top_city_id}}">
+                  <a ng-href="/#/cities/{{major.top_city_id}}">
                     <span>{{major.top_city}}</span>
                   </a>
                 </td>
                 <td>{{major.avg_percentage}}</td>
-                <td>{{major.assoc_university}}</td>
+                <td>{{major.num_universities}}</td>
 </tr>
  </tbody>
 </table>
