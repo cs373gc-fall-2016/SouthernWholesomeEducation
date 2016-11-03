@@ -7,11 +7,22 @@ import pickle
 # setting retries in case of failed attempts
 requests.adapters.DEFAULT_RETRIES = 50
 
+
+load_pickle = True # if true not calling college scoreboard API
+
 # dictionaries for each model
-universities = dict()
-cities = dict()
-majors = dict()
-ethnicities = dict()
+if not load_pickle:
+    universities = dict()
+    cities = dict()
+    majors = dict()
+    ethnicities = dict()
+else:
+    #dictionarys being loaded from pickles
+    universities = pickle.load( open( "universities.p", "rb" ) )
+    cities = pickle.load( open( "cities.p", "rb" ) )
+    majors = pickle.load( open( "majors.p", "rb" ) )
+    ethnicities = pickle.load( open( "ethnicities.p", "rb" ) )
+
 
 def api_call():
     set_of_schools_nums = get_all_school_codes()
@@ -27,11 +38,13 @@ def api_call():
 
     print('finished the API call... Going to dump pickles(not really pickling)')
 
+
+    if not load_pickle:
         # pickle to save items locally
-    pickle.dump( universities, open( "universities.p", "wb" ) )
-    pickle.dump( cities, open( "cities.p", "wb" ) )
-    pickle.dump( majors, open( "majors.p", "wb" ) )
-    pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
+        pickle.dump( universities, open( "universities.p", "wb" ) )
+        pickle.dump( cities, open( "cities.p", "wb" ) )
+        pickle.dump( majors, open( "majors.p", "wb" ) )
+        pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
 
     print('finished creating pickle files... Going to drop the current database tables')
 
