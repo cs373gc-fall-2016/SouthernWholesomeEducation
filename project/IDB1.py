@@ -70,7 +70,14 @@ def api_models(model_name, page=0):
         sort_by = request.args['sort']
 
         order = ".desc()" if request.args['order'] == 'desc' else ""
-        models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}). \
+        if model_name == "University" and sort_by == "city_id":
+            models = eval('University.query.join(City, University.city_id==City.id_num).order_by(City.name{0}).offset(offset).limit(page_size).all()'.format(order))
+
+        elif model_name == "City" and (sort_by == "university_list" or sort_by == "major_list" or sort_by == "ethnicity_list"):
+            models = eval('City.query.order_by(func.count(sort_by)).group_by(City.id_num).offset(offset).limit(page_size).all()'.format(sort_by))
+
+        else:
+            models = eval('{0}.query.order_by({0}.{1}{2}). \
             offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
