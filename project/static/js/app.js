@@ -118,6 +118,7 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
     });
   }
 
+
   $scope.page = function(page) {
     // $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
 
@@ -141,4 +142,9 @@ myApp.controller('DetailCtrl',function($scope, $routeParams, $http, $location) {
   $http.get($scope.path).success(function (data, status, headers, config) {
         $scope.myData = data.results;
   });
+  $scope.image = function(name) {
+    $http.get('/image/'+name).success(function (data, status, headers, config) {
+      $scope.imageUrl = data.Image;
+    });
+  }
 });

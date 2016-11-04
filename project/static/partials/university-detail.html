@@ -45,8 +45,33 @@
               <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
           </ul>
       </div>
+      <!-- {{image(myData.name)}}
+      <div>
+          <img ng-src="{{myData.imageUrl}}" />
+      </div> -->
+      <!-- <div id="output"></div>
 
-
+      <script>
+      var apiKey = 'j878g39yx378pa77djthzzpn';
+      var urlN = "https://api.gettyimages.com/v3/search/images/?phrase=university";
+    //   document.write(elem);
+$.ajax(
+    {
+        type:'GET',
+        url: urlN ,
+         beforeSend: function (request)
+            {
+                request.setRequestHeader("Api-Key", apiKey);
+            }})
+    .done(function(data){
+        console.log("Success with data");
+        console.log(urlN);
+           $("#output").append("<img src='" + data.images[0].display_sizes[0].uri + "'/>");
+    })
+    .fail(function(data){
+        alert(JSON.stringify(data,2))
+    });
+      </script> -->
 
 
 

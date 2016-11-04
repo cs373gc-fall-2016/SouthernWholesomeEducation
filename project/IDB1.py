@@ -6,6 +6,8 @@ import os
 from flask import Flask, send_from_directory, jsonify, \
     make_response, request, send_file, render_template
 from models import *
+import requests
+import json as jsonlib
 DEFAULT_PAGE = 10
 
 @APP.route('/')
@@ -17,7 +19,14 @@ def render_home():
 @APP.errorhandler(500)
 def error_page(error):
     """Error handler for Flask"""
-    return render_template('error.html', status=error.code)
+    return render_template('error.html', status=error)
+
+@APP.route('/image/<string:name>')
+def get_image(name):
+    response = requests.get('http://api.duckduckgo.com/?q=' + name + '&format=json&pretty=1').text
+    values = jsonlib.load(response)
+    return values['Image']
+
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
