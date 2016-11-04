@@ -170,8 +170,10 @@
                 <button class="btn-default" ng-click="runUnitTests()">Run Unit Tests</button>
               </div>
               <br>
-              <div class="unit-tests">
-                <samp>{{unitTestData}}</samp>
+              <div ng-show="unitTestData" class="ng-hide unit-tests">
+                <samp ng-repeat="line in unitTestData track by $index">
+                  {{line}}
+                </samp>
               </div>
         </div>
             <div class="clearfix"></div>
