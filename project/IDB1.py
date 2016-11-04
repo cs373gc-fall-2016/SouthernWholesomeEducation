@@ -3,6 +3,7 @@
 """Implementation of flask app for serving HTML pages"""
 
 import os
+import subprocess
 from flask import Flask, send_from_directory, jsonify, \
     make_response, request, send_file, render_template
 from models import *
@@ -18,6 +19,11 @@ def render_home():
 def error_page(error):
     """Error handler for Flask"""
     return render_template('error.html', status=error.code)
+
+@APP.route('/api/runUnitTests')
+def run_tests():
+    """Trigger running unit tests"""
+    return subprocess.getoutput("python tests.py")
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
