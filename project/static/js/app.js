@@ -5,67 +5,68 @@ myApp.config(function($routeProvider) {
 	$routeProvider.
         when('/', {
             templateUrl : '../static/partials/splash.html'
-        }).
-        when('/about', {
-             templateUrl : '../static/partials/about.html'
-        }).
-        when('/cities', {
+        })
+        .when('/about', {
+             templateUrl : '../static/partials/about.html',
+             controller: 'AboutCtrl'
+        })
+        .when('/cities', {
              templateUrl : '../static/partials/cities.html',
              controller : 'TableCtrl',
              resolve: {
                 model: function ($route) { $route.current.params.model = "city"; }
     		}
-        }).
-        when('/universities', {
+        })
+        .when('/universities', {
              templateUrl : '../static/partials/universities.html',
              controller : 'TableCtrl',
              resolve: {
                 model: function ($route) { $route.current.params.model = "university"; }
     		}
-        }).
-        when('/universities/:ID', {
+        })
+        .when('/universities/:ID', {
                 templateUrl : '../static/partials/university-detail.html',
                 controller : 'DetailCtrl',
                 resolve: {
                     model: function ($route) { $route.current.params.model = "university"; }
                 }
-        }).
-        when('/cities/:ID', {
+        })
+        .when('/cities/:ID', {
                 templateUrl : '../static/partials/city-detail.html',
                 controller : 'DetailCtrl',
                 resolve: {
                     model: function ($route) { $route.current.params.model = "city"; }
                 }
-        }).
-        when('/majors', {
+        })
+        .when('/majors', {
              templateUrl : '../static/partials/majors.html',
              controller : 'TableCtrl',
              resolve: {
                 model: function ($route) { $route.current.params.model = "major"; }
     		}
-        }).
-        when('/majors/:ID', {
+        })
+        .when('/majors/:ID', {
                 templateUrl : '../static/partials/major-detail.html',
                 controller : 'DetailCtrl',
                 resolve: {
                     model: function ($route) { $route.current.params.model = "major"; }
                 }
-        }).
-        when('/ethnicities', {
+        })
+        .when('/ethnicities', {
              templateUrl : '../static/partials/ethnicities.html',
              controller : 'TableCtrl',
              resolve: {
                  model: function ($route) { $route.current.params.model = "ethnicity"; }
     		}
-        }).
-        when('/ethnicities/:ID', {
+        })
+        .when('/ethnicities/:ID', {
                 templateUrl : '../static/partials/ethnicity-detail.html',
                 controller : 'DetailCtrl',
                 resolve: {
                     model: function ($route) { $route.current.params.model = "ethnicity"; }
                 }
-        }).
-        otherwise({
+        })
+    	.otherwise({
             redirectTo: '/'
         });
 
@@ -80,7 +81,7 @@ myApp.config(function($routeProvider) {
 //   });
 // });
 
-myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
+myApp.controller('TableCtrl', function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/'
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath;
@@ -99,14 +100,13 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
 
   $scope.nextPage = function() {
     if ($scope.currentPage < $scope.numPages - 1) {
-		  $scope.currentPage++;
-      $scope.page($scope.currentPage);
+			$scope.currentPage++;
+    	$scope.page($scope.currentPage);
 		}
   }
 
-	$scope.setPage = function() {
+  $scope.setPage = function() {
 		$scope.currentPage = this.n;
-
 	}
 
   $scope.order = 'asc';
@@ -132,19 +132,27 @@ myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
   });
 });
 
-
-
-myApp.controller('DetailCtrl',function($scope, $routeParams, $http, $location) {
-  $scope.path = '/api/'
+myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) {
+  $scope.path = '/api/';
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath +'/id/' + $routeParams.ID;
 
   $http.get($scope.path).success(function (data, status, headers, config) {
-        $scope.myData = data.results;
+    $scope.myData = data.results;
   });
   $scope.image = function(name) {
     $http.get('/image/'+name).success(function (data, status, headers, config) {
       $scope.imageUrl = data.Image;
     });
+  }
+});
+
+myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
+  $scope.path = '/api/runUnitTests';
+  $scope.runUnitTests = function() {
+  	$scope.unitTestData = "Running.............................";
+	  $http.get($scope.path).success(function (result) {
+      $scope.unitTestData = result.split("\n");
+	  });
   }
 });

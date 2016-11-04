@@ -69,6 +69,11 @@ html:
 log:
 	git log > IDB1.log
 
+test:
+	python project/tests.py
+	$(COVERAGE) run --branch project/tests.py > project/tests.py.tmp 2>&1
+	$(COVERAGE) report -m >> project/tests.py.tmp
+
 push:
 	git push
 	ssh ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation/project && git pull && ./deploy.sh'
