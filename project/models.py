@@ -29,7 +29,6 @@ def create_unique(model, **args):
 #     else:
 #         is_exist.update(obj)
 
-
 def get_association(model, **args):
     """Gets model object given arguments"""
     return model.query.filter_by(**args).first()

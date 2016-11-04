@@ -977,7 +977,6 @@ class Tests(TestCase):
         ethnicity = Ethnicity('Native Hawaiian Pacific Islander')
         self.assertEqual(ethnicity.attributes()['name'], 'Native Hawaiian Pacific Islander')
 
-
 # ----
 # main
 # ----
