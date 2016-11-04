@@ -1,28 +1,45 @@
 import requests
+from requests.adapters import HTTPAdapter
 from models import *
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from random import *
+import pickle
+
+# setting retries in case of failed attempts
+requests.adapters.DEFAULT_RETRIES = 50
+
+
+load_pickle = False # if true not calling college scoreboard API
 
 # dictionaries for each model
-universities = dict()
-cities = dict()
-majors = dict()
-ethnicities = dict()
+if not load_pickle:
+    universities = dict()
+    cities = dict()
+    majors = dict()
+    ethnicities = dict()
+else:
+    #dictionarys being loaded from pickles
+    universities = pickle.load( open( "universities.p", "rb" ) )
+    cities = pickle.load( open( "cities.p", "rb" ) )
+    majors = pickle.load( open( "majors.p", "rb" ) )
+    ethnicities = pickle.load( open( "ethnicities.p", "rb" ) )
 
-DB.drop_all()
-DB.create_all()
 
 def api_call():
-    set_of_schools_nums = get_all_school_codes()
-    #print('testing two austin schools')
-    #set_of_schools_nums = {228778, 227845, 135726, 123961, 204796} # TODO: Remove this and uncomment above for all schools (not just UT and St. Edwards)
-    count = 0
-    for school_num in set_of_schools_nums:
-        school_dict = call_for_data(school_num)
-        setup_data(school_dict)
-        count += 1
-        print (count)
+    if not load_pickle:
+        set_of_schools_nums = get_all_school_codes()
+        count = 0
+        for school_num in set_of_schools_nums:
+            school_dict = call_for_data(school_num)
+            setup_data(school_dict)
+            count += 1
+            print (count)
+        print('finished the API call... Going to dump pickles(not really pickling)')
+        # pickle to save items locally
+        pickle.dump( universities, open( "universities.p", "wb" ) )
+        pickle.dump( cities, open( "cities.p", "wb" ) )
+        pickle.dump( majors, open( "majors.p", "wb" ) )
+        pickle.dump( ethnicities, open( "ethnicities.p", "wb" ) )
+        print('finished creating pickle files... Going to drop the current database tables')
 
     major_objs_uni = dict()
     eth_objs_uni = dict()
@@ -30,17 +47,31 @@ def api_call():
     eth_objs_city = dict()
     uni_objs = dict()
 
+    print('droping now')
+    DB.drop_all()
+
+    print('creating all now')
+    DB.create_all()
+    
+
+    print('finished droping tables... creating objects (majors)')
+
+
     for maj in majors:
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
         major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
         major_objs_uni[maj] = major
         major_objs_city[maj] = major2
 
+    print('finished majors... working on ethnicities')
+
     for eth in ethnicities:
         ethnicity = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
         ethnicity2 = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
         eth_objs_uni[eth] = ethnicity
         eth_objs_city[eth] = ethnicity2
+
+    print('finished ethnicities... starting universities')
 
     for uni in universities:
         university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
@@ -52,8 +83,25 @@ def api_call():
                 university.add_ethnicity(universities[uni]['ethnicity_list'][eth], eth_objs_uni[eth])
         uni_objs[uni] = university
 
+    print('finished universities... starting cities')
+
     for city in cities:
-        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'])
+        top_university = ('none', 0)
+        top_major = ('none', 0)
+        top_ethnicity = ('none', 0)
+        for uni in uni_objs:
+            if universities[uni]['city'] == city:
+                if universities[uni]['undergrad_population'] > top_university[1]:
+                    top_university = (uni, universities[uni]['undergrad_population'])
+        for maj in cities[city]['major_list']:
+            if maj in major_objs_city:
+                if cities[city]['major_list'][maj] > top_major[1]:
+                    top_major = (maj, cities[city]['major_list'][maj])
+        for eth in cities[city]['ethnicity_list']:
+            if eth in eth_objs_city:
+                if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
+                    top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0])
         for uni in uni_objs:
             if universities[uni]['city'] == city:
                 cur_city.add_university(uni_objs[uni])
@@ -64,14 +112,11 @@ def api_call():
             if eth in eth_objs_city:
                 cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
 
+    print('finished cities... starting to commit')
+
     DB.session.commit()
 
-    # print(universities)
-    # print(cities)
-    # print(majors)
-    # print(ethnicities)
-
-
+    print('FINISHED')
 
 def setup_data(individual_school_dict):
     # Universities
@@ -132,8 +177,15 @@ def setup_data(individual_school_dict):
         if new_cost_to_attend is not None and new_student_population is not None and cities[individual_school_dict['school.city']]['average_tuition'] is not None and current_population is not None:
             cities[individual_school_dict['school.city']]['average_tuition'] = cities[individual_school_dict['school.city']]['average_tuition']*current_population/(current_population+new_student_population)+(new_cost_to_attend*new_student_population /
                                                                    (current_population + new_student_population))
-
-        cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
+        all_eths = major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.')
+        for eth in all_eths:
+            if eth not in cities[individual_school_dict['school.city']]['ethnicity_list']:
+                if all_eths[eth] is not None:
+                    cities[individual_school_dict['school.city']]['ethnicity_list'][eth] = all_eths[eth]
+            else:
+                if all_eths[eth] is not None:
+                    cities[individual_school_dict['school.city']]['ethnicity_list'][eth] += all_eths[eth]
+        #cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
         cities[individual_school_dict['school.city']]['ethnicity_count'] = len(cities[individual_school_dict['school.city']]['ethnicity_list'])
     else:
         # creating a new city
@@ -301,11 +353,12 @@ def call_for_data(school_num):
                 '2014.academics.program_percentage.parks_recreation_fitness,2014.academics.program_percentage.language,' \
                 '2014.academics.program_percentage.visual_performing,2014.academics.program_percentage.english' \
                 '&id=' + str(school_num) + '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
-    # printing result json data
-    # print('url called: ', end ='')
-    # print(data_url)
-    output = requests.get(data_url)
-    school_dict = output.json()
+    try:
+        output = requests.get(data_url)
+        school_dict = output.json()
+    except JSONDecodeError:
+        output = requests.get(data_url)
+        school_dict = output.json()
     # returning dictionary with school data
     return school_dict['results'][0]
 
@@ -316,7 +369,7 @@ def get_all_school_codes():
     api_key = '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
     school_set = set()
     # looping over all pages in the the api results
-    for page_num in range(0,2):
+    for page_num in range(0,78):
         print('collecting school numbers page ' + str(page_num), end='')
         output = requests.get(start_url + str(page_num) + api_key)
         dict = output.json()

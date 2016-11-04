@@ -238,6 +238,7 @@ class University(DB.Model):
         self.grad_rate = grad_rate
         self.public_or_private = public_or_private
 
+
     def __repr__(self):
         return '<University ' + self.name + '>'
 
@@ -320,11 +321,21 @@ class City(DB.Model):
     ethnicity_list = DB.relationship('ETHNICITYTOCITY')
     major_list = DB.relationship('MAJORTOCITY')
     avg_tuition = DB.Column(DB.Integer)
+    top_university = DB.Column(DB.String(225))
+    top_major = DB.Column(DB.String(225))
+    top_ethnicity = DB.Column(DB.String(225))
 
-    def __init__(self, name, population=0, avg_tuition=0):
+    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none'):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
+        self.top_university = top_university
+        self.top_major = top_major.replace("2014.academics.program_percentage.", "").replace("_", " ").title()
+        self.top_ethnicity = top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace('nhpi', 'native_hawaiian_pacific_islander')
+        self.top_ethnicity = self.top_ethnicity.replace('aian', 'american_indian_alaska_native')
+        self.top_ethnicity = self.top_ethnicity.replace("_", " ").title()
 
     def __repr__(self):
         return '<City ' + self.name + '>'
@@ -421,7 +432,9 @@ class Major(DB.Model):
     assoc_university = DB.Column(DB.Integer)
 
     def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
-        self.name = name.replace("2014.academics.program_percentage.", "")
+        name = name.replace("2014.academics.program_percentage.", "")
+        name = name.replace("_", " ").title()
+        self.name = name
         self.num_undergrads = num_undergrads
         self.top_city = top_city
         self.avg_percentage = avg_percentage
@@ -471,9 +484,11 @@ class Ethnicity(DB.Model):
     top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', \
-        top_city_amt=0, top_university='Default', top_university_amt=0):
-        self.name = name.replace("2014.student.demographics.race_ethnicity.", "")
+    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
+        name = name.replace("2014.student.demographics.race_ethnicity.", "")
+        name = name.replace('nhpi', 'native_hawaiian_pacific_islander')
+        name = name.replace('aian', 'american_indian_alaska_native')
+        self.name = name.replace("_", " ").title()
         self.total_count = total_count
         self.top_city = top_city
         self.top_city_amt = top_city_amt
