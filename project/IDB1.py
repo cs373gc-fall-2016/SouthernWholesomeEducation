@@ -55,11 +55,10 @@ def api_models(model_name, page=0):
         sort_by = request.args['sort']
 
         order = ".desc()" if request.args['order'] == 'desc' else ""
-        if model_name == "Unversity" and sort_by == "city_id":
-            models = University.query.distinct(University.name).filter_by(city_id=city_id)
-            models = models.order_by(City.query.filter_by(id_num=city_id).name)
+        if model_name == "University" and sort_by == "city_id":
+            models = eval('University.query.join(City, University.city_id==City.id_num).order_by(City.name{0}).offset(offset).limit(page_size).all()'.format(order))
         else:
-            models = eval('{0}.query.distinct({0}.name).order_by({0}.{1}{2}). \
+            models = eval('{0}.query.order_by({0}.{1}{2}). \
             offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
     else:
         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
