@@ -13,6 +13,15 @@
 .carousel {
     max-height: 600px;
     overflow: hidden;
+}
+
+.unit-tests {
+    background-color: #f2f2f2;
+    padding: 10px;
+    min-height: 10%;
+    border: 3px solid LightGrey;
+    padding: 10px;
+}
 
 /*
 .item img {

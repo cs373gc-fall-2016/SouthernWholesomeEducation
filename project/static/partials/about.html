@@ -1,4 +1,4 @@
-<div class="container" ng-controller="aboutCtrl">
+<div class="container" ng-controller="AboutCtrl">
 
     <div class="row">
         <div class="box">
@@ -166,8 +166,13 @@
                 <strong>Unit Tests</strong>
               </h2>
               <hr>
-              <button ng-click="runUnitTests()">Run Unit Tests</button>
-              <samp>{{unitTestData}}</samp>
+              <div class="text-center">
+                <button class="btn-default" ng-click="runUnitTests()">Run Unit Tests</button>
+              </div>
+              <br>
+              <div class="unit-tests">
+                <samp>{{unitTestData}}</samp>
+              </div>
         </div>
             <div class="clearfix"></div>
         </div>

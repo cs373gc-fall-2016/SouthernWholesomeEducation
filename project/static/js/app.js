@@ -141,12 +141,13 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
   });
 });
 
-app.controller('AboutCtrl', function($scope, $http, $location) {
+myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/runUnitTests';
   $scope.runUnitTests = function() {
-  	$scope.unitTestData = "Running...";
+  	$scope.unitTestData = "Running.............................";
 	  $http.get($scope.path).success(function (result) {
-      $scope.unitTestData = result.data;
+      console.log(result);
+      $scope.unitTestData = result;
 	  });
   }
-});)
+});
