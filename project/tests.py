@@ -599,6 +599,13 @@ class Tests(TestCase):
         city = City('West Palm Beach')
         self.assertEqual(city.__repr__(), '<City West Palm Beach>')
 
+    def test_city_repr_8(self):
+        '''
+        Test City __repr__
+        '''
+        city = City('San Antonio')
+        self.assertEqual(city.__repr__(), '<City San Antonio>')
+
 
     # ---------------
     # City attributes
@@ -807,6 +814,20 @@ class Tests(TestCase):
         major = Major('Humanities')
         self.assertEqual(major.__repr__(), '<Major Humanities>')
 
+    def test_major_repr_6(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('health_marketing')
+        self.assertEqual(major.__repr__(), '<Major Health Marketing>')
+
+    def test_major_repr_7(self):
+        '''
+        Test Major __repr__
+        '''
+        major = Major('family consumer sciences')
+        self.assertEqual(major.__repr__(), '<Major Family Consumer Sciences>')
+
     # ---------------
     # ethnicity class
     # ---------------
@@ -851,6 +872,136 @@ class Tests(TestCase):
         eth = Ethnicity.query.filter_by(name='Native Hawaiian Pacific Islander').first()
         self.assertEqual(eth.total_count, 53897)
         self.assertEqual(eth.top_city, "Mangilao")
+
+    def test_ethnicity_6(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Unknown').first()
+        self.assertEqual(eth.total_count, 697685)
+        self.assertEqual(eth.top_city, "Tempe")
+
+    def test_ethnicity_7(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Two Or More').first()
+        self.assertEqual(eth.total_count, 506687)
+        self.assertEqual(eth.top_city, "Tempe")
+
+    def test_ethnicity_8(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='Non Resident Alien').first()
+        self.assertEqual(eth.total_count, 474025)
+        self.assertEqual(eth.top_city, "New York")
+
+    def test_ethnicity_9(self):
+        '''
+        Test Ethnicity class
+        '''
+        eth = Ethnicity.query.filter_by(name='American Indian Alaska Native').first()
+        self.assertEqual(eth.total_count, 121194)
+        self.assertEqual(eth.top_city, "Albuquerque")
+
+    # ------------------
+    # ethnicity __repr__
+    # ------------------
+
+    def test_ethnicity_repr_1(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('White')
+        self.assertEqual(eth.__repr__(), '<Ethnicity White>')
+
+    def test_ethnicity_repr_2(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('aian')
+        self.assertEqual(eth.__repr__(), '<Ethnicity American Indian Alaska Native>')
+
+    def test_ethnicity_repr_3(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('Black')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Black>')
+
+    def test_ethnicity_repr_4(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('nhpi')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Native Hawaiian Pacific Islander>')
+
+    def test_ethnicity_repr_5(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('Hispanic')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Hispanic>')
+
+    def test_ethnicity_repr_6(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('Unknown')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Unknown>')
+
+    def test_ethnicity_repr_7(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('two_or_more')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Two Or More>')
+
+    def test_ethnicity_repr_8(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('non resident alien')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Non Resident Alien>')
+
+    def test_ethnicity_repr_9(self):
+        '''
+        Test Ethnicity __repr__
+        '''
+        eth = Ethnicity('asian')
+        self.assertEqual(eth.__repr__(), '<Ethnicity Asian>')
+
+
+    # ---------
+    # get_model
+    # ---------
+
+    def test_get_model_1(self):
+        '''
+        Test get_model
+        '''
+        self.assertEqual(get_model('university'), University)
+
+    def test_get_model_2(self):
+        '''
+        Test get_model
+        '''
+        self.assertEqual(get_model('major'), Major)
+
+    def test_get_model_3(self):
+        '''
+        Test get_model
+        '''
+        self.assertEqual(get_model('ethnicity'), Ethnicity)
+
+    def test_get_model_4(self):
+        '''
+        Test get_model
+        '''
+        self.assertEqual(get_model('city'), City)
+
+
 
 
 # ----
