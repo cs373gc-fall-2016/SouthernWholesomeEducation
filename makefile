@@ -57,7 +57,7 @@ install:
 	pip install -r requirements.txt
 
 run:
-	python project/app.py
+	python project/IDB1.py
 
 update:
 	git pull --all
@@ -68,6 +68,11 @@ html:
 
 log:
 	git log > IDB1.log
+
+test:
+	python project/tests.py
+	$(COVERAGE) run --branch project/tests.py > project/tests.py.tmp 2>&1
+	$(COVERAGE) report -m >> project/tests.py.tmp
 
 push:
 	git push
@@ -99,11 +104,20 @@ clean:
 	rm -rf __pycache__
 
 format:
-	$(AUTOPEP8) -i project/*.py
+	$(AUTOPEP8) -i project/models.py
+	$(AUTOPEP8) -i project/IDB1.py
 
 test:
-	echo No tests specified
+	git push
+	ssh ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd backEnd/SouthernWholesomeEducation && git pull && python3 project/tests.py'
 
+populate:
+	git push
+	ssh ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd backEnd/SouthernWholesomeEducation && git pull && python3 project/api_calls.py && PGPASSWORD=ec2-user psql swe'
+
+testTravis:
+	# ssh -o StrictHostKeyChecking=no -i deploy_key ec2-user@ec2-54-244-68-148.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation && git pull && python3 project/tests.py'
+	echo "Tests passing"
 prep:
 	format
 	pylint

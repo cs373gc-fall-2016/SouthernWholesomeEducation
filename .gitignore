@@ -6,3 +6,7 @@ venv/
 *supervisord.pid
 *.un~
 *ropeproject
+*.pyc
+*dropbox.attr
+deploy_key
+*~

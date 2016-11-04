@@ -1,0 +1,70 @@
+<table>
+  <thead>
+
+    <th id="nameCol">
+      Major
+        <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=name&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="num_undergradsCol">
+      Undergraduates
+        <a href="" ng-click="query('?sort=num_undergrads&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=num_undergrads&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="top_cityCol">
+      Top City
+        <a href="" ng-click="query('?sort=top_city&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=top_city&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="avg_percentageCol">
+      Average Percent
+        <a href="" ng-click="query('?sort=avg_percentage&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=avg_percentage&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="assoc_universityCol">
+      University Count
+        <a href="" ng-click="query('?sort=assoc_university&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=assoc_university&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+  </thead>
+  <tbody>
+  <!-- <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="major in myData">
+                <td>
+                  <a ng-href="/#/majors/{{major.id_num}}">
+                    <span>{{major.name}}</span>
+                  </a>
+                 </td>
+                <td>{{major.num_undergrads}}</td>
+                <td>
+                  <a ng-href="/#/cities/{{major.top_city_id}}">
+                    <span>{{major.top_city}}</span>
+                  </a>
+                </td>
+                <td>{{major.avg_percentage}}</td>
+                <td>{{major.num_universities}}</td>
+</tr>
+ </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+	  <li ng-class="{disabled: currentPage == 0}">
+      <a href ng-click="prevPage()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+	<li ng-repeat="n in numPages" ng-class="{active: n == currentPage}" ng-click="setPage()"><a href ng-bind="n+1">1</a></li>
+    <li ng-class="{disabled: currentPage == pages.length - 1}">
+      <a href aria-label="Next" ng-click="nextPage()">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,73 @@
+<table>
+  <thead>
+
+    <th id="nameCol">
+      City
+        <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=name&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="populationCol">
+      Population
+        <a href="" ng-click="query('?sort=population&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=population&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="university_listCol">
+      University Count
+        <a href="" ng-click="query('?sort=university_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=university_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="ethnicity_listCol">
+      Ethnicity Count
+        <a href="" ng-click="query('?sort=ethnicity_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=ethnicity_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="major_listCol">
+      Major Count
+        <a href="" ng-click="query('?sort=major_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=major_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+
+    <th id="avg_tuition">
+      Average Tuition
+        <a href="" ng-click="query('?sort=avg_tuition&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=avg_tuition&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+    </th>
+  </thead>
+  <tbody>
+  <!-- <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="city in myData">
+                <td>
+                  <a ng-href="#/cities/{{city.id_num}}">
+                        <span>{{city.name}}</span>
+                  </a>
+                </td>
+                <td>{{city.population}}</td>
+                <td>{{city.university_list}}</td>
+                <td>{{city.ethnicity_list}}</td>
+                <td>{{city.major_list}}</td>
+                <td>{{city.avg_tuition}}</td>
+</tr>
+  </tr>
+ </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+	  <li ng-class="{disabled: currentPage == 0}">
+      <a href ng-click="prevPage()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+	<li ng-repeat="n in numPages" ng-class="{active: n == currentPage}" ng-click="setPage()"><a href ng-bind="n+1">1</a></li>
+    <li ng-class="{disabled: currentPage == pages.length - 1}">
+      <a href aria-label="Next" ng-click="nextPage()">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

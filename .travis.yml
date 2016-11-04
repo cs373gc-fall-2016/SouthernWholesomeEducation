@@ -1,24 +1,21 @@
-
 sudo: required
 dist: trusty
-
 language: python
-
 python:
-   - "3.5"
-
+- '3.5'
 before-install:
-    - pip install --upgrade pip
-
+- pip install --upgrade pip
 install:
-    - make install
-
+- make install
 before_script:
-    - uname -a
-    - printenv | sort
-    - make versions
-
+- uname -a
+- printenv | sort
+- make versions
 script:
-    - date
-    - ls -al
-    - make test
+- date
+- ls -al
+- chmod 400 deploy_key
+- make testTravis
+before_install:
+- openssl aes-256-cbc -K $encrypted_b0d60c8d1455_key -iv $encrypted_b0d60c8d1455_iv
+  -in deploy_key.enc -out deploy_key -d
