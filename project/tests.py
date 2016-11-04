@@ -807,45 +807,6 @@ class Tests(TestCase):
         major = Major('Humanities')
         self.assertEqual(major.__repr__(), '<Major Humanities>')
 
-    # ----------------
-    # major attributes
-    # ----------------
-
-    def test_major_attr_1(self):
-        '''
-        Test Major attributes
-        '''
-        major = Major('Economics')
-        self.assertEqual(major.attributes(), {'name': 'Economics'})
-
-    def test_major_attr_2(self):
-        '''
-        Test Major attributes
-        '''
-        major = Major('Engineering')
-        self.assertEqual(major.attributes(), {'name': 'Engineering'})
-
-    def test_major_attr_3(self):
-        '''
-        Test Major attributes
-        '''
-        major = Major('Business')
-        self.assertEqual(major.attributes(), {'name': 'Business'})
-
-    def test_major_attr_4(self):
-        '''
-        Test Major attributes
-        '''
-        major = Major('Computer Science')
-        self.assertEqual(major.attributes(), {'name': 'Computer Science'})
-
-    def test_major_attr_5(self):
-        '''
-        Test Major attributes
-        '''
-        major = Major('Humanities')
-        self.assertEqual(major.attributes(), {'name': 'Humanities'})
-
     # ---------------
     # ethnicity class
     # ---------------
@@ -891,91 +852,6 @@ class Tests(TestCase):
         self.assertEqual(eth.total_count, 53897)
         self.assertEqual(eth.top_city, "Mangilao")
 
-
-
-    # --------------------
-    # ethnicity attributes
-    # --------------------
-
-
-    def test_ethnicity_attr_1(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Hispanic')
-        self.assertEqual(ethnicity.attributes()['name'], 'Hispanic')
-
-
-    def test_ethnicity_attr_2(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Two Or More')
-        self.assertEqual(ethnicity.attributes()['name'], 'Two Or More')
-
-
-    def test_ethnicity_attr_3(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Black')
-        self.assertEqual(ethnicity.attributes()['name'], 'Black')
-
-
-    def test_ethnicity_attr_4(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Unknown')
-        self.assertEqual(ethnicity.attributes()['name'], 'Unknown')
-
-
-    def test_ethnicity_attr_5(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Asian')
-        self.assertEqual(ethnicity.attributes()['name'], 'Asian')
-
-
-    def test_ethnicity_attr_6(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('White')
-        self.assertEqual(ethnicity.attributes()['name'], 'White')
-
-
-    def test_ethnicity_attr_7(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('American Indian Alaska Native')
-        self.assertEqual(ethnicity.attributes()['name'], 'American Indian Alaska Native')
-
-
-    def test_ethnicity_attr_8(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Native Hawaiian Pacific Islander')
-        self.assertEqual(ethnicity.attributes()['name'], 'Native Hawaiian Pacific Islander')
-
-
-    def test_ethnicity_attr_9(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Non Resident Alien')
-        self.assertEqual(ethnicity.attributes()['name'], 'Non Resident Alien')
-
-
-    def test_ethnicity_attr_10(self):
-        '''
-        Test Ethnicity attributes
-        '''
-        ethnicity = Ethnicity('Native Hawaiian Pacific Islander')
-        self.assertEqual(ethnicity.attributes()['name'], 'Native Hawaiian Pacific Islander')
 
 # ----
 # main
