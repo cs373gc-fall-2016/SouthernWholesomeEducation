@@ -504,7 +504,7 @@ class Ethnicity(DB.Model):
         top_university_id = ETHNICITYTOUNIVERSITY.query.filter_by(ethnicity_name=self.name, \
             university_name=self.top_university).first().university_id
         num_universities = len(ETHNICITYTOUNIVERSITY.query.filter_by( \
-            ethnicity_name=self.name.all()))
+            ethnicity_name=self.name).all())
         num_cities = len(ETHNICITYTOCITY.query.filter_by(ethnicity_name=self.name).all())
         return {
             'id_num': self.id_num,
