@@ -31,28 +31,28 @@ class Tests(TestCase):
         Test University class
         '''
         uni = University.query.filter_by(name='University of East-West Medicine').first()
-        self.assertEqual(uni.num_undergrads, 2426)
+        self.assertEqual(uni.num_undergrads, 1066)
 
     def test_university_2(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Charlotte School of Law').first()
-        self.assertEqual(uni.num_undergrads, 4396)
+        self.assertEqual(uni.num_undergrads, 4355)
 
     def test_university_3(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Marinello School of Beauty-Visalia').first()
-        self.assertEqual(uni.num_undergrads, 599)
+        self.assertEqual(uni.num_undergrads, 3780)
 
     def test_university_4(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Brite Divinity School').first()
-        self.assertEqual(uni.num_undergrads, 1110)
+        self.assertEqual(uni.num_undergrads, 2853)
 
     def test_university_5(self):
         '''
@@ -511,7 +511,7 @@ class Tests(TestCase):
         Test City class
         '''
         city = City.query.filter_by(name='Sunnyvale').first()
-        self.assertEqual(city.population, 35598)
+        self.assertEqual(city.population, 40685)
         self.assertEqual(city.top_major, 'Visual Performing')
 
     def test_city_4(self):
@@ -535,7 +535,7 @@ class Tests(TestCase):
         Test City class
         '''
         city = City.query.filter_by(name='Villanova').first()
-        self.assertEqual(city.population, 34845)
+        self.assertEqual(city.population, 15471)
         self.assertEqual(city.top_major, 'Business Marketing')
 
     def test_city_7(self):
@@ -857,7 +857,7 @@ class Tests(TestCase):
         '''
         eth = Ethnicity.query.filter_by(name='White').first()
         self.assertEqual(eth.total_count, 8356122)
-        self.assertEqual(eth.top_city, "College Station")
+        self.assertEqual(eth.top_city, "Indianapolis")
 
     def test_ethnicity_2(self):
         '''
@@ -865,7 +865,7 @@ class Tests(TestCase):
         '''
         eth = Ethnicity.query.filter_by(name='Hispanic').first()
         self.assertEqual(eth.total_count, 2893839)
-        self.assertEqual(eth.top_city, "The Woodlands")
+        self.assertEqual(eth.top_city, "Miami")
 
     def test_ethnicity_3(self):
         '''
@@ -873,7 +873,7 @@ class Tests(TestCase):
         '''
         eth = Ethnicity.query.filter_by(name='Asian').first()
         self.assertEqual(eth.total_count, 914889)
-        self.assertEqual(eth.top_city, "San Jose")
+        self.assertEqual(eth.top_city, "New York")
 
     def test_ethnicity_4(self):
         '''
@@ -881,7 +881,7 @@ class Tests(TestCase):
         '''
         eth = Ethnicity.query.filter_by(name='Black').first()
         self.assertEqual(eth.total_count, 2261288)
-        self.assertEqual(eth.top_city, "Davenport")
+        self.assertEqual(eth.top_city, "Houston")
 
     def test_ethnicity_5(self):
         '''
@@ -889,7 +889,7 @@ class Tests(TestCase):
         '''
         eth = Ethnicity.query.filter_by(name='Native Hawaiian Pacific Islander').first()
         self.assertEqual(eth.total_count, 53897)
-        self.assertEqual(eth.top_city, "Pohnpei")
+        self.assertEqual(eth.top_city, "Mangilao")
 
 
 
