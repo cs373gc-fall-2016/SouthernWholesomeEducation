@@ -16,20 +16,20 @@
 
     <th id="university_listCol">
       University Count
-        <a href="" ng-click="query('?sort=university_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=university_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+        <a href="" ng-click="query('?sort=uni_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=uni_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="ethnicity_listCol">
       Ethnicity Count
-        <a href="" ng-click="query('?sort=ethnicity_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=ethnicity_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+        <a href="" ng-click="query('?sort=eth_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=eth_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="major_listCol">
       Major Count
-        <a href="" ng-click="query('?sort=major_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=major_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+        <a href="" ng-click="query('?sort=maj_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=maj_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="avg_tuition">
@@ -48,9 +48,9 @@
                   </a>
                 </td>
                 <td>{{city.population}}</td>
-                <td>{{city.university_list}}</td>
-                <td>{{city.ethnicity_list}}</td>
-                <td>{{city.major_list}}</td>
+                <td>{{city.uni_count}}</td>
+                <td>{{city.eth_count}}</td>
+                <td>{{city.maj_count}}</td>
                 <td>{{city.avg_tuition}}</td>
 </tr>
   </tr>
