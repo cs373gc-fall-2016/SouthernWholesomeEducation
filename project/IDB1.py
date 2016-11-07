@@ -9,12 +9,18 @@ from flask import Flask, send_from_directory, jsonify, \
 from models import *
 import requests
 import json as jsonlib
+from statistics import get_github_stats
+
 DEFAULT_PAGE = 10
 
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
     return send_file('templates/index.html')
+
+@APP.route('/githubstats')
+def render_github_stats():
+    return jsonify(get_github_stats())
 
 @APP.errorhandler(404)
 @APP.errorhandler(500)
