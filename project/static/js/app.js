@@ -155,4 +155,9 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
       $scope.unitTestData = result.split("\n");
 	  });
   }
+  $scope.getGithubStats = function() {
+	$http.get('/githubstats').success(function (data, status, headers, config) {
+		$scope.user_stats = data.user_stats;
+	});	
+  }
 });
