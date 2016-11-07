@@ -107,7 +107,8 @@ def api_call():
                 ethnicity_count += 1
                 if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
                     top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
-        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], university_count, major_count, ethnicity_count)
+        print(str(city) + str(university_count) + str(major_count) + str(ethnicity_count))
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
         for uni in uni_objs:
             if universities[uni]['city'] == city:
                 cur_city.add_university(uni_objs[uni])
