@@ -8,7 +8,7 @@ import pickle
 requests.adapters.DEFAULT_RETRIES = 50
 
 
-load_pickle = False # if true not calling college scoreboard API
+load_pickle = True # if true not calling college scoreboard API
 
 # dictionaries for each model
 if not load_pickle:
@@ -89,19 +89,25 @@ def api_call():
         top_university = ('none', 0)
         top_major = ('none', 0)
         top_ethnicity = ('none', 0)
+        university_count = 0
+        major_count = 0
+        ethnicity_count = 0
         for uni in uni_objs:
             if universities[uni]['city'] == city:
+                university_count += 1
                 if universities[uni]['undergrad_population'] > top_university[1]:
                     top_university = (uni, universities[uni]['undergrad_population'])
         for maj in cities[city]['major_list']:
             if maj in major_objs_city:
+                major_count += 1
                 if cities[city]['major_list'][maj] > top_major[1]:
                     top_major = (maj, cities[city]['major_list'][maj])
         for eth in cities[city]['ethnicity_list']:
             if eth in eth_objs_city:
+                ethnicity_count += 1
                 if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
                     top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
-        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0])
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
         for uni in uni_objs:
             if universities[uni]['city'] == city:
                 cur_city.add_university(uni_objs[uni])
