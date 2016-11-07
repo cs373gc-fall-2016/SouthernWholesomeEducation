@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 APP = Flask(__name__)
 
 APP.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@54.244.68.148/swe'
+    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@54.187.105.249/swe'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 DB = SQLAlchemy(APP)
 
@@ -351,9 +351,9 @@ class City(DB.Model):
             'id_num': self.id_num,
             'name': self.name,
             'population': self.population,
-            'university_list': len(self.university_list),
-            'ethnicity_list': len(self.ethnicity_list),
-            'major_list': len(self.major_list),
+            'university_list': uni_count,
+            'ethnicity_list': eth_count,
+            'major_list': maj_count,
             'avg_tuition': self.avg_tuition,
             'universities': self.get_universities(),
             'majors': self.get_majors(),

@@ -44,7 +44,7 @@ def get_github_stats():
         total_statistics['issues'] += int(user_statistics[team_member]['issues'])
         total_statistics['unit_tests'] += int(user_statistics[team_member]['unit_tests'])
 
-    # {'user_stats': [<commits>,<issues>,<unit tests>], 'total_stats':[<commits>,<issues>,<unit tests>] }
+    # http://localhost:5000/githubstats
     final_json = {'user_stats' : user_statistics, 'total_stats':total_statistics}
     # print(final_json)
     return final_json
