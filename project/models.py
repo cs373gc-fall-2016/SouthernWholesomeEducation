@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 APP = Flask(__name__)
 
 APP.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@54.244.68.148/swe'
+    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@54.187.105.249/swe'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 DB = SQLAlchemy(APP)
 
@@ -323,8 +323,11 @@ class City(DB.Model):
     top_university = DB.Column(DB.String(225))
     top_major = DB.Column(DB.String(225))
     top_ethnicity = DB.Column(DB.String(225))
+    uni_count = DB.Column(DB.Integer)
+    maj_count = DB.Column(DB.Integer)
+    eth_count = DB.Column(DB.Integer)
 
-    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none'):
+    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
@@ -335,6 +338,9 @@ class City(DB.Model):
         self.top_ethnicity = self.top_ethnicity.replace('nhpi', 'native_hawaiian_pacific_islander')
         self.top_ethnicity = self.top_ethnicity.replace('aian', 'american_indian_alaska_native')
         self.top_ethnicity = self.top_ethnicity.replace("_", " ").title()
+        self.uni_count = uni_count
+        self.maj_count = maj_count
+        self.eth_count = eth_count
 
     def __repr__(self):
         return '<City ' + self.name + '>'
@@ -345,9 +351,9 @@ class City(DB.Model):
             'id_num': self.id_num,
             'name': self.name,
             'population': self.population,
-            'university_list': len(self.university_list),
-            'ethnicity_list': len(self.ethnicity_list),
-            'major_list': len(self.major_list),
+            'uni_count': self.uni_count,
+            'eth_count': self.eth_count,
+            'maj_count': self.maj_count,
             'avg_tuition': self.avg_tuition,
             'universities': self.get_universities(),
             'majors': self.get_majors(),
