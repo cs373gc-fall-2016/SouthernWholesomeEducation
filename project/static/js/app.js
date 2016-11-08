@@ -152,7 +152,7 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
   $scope.runUnitTests = function() {
   	$scope.unitTestData = "Running.............................";
 	  $http.get($scope.path).success(function (result) {
-      $scope.unitTestData = result.data;
+      $scope.unitTestData = result.split("\n");
 	  });
   }
   $scope.getGithubStats = function() {
