@@ -31,7 +31,7 @@ class Tests(TestCase):
         Test University class
         '''
         uni = University.query.filter_by(name='University of East-West Medicine').first()
-        self.assertEqual(uni.num_undergrads, 1066)
+        self.assertEqual(uni.num_undergrads, 2426)
 
     def test_university_2(self):
         '''
