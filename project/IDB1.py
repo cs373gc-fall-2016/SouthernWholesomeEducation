@@ -37,7 +37,7 @@ def get_image(name):
 
 @APP.route('/api/runUnitTests')
 def run_tests():
-    return subprocess.getoutput("python3 tests_sm.py")
+    return subprocess.getoutput("python3 tests_sm.py")  
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
