@@ -225,17 +225,18 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(225))
+    city_name = DB.Column(DB.String(225))
     ethnicity_list = DB.relationship('ETHNICITYTOUNIVERSITY')
     major_list = DB.relationship('MAJORTOUNIVERSITY')
-
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
-    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private):
+    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private, city_name='Default'):
         self.name = name
         self.num_undergrads = num_undergrads
         self.cost_to_attend = cost_to_attend
         self.grad_rate = grad_rate
         self.public_or_private = public_or_private
+        self.city_name = city_name
 
 
     def __repr__(self):
@@ -427,16 +428,22 @@ class Major(DB.Model):
     name = DB.Column(DB.String(225))
     num_undergrads = DB.Column(DB.Integer)
     top_city = DB.Column(DB.String(225))
+    top_city_amt = DB.Column(DB.Integer)
+    top_university = DB.Column(DB.String(225))
+    top_university_amt = DB.Column(DB.Integer)
     avg_percentage = DB.Column(DB.Float)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0, top_city_amt=0, top_university='Default', top_university_amt=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
         self.num_undergrads = num_undergrads
         self.top_city = top_city
         self.avg_percentage = avg_percentage
+        self.top_city_amt = top_city_amt
+        self.top_university = top_university
+        self.top_university_amt = top_university_amt
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
@@ -447,12 +454,18 @@ class Major(DB.Model):
             city_name=self.top_city).first().city_id
         num_universities = len(MAJORTOUNIVERSITY.query.filter_by(major_name=self.name).all())
         num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
+        top_university_id = MAJORTOUNIVERSITY.query.filter_by(major_name=self.name, \
+            university_name=self.top_university).first().university_id
         return {
             'id_num': self.id_num,
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
             'top_city_id': top_city_id,
+            'top_city_amt': self.top_city_amt,
+            'top_university': self.top_university,
+            'top_university_amt': self.top_university_amt,
+            'top_university_id': top_university_id,
             'avg_percentage': self.avg_percentage,
             'num_universities': num_universities,
             'num_cities': num_cities

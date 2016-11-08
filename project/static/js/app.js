@@ -148,7 +148,7 @@ myApp.controller('pipeCtrl', ['Resource', '$location', '$http', function (servic
     var number = pagination.number || 10;  // Number of entries showed per page.
     var map = {"/universities":"University", "/cities":"City", "/majors":"Major", "/ethnicities":"Ethnicity"};
     var tableName = map[$location.path()];
-    console.log(tableName);
+    // console.log(tableName);
     var callPath = '/model/' + tableName + '/start/' + start + '/number/' + number + '/attr/' + tableState.sort.predicate + '/reverse/' + tableState.sort.reverse;
     $http.get(callPath).success(function(data) {
       ctrl.displayed = data.results,
@@ -173,13 +173,13 @@ myApp.controller('pipeCtrl', ['Resource', '$location', '$http', function (servic
 myApp.factory('Resource', ['$q', '$filter', '$timeout', '$http', '$location', function ($q, $filter, $timeout, $http, $location) {
   var map = {"/universities":"University", "/cities":"City", "/majors":"Major", "/ethnicities":"Ethnicity"};
   var tableName = map[$location.path()];
-  console.log($location.path());
-  console.log(tableName);
+  // console.log($location.path());
+  // console.log(tableName);
 
 	function getPage(start, number, params) {
     // console.log(params);
     var callPath = '/model/' + tableName + '/start/' + start + '/number/' + number + '/attr/' + params.sort.predicate + '/reverse/' + params.sort.reverse;
-    console.log(callPath);
+    // console.log(callPath);
 		var deferred = $q.defer();
     // $timeout(function(){
     $http.get(callPath).success(function(data) {
