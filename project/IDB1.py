@@ -102,16 +102,28 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
         is_reverse = '.desc()'
     else:
         is_reverse = ''
+    removeDuplicates = ".filter(text(\"assoc_university=1\"))"
+    paginate = ".offset(start).limit(num_items).all()"
     if attr == 'undefined':
-        list_models = eval('{0}.query.offset(start).limit(num_items).all()'.format(model_name))
+        if model_name == 'University' or model_name == 'City':
+            list_models = eval(('{0}.query' + paginate).format(model_name))
+        else:
+            list_models = eval(('{0}.query' + removeDuplicates + paginate).format(model_name))
     else:
-        list_models = eval('{0}.query.order_by({0}.{1}{2}). \
-        offset(start).limit(num_items).all()'.format(model_name, attr, is_reverse))
+        if model_name == 'University' or model_name == 'City':
+            list_models = eval(('{0}.query.order_by({0}.{1}{2})' + paginate) \
+                .format(model_name, attr, is_reverse))
+        else:
+            list_models = eval(('{0}.query' + removeDuplicates \
+            + '.order_by({0}.{1}{2})' + paginate).format(model_name, attr, is_reverse))
 
     json_list = []
     for i in list_models:
         json_list.append(i.attributes())
-    row_count = eval('{0}.query.count()'.format(model_name))
+    if model_name == 'University' or model_name == 'City':
+        row_count = eval('{0}.query.count()'.format(model_name))
+    else:
+        row_count = eval('{0}.query.count()'.format(model_name)) // 2
     num_pages = row_count // num_items
     num_pages += (1 if row_count % num_items else 0)
     return jsonify(results=json_list, numpages=num_pages)
