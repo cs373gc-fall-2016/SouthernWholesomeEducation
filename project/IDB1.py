@@ -37,11 +37,8 @@ def get_image(name):
 
 @APP.route('/api/runUnitTests')
 def run_tests():
-    """Trigger running unit tests"""
-    tests_output = dict()
-    # tests_output['output'] = str(subprocess.getoutput('python3 tests_sm.py'))
-    tests_output['output'] = 'test'
-    return tests_output
+    output = subprocess.getoutput("python tests_sm.py")
+    return json.dumps({'output': str(output)})
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
