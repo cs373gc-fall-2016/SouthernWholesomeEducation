@@ -1,4 +1,4 @@
-# pylint: disable=E1101, R0913, R0903
+# pylint: disable=E1101, R0913, R0903, R0902, W0611
 """Implements the models that will be used in database"""
 
 from flask import Flask
@@ -231,7 +231,8 @@ class University(DB.Model):
     major_list = DB.relationship('MAJORTOUNIVERSITY')
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
-    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private, city_name='Default'):
+    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, \
+        public_or_private, city_name='Default'):
         self.name = name
         self.num_undergrads = num_undergrads
         self.cost_to_attend = cost_to_attend
@@ -329,14 +330,17 @@ class City(DB.Model):
     maj_count = DB.Column(DB.Integer)
     eth_count = DB.Column(DB.Integer)
 
-    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0):
+    def __init__(self, name, population=0, avg_tuition=0, top_university='none', \
+        top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
         self.top_university = top_university
-        self.top_major = top_major.replace("2014.academics.program_percentage.", "").replace("_", " ").title()
+        self.top_major = top_major.replace( \
+            "2014.academics.program_percentage.", "").replace("_", " ").title()
         self.top_ethnicity = top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
-        self.top_ethnicity = self.top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace( \
+            "2014.student.demographics.race_ethnicity.", "")
         self.top_ethnicity = self.top_ethnicity.replace('nhpi', 'native_hawaiian_pacific_islander')
         self.top_ethnicity = self.top_ethnicity.replace('aian', 'american_indian_alaska_native')
         self.top_ethnicity = self.top_ethnicity.replace("_", " ").title()
@@ -441,7 +445,8 @@ class Major(DB.Model):
     avg_percentage = DB.Column(DB.Float)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0, top_city_amt=0, top_university='Default', top_university_amt=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', \
+        avg_percentage=0, top_city_amt=0, top_university='Default', top_university_amt=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
@@ -501,7 +506,8 @@ class Ethnicity(DB.Model):
     top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
+    def __init__(self, name, total_count=0, top_city='Default', \
+        top_city_amt=0, top_university='Default', top_university_amt=0):
         name = name.replace("2014.student.demographics.race_ethnicity.", "")
         name = name.replace('nhpi', 'native_hawaiian_pacific_islander')
         name = name.replace('aian', 'american_indian_alaska_native')

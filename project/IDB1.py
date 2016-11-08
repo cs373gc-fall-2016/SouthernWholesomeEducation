@@ -20,6 +20,7 @@ def render_home():
 
 @APP.route('/githubstats')
 def render_github_stats():
+    """Render github statistics for group members"""
     return jsonify(get_github_stats())
 
 @APP.errorhandler(404)
@@ -28,11 +29,11 @@ def error_page(error):
     """Error handler for Flask"""
     return render_template('error.html', status=error)
 
-@APP.route('/image/<string:name>')
-def get_image(name):
-    response = requests.get('http://api.duckduckgo.com/?q=' + name + '&format=json&pretty=1').text
-    values = jsonlib.load(response)
-    return values['Image']
+# @APP.route('/image/<string:name>')
+# def get_image(name):
+#     response = requests.get('http://api.duckduckgo.com/?q=' + name + '&format=json&pretty=1').text
+#     values = jsonlib.load(response)
+#     return values['Image']
 
 
 @APP.route('/api/runUnitTests')
@@ -58,63 +59,68 @@ def lookup_model_by_name(model_name, name):
 
     return jsonify(results=model.attributes())
 
-@APP.route('/api/<string:model_name>/')
-@APP.route('/api/<string:model_name>/<int:page>')
-def api_models(model_name, page=0):
-    """Return list of models for the Models table page"""
-    model_name = model_name.title()
-    json = {'page': page}
-    page_size = DEFAULT_PAGE
-    if 'page_size' in request.args:
-        page_size = int(request.args['page_size'])
-    json['page_size'] = page_size
+# @APP.route('/api/<string:model_name>/')
+# @APP.route('/api/<string:model_name>/<int:page>')
+# def api_models(model_name, page=0):
+#     """Return list of models for the Models table page"""
+#     model_name = model_name.title()
+#     json = {'page': page}
+#     page_size = DEFAULT_PAGE
+#     if 'page_size' in request.args:
+#         page_size = int(request.args['page_size'])
+#     json['page_size'] = page_size
+#
+#     offset = (page - 1) * page_size if page > 0 else 0
+#     json['total_entries'] = get_count(model_name)
+#
+#     if 'sort' in request.args:
+#         sort_by = request.args['sort']
+#
+#         order = ".desc()" if request.args['order'] == 'desc' else ""
+#         if model_name == "University" and sort_by == "city_id":
+#             models = eval('University.query.join(City, University.city_id==City.id_num)\
+#                 .order_by(City.name{0}).offset(offset).limit(page_size).all()'.format(order))
+#
+#         elif model_name == "City" and (sort_by == "university_list"
+# or sort_by == "major_list" or sort_by == "ethnicity_list"):
+#             models = eval('City.query.order_by(func.count(sort_by)).group_by(City.id_num).offset
+#(offset).limit(page_size).all()'.format(sort_by))
+#
+#         else:
+#             models = eval('{0}.query.order_by({0}.{1}{2}). \
+#             offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
+#     else:
+#         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
+#     # if models is None:
+#         # return error_page()
+#
+#     list_models = models
+#     json_list = []
+#     for i in list_models:
+#         json_list.append(i.attributes())
+#     return jsonify(results=json_list)
 
-    offset = (page - 1) * page_size if page > 0 else 0
-    json['total_entries'] = get_count(model_name)
-
-    if 'sort' in request.args:
-        sort_by = request.args['sort']
-
-        order = ".desc()" if request.args['order'] == 'desc' else ""
-        if model_name == "University" and sort_by == "city_id":
-            models = eval('University.query.join(City, University.city_id==City.id_num).order_by(City.name{0}).offset(offset).limit(page_size).all()'.format(order))
-
-        elif model_name == "City" and (sort_by == "university_list" or sort_by == "major_list" or sort_by == "ethnicity_list"):
-            models = eval('City.query.order_by(func.count(sort_by)).group_by(City.id_num).offset(offset).limit(page_size).all()'.format(sort_by))
-
-        else:
-            models = eval('{0}.query.order_by({0}.{1}{2}). \
-            offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
-    else:
-        models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
-    # if models is None:
-        # return error_page()
-
-    list_models = models
-    json_list = []
-    for i in list_models:
-        json_list.append(i.attributes())
-    return jsonify(results=json_list)
-
-@APP.route('/model/<string:model_name>/start/<int:start>/number/<int:num_items>/attr/<string:attr>/reverse/<string:is_reverse>')
+@APP.route('/model/<string:model_name>/start/<int:start>/number/<int:num_items>\
+    /attr/<string:attr>/reverse/<string:is_reverse>')
 def pagination_sort(model_name, start, num_items, attr, is_reverse):
+    """Server side pagination with sorting"""
     if is_reverse == 'true':
         is_reverse = '.desc()'
     else:
         is_reverse = ''
-    removeDuplicates = ".filter(text(\"assoc_university=1\"))"
+    remove_duplicates = ".filter(text(\"assoc_university=1\"))"
     paginate = ".offset(start).limit(num_items).all()"
     if attr == 'undefined':
         if model_name == 'University' or model_name == 'City':
             list_models = eval(('{0}.query' + paginate).format(model_name))
         else:
-            list_models = eval(('{0}.query' + removeDuplicates + paginate).format(model_name))
+            list_models = eval(('{0}.query' + remove_duplicates + paginate).format(model_name))
     else:
         if model_name == 'University' or model_name == 'City':
             list_models = eval(('{0}.query.order_by({0}.{1}{2})' + paginate) \
                 .format(model_name, attr, is_reverse))
         else:
-            list_models = eval(('{0}.query' + removeDuplicates \
+            list_models = eval(('{0}.query' + remove_duplicates \
             + '.order_by({0}.{1}{2})' + paginate).format(model_name, attr, is_reverse))
 
     json_list = []
