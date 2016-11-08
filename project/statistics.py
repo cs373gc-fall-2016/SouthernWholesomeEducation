@@ -12,14 +12,10 @@ def get_github_stats():
 
     user_statistics = dict()
 
-    print('first for loop starting')
-
     for student_count in range(len(school_dict)):
         if school_dict[student_count]['author']['login'] not in user_statistics:
             user_statistics[school_dict[student_count]['author']['login']] = {'commits': 0, 'issues': 0, 'unit_tests': 0}
         user_statistics[school_dict[student_count]['author']['login']]['commits'] = school_dict[student_count]['total']
-
-    print('end of first for loop... beginning of second for loop')
 
     for num in range(len(count_dict)):
         login_name = count_dict[num]['user']['login']
@@ -28,8 +24,6 @@ def get_github_stats():
         else:
             user_statistics[login_name]['issues'] += 1
 
-    print('end of second for loop adding unit tests')
-
     user_statistics['mjvolk']['unit_tests'] = 23
     user_statistics['jymin94']['unit_tests'] = 14
     user_statistics['ace-jc']['unit_tests'] = 12
@@ -37,15 +31,11 @@ def get_github_stats():
     user_statistics['budang']['unit_tests'] = 19
     user_statistics['ninean']['unit_tests'] = 13
 
-    print('end of unit test starting third for loop')
-
     total_statistics = {'commits': 0, 'issues': 0, 'unit_tests': 0}
     for team_member in user_statistics:
         total_statistics['commits'] += int(user_statistics[team_member]['commits'])
         total_statistics['issues'] += int(user_statistics[team_member]['issues'])
         total_statistics['unit_tests'] += int(user_statistics[team_member]['unit_tests'])
-
-    print('finished with all of the loops ')
 
     # http://localhost:5000/githubstats
     final_json = {'user_stats' : user_statistics, 'total_stats':total_statistics}
