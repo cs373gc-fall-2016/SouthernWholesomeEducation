@@ -1,5 +1,5 @@
 'use strict';
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'smart-table']);
 
 myApp.config(function($routeProvider) {
 	$routeProvider.
@@ -12,14 +12,14 @@ myApp.config(function($routeProvider) {
         })
         .when('/cities', {
              templateUrl : '../static/partials/cities.html',
-             controller : 'TableCtrl',
-             resolve: {
-                model: function ($route) { $route.current.params.model = "city"; }
-    		}
+             controller : 'pipeCtrl as mc',
+        //      resolve: {
+        //         model: function ($route) { $route.current.params.model = "city"; }
+    		// }
         })
         .when('/universities', {
              templateUrl : '../static/partials/universities.html',
-             controller : 'TableCtrl',
+             controller : 'pipeCtrl as mc',
              resolve: {
                 model: function ($route) { $route.current.params.model = "university"; }
     		}
@@ -40,7 +40,7 @@ myApp.config(function($routeProvider) {
         })
         .when('/majors', {
              templateUrl : '../static/partials/majors.html',
-             controller : 'TableCtrl',
+             controller : 'pipeCtrl as mc',
              resolve: {
                 model: function ($route) { $route.current.params.model = "major"; }
     		}
@@ -54,7 +54,7 @@ myApp.config(function($routeProvider) {
         })
         .when('/ethnicities', {
              templateUrl : '../static/partials/ethnicities.html',
-             controller : 'TableCtrl',
+             controller : 'pipeCtrl as mc',
              resolve: {
                  model: function ($route) { $route.current.params.model = "ethnicity"; }
     		}
@@ -131,6 +131,75 @@ myApp.controller('TableCtrl', function($scope, $routeParams, $http, $location) {
     $scope.myData = data.results;
   });
 });
+
+myApp.controller('pipeCtrl', ['Resource', '$location', '$http', function (service, $location, $http) {
+  // $route.reload();
+  // console.log(tableName);
+  var ctrl = this;
+
+  ctrl.rowCollection = [];
+  ctrl.displayed = [];
+  this.callServer = function callServer(tableState) {
+    ctrl.isLoading = true;
+
+    var pagination = tableState.pagination;
+
+    var start = pagination.start || 0;     // This is NOT the page number, but the index of item in the list that you want to use to display the table.
+    var number = pagination.number || 10;  // Number of entries showed per page.
+    var map = {"/universities":"University", "/cities":"City", "/majors":"Major", "/ethnicities":"Ethnicity"};
+    var tableName = map[$location.path()];
+    console.log(tableName);
+    var callPath = '/model/' + tableName + '/start/' + start + '/number/' + number + '/attr/' + tableState.sort.predicate + '/reverse/' + tableState.sort.reverse;
+    $http.get(callPath).success(function(data) {
+      ctrl.displayed = data.results,
+      tableState.pagination.numberOfPages = data.numpages
+    });
+    ctrl.isLoading = false;
+    // service.getPage(start, number, tableState).then(function (result) {
+    //   // console.log($window.path());
+    //   ctrl.rowCollection = result.data;
+    //   // ctrl.rowCollection = result.data;
+    //   // console.log(result.data);
+    //   tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
+    //   ctrl.displayed = angular.copy(ctrl.rowCollection);
+    //   ctrl.isLoading = false;
+    //
+    // });
+
+  };
+
+}]);
+
+myApp.factory('Resource', ['$q', '$filter', '$timeout', '$http', '$location', function ($q, $filter, $timeout, $http, $location) {
+  var map = {"/universities":"University", "/cities":"City", "/majors":"Major", "/ethnicities":"Ethnicity"};
+  var tableName = map[$location.path()];
+  console.log($location.path());
+  console.log(tableName);
+
+	function getPage(start, number, params) {
+    // console.log(params);
+    var callPath = '/model/' + tableName + '/start/' + start + '/number/' + number + '/attr/' + params.sort.predicate + '/reverse/' + params.sort.reverse;
+    console.log(callPath);
+		var deferred = $q.defer();
+    // $timeout(function(){
+    $http.get(callPath).success(function(data) {
+      deferred.resolve({
+        data: data.results,
+        numberOfPages: data.numpages
+      });
+    });
+    // }, 1500);
+
+
+		return deferred.promise;
+	}
+
+	return {
+		getPage: getPage
+	};
+
+}]);
+
 
 myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/';

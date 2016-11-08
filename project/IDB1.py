@@ -90,6 +90,28 @@ def api_models(model_name, page=0):
         json_list.append(i.attributes())
     return jsonify(results=json_list)
 
+@APP.route('/model/<string:model_name>/start/<int:start>/number/<int:num_items>/attr/<string:attr>/reverse/<string:is_reverse>')
+def pagination_sort(model_name, start, num_items, attr, is_reverse):
+    if is_reverse == 'true':
+        is_reverse = '.desc()'
+    else:
+        is_reverse = ''
+    if attr == 'undefined':
+        list_models = eval('{0}.query.offset(start).limit(num_items).all()'.format(model_name))
+    else:
+        list_models = eval('{0}.query.order_by({0}.{1}{2}). \
+        offset(start).limit(num_items).all()'.format(model_name, attr, is_reverse))
+
+    json_list = []
+    for i in list_models:
+        json_list.append(i.attributes())
+    row_count = eval('{0}.query.count()'.format(model_name))
+    num_pages = row_count // num_items
+    num_pages += (1 if row_count % num_items else 0)
+    return jsonify(results=json_list, numpages=num_pages)
+
+
+
 
 @APP.route('/api/<string:model_name>/num_pages')
 def get_num_pages(model_name):

@@ -1,44 +1,44 @@
-<table>
+<!-- <table st-table="myData">
   <thead>
-    <th id="universityCol">
+    <th st-sort="university" id="universityCol">
       University
         <a href="" ng-click="query('?sort=name&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=name&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
-    <th id="cityCol">
+    <th st-sort="city" id="cityCol">
       City
         <a href="" ng-click="query('?sort=city_id&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=city_id&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
-    <th id="undergradsCol">
+    <th st-sort="num_undergrads" id="undergradsCol">
       Number of Undergraduates
         <a href="" ng-click="query('?sort=num_undergrads&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=num_undergrads&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
-    <th id="costCol">
+    <th st-sort="cost_to_attend" id="costCol">
       Cost to Attend
         <a href="" ng-click="query('?sort=cost_to_attend&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=cost_to_attend&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
-    <th id="gradrateCol">
+    <th st-sort="grad_rate" id="gradrateCol">
       Graduation Rate
         <a href="" ng-click="query('?sort=grad_rate&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=grad_rate&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
-    <th id="publicprivateCol">
+    <th st-sort="public_or_private" id="publicprivateCol">
       Public/Private
         <a href="" ng-click="query('?sort=public_or_private&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
         <a href="" ng-click="query('?sort=public_or_private&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
   </thead>
   <tbody>
-  <!-- <tr ng-repeat="row in myData">
-  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td>
   <tr ng-repeat="uni in myData">
 
                 <td>
@@ -53,9 +53,16 @@
 </tr>
   </tr>
  </tbody>
-</table>
+ <tfoot>
+			<tr>
+				<td colspan="5" class="text-center">
+					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+				</td>
+			</tr>
+		</tfoot>
+</table> -->
 
-<nav aria-label="Page navigation">
+<!-- <nav aria-label="Page navigation">
   <ul class="pagination">
 	  <li ng-class="{disabled: currentPage == 0}">
       <a href ng-click="prevPage()" aria-label="Previous">
@@ -69,4 +76,40 @@
       </a>
     </li>
   </ul>
-</nav>
+</nav> -->
+
+<table class="table table-striped" st-pipe="mc.callServer" st-table="mc.displayed" st-safe-src="mc.rowCollection">
+	<thead>
+	<tr>
+		<th st-sort="name">University</th>
+		<th st-sort="city_name">City</th>
+		<th st-sort="num_undergrads">Number of Undergraduates</th>
+		<th st-sort="cost_to_attend">Cost to Attend</th>
+		<th st-sort="grad_rate">Graduation Rate</th>
+		<th st-sort="public_or_private">Public/Private</th>
+	</tr>
+	</thead>
+	<!-- <tbody ng-show="!mc.isLoading"> -->
+	<tr ng-repeat="row in mc.displayed">
+		<td><a ng-href="/#/universities/{{row.id_num}}">
+		  <span>{{row.name}}</span></a></td>
+		<td><a ng-href="/#/cities/{{row.city_id}}">
+		  <span>{{row.city_name}}</span></a></td>
+		<td>{{row.num_undergrads}}</td>
+		<td>{{row.cost_to_attend}}</td>
+		<td>{{row.grad_rate}}</td>
+		<td>{{row.public_or_private}}</td>
+	</tr>
+	</tbody>
+	<!-- <tbody ng-show="mc.isLoading">
+	<tr>
+		<td colspan="6" class="text-center">Loading ... </td>
+	</tr>
+	</tbody> -->
+	<tfoot>
+	<tr>
+		<td class="text-center" st-pagination="" st-items-by-page="10" colspan="6" st-displayed-pages="8">
+		</td>
+	</tr>
+	</tfoot>
+</table>
