@@ -269,7 +269,7 @@ class University(DB.Model):
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'cost_to_attend': self.cost_to_attend,
-            'grad_rate': self.grad_rate,
+            'grad_rate': round(self.grad_rate*100),
             'public_or_private': self.public_or_private,
             'city_id': self.city_id,
             'city_name': city_name,
