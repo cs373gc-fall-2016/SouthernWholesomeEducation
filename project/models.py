@@ -435,14 +435,16 @@ class Major(DB.Model):
     top_city = DB.Column(DB.String(225))
     avg_percentage = DB.Column(DB.Float)
     assoc_university = DB.Column(DB.Integer)
+    uni_count = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0, uni_count=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
         self.num_undergrads = num_undergrads
         self.top_city = top_city
         self.avg_percentage = avg_percentage
+        self.uni_count = uni_count
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
@@ -451,7 +453,6 @@ class Major(DB.Model):
         """Get attributes for major"""
         top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, \
             city_name=self.top_city).first().city_id
-        num_universities = len(MAJORTOUNIVERSITY.query.filter_by(major_name=self.name).all())
         num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
         return {
             'id_num': self.id_num,
@@ -460,7 +461,7 @@ class Major(DB.Model):
             'top_city': self.top_city,
             'top_city_id': top_city_id,
             'avg_percentage': self.avg_percentage,
-            'num_universities': num_universities,
+            'num_universities': self.uni_count,
             'num_cities': num_cities
         }
 
