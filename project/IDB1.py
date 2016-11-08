@@ -9,12 +9,18 @@ from flask import Flask, send_from_directory, jsonify, \
 from models import *
 import requests
 import json as jsonlib
+from statistics import get_github_stats
+
 DEFAULT_PAGE = 10
 
 @APP.route('/')
 def render_home():
     """Return index.html page when no path is given"""
     return send_file('templates/index.html')
+
+@APP.route('/githubstats')
+def render_github_stats():
+    return jsonify(get_github_stats())
 
 @APP.errorhandler(404)
 @APP.errorhandler(500)
@@ -32,7 +38,7 @@ def get_image(name):
 @APP.route('/api/runUnitTests')
 def run_tests():
     """Trigger running unit tests"""
-    return subprocess.check_output(['python', 'tests.py'])
+    return subprocess.getoutput('python3 tests.py')
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
