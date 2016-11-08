@@ -29,7 +29,7 @@ def get_github_stats():
     user_statistics['ace-jc']['unit_tests'] = 12
     user_statistics['mxavier6']['unit_tests'] = 33
     user_statistics['budang']['unit_tests'] = 19
-    user_statistics['budang']['commits'] += 20
+    user_statistics['budang']['commits'] += 30
     user_statistics['ninean']['unit_tests'] = 13
 
 
