@@ -38,21 +38,21 @@ class Tests(TestCase):
         Test University class
         '''
         uni = University.query.filter_by(name='Charlotte School of Law').first()
-        self.assertEqual(uni.num_undergrads, 4355)
+        self.assertEqual(uni.num_undergrads, 4396)
 
     def test_university_3(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Marinello School of Beauty-Visalia').first()
-        self.assertEqual(uni.num_undergrads, 3780)
+        self.assertEqual(uni.num_undergrads, 599)
 
     def test_university_4(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Brite Divinity School').first()
-        self.assertEqual(uni.num_undergrads, 2853)
+        self.assertEqual(uni.num_undergrads, 1110)
 
     def test_university_5(self):
         '''
