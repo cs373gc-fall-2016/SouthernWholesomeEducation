@@ -38,8 +38,9 @@ def get_image(name):
 @APP.route('/api/runUnitTests')
 def run_tests():
     """Trigger running unit tests"""
-    tests_output = str(subprocess.getoutput('python3 tests_sm.py'))
-    return {'output': tests_output}
+    tests_output = dict()
+    tests_output['output'] = str(subprocess.getoutput('python3 tests_sm.py'))
+    return tests_output
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
