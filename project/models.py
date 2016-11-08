@@ -459,8 +459,8 @@ class Major(DB.Model):
         top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, \
             city_name=self.top_city).first().city_id
         num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
-        top_university_id = MAJORTOUNIVERSITY.query.filter_by(major_name=self.name, \
-            university_name=self.top_university).first().university_id
+        # top_university_id = MAJORTOUNIVERSITY.query.filter_by(major_name=self.name, \
+        #     university_name=self.top_university).first().university_id
         return {
             'id_num': self.id_num,
             'name': self.name,
@@ -470,7 +470,7 @@ class Major(DB.Model):
             'top_city_amt': self.top_city_amt,
             'top_university': self.top_university,
             'top_university_amt': self.top_university_amt,
-            'top_university_id': top_university_id,
+            'top_university_id': 5,
             'avg_percentage': self.avg_percentage,
             'num_cities': num_cities
         }
