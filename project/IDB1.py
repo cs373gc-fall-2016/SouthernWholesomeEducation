@@ -4,6 +4,7 @@
 
 import os
 import subprocess
+import re
 from flask import Flask, send_from_directory, jsonify, \
     make_response, request, send_file, render_template
 from models import *
@@ -144,53 +145,83 @@ def get_search(query):
         Ethnicity:'Ethnicity'}
     plural_names = {University:'universities', City:'cities', Major:'majors',
         Ethnicity:'ethnicities'}
-    convert_names = {'name':'Name', 'num_undergrads':'Number of Undergraduates',
+    convert_names = {'name':'Name', 'university_name':'Name','major_name':'Name',
+        'num_undergrads':'Number of Undergraduates','ethnicity_name':'Name',
         'cost_to_attend':'Cost to Attend', 'grad_rate':'Graduation Rate',
         'public_or_private':'Public/Private', 'city_name':'City', 'majors':'Major',
         'ethnicities':'Ethnicity', 'population':'Population', 'uni_count':'University Count',
         'maj_count':'Major Count', 'avg_tuition':'Average Tuition', 'universities':'University',
         'top_city':'Top City', 'top_city_amt':'Top City Amount', 'top_university':'Top University',
-        'top_university_amt':'Top University Amount'}
-    q_array = query.lower().split()
-    results = []
-    for model in model_list:
-        if model == Ethnicity or model == Major:
-            models = model.query.filter_by(assoc_university=1)
-        else:
-            models = model.query.all()
-        for row in models:
-            attr = row.attributes()
-            result = {}
-            result['Context'] = ""
-            for q in q_array:
-                for key, value in attr.items():
-                    if isinstance(value, list):
-                        # for e in value:
-                        #     for k,v in e.items():
-                        #         if q in str(v).lower():
-                        #             result['Context'] += convert_names[key] + ': ' + v.lower().replace(q, '<b>'+q+'</b>') + '<br>'
-                        pass
-                    else:
-                        if q in str(value).lower():
-                            result['Context'] += convert_names[key] + ': ' + value.lower().replace(q,'<b>'+q+'</b>') + '<br>'
-            if len(result['Context']):
-                temp_list = [temp.capitalize() for temp in result['Context'].split(' ')]
-                result['Context'] = ' '.join(temp_list)
-                result['model'] = model_names[model]
-                result['name'] = attr['name']
-                result['plural'] = plural_names[model]
-                result['id_num'] = attr['id_num']
-                results.append(result)
-    and_results = []
-    for i in results:
-        and_found = True
+        'top_university_amt':'Top University Amount', 'major_num_students':'Major Number of Students',
+        'ethnicity_num_students':'Ethnicity Number of Students'}
+    university_columns = ['university_name', 'num_undergrads', 'cost_to_attend', 'grad_rate',
+        'public_or_private', 'city_name', 'major_name', 'major_num_students',
+        'ethnicity_name', 'ethnicity_num_students']
+    q_array = query.split()
+
+    andResults = []
+    university_sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM \"UNIVERSITY\" AS U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+    for q in q_array[1:]:
+        university_sql += " AND sq::text ILIKE '%%" + q + "%%'"
+    university_results = DB.engine.execute(university_sql)
+    for row in university_results:
+        # print(row.university_name)
+        result = {}
+        result['Context'] = ""
+        for col in university_columns:
+            result['Context'] += convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
         for q in q_array:
-            if q not in i['Context'].lower():
-                and_found = False
-                break
-        if and_found:
-            and_results.append(i)
-    return jsonify(orResults=results, andResults=and_results)
+            pattern = re.compile(q, re.IGNORECASE)
+            result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
+        temp_array = result['Context'].split('\n')
+        result['Context'] = ""
+        for temp in temp_array:
+            if '<b>' in temp:
+                result['Context'] += temp + '<br>'
+        result['model'] = 'University'
+        result['name'] = row.university_name
+        result['plural'] = 'universities'
+        result['id_num'] = row.id_num
+        andResults.append(result)
+
+    # for model in model_list:
+    #     if model == Ethnicity or model == Major:
+    #         models = model.query.filter_by(assoc_university=1)
+    #     else:
+    #         models = model.query.all()
+    #     for row in models:
+    #         attr = row.attributes()
+    #         result = {}
+    #         result['Context'] = ""
+    #         for q in q_array:
+    #             for key, value in attr.items():
+    #                 if isinstance(value, list):
+    #                     # for e in value:
+    #                     #     for k,v in e.items():
+    #                     #         if q in str(v).lower():
+    #                     #             result['Context'] += convert_names[key] + ': ' + v.lower().replace(q, '<b>'+q+'</b>') + '<br>'
+    #                     pass
+    #                 else:
+    #                     if q in str(value).lower():
+    #                         result['Context'] += convert_names[key] + ': ' + value.lower().replace(q,'<b>'+q+'</b>') + '<br>'
+    #         if len(result['Context']):
+    #             temp_list = [temp.capitalize() for temp in result['Context'].split(' ')]
+    #             result['Context'] = ' '.join(temp_list)
+    #             result['model'] = model_names[model]
+    #             result['name'] = attr['name']
+    #             result['plural'] = plural_names[model]
+    #             result['id_num'] = attr['id_num']
+    #             results.append(result)
+    # and_results = []
+    # for i in results:
+    #     and_found = True
+    #     for q in q_array:
+    #         if q not in i['Context'].lower():
+    #             and_found = False
+    #             break
+    #     if and_found:
+    #         and_results.append(i)
+    return jsonify(orResults=[], andResults=andResults)
 
 @APP.route('/api/<string:model_name>/num_pages')
 def get_num_pages(model_name):
