@@ -74,7 +74,7 @@ def api_call():
     print('finished ethnicities... starting universities')
 
     for uni in universities:
-        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
+        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'], city_name=universities[uni]['city'])
         for maj in universities[uni]['major_list']:
             if maj in major_objs_uni:
                 university.add_major(universities[uni]['major_list'][maj], major_objs_uni[maj])
