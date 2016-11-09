@@ -436,16 +436,16 @@ class Major(DB.Model):
     top_city = DB.Column(DB.String(225))
     avg_percentage = DB.Column(DB.Float)
     assoc_university = DB.Column(DB.Integer)
-    uni_count = DB.Column(DB.Integer)
+    top_city_amt = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0, uni_count=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0, top_city_amt=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
         self.num_undergrads = num_undergrads
         self.top_city = top_city
         self.avg_percentage = avg_percentage
-        self.uni_count = uni_count
+        self.top_city_amt = top_city_amt
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
