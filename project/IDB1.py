@@ -139,7 +139,7 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
 
 @APP.route('/search/<string:query>')
 def get_search(query):
-    model_list = [Ethnicity, Major]
+    model_list = [University, City, Ethnicity, Major]
     model_names = {University:'University', City:'City', Major:'Major',
         Ethnicity:'Ethnicity'}
     plural_names = {University:'universities', City:'cities', Major:'majors',
