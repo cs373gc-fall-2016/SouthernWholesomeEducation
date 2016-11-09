@@ -1,5 +1,5 @@
 'use strict';
-var myApp = angular.module('myApp', ['ngRoute', 'smart-table']);
+var myApp = angular.module('myApp', ['ngRoute', 'smart-table', 'angular-advanced-searchbox','angularUtils.directives.dirPagination']);
 
 myApp.config(function($routeProvider) {
 	$routeProvider.
@@ -65,6 +65,13 @@ myApp.config(function($routeProvider) {
                 resolve: {
                     model: function ($route) { $route.current.params.model = "ethnicity"; }
                 }
+        })
+        .when('/search', {
+                templateUrl : '../static/partials/search.html',
+                controller : 'SearchCtrl',
+                // resolve: {
+                //     model: function ($route) { $route.current.params.model = "ethnicity"; }
+                // }
         })
     	.otherwise({
             redirectTo: '/'
@@ -228,6 +235,26 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
 	$http.get('/githubstats').success(function (data, status, headers, config) {
 		$scope.user_stats = data.user_stats;
     $scope.total_stats = data.total_stats;
-	});	
+	});
   }
 });
+
+myApp.controller('SearchCtrl', ['$scope','$http','$sce', function(scope, http, sce) {
+  scope.rowCollection = [];
+ scope.availableSearchParams = [
+];
+scope.itemsByPage = 10;
+scope.renderHtml = function(html_code) {
+  return sce.trustAsHtml(html_code);
+};
+scope.andResults = [];
+scope.orResults = [];
+ scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
+  // console.log(model.query);
+  http.get('/search/' + model.query).success(function (data, status, headers, config) {
+		scope.andResults = data.andResults;
+    scope.orResults = data.orResults;
+	});
+});
+
+}]);

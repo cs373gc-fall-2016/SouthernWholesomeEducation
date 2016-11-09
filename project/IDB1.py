@@ -23,11 +23,15 @@ def render_github_stats():
     """Render github statistics for group members"""
     return jsonify(get_github_stats())
 
+@APP.route('/angular-advanced-searchbox.html')
+def render_searchbox():
+    return send_file('templates/angular-advanced-searchbox.html')
+
 @APP.errorhandler(404)
 @APP.errorhandler(500)
 def error_page(error):
     """Error handler for Flask"""
-    return render_template('error.html', status=error)
+    return "error"
 
 # @APP.route('/image/<string:name>')
 # def get_image(name):
@@ -100,8 +104,7 @@ def lookup_model_by_name(model_name, name):
 #         json_list.append(i.attributes())
 #     return jsonify(results=json_list)
 
-@APP.route('/model/<string:model_name>/start/<int:start>/number/<int:num_items>\
-    /attr/<string:attr>/reverse/<string:is_reverse>')
+@APP.route('/model/<string:model_name>/start/<int:start>/number/<int:num_items>/attr/<string:attr>/reverse/<string:is_reverse>')
 def pagination_sort(model_name, start, num_items, attr, is_reverse):
     """Server side pagination with sorting"""
     if is_reverse == 'true':
@@ -134,8 +137,59 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
     num_pages += (1 if row_count % num_items else 0)
     return jsonify(results=json_list, numpages=num_pages)
 
-
-
+@APP.route('/search/<string:query>')
+def get_search(query):
+    model_list = [Ethnicity, Major]
+    model_names = {University:'University', City:'City', Major:'Major',
+        Ethnicity:'Ethnicity'}
+    plural_names = {University:'universities', City:'cities', Major:'majors',
+        Ethnicity:'ethnicities'}
+    convert_names = {'name':'Name', 'num_undergrads':'Number of Undergraduates',
+        'cost_to_attend':'Cost to Attend', 'grad_rate':'Graduation Rate',
+        'public_or_private':'Public/Private', 'city_name':'City', 'majors':'Major',
+        'ethnicities':'Ethnicity', 'population':'Population', 'uni_count':'University Count',
+        'maj_count':'Major Count', 'avg_tuition':'Average Tuition', 'universities':'University',
+        'top_city':'Top City', 'top_city_amt':'Top City Amount', 'top_university':'Top University',
+        'top_university_amt':'Top University Amount'}
+    q_array = query.lower().split()
+    results = []
+    for model in model_list:
+        if model == Ethnicity or model == Major:
+            models = model.query.filter_by(assoc_university=1)
+        else:
+            models = model.query.all()
+        for row in models:
+            attr = row.attributes()
+            result = {}
+            result['Context'] = ""
+            for q in q_array:
+                for key, value in attr.items():
+                    if isinstance(value, list):
+                        for e in value:
+                            for k,v in e.items():
+                                if q in str(v).lower():
+                                    result['Context'] += convert_names[key] + ': ' + v.lower().replace(q, '<b>'+q+'</b>') + '<br>'
+                    else:
+                        if q in str(value).lower():
+                            result['Context'] += convert_names[key] + ': ' + value.lower().replace(q,'<b>'+q+'</b>') + '<br>'
+            if len(result['Context']):
+                temp_list = [temp.capitalize() for temp in result['Context'].split(' ')]
+                result['Context'] = ' '.join(temp_list)
+                result['model'] = model_names[model]
+                result['name'] = attr['name']
+                result['plural'] = plural_names[model]
+                result['id_num'] = attr['id_num']
+                results.append(result)
+    and_results = []
+    for i in results:
+        and_found = True
+        for q in q_array:
+            if q not in i['Context'].lower():
+                and_found = False
+                break
+        if and_found:
+            and_results.append(i)
+    return jsonify(orResults=results, andResults=and_results)
 
 @APP.route('/api/<string:model_name>/num_pages')
 def get_num_pages(model_name):

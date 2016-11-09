@@ -1,0 +1,55 @@
+<div class="container">
+<nit-advanced-searchbox ng-model="searchParams" placeholder="Search"></nit-advanced-searchbox>
+</div>
+<div class="container">
+<h3>And Table</h3>
+<table st-table="andResults" st-safe-src="rowCollection" class="table table-striped">
+		<thead>
+		<tr>
+			<th>Model Type</th>
+			<th>Model Name</th>
+			<th>Context</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr dir-paginate="row in andResults | itemsPerPage: 10" pagination-id="and">
+			<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+			<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+			<td ng-bind-html="renderHtml(row.Context)"></td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="text-center">
+					<dir-pagination-controls pagination-id="and"></dir-pagination-controls>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<div class="container">
+<h3>Or Table</h3>
+<table st-table="orResults" st-safe-src="rowCollection" class="table table-striped">
+		<thead>
+		<tr>
+			<th>Model Type</th>
+			<th>Model Name</th>
+			<th>Context</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr dir-paginate="row in orResults | itemsPerPage: 10" pagination-id="or">
+			<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+			<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+			<td ng-bind-html="renderHtml(row.Context)"></td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="text-center">
+					<dir-pagination-controls pagination-id="or"></dir-pagination-controls>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
