@@ -1,10 +1,13 @@
 <!-- {{myData}} -->
 <div class="container">
-      <div class=".col-md-6">
-      <div>
-        <h3>{{myData.name}}</h3>
+      <div class="box">
+      <div align="center" class = "row">
+        <h1>{{myData.name}}</h1>
       </div>
+    </div>
 
+    <div class="box">
+    <div align="center" class = "row">
       <div>
         <h3>Total Number of Undergraduate Students</h3>
         <p>{{myData.population}}</p>
@@ -14,69 +17,39 @@
         <h3>Average Tuition</h3>
         <p>${{myData.avg_tuition}}</p>
       </div>
+    </div>
+  </div>
 
-      <div>
+
+    <div class = "row">
+      
+      <div class = "col-lg-4">
+        <div class="box">
           <h3>Universities</h3>
           <ul ng-repeat="uni in myData.universities">
               <li><a href="/#/universities/{{uni.id}}">{{uni.name}}</a></li>
           </ul>
       </div>
-
-      <div>
+    </div>
+      
+      <div class = "col-lg-4">
+        <div class="box">
           <h3>Majors</h3>
           <ul ng-repeat="maj in myData.majors">
               <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
           </ul>
       </div>
+    </div>
 
-      <div>
+      
+      <div class = "col-lg-4">
+        <div class="box">
           <h3>Ethnicities</h3>
           <ul ng-repeat="eth in myData.ethnicities">
               <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
           </ul>
       </div>
-
-      <!-- <div id="output"></div>
-
-      <script>
-      var apiKey = 'j878g39yx378pa77djthzzpn';
-      var urlN = "https://api.gettyimages.com/v3/search/images/?phrase=city";
-    //   document.write(elem);
-$.ajax(
-    {
-        type:'GET',
-        url: urlN ,
-         beforeSend: function (request)
-            {
-                request.setRequestHeader("Api-Key", apiKey);
-            }})
-    .done(function(data){
-        console.log("Success with data");
-        console.log(urlN);
-           $("#output").append("<img src='" + data.images[0].display_sizes[0].uri + "'/>");
-    })
-    .fail(function(data){
-        alert(JSON.stringify(data,2))
-    });
-      </script> -->
-
-
-
-
-
-
-
-
-      <!-- <div>
-        <h3>Current year ethnicity count</h3>
-        <ul>
-          <li><a href="/hispanic.html">Hispanic</a>: 17,900</li>
-          <li><a href="/white.html">White</a>: 8,561</li>
-          <li><a href="/asian.html">Asian</a>: 7,393</li>
-        </ul>
-      </div>
- -->
-
+    </div>
 
     </div>
 
