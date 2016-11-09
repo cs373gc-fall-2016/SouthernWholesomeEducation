@@ -139,7 +139,7 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
 
 @APP.route('/search/<string:query>')
 def get_search(query):
-    model_list = [University, City, Ethnicity, Major]
+    model_list = [Major, Ethnicity]
     model_names = {University:'University', City:'City', Major:'Major',
         Ethnicity:'Ethnicity'}
     plural_names = {University:'universities', City:'cities', Major:'majors',
@@ -165,10 +165,11 @@ def get_search(query):
             for q in q_array:
                 for key, value in attr.items():
                     if isinstance(value, list):
-                        for e in value:
-                            for k,v in e.items():
-                                if q in str(v).lower():
-                                    result['Context'] += convert_names[key] + ': ' + v.lower().replace(q, '<b>'+q+'</b>') + '<br>'
+                        # for e in value:
+                        #     for k,v in e.items():
+                        #         if q in str(v).lower():
+                        #             result['Context'] += convert_names[key] + ': ' + v.lower().replace(q, '<b>'+q+'</b>') + '<br>'
+                        pass
                     else:
                         if q in str(value).lower():
                             result['Context'] += convert_names[key] + ': ' + value.lower().replace(q,'<b>'+q+'</b>') + '<br>'
