@@ -227,15 +227,17 @@ class University(DB.Model):
     public_or_private = DB.Column(DB.String(225))
     ethnicity_list = DB.relationship('ETHNICITYTOUNIVERSITY')
     major_list = DB.relationship('MAJORTOUNIVERSITY')
+    city_name = DB.Column(DB.String(225))
 
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
-    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private):
+    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private, city_name):
         self.name = name
         self.num_undergrads = num_undergrads
         self.cost_to_attend = cost_to_attend
         self.grad_rate = grad_rate
         self.public_or_private = public_or_private
+        self.city_name = city_name
 
 
     def __repr__(self):
@@ -261,7 +263,6 @@ class University(DB.Model):
 
     def attributes(self):
         """Get attributes for university"""
-        city_name = City.query.filter_by(id_num=self.city_id).first().name
         return {
             'id_num': self.id_num,
             'name': self.name,
@@ -270,7 +271,7 @@ class University(DB.Model):
             'grad_rate': self.grad_rate,
             'public_or_private': self.public_or_private,
             'city_id': self.city_id,
-            'city_name': city_name,
+            'city_name': self.city_name,
             'majors': self.get_majors(),
             'ethnicities': self.get_ethnicities()
         }
