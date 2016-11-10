@@ -136,9 +136,10 @@ def city_university_search(results, model, op, query, columns, param):
         sql += (" " + op + " sq::text ILIKE '%%" + q + "%%'")
     model_results = DB.engine.execute(sql + ';')
     model_results_iter = iter(model_results)
+    stop_loop = False
     try:
         row = next(model_results_iter)
-        while True:
+        while not stop_loop:
             result = {}
             result['Context'] = ""
             for col in columns:
@@ -149,12 +150,17 @@ def city_university_search(results, model, op, query, columns, param):
                 row = next(model_results_iter)
             except StopIteration:
                 row = None
+                stop_loop = True
             while row and eval(('row.{0}').format(param))==eval(('old_row.{0}').format(param)):
                 for col in columns:
                     temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
                     if temp_str not in result['Context']:
                         result['Context'] += temp_str
-                row = next(model_results_iter)
+                try:
+                    row = next(model_results_iter)
+                except StopIteration:
+                    row = None
+                    stop_loop = True
             for q in q_array:
                 pattern = re.compile(q, re.IGNORECASE)
                 result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
