@@ -121,7 +121,7 @@ def get_search(query):
     andResults = []
     orResults = []
     city_university_search(andResults, University, 'AND', query, university_columns, 'university_name')
-    city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
+    # city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
     # city_university_search(andResults, City, 'AND', query, city_columns, 'city_name')
     # city_university_search(orResults, City, 'OR', query, city_columns, 'city_name')
     return jsonify(orResults=[], andResults=andResults)
