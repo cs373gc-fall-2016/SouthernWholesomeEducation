@@ -77,47 +77,6 @@ def lookup_model_by_name(model_name, name):
 
     return jsonify(results=model.attributes())
 
-# @APP.route('/api/<string:model_name>/')
-# @APP.route('/api/<string:model_name>/<int:page>')
-# def api_models(model_name, page=0):
-#     """Return list of models for the Models table page"""
-#     model_name = model_name.title()
-#     json = {'page': page}
-#     page_size = DEFAULT_PAGE
-#     if 'page_size' in request.args:
-#         page_size = int(request.args['page_size'])
-#     json['page_size'] = page_size
-#
-#     offset = (page - 1) * page_size if page > 0 else 0
-#     json['total_entries'] = get_count(model_name)
-#
-#     if 'sort' in request.args:
-#         sort_by = request.args['sort']
-#
-#         order = ".desc()" if request.args['order'] == 'desc' else ""
-#         if model_name == "University" and sort_by == "city_id":
-#             models = eval('University.query.join(City, University.city_id==City.id_num)\
-#                 .order_by(City.name{0}).offset(offset).limit(page_size).all()'.format(order))
-#
-#         elif model_name == "City" and (sort_by == "university_list"
-# or sort_by == "major_list" or sort_by == "ethnicity_list"):
-#             models = eval('City.query.order_by(func.count(sort_by)).group_by(City.id_num).offset
-#(offset).limit(page_size).all()'.format(sort_by))
-#
-#         else:
-#             models = eval('{0}.query.order_by({0}.{1}{2}). \
-#             offset(offset).limit(page_size).all()'.format(model_name, sort_by, order))
-#     else:
-#         models = eval('{0}.query.offset(offset).limit(page_size).all()'.format(model_name))
-#     # if models is None:
-#         # return error_page()
-#
-#     list_models = models
-#     json_list = []
-#     for i in list_models:
-#         json_list.append(i.attributes())
-#     return jsonify(results=json_list)
-
 @APP.route('/model/<string:model_name>/start/<int:start>/number/<int:num_items>/attr/<string:attr>/reverse/<string:is_reverse>')
 def pagination_sort(model_name, start, num_items, attr, is_reverse):
     """Server side pagination with sorting"""
@@ -161,63 +120,10 @@ def get_search(query):
         'ethnicity_num_students']
     andResults = []
     orResults = []
-    # city_university_search(andResults, University, 'AND', query, university_columns, 'university_name')
-    # city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
-    city_university_search(andResults, City, 'AND', query, city_columns, 'city_name')
+    city_university_search(andResults, University, 'AND', query, university_columns, 'university_name')
+    city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
+    # city_university_search(andResults, City, 'AND', query, city_columns, 'city_name')
     # city_university_search(orResults, City, 'OR', query, city_columns, 'city_name')
-    # university_sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM \"UNIVERSITY\" AS U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
-    # for q in q_array[1:]:
-    #     university_sql += " AND sq::text ILIKE '%%" + q + "%%'"
-    # university_results = DB.engine.execute(university_sql + ';')
-    # university_results_iter = iter(university_results)
-    # # university_results_iter1 = iter(university_results)
-    # try:
-    #     # next(university_results_iter1)
-    #     row = next(university_results_iter)
-    #     while True:
-    #         # try:
-    #         # future_row = next(university_results_iter1)
-    #         # except StopIteration:
-    #             # future_row = None
-    #         result = {}
-    #         result['Context'] = ""
-    #         for col in university_columns:
-    #             temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
-    #             result['Context'] += temp_str
-    #         # print('row = ' + row.university_name)
-    #         old_row = row
-    #         try:
-    #             row = next(university_results_iter)
-    #         except StopIteration:
-    #             row = None
-    #         while row and row.university_name==old_row.university_name:
-    #
-    #             # try:
-    #             # future_row = next(university_results_iter1)
-    #             # except StopIteration:
-    #                 # future_row = None
-    #             for col in university_columns:
-    #                 temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
-    #                 if temp_str not in result['Context']:
-    #                     result['Context'] += temp_str
-    #             # print('row = ' + row.university_name)
-    #             row = next(university_results_iter)
-    #         for q in q_array:
-    #             pattern = re.compile(q, re.IGNORECASE)
-    #             result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
-    #         temp_array = result['Context'].split('\n')
-    #         result['Context'] = ""
-    #         for temp in temp_array:
-    #             if '<b>' in temp:
-    #                 result['Context'] += temp + '<br>'
-    #         result['model'] = 'University'
-    #         result['name'] = old_row.university_name
-    #         result['plural'] = 'universities'
-    #         result['id_num'] = old_row.id_num
-    #         andResults.append(result)
-
-    # except(StopIteration):
-    #     pass
     return jsonify(orResults=[], andResults=andResults)
 
 def city_university_search(results, model, op, query, columns, param):
