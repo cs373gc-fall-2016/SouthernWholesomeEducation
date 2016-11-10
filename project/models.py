@@ -386,20 +386,20 @@ class Major(DB.Model):
     num_undergrads = DB.Column(DB.Integer)
     top_city = DB.Column(DB.String(225))
     top_city_amt = DB.Column(DB.Integer)
-    top_uni = DB.Column(DB.String(225))
-    top_uni_amt = DB.Column(DB.Integer)
+    top_university = DB.Column(DB.String(225))
+    top_university_amt = DB.Column(DB.Integer)
     avg_percentage = DB.Column(DB.Float) # to delete?
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', top_city_amt=0, top_uni='Default', top_uni_amt=0 ,avg_percentage=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0 ,avg_percentage=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
         self.num_undergrads = num_undergrads
         self.top_city = top_city
         self.top_city_amt = top_city_amt
-        self.top_uni = top_uni
-        self.top_uni_amt = top_uni_amt
+        self.top_university = top_university
+        self.top_university_amt = top_university_amt
         self.avg_percentage = avg_percentage # to delte?
 
     def __repr__(self):
@@ -416,8 +416,8 @@ class Major(DB.Model):
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
             'top_city_amt': self.top_city_amt,
-            'top_uni': self.top_uni,
-            'top_uni_amt': self.top_uni_amt,
+            'top_university': self.top_university,
+            'top_university_amt': self.top_university_amt,
             'avg_percentage': self.avg_percentage, # to delete
             
             'top_city_id': top_city_id, # what is this?

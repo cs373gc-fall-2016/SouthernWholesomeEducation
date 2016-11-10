@@ -66,8 +66,8 @@ def api_call():
                 top_city_name = current_city
         # print(str(maj) + ' topcityname: ' + str(top_city_name) + ' topcityamount: ' + str(top_count) + ' topuni: ' + str(majors[maj]['top_university_name']) + ' topuniamt: ' + str(majors[maj]['top_university_amt'])  )
 
-        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_uni=majors[maj]['top_university_name'], top_uni_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
-        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_uni=majors[maj]['top_university_name'], top_uni_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
+        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_university=majors[maj]['top_university_name'], top_uni_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
+        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_university=majors[maj]['top_university_name'], top_uni_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
         major_objs_uni[maj] = major
         major_objs_city[maj] = major2
 
