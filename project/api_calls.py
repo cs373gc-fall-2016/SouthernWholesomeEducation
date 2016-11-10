@@ -413,7 +413,7 @@ def get_all_school_codes():
     api_key = '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
     school_set = set()
     # looping over all pages in the the api results
-    for page_num in range(0,1):
+    for page_num in range(0,78):
         print('collecting school numbers page ' + str(page_num), end='')
         output = requests.get(start_url + str(page_num) + api_key)
         dict = output.json()
