@@ -237,7 +237,7 @@ def setup_data(individual_school_dict):
             if majors[major]['total_major_undergrad_population'] is not None:
                 majors[major]['avg_percentage'] = majors[major]['total_major_undergrad_population'] / total_undergrads_all_universities()
 
-            if individual_school_dict['2014.student.size'] != None:
+            if individual_school_dict['2014.student.size'] != None and individual_school_dict[major] != None:
                 majors_student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
                 if 'cities' not in majors[major]:
                     # add cities to dict
@@ -263,18 +263,19 @@ def setup_data(individual_school_dict):
                 major_temp_dict['top_university_amt'] = top_university_for_major(major)[1]
                 majors[major] = major_temp_dict
 
-                majors_student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
-                if 'cities' not in majors[major]:
-                    # add cities to dict
-                    majors[major]['cities'] = dict()
+                if individual_school_dict['2014.student.size'] != None and individual_school_dict[major] != None:
+                    majors_student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+                    if 'cities' not in majors[major]:
+                        # add cities to dict
+                        majors[major]['cities'] = dict()
 
-                if individual_school_dict['school.city'] in majors[major]['cities']:
-                    majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
-                else:
-                    # add specific city and then the 
-                    if majors_student_count > 0:
-                        majors[major]['cities'][individual_school_dict['school.city']] = 0
+                    if individual_school_dict['school.city'] in majors[major]['cities']:
                         majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
+                    else:
+                        # add specific city and then the 
+                        if majors_student_count > 0:
+                            majors[major]['cities'][individual_school_dict['school.city']] = 0
+                            majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
 
 
 
@@ -412,7 +413,7 @@ def get_all_school_codes():
     api_key = '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
     school_set = set()
     # looping over all pages in the the api results
-    for page_num in range(0,78):
+    for page_num in range(0,1):
         print('collecting school numbers page ' + str(page_num), end='')
         output = requests.get(start_url + str(page_num) + api_key)
         dict = output.json()
