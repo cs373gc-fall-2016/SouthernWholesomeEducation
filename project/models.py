@@ -416,8 +416,8 @@ class Major(DB.Model):
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
             'top_city_amt': self.top_city_amt,
-            'top_uni': self.top_uni
-            'top_uni_amt': self.top_uni_amt
+            'top_uni': self.top_uni,
+            'top_uni_amt': self.top_uni_amt,
             'avg_percentage': self.avg_percentage, # to delete
             
             'top_city_id': top_city_id, # what is this?
