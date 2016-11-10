@@ -13,6 +13,19 @@ import json as jsonlib
 from statistics import get_github_stats
 
 DEFAULT_PAGE = 10
+convert_names = {'name':'Name', 'university_name':'University','major_name':'Major',
+    'num_undergrads':'Number of Undergraduates','ethnicity_name':'Ethnicity',
+    'cost_to_attend':'Cost to Attend', 'grad_rate':'Graduation Rate',
+    'public_or_private':'Public/Private', 'city_name':'City', 'majors':'Major',
+    'ethnicities':'Ethnicity', 'population':'Population', 'uni_count':'University Count',
+    'maj_count':'Major Count', 'avg_tuition':'Average Tuition', 'universities':'University',
+    'top_city':'Top City', 'top_city_amt':'Top City Amount', 'top_university':'Top University',
+    'top_university_amt':'Top University Amount', 'major_num_students':'Major Number of Students',
+    'ethnicity_num_students':'Ethnicity Number of Students', 'top_major':'Top Major',
+    'top_ethnicity':'Top Ethnicity'}
+plural_names = {University:'universities', City:'cities', Major:'majors',
+    Ethnicity:'ethnicities'}
+model_names = {University:'University', City:'City', Major:'Major', Ethnicity:'Ethnicity'}
 
 @APP.route('/')
 def render_home():
@@ -140,88 +153,117 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
 
 @APP.route('/search/<string:query>')
 def get_search(query):
-    model_list = [Major, Ethnicity]
-    model_names = {University:'University', City:'City', Major:'Major',
-        Ethnicity:'Ethnicity'}
-    plural_names = {University:'universities', City:'cities', Major:'majors',
-        Ethnicity:'ethnicities'}
-    convert_names = {'name':'Name', 'university_name':'Name','major_name':'Name',
-        'num_undergrads':'Number of Undergraduates','ethnicity_name':'Name',
-        'cost_to_attend':'Cost to Attend', 'grad_rate':'Graduation Rate',
-        'public_or_private':'Public/Private', 'city_name':'City', 'majors':'Major',
-        'ethnicities':'Ethnicity', 'population':'Population', 'uni_count':'University Count',
-        'maj_count':'Major Count', 'avg_tuition':'Average Tuition', 'universities':'University',
-        'top_city':'Top City', 'top_city_amt':'Top City Amount', 'top_university':'Top University',
-        'top_university_amt':'Top University Amount', 'major_num_students':'Major Number of Students',
-        'ethnicity_num_students':'Ethnicity Number of Students'}
     university_columns = ['university_name', 'num_undergrads', 'cost_to_attend', 'grad_rate',
         'public_or_private', 'city_name', 'major_name', 'major_num_students',
         'ethnicity_name', 'ethnicity_num_students']
-    q_array = query.split()
-
+    city_columns = ['university_name','city_name','population','avg_tuition','top_university',
+        'top_major','top_ethnicity','major_name','major_num_students','ethnicity_name',
+        'ethnicity_num_students']
     andResults = []
-    university_sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM \"UNIVERSITY\" AS U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
-    for q in q_array[1:]:
-        university_sql += " AND sq::text ILIKE '%%" + q + "%%'"
-    university_results = DB.engine.execute(university_sql)
-    for row in university_results:
-        # print(row.university_name)
-        result = {}
-        result['Context'] = ""
-        for col in university_columns:
-            result['Context'] += convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
-        for q in q_array:
-            pattern = re.compile(q, re.IGNORECASE)
-            result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
-        temp_array = result['Context'].split('\n')
-        result['Context'] = ""
-        for temp in temp_array:
-            if '<b>' in temp:
-                result['Context'] += temp + '<br>'
-        result['model'] = 'University'
-        result['name'] = row.university_name
-        result['plural'] = 'universities'
-        result['id_num'] = row.id_num
-        andResults.append(result)
-
-    # for model in model_list:
-    #     if model == Ethnicity or model == Major:
-    #         models = model.query.filter_by(assoc_university=1)
-    #     else:
-    #         models = model.query.all()
-    #     for row in models:
-    #         attr = row.attributes()
+    orResults = []
+    # city_university_search(andResults, University, 'AND', query, university_columns, 'university_name')
+    # city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
+    city_university_search(andResults, City, 'AND', query, city_columns, 'city_name')
+    # city_university_search(orResults, City, 'OR', query, city_columns, 'city_name')
+    # university_sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM \"UNIVERSITY\" AS U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+    # for q in q_array[1:]:
+    #     university_sql += " AND sq::text ILIKE '%%" + q + "%%'"
+    # university_results = DB.engine.execute(university_sql + ';')
+    # university_results_iter = iter(university_results)
+    # # university_results_iter1 = iter(university_results)
+    # try:
+    #     # next(university_results_iter1)
+    #     row = next(university_results_iter)
+    #     while True:
+    #         # try:
+    #         # future_row = next(university_results_iter1)
+    #         # except StopIteration:
+    #             # future_row = None
     #         result = {}
     #         result['Context'] = ""
+    #         for col in university_columns:
+    #             temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
+    #             result['Context'] += temp_str
+    #         # print('row = ' + row.university_name)
+    #         old_row = row
+    #         try:
+    #             row = next(university_results_iter)
+    #         except StopIteration:
+    #             row = None
+    #         while row and row.university_name==old_row.university_name:
+    #
+    #             # try:
+    #             # future_row = next(university_results_iter1)
+    #             # except StopIteration:
+    #                 # future_row = None
+    #             for col in university_columns:
+    #                 temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
+    #                 if temp_str not in result['Context']:
+    #                     result['Context'] += temp_str
+    #             # print('row = ' + row.university_name)
+    #             row = next(university_results_iter)
     #         for q in q_array:
-    #             for key, value in attr.items():
-    #                 if isinstance(value, list):
-    #                     # for e in value:
-    #                     #     for k,v in e.items():
-    #                     #         if q in str(v).lower():
-    #                     #             result['Context'] += convert_names[key] + ': ' + v.lower().replace(q, '<b>'+q+'</b>') + '<br>'
-    #                     pass
-    #                 else:
-    #                     if q in str(value).lower():
-    #                         result['Context'] += convert_names[key] + ': ' + value.lower().replace(q,'<b>'+q+'</b>') + '<br>'
-    #         if len(result['Context']):
-    #             temp_list = [temp.capitalize() for temp in result['Context'].split(' ')]
-    #             result['Context'] = ' '.join(temp_list)
-    #             result['model'] = model_names[model]
-    #             result['name'] = attr['name']
-    #             result['plural'] = plural_names[model]
-    #             result['id_num'] = attr['id_num']
-    #             results.append(result)
-    # and_results = []
-    # for i in results:
-    #     and_found = True
-    #     for q in q_array:
-    #         if q not in i['Context'].lower():
-    #             and_found = False
-    #             break
-    #     if and_found:
-    #         and_results.append(i)
+    #             pattern = re.compile(q, re.IGNORECASE)
+    #             result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
+    #         temp_array = result['Context'].split('\n')
+    #         result['Context'] = ""
+    #         for temp in temp_array:
+    #             if '<b>' in temp:
+    #                 result['Context'] += temp + '<br>'
+    #         result['model'] = 'University'
+    #         result['name'] = old_row.university_name
+    #         result['plural'] = 'universities'
+    #         result['id_num'] = old_row.id_num
+    #         andResults.append(result)
+
+    # except(StopIteration):
+    #     pass
     return jsonify(orResults=[], andResults=andResults)
+
+def city_university_search(results, model, op, query, columns, param):
+    q_array = query.split()
+    if model == University:
+        sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM \"UNIVERSITY\" AS U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+    else:
+        sql = "SELECT * FROM (SELECT U.name AS university_name,C.id_num,MC.city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM \"CITY\" AS C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id JOIN \"UNIVERSITY\" U ON U.city_id=C.id_num) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+    for q in q_array[1:]:
+        sql += (" " + op + " sq::text ILIKE '%%" + q + "%%'")
+    model_results = DB.engine.execute(sql + ';')
+    model_results_iter = iter(model_results)
+    try:
+        row = next(model_results_iter)
+        while True:
+            result = {}
+            result['Context'] = ""
+            for col in columns:
+                temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
+                result['Context'] += temp_str
+            old_row = row
+            try:
+                row = next(model_results_iter)
+            except StopIteration:
+                row = None
+            while row and eval(('row.{0}').format(param))==eval(('old_row.{0}').format(param)):
+                for col in columns:
+                    temp_str = convert_names[col] + ': ' + str(eval(('row.{0}').format(col))) + '\n'
+                    if temp_str not in result['Context']:
+                        result['Context'] += temp_str
+                row = next(model_results_iter)
+            for q in q_array:
+                pattern = re.compile(q, re.IGNORECASE)
+                result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
+            temp_array = result['Context'].split('\n')
+            result['Context'] = ""
+            for temp in temp_array:
+                if '<b>' in temp:
+                    result['Context'] += temp + '<br>'
+            result['model'] = model_names[model]
+            result['name'] = eval(('old_row.{0}').format(param))
+            result['plural'] = plural_names[model]
+            result['id_num'] = old_row.id_num
+            results.append(result)
+    except StopIteration:
+        pass
 
 @APP.route('/api/<string:model_name>/num_pages')
 def get_num_pages(model_name):
