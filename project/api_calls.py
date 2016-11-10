@@ -62,73 +62,73 @@ def api_call():
         top_city_name = ''
         for current_city in majors[maj]['cities']:
             if majors[maj]['cities'][current_city] > top_count:
-                top_city_name = current_city
                 top_count = majors[maj]['cities'][current_city]
-    #     print(str(maj) + ' name: ' + str(top_city_name) + ' amount: ' + str(majors[maj]['cities'][current_city]))
+                top_city_name = current_city
+        # print(str(maj) + ' topcityname: ' + str(top_city_name) + ' topcityamount: ' + str(top_count) + ' topuni: ' + str(majors[maj]['top_university_name']) + ' topuniamt: ' + str(majors[maj]['top_university_amt'])  )
 
-        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, avg_percentage=majors[maj]['avg_percentage'], top_city_amt=top_count)
-        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'], top_city_amt=majors[maj]['top_city_amt'])
+        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_uni=majors[maj]['top_university_name'], top_uni_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
+        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_uni=majors[maj]['top_university_name'], top_uni_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
         major_objs_uni[maj] = major
         major_objs_city[maj] = major2
 
-    # print('finished majors... working on ethnicities')
+    print('finished majors... working on ethnicities')
 
-    # for eth in ethnicities:
-    #     ethnicity = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
-    #     ethnicity2 = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
-    #     eth_objs_uni[eth] = ethnicity
-    #     eth_objs_city[eth] = ethnicity2
+    for eth in ethnicities:
+        ethnicity = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
+        ethnicity2 = create_unique(Ethnicity, name=eth, total_count=ethnicities[eth]['total_undergraduate_count'], top_city=ethnicities[eth]['top_city_name'], top_city_amt=ethnicities[eth]['top_city_amt'], top_university=ethnicities[eth]['top_university_name'], top_university_amt=ethnicities[eth]['top_university_amt'])
+        eth_objs_uni[eth] = ethnicity
+        eth_objs_city[eth] = ethnicity2
 
-    # print('finished ethnicities... starting universities')
+    print('finished ethnicities... starting universities')
 
-    # for uni in universities:
-    #     university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'], city_name=universities[uni]['city'])
-    #     for maj in universities[uni]['major_list']:
-    #         if maj in major_objs_uni:
-    #             university.add_major(universities[uni]['major_list'][maj], major_objs_uni[maj])
-    #     for eth in universities[uni]['ethnicity_list']:
-    #         if eth in eth_objs_uni:
-    #             university.add_ethnicity(universities[uni]['ethnicity_list'][eth], eth_objs_uni[eth])
-    #     uni_objs[uni] = university
+    for uni in universities:
+        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'], city_name=universities[uni]['city'])
+        for maj in universities[uni]['major_list']:
+            if maj in major_objs_uni:
+                university.add_major(universities[uni]['major_list'][maj], major_objs_uni[maj])
+        for eth in universities[uni]['ethnicity_list']:
+            if eth in eth_objs_uni:
+                university.add_ethnicity(universities[uni]['ethnicity_list'][eth], eth_objs_uni[eth])
+        uni_objs[uni] = university
 
-    # print('finished universities... starting cities')
+    print('finished universities... starting cities')
 
-    # for city in cities:
-    #     top_university = ('none', 0)
-    #     top_major = ('none', 0)
-    #     top_ethnicity = ('none', 0)
-    #     university_count = 0
-    #     major_count = 0
-    #     ethnicity_count = 0
-    #     for uni in uni_objs:
-    #         if universities[uni]['city'] == city:
-    #             university_count += 1
-    #             if universities[uni]['undergrad_population'] > top_university[1]:
-    #                 top_university = (uni, universities[uni]['undergrad_population'])
-    #     for maj in cities[city]['major_list']:
-    #         if maj in major_objs_city:
-    #             major_count += 1
-    #             if cities[city]['major_list'][maj] > top_major[1]:
-    #                 top_major = (maj, cities[city]['major_list'][maj])
-    #     for eth in cities[city]['ethnicity_list']:
-    #         if eth in eth_objs_city:
-    #             ethnicity_count += 1
-    #             if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
-    #                 top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
-    #     cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
-    #     for uni in uni_objs:
-    #         if universities[uni]['city'] == city:
-    #             cur_city.add_university(uni_objs[uni])
-    #     for maj in cities[city]['major_list']:
-    #         if maj in major_objs_city:
-    #             cur_city.add_major(cities[city]['major_list'][maj], major_objs_city[maj])
-    #     for eth in cities[city]['ethnicity_list']:
-    #         if eth in eth_objs_city:
-    #             cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
+    for city in cities:
+        top_university = ('none', 0)
+        top_major = ('none', 0)
+        top_ethnicity = ('none', 0)
+        university_count = 0
+        major_count = 0
+        ethnicity_count = 0
+        for uni in uni_objs:
+            if universities[uni]['city'] == city:
+                university_count += 1
+                if universities[uni]['undergrad_population'] > top_university[1]:
+                    top_university = (uni, universities[uni]['undergrad_population'])
+        for maj in cities[city]['major_list']:
+            if maj in major_objs_city:
+                major_count += 1
+                if cities[city]['major_list'][maj] > top_major[1]:
+                    top_major = (maj, cities[city]['major_list'][maj])
+        for eth in cities[city]['ethnicity_list']:
+            if eth in eth_objs_city:
+                ethnicity_count += 1
+                if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
+                    top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
+        for uni in uni_objs:
+            if universities[uni]['city'] == city:
+                cur_city.add_university(uni_objs[uni])
+        for maj in cities[city]['major_list']:
+            if maj in major_objs_city:
+                cur_city.add_major(cities[city]['major_list'][maj], major_objs_city[maj])
+        for eth in cities[city]['ethnicity_list']:
+            if eth in eth_objs_city:
+                cur_city.add_ethnicity(cities[city]['ethnicity_list'][eth], eth_objs_city[eth])
 
-    # print('finished cities... starting to commit')
+    print('finished cities... starting to commit')
 
-    # DB.session.commit()
+    DB.session.commit()
 
     print('FINISHED RUNNING')
 
@@ -314,15 +314,6 @@ def total_undergrads_all_universities():
     if total_undergraduates == 0:
         return 1
     return total_undergraduates
-
-# def top_city_for_major(major_name):
-#     result = ("", 0)
-#     for city in cities:
-#         if major_name in cities[city]['major_list'] and cities[city]['major_list'][major_name] > result[1]:
-#             result = (city, cities[city]['major_list'][major_name])
-#             # print(str(major_name) + ' top_city_for_major is: ', end='')
-#             # print(result)
-#     return result
 
 def top_university_for_major(major_name):
     result = ("", 0)
