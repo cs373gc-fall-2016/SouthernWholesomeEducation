@@ -460,10 +460,12 @@ class Major(DB.Model):
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
-            'top_city_id': top_city_id,
-            'avg_percentage': self.avg_percentage,
-            'num_universities': self.uni_count,
-            'num_cities': num_cities
+            'avg_percentage': self.avg_percentage, # to delete
+            'top_city_amt': self.top_city_amt,
+
+            'top_city_id': top_city_id, # what is this?
+            'num_universities': self.uni_count,  # what is this?
+            'num_cities': num_cities  # what is this?
         }
 
     # def primary_attributes(self):
