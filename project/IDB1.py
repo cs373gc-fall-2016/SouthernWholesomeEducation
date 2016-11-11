@@ -66,7 +66,7 @@ def error_page(error):
 
 @APP.route('/api/runUnitTests')
 def run_tests():
-    return subprocess.getoutput("python3 tests.py")  
+    return subprocess.getoutput("python3 tests.py")
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
@@ -177,7 +177,8 @@ def create_sql_query(model, q_array, op, str_limit=""):
     elif model == 'Ethnicity':
         sql = "SELECT sq.id_num,sq.name AS ethnicity_name,sq.total_count,sq.top_city,sq.top_city_amt,sq.top_university,sq.top_university_amt FROM (SELECT * FROM \"ETHNICITY\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND sq::text ILIKE '%%" + q_array[0] + "%%'"
     for q in q_array[1:]:
-        sql += (" " + op + " sq::text ILIKE '%%" + q + "%%' ORDER BY id_num")
+        sql += (" " + op + " sq::text ILIKE '%%" + q + "%%'")
+    sql += " ORDER BY id_num"
     return sql
 
 
