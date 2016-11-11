@@ -141,8 +141,16 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
     $scope.myData = data.results;
   });
   $scope.image = function(name) {
-    $http.get('/image/'+name).success(function (data, status, headers, config) {
-      $scope.imageUrl = data.Image;
+    $http({
+        method: 'GET',
+        url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
+        headers: {'Api-Key': 'j878g39yx378pa77djthzzpn'}
+    })
+    .success(function(data) {
+      return data.images[Math.random() * data.images.length].display_sizes[0].uri;
+    })
+    .error(function () {
+      console.log('err');
     });
   }
 });
