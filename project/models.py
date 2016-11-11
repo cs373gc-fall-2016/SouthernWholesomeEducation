@@ -428,7 +428,6 @@ class Major(DB.Model):
             'avg_percentage': self.avg_percentage, # to delete
 
             'top_city_id': top_city_id, # what is this?
-            'num_universities': self.uni_count,  # what is this?
             'num_cities': num_cities  # what is this?
         }
 
