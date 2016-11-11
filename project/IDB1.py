@@ -28,9 +28,14 @@ plural_names = {'University':'universities', 'City':'cities', 'Major':'majors',
     'Ethnicity':'ethnicities'}
 model_names = {University:'University', City:'City', Major:'Major', Ethnicity:'Ethnicity'}
 current_query = ""
-current_op = ""
-current_model = ""
-pag_list = []
+university_and_list = []
+university_or_list = []
+city_and_list = []
+city_or_list = []
+major_and_list = []
+major_or_list = []
+ethnicity_and_list = []
+ethnicity_or_list = []
 
 @APP.route('/')
 def render_home():
@@ -117,10 +122,7 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
 
 @APP.route('/search/<string:model>/<string:query>/<string:op>/<int:page>')
 def get_search(model, query, op, page):
-    global pag_list
     global current_query
-    global current_op
-    global current_model
     university_columns = ['university_name', 'num_undergrads', 'cost_to_attend', 'grad_rate',
         'public_or_private', 'city_name', 'major_name', 'major_num_students',
         'ethnicity_name', 'ethnicity_num_students']
@@ -134,24 +136,20 @@ def get_search(model, query, op, page):
     columns_dict = {'University':university_columns, 'City':city_columns, 'Major':major_columns,
         'Ethnicity':ethnicity_columns}
     list_results = []
-    if query.lower() != current_query.lower() or op.lower() != current_op.lower() or model != current_model:
-        pag_list = []
-        fill_pag_list(model, query, op, model.lower() + '_name')
+    pag_list = eval(("{0}_{1}_list").format(model.lower(),op.lower()))
+    if query.lower() != current_query.lower() or not len(pag_list):
+        del pag_list[:]
+        fill_pag_list(model, query, op, model.lower() + '_name', pag_list)
         current_query = query
-        current_op = op
-        current_model = model
-    city_university_search(list_results, model, op, query, columns_dict[model], model.lower() + '_name', page)
-    # city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
-    # city_university_search(andResults, City, 'AND', query, city_columns, 'city_name')
-    # city_university_search(orResults, City, 'OR', query, city_columns, 'city_name')
+    model_search(list_results, model, op, query, columns_dict[model], model.lower() + '_name',
+        page, pag_list)
     return jsonify(results=list_results)
 
-def fill_pag_list(model, query, op, param):
-    global pag_list
+def fill_pag_list(model, query, op, param, pag_list):
     q_array = query.split()
     sql = "SELECT t1.* FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY id_num) AS row FROM (SELECT DISTINCT RANK() OVER (ORDER BY id_num) AS rowID," + param + ",id_num FROM (" + create_sql_query(model, q_array, op) + ") tab ORDER BY rowID) AS t) t1 WHERE (t1.row-1)%%10=0;"
     print("### Distinct Row")
-    print(sql)
+    # print(sql)
     pag_results = DB.engine.execute(sql)
     pag_iter = iter(pag_results)
     try:
@@ -184,14 +182,13 @@ def create_sql_query(model, q_array, op, str_limit=""):
     return sql
 
 
-def city_university_search(results, model, op, query, columns, param, page):
-    global pag_list
+def model_search(results, model, op, query, columns, param, page, pag_list):
     q_array = query.split()
     if page - 1 >= len(pag_list):
         return
     sql = create_sql_query(model, q_array, op, pag_list[page-1])
     print("Normal SQL")
-    print(sql)
+    # print(sql)
     model_results = DB.engine.execute(sql + ';')
     model_results_iter = iter(model_results)
     stop_loop = False
