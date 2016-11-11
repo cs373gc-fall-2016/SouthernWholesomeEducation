@@ -1,8 +1,9 @@
-# pylint: disable=E1101, R0913, R0903
+# pylint: disable=E1101, R0913, R0903, R0902, W0611
 """Implements the models that will be used in database"""
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 
 APP = Flask(__name__)
 
@@ -193,6 +194,7 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(225))
+    city_name = DB.Column(DB.String(225))
     ethnicity_list = DB.relationship('ETHNICITYTOUNIVERSITY')
     major_list = DB.relationship('MAJORTOUNIVERSITY')
     city_name = DB.Column(DB.String(225))
@@ -236,7 +238,7 @@ class University(DB.Model):
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'cost_to_attend': self.cost_to_attend,
-            'grad_rate': self.grad_rate,
+            'grad_rate': round(self.grad_rate*100),
             'public_or_private': self.public_or_private,
             'city_id': self.city_id,
             'city_name': self.city_name,
@@ -287,14 +289,17 @@ class City(DB.Model):
     maj_count = DB.Column(DB.Integer)
     eth_count = DB.Column(DB.Integer)
 
-    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0):
+    def __init__(self, name, population=0, avg_tuition=0, top_university='none', \
+        top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
         self.top_university = top_university
-        self.top_major = top_major.replace("2014.academics.program_percentage.", "").replace("_", " ").title()
+        self.top_major = top_major.replace( \
+            "2014.academics.program_percentage.", "").replace("_", " ").title()
         self.top_ethnicity = top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
-        self.top_ethnicity = self.top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace( \
+            "2014.student.demographics.race_ethnicity.", "")
         self.top_ethnicity = self.top_ethnicity.replace('nhpi', 'native_hawaiian_pacific_islander')
         self.top_ethnicity = self.top_ethnicity.replace('aian', 'american_indian_alaska_native')
         self.top_ethnicity = self.top_ethnicity.replace("_", " ").title()
@@ -410,6 +415,8 @@ class Major(DB.Model):
         top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, \
             city_name=self.top_city).first().city_id
         num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
+        # top_university_id = MAJORTOUNIVERSITY.query.filter_by(major_name=self.name, \
+        #     university_name=self.top_university).first().university_id
         return {
             'id_num': self.id_num,
             'name': self.name,
@@ -419,7 +426,7 @@ class Major(DB.Model):
             'top_university': self.top_university,
             'top_university_amt': self.top_university_amt,
             'avg_percentage': self.avg_percentage, # to delete
-            
+
             'top_city_id': top_city_id, # what is this?
             'num_universities': self.uni_count,  # what is this?
             'num_cities': num_cities  # what is this?
@@ -442,7 +449,8 @@ class Ethnicity(DB.Model):
     top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
+    def __init__(self, name, total_count=0, top_city='Default', \
+        top_city_amt=0, top_university='Default', top_university_amt=0):
         name = name.replace("2014.student.demographics.race_ethnicity.", "")
         name = name.replace('nhpi', 'native_hawaiian_pacific_islander')
         name = name.replace('aian', 'american_indian_alaska_native')

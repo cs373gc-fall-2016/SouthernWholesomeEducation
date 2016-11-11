@@ -9,7 +9,7 @@
     margin-left: auto;
     margin-right: auto
 }
-    
+
 .carousel {
     max-height: 600px;
     overflow: hidden;
@@ -20,6 +20,13 @@
     padding: 10px;
     border: 3px solid LightGrey;
     padding: 10px;
+}
+.st-sort-ascent:before{
+    content: '\25B2';
+}
+
+.st-sort-descent:before{
+    content: '\25BC';
 }
 
 

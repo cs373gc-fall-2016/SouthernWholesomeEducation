@@ -1,6 +1,4 @@
-<div align="center">
-  <div class="box">
-<table>
+<!-- <table>
   <thead>
 
     <th id="nameCol">
@@ -40,8 +38,8 @@
     </th>
   </thead>
   <tbody>
-  <!-- <tr ng-repeat="row in myData">
-  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td>
   <tr ng-repeat="city in myData">
                 <td>
                   <a ng-href="#/cities/{{city.id_num}}">
@@ -72,6 +70,39 @@
       </a>
     </li>
   </ul>
-</nav>
-</div>
-</div>
+</nav> -->
+
+<table class="table" st-pipe="mc.callServer" st-table="mc.displayed" st-safe-src="mc.rowCollection">
+	<thead>
+	<tr>
+		<th st-sort="name">City</th>
+		<th st-sort="population">Population</th>
+		<th st-sort="uni_count">Number of Universities</th>
+		<th st-sort="eth_count">Number of Ethnicities</th>
+		<th st-sort="maj_count">Number of Majors</th>
+		<th st-sort="avg_tuition">Average Tuition($)</th>
+	</tr>
+	</thead>
+	<tbody ng-show="!mc.isLoading">
+	<tr ng-repeat="row in mc.displayed">
+		<td><a ng-href="/#/cities/{{row.id_num}}">
+		  <span>{{row.name}}</span></a></td>
+		<td>{{row.population}}</td>
+		<td>{{row.uni_count}}</td>
+		<td>{{row.eth_count}}</td>
+		<td>{{row.maj_count}}</td>
+		<td>{{row.avg_tuition}}</td>
+	</tr>
+	</tbody>
+	<tbody ng-show="mc.isLoading">
+	<tr>
+		<td colspan="6" class="text-center">Loading ... </td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td class="text-center" st-pagination="" st-items-by-page="10" colspan="6" st-displayed-pages="8">
+		</td>
+	</tr>
+	</tfoot>
+</table>
