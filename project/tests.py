@@ -142,7 +142,7 @@ class Tests(TestCase):
         Test University attributes
         '''
         uni = University.query.filter_by(name='Young Harris College').first()
-        self.assertEqual(uni.attributes()['grad_rate'], 0.38154256198347)
+        self.assertEqual(uni.attributes()['grad_rate'], 38)
 
 
     def test_university_attr_6(self):
@@ -185,7 +185,7 @@ class Tests(TestCase):
         Test University attributes
         '''
         uni = University.query.filter_by(name='College of the Marshall Islands').first()
-        self.assertEqual(uni.attributes()['grad_rate'], 0.04389054054054)
+        self.assertEqual(uni.attributes()['grad_rate'], 4)
 
     # -------------------
     # university __repr__
@@ -651,7 +651,7 @@ class Tests(TestCase):
         self.assertEqual(city.attributes()['name'], 'Keshena')
 
 
-    def test_city_attr_5(self):
+    def test_city_attr_6(self):
         '''
         Test City attributes
         '''
@@ -659,7 +659,7 @@ class Tests(TestCase):
         self.assertEqual(city.attributes()['name'], 'Las Vegas')
 
 
-    def test_city_attr_6(self):
+    def test_city_attr_7(self):
         '''
         Test City attributes
         '''
@@ -667,7 +667,7 @@ class Tests(TestCase):
         self.assertEqual(city.attributes()['name'], 'Ontario')
 
 
-    def test_city_attr_7(self):
+    def test_city_attr_8(self):
         '''
         Test City attributes
         '''
@@ -1010,4 +1010,3 @@ class Tests(TestCase):
 
 if __name__ == "__main__":
     main()
-
