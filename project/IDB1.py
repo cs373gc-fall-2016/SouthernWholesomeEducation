@@ -137,7 +137,15 @@ def get_search(model, query, op, page):
     list_results = []
     pag_list = eval(("{0}_{1}_list").format(model.lower(),op.lower()))
     if query.lower() != current_query.lower() or not len(pag_list):
-        del pag_list[:]
+        if query.lower() != current_query.lower():
+            del university_and_list[:]
+            del university_or_list[:]
+            del city_and_list[:]
+            del city_or_list[:]
+            del major_and_list[:]
+            del major_or_list[:]
+            del ethnicity_and_list[:]
+            del ethnicity_or_list[:]
         fill_pag_list(model, query, op, model.lower() + '_name', pag_list)
         current_query = query
     model_search(list_results, model, op, query, columns_dict[model], model.lower() + '_name',

@@ -298,15 +298,18 @@ scope.getPage = function(model,op,pagenum) {
 };
 scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
   // console.log(model.query);
-  scope.query = model.query
-  scope.getPage(1,1,1);
-  scope.getPage(3,1,1);
-  scope.getPage(4,1,1);
-  scope.getPage(2,1,1);
-  scope.getPage(1,2,1);
-  scope.getPage(3,2,1);
-  scope.getPage(4,2,1);
-  scope.getPage(2,2,1);
+  scope.query = model.query;
+  // console.log(scope.query);
+  if (scope.query.length != 0) {
+    scope.getPage(1,1,1);
+    scope.getPage(3,1,1);
+    scope.getPage(4,1,1);
+    scope.getPage(2,1,1);
+    scope.getPage(1,2,1);
+    scope.getPage(3,2,1);
+    scope.getPage(4,2,1);
+    scope.getPage(2,2,1);
+  }
   // q.all([http.get('/search/University/'+model.query+'/AND/1'),
   //        http.get('/search/University/'+model.query+'/OR/1'),
   //        http.get('/search/City/'+model.query+'/AND/1'),
