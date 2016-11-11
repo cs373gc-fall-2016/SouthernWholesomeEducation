@@ -11,7 +11,7 @@
                             <strong>Team 5</strong>
                         </small>
                     </h2>
-                    <div id="carousel-example-generic" class="carousel slide">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators hidden-xs">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -31,16 +31,15 @@
                                 <img class="img-responsive img-full" src="http://curry.virginia.edu/uploads/mycimages/Professional%20Learners%20UVA2.jpg" alt="">
                             </div>
                         </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('.carousel').carousel({
+                                    interval: 2000
+                                })
+                            });
+                        </script>
                     </div>
                     
                 </div>
             </div>
-        </div>
+</div>

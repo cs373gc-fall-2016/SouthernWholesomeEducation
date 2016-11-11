@@ -11,34 +11,34 @@ https://catalog.data.gov/dataset/college-scorecard
 
 ### Models
 * Universities
-	* University
+	* University Name
 	* Undergraduate Population
 	* Cost to Attend
 	* Graduation Rate
-	* Location
 	* Public or Private
-	* Ethnicity Count
+	* City Name
 
 * Cities
-	* City
+	* City Name
 	* Student Population
-	* University Count
-	* Major List
 	* Average Tuition
-	* Urban or Rural
-	* Ethnicity Count
+	* Top University
+	* Top Major
+	* Top Ethnicity
 
 * Majors
-	* Major
+	* Major Name
 	* Undergraduate Population
-	* Graduation Rate
-	* University Count
-	* City Count
-	* Average Percentage
+	* Top City
+	* Top City Amount
+	* Top University
+	* Top University Amount
+	* Percent of total Students in Major
 
-* Majors
-	* Ethnicity
+* Ethnicities
+	* Ethnicity Name
 	* Total Undergraduate Population
 	* Top City
+	* Top City Amount
 	* Top University
-	* Peak Enrollment Year
+	* Top University Amount

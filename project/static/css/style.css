@@ -29,17 +29,21 @@
     content: '\25BC';
 }
 
-/*
+
 .item img {
 	width: 100%;
 	height: auto;
 }
-*/
+
 
 }
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
 }
 
 td, th {
