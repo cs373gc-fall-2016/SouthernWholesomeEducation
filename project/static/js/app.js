@@ -1,5 +1,5 @@
 'use strict';
-var myApp = angular.module('myApp', ['ngRoute', 'smart-table', 'angular-advanced-searchbox','angularUtils.directives.dirPagination']);
+var myApp = angular.module('myApp', ['ngRoute', 'smart-table', 'angular-advanced-searchbox','angularUtils.directives.dirPagination','ngAnimate','vTabs']);
 
 myApp.config(function($routeProvider) {
 	$routeProvider.
@@ -333,7 +333,7 @@ scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
   //   scope.ethnicityOr = responses[7].results;
   //   scope.ethnicityOrPages = responses[7].numpages*10;
   // });
-  console.log(scope.universityAndPages);
+  // console.log(scope.universityAndPages);
   // http.get('/search/' + model.query).success(function (data, status, headers, config) {
 	// 	scope.andResults = data.andResults;
   //       scope.orResults = data.orResults;
