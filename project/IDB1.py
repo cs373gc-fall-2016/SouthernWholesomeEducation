@@ -14,14 +14,14 @@ from statistics import get_github_stats
 
 DEFAULT_PAGE = 10
 convert_names = {'name':'Name', 'university_name':'University','major_name':'Major',
-    'num_undergrads':'Number of Undergraduates','ethnicity_name':'Ethnicity',
-    'cost_to_attend':'Cost to Attend', 'grad_rate':'Graduation Rate',
+    'num_undergrads':'Student Number','ethnicity_name':'Ethnicity',
+    'cost_to_attend':'Yearly Tuition', 'grad_rate':'Graduation Rate',
     'public_or_private':'Public/Private', 'city_name':'City', 'majors':'Major',
     'ethnicities':'Ethnicity', 'population':'Population', 'uni_count':'University Count',
     'maj_count':'Major Count', 'avg_tuition':'Average Tuition', 'universities':'University',
     'top_city':'Top City', 'top_city_amt':'Top City Amount', 'top_university':'Top University',
-    'top_university_amt':'Top University Amount', 'major_num_students':'Major Number of Students',
-    'ethnicity_num_students':'Ethnicity Number of Students', 'top_major':'Top Major',
+    'top_university_amt':'Top University Amount', 'major_num_students':'Major Student Number',
+    'ethnicity_num_students':'Ethnicity Student Number', 'top_major':'Top Major',
     'top_ethnicity':'Top Ethnicity', 'avg_percentage':'Average Percentage',
     'total_count':'Total Ethnic Count'}
 plural_names = {'University':'universities', 'City':'cities', 'Major':'majors',
@@ -177,16 +177,16 @@ def fill_pag_list(model, query, op, param, pag_list):
 
 def create_sql_query(model, q_array, op, str_limit=""):
     if model == 'University':
-        sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM (SELECT * FROM \"UNIVERSITY\" ORDER BY id_num " + str_limit + ") U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+        sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM (SELECT * FROM \"UNIVERSITY\" ORDER BY id_num " + str_limit + ") U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE (sq::text ~* '\\y" + q_array[0] + "\\y'"
     elif model == 'City':
-        sql = "SELECT * FROM (SELECT C.id_num,C.name AS city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM (SELECT * FROM \"CITY\" ORDER BY id_num " + str_limit + ") C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+        sql = "SELECT * FROM (SELECT C.id_num,C.name AS city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM (SELECT * FROM \"CITY\" ORDER BY id_num " + str_limit + ") C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id) sq WHERE (sq::text ~* '\\y" + q_array[0] + "\\y'"
     elif model == 'Major':
-        sql = "SELECT sq.id_num,sq.name AS major_name,sq.num_undergrads,sq.top_city,sq.avg_percentage,sq.top_university,sq.top_city_amt,sq.top_university_amt FROM (SELECT * FROM \"MAJOR\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND sq::text ILIKE '%%" + q_array[0] + "%%'"
+        sql = "SELECT sq.id_num,sq.name AS major_name,sq.num_undergrads,sq.top_city,sq.avg_percentage,sq.top_university,sq.top_city_amt,sq.top_university_amt FROM (SELECT * FROM \"MAJOR\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\y" + q_array[0] + "\\y'"
     elif model == 'Ethnicity':
-        sql = "SELECT sq.id_num,sq.name AS ethnicity_name,sq.total_count,sq.top_city,sq.top_city_amt,sq.top_university,sq.top_university_amt FROM (SELECT * FROM \"ETHNICITY\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND sq::text ILIKE '%%" + q_array[0] + "%%'"
+        sql = "SELECT sq.id_num,sq.name AS ethnicity_name,sq.total_count,sq.top_city,sq.top_city_amt,sq.top_university,sq.top_university_amt FROM (SELECT * FROM \"ETHNICITY\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\\y" + q_array[0] + "\\y'"
     for q in q_array[1:]:
-        sql += (" " + op + " sq::text ILIKE '%%" + q + "%%'")
-    sql += " ORDER BY id_num"
+        sql += (" " + op + " sq::text ~* '\\y" + q + "\\y'")
+    sql += ") ORDER BY id_num"
     return sql
 
 
@@ -225,8 +225,10 @@ def model_search(results, model, op, query, columns, param, page, pag_list):
                     row = None
                     stop_loop = True
             for q in q_array:
-                pattern = re.compile(q, re.IGNORECASE)
-                result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
+                pattern = re.compile(r'\b%s\b' % q,re.IGNORECASE)
+                match_str = pattern.search(result['Context'])
+                if match_str:
+                    result['Context'] = pattern.sub("<b>"+match_str.group(0)+"</b>", result['Context'])
             temp_array = result['Context'].split('\n')
             result['Context'] = ""
             for temp in temp_array:
