@@ -239,7 +239,7 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
   }
 });
 
-myApp.controller('SearchCtrl', ['$scope','$http','$sce', function(scope, http, sce) {
+myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, http, sce,q) {
   scope.rowCollection = [];
  scope.availableSearchParams = [
 ];
@@ -247,14 +247,97 @@ scope.itemsByPage = 10;
 scope.renderHtml = function(html_code) {
   return sce.trustAsHtml(html_code);
 };
-scope.andResults = [];
-scope.orResults = [];
- scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
+scope.getPage = function(model,op,pagenum) {
+  // model 1 -> university
+  // model 2 -> city
+  // model 3 -> major
+  // model 4 -> ethnicity
+  // op 1 -> and
+  // op 2 -> or
+  if (model == 1 && op == 1){
+    http.get('/search/University/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+  		scope.universityAnd = data.results;
+      scope.universityAndPages = data.numpages * 10;
+  	});
+  } else if (model == 1 && op == 2){
+    http.get('/search/University/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+  		scope.universityOr = data.results;
+      scope.universityOrPages = data.numpages * 10;
+  	});
+  } else if (model == 2 && op == 1){
+    http.get('/search/City/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+  		scope.cityAnd = data.results;
+      scope.cityAndPages = data.numpages * 10;
+  	});
+  } else if (model == 2 && op == 2){
+    http.get('/search/City/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+  		scope.cityOr = data.results;
+      scope.cityOrPages = data.numpages * 10;
+  	});
+  } else if (model == 3 && op == 1){
+    http.get('/search/Major/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+  		scope.majorAnd = data.results;
+      scope.majorAndPages = data.numpages * 10;
+  	});
+  } else if (model == 3 && op == 2){
+    http.get('/search/Major/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+  		scope.majorOr = data.results;
+      scope.majorOrPages = data.numpages * 10;
+  	});
+  } else if (model == 4 && op == 1){
+    http.get('/search/Ethnicity/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+  		scope.ethnicityAnd = data.results;
+      scope.ethnicityAndPages = data.numpages * 10;
+  	});
+  } else if (model == 4 && op == 2){
+    http.get('/search/Ethnicity/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+  		scope.ethnicityOr = data.results;
+      scope.ethnicityOrPages = data.numpages * 10;
+  	});
+  }
+};
+scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
   // console.log(model.query);
-  http.get('/search/' + model.query).success(function (data, status, headers, config) {
-		scope.andResults = data.andResults;
-    scope.orResults = data.orResults;
-	});
+  scope.query = model.query
+  scope.getPage(1,1,1);
+  scope.getPage(3,1,1);
+  scope.getPage(4,1,1);
+  scope.getPage(2,1,1);
+  scope.getPage(1,2,1);
+  scope.getPage(3,2,1);
+  scope.getPage(4,2,1);
+  scope.getPage(2,2,1);
+  // q.all([http.get('/search/University/'+model.query+'/AND/1'),
+  //        http.get('/search/University/'+model.query+'/OR/1'),
+  //        http.get('/search/City/'+model.query+'/AND/1'),
+  //        http.get('/search/City/'+model.query+'/OR/1'),
+  //        http.get('/search/Major/'+model.query+'/AND/1'),
+  //        http.get('/search/Major/'+model.query+'/OR/1'),
+  //        http.get('/search/Ethnicity/'+model.query+'/AND/1'),
+  //        http.get('/search/Ethnicity/'+model.query+'/OR/1')])
+  // .then(function(responses) {
+  //   scope.universityAnd = responses[0].results;
+  //   scope.universityAndPages = responses[0].numpages*10;
+  //   scope.universityOr = responses[1].results;
+  //   scope.universityOrPages = responses[1].numpages*10;
+  //   scope.cityAnd = responses[2].results;
+  //   scope.cityAndPages = responses[2].numpages*10;
+  //   scope.cityOr = responses[3].results;
+  //   scope.cityOrPages = responses[3].numpages*10;
+  //   scope.majorAnd = responses[4].results;
+  //   scope.majorAndPages = responses[4].numpages*10;
+  //   scope.majorOr = responses[5].results;
+  //   scope.majorOrPages = responses[5].numpages*10;
+  //   scope.ethnicityAnd = responses[6].results;
+  //   scope.ethnicityAndPages = responses[6].numpages*10;
+  //   scope.ethnicityOr = responses[7].results;
+  //   scope.ethnicityOrPages = responses[7].numpages*10;
+  // });
+  console.log(scope.universityAndPages);
+  // http.get('/search/' + model.query).success(function (data, status, headers, config) {
+	// 	scope.andResults = data.andResults;
+  //       scope.orResults = data.orResults;
+	// });
 });
 
 }]);

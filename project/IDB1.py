@@ -126,7 +126,7 @@ def get_search(model, query, op, page):
     university_columns = ['university_name', 'num_undergrads', 'cost_to_attend', 'grad_rate',
         'public_or_private', 'city_name', 'major_name', 'major_num_students',
         'ethnicity_name', 'ethnicity_num_students']
-    city_columns = ['university_name','city_name','population','avg_tuition','top_university',
+    city_columns = ['city_name','population','avg_tuition','top_university',
         'top_major','top_ethnicity','major_name','major_num_students','ethnicity_name',
         'ethnicity_num_students']
     major_columns = ['major_name','num_undergrads','top_city','top_city_amt','top_university',
@@ -143,7 +143,7 @@ def get_search(model, query, op, page):
         current_query = query
     model_search(list_results, model, op, query, columns_dict[model], model.lower() + '_name',
         page, pag_list)
-    return jsonify(results=list_results)
+    return jsonify(results=list_results,numpages=len(pag_list))
 
 def fill_pag_list(model, query, op, param, pag_list):
     q_array = query.split()
@@ -172,7 +172,7 @@ def create_sql_query(model, q_array, op, str_limit=""):
     if model == 'University':
         sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM (SELECT * FROM \"UNIVERSITY\" ORDER BY id_num " + str_limit + ") U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
     elif model == 'City':
-        sql = "SELECT * FROM (SELECT U.name AS university_name,C.id_num,MC.city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM (SELECT * FROM \"CITY\" ORDER BY id_num " + str_limit + ") C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id JOIN \"UNIVERSITY\" U ON U.city_id=C.id_num) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+        sql = "SELECT * FROM (SELECT C.id_num,C.name AS city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM (SELECT * FROM \"CITY\" ORDER BY id_num " + str_limit + ") C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
     elif model == 'Major':
         sql = "SELECT sq.id_num,sq.name AS major_name,sq.num_undergrads,sq.top_city,sq.avg_percentage,sq.top_university,sq.top_city_amt,sq.top_university_amt FROM (SELECT * FROM \"MAJOR\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND sq::text ILIKE '%%" + q_array[0] + "%%'"
     elif model == 'Ethnicity':

@@ -2,8 +2,8 @@
 <nit-advanced-searchbox ng-model="searchParams" placeholder="Search"></nit-advanced-searchbox>
 </div>
 <div class="container">
-<h3>And Table</h3>
-<table st-table="andResults" st-safe-src="rowCollection" class="table table-striped">
+<h3>University Table</h3>
+<table class="table table-striped">
 		<thead>
 		<tr>
 			<th>Model Type</th>
@@ -12,7 +12,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr dir-paginate="row in andResults | itemsPerPage: 10" pagination-id="and">
+		<tr dir-paginate="row in universityAnd | itemsPerPage: 10" total-items="universityAndPages" 			pagination-id="universityand">
 			<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
 			<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
 			<td ng-bind-html="renderHtml(row.Context)"></td>
@@ -21,15 +21,15 @@
 		<tfoot>
 			<tr>
 				<td colspan="3" class="text-center">
-					<dir-pagination-controls pagination-id="and"></dir-pagination-controls>
+					<dir-pagination-controls pagination-id="universityand" on-page-change="getPage(1,1,newPageNumber)"></dir-pagination-controls>
 				</td>
 			</tr>
 		</tfoot>
 	</table>
 </div>
 <div class="container">
-<h3>Or Table</h3>
-<table st-table="orResults" st-safe-src="rowCollection" class="table table-striped">
+<h3>City Table</h3>
+<table class="table table-striped">
 		<thead>
 		<tr>
 			<th>Model Type</th>
@@ -38,7 +38,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr dir-paginate="row in orResults | itemsPerPage: 10" pagination-id="or">
+		<tr dir-paginate="row in cityAnd | itemsPerPage: 10" pagination-id="cityand">
 			<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
 			<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
 			<td ng-bind-html="renderHtml(row.Context)"></td>
@@ -47,7 +47,59 @@
 		<tfoot>
 			<tr>
 				<td colspan="3" class="text-center">
-					<dir-pagination-controls pagination-id="or"></dir-pagination-controls>
+					<dir-pagination-controls pagination-id="cityand" on-page-change="getPage(2,1,newPageNumber)"></dir-pagination-controls>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<div class="container">
+<h3>Major Table</h3>
+<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>Model Type</th>
+			<th>Model Name</th>
+			<th>Context</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr dir-paginate="row in majorAnd | itemsPerPage: 10" pagination-id="majorand">
+			<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+			<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+			<td ng-bind-html="renderHtml(row.Context)"></td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="text-center">
+					<dir-pagination-controls pagination-id="majorand" on-page-change="getPage(3,1,newPageNumber)"></dir-pagination-controls>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<div class="container">
+<h3>Ethnicity Table</h3>
+<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>Model Type</th>
+			<th>Model Name</th>
+			<th>Context</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr dir-paginate="row in ethnicityAnd | itemsPerPage: 10" pagination-id="ethnicityand">
+			<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+			<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+			<td ng-bind-html="renderHtml(row.Context)"></td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="text-center">
+					<dir-pagination-controls pagination-id="ethnicityand" on-page-change="getPage(4,1,newPageNumber)"></dir-pagination-controls>
 				</td>
 			</tr>
 		</tfoot>
