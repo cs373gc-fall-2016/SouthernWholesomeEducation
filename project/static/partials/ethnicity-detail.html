@@ -1,12 +1,16 @@
 <!-- {{myData}} -->
 <div class="container">
-      <div class=".col-md-6">
-      <div>
-        <h3>{{myData.name}}</h3>
+  <div class="box">
+    <div align="center" class = "row">
+        <h1>{{myData.name}}</h1>
       </div>
+    <div class="clearfix"></div>
+  </div>
 
+  <div class="box">
+    <div align="center" class="row">
       <div>
-        <h3>Number of Undergraduate Students</h3>
+        <h3>Undergraduate Student Count</h3>
         <p>{{myData.total_count}}</p>
       </div>
 
@@ -29,46 +33,7 @@
          <h3>Number of Associated Cities</h3>
          <p>{{myData.num_cities}}</p>
      </div>
-
-     <!-- <div id="output"></div>
-
-     <script>
-     var apiKey = 'j878g39yx378pa77djthzzpn';
-     var urlN = "https://api.gettyimages.com/v3/search/images/?phrase=ethnicity";
-   //   document.write(elem);
-$.ajax(
-   {
-       type:'GET',
-       url: urlN ,
-        beforeSend: function (request)
-           {
-               request.setRequestHeader("Api-Key", apiKey);
-           }})
-   .done(function(data){
-       console.log("Success with data");
-       console.log(urlN);
-          $("#output").append("<img src='" + data.images[0].display_sizes[0].uri + "'/>");
-   })
-   .fail(function(data){
-       alert(JSON.stringify(data,2))
-   });
-     </script> -->
-
-
-
-
-
-      <!-- <div>
-        <h3>Current year ethnicity count</h3>
-        <ul>
-          <li><a href="/hispanic.html">Hispanic</a>: 17,900</li>
-          <li><a href="/white.html">White</a>: 8,561</li>
-          <li><a href="/asian.html">Asian</a>: 7,393</li>
-        </ul>
-      </div>
- -->
-
-
     </div>
+  </div>
 
 </div>

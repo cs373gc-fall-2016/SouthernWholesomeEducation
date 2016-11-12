@@ -6,8 +6,8 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    /*background: url('../static/img/bg.jpg') no-repeat center center fixed;*/
-    -webkit-background-size: cover;
+/*    background: url('https://images.freecreatives.com/wp-content/uploads/2015/03/brick-wall-free-textures-011.jpg') no-repeat center center fixed;
+*/    -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;

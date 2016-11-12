@@ -14,18 +14,28 @@ from statistics import get_github_stats
 
 DEFAULT_PAGE = 10
 convert_names = {'name':'Name', 'university_name':'University','major_name':'Major',
-    'num_undergrads':'Number of Undergraduates','ethnicity_name':'Ethnicity',
-    'cost_to_attend':'Cost to Attend', 'grad_rate':'Graduation Rate',
+    'num_undergrads':'Student Number','ethnicity_name':'Ethnicity',
+    'cost_to_attend':'Yearly Tuition', 'grad_rate':'Graduation Rate',
     'public_or_private':'Public/Private', 'city_name':'City', 'majors':'Major',
     'ethnicities':'Ethnicity', 'population':'Population', 'uni_count':'University Count',
     'maj_count':'Major Count', 'avg_tuition':'Average Tuition', 'universities':'University',
     'top_city':'Top City', 'top_city_amt':'Top City Amount', 'top_university':'Top University',
-    'top_university_amt':'Top University Amount', 'major_num_students':'Major Number of Students',
-    'ethnicity_num_students':'Ethnicity Number of Students', 'top_major':'Top Major',
-    'top_ethnicity':'Top Ethnicity'}
-plural_names = {University:'universities', City:'cities', Major:'majors',
-    Ethnicity:'ethnicities'}
+    'top_university_amt':'Top University Amount', 'major_num_students':'Major Student Number',
+    'ethnicity_num_students':'Ethnicity Student Number', 'top_major':'Top Major',
+    'top_ethnicity':'Top Ethnicity', 'avg_percentage':'Average Percentage',
+    'total_count':'Total Ethnic Count'}
+plural_names = {'University':'universities', 'City':'cities', 'Major':'majors',
+    'Ethnicity':'ethnicities'}
 model_names = {University:'University', City:'City', Major:'Major', Ethnicity:'Ethnicity'}
+current_query = ""
+university_and_list = []
+university_or_list = []
+city_and_list = []
+city_or_list = []
+major_and_list = []
+major_or_list = []
+ethnicity_and_list = []
+ethnicity_or_list = []
 
 @APP.route('/')
 def render_home():
@@ -56,8 +66,7 @@ def error_page(error):
 
 @APP.route('/api/runUnitTests')
 def run_tests():
-    """Trigger running unit tests"""
-    return subprocess.getoutput('python3 tests.py')
+    return subprocess.getoutput("python3 tests.py")
 
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
@@ -110,30 +119,84 @@ def pagination_sort(model_name, start, num_items, attr, is_reverse):
     num_pages += (1 if row_count % num_items else 0)
     return jsonify(results=json_list, numpages=num_pages)
 
-@APP.route('/search/<string:query>')
-def get_search(query):
+@APP.route('/search/<string:model>/<string:query>/<string:op>/<int:page>')
+def get_search(model, query, op, page):
+    global current_query
     university_columns = ['university_name', 'num_undergrads', 'cost_to_attend', 'grad_rate',
         'public_or_private', 'city_name', 'major_name', 'major_num_students',
         'ethnicity_name', 'ethnicity_num_students']
-    city_columns = ['university_name','city_name','population','avg_tuition','top_university',
+    city_columns = ['city_name','population','avg_tuition','top_university',
         'top_major','top_ethnicity','major_name','major_num_students','ethnicity_name',
         'ethnicity_num_students']
-    andResults = []
-    orResults = []
-    city_university_search(andResults, University, 'AND', query, university_columns, 'university_name')
-    # city_university_search(orResults, University, 'OR', query, university_columns, 'university_name')
-    # city_university_search(andResults, City, 'AND', query, city_columns, 'city_name')
-    # city_university_search(orResults, City, 'OR', query, city_columns, 'city_name')
-    return jsonify(orResults=[], andResults=andResults)
+    major_columns = ['major_name','num_undergrads','top_city','top_city_amt','top_university',
+        'top_university_amt', 'avg_percentage']
+    ethnicity_columns = ['ethnicity_name','total_count','top_city','top_city_amt','top_university',
+        'top_university_amt']
+    columns_dict = {'University':university_columns, 'City':city_columns, 'Major':major_columns,
+        'Ethnicity':ethnicity_columns}
+    list_results = []
+    pag_list = eval(("{0}_{1}_list").format(model.lower(),op.lower()))
+    if query.lower() != current_query.lower() or not len(pag_list):
+        if query.lower() != current_query.lower():
+            del university_and_list[:]
+            del university_or_list[:]
+            del city_and_list[:]
+            del city_or_list[:]
+            del major_and_list[:]
+            del major_or_list[:]
+            del ethnicity_and_list[:]
+            del ethnicity_or_list[:]
+        fill_pag_list(model, query, op, model.lower() + '_name', pag_list)
+        current_query = query
+    model_search(list_results, model, op, query, columns_dict[model], model.lower() + '_name',
+        page, pag_list)
+    return jsonify(results=list_results,numpages=len(pag_list))
 
-def city_university_search(results, model, op, query, columns, param):
+def fill_pag_list(model, query, op, param, pag_list):
     q_array = query.split()
-    if model == University:
-        sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM \"UNIVERSITY\" AS U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
-    else:
-        sql = "SELECT * FROM (SELECT U.name AS university_name,C.id_num,MC.city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM \"CITY\" AS C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id JOIN \"UNIVERSITY\" U ON U.city_id=C.id_num) sq WHERE sq::text ILIKE '%%" + q_array[0] + "%%'"
+    sql = "SELECT t1.* FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY id_num) AS row FROM (SELECT DISTINCT RANK() OVER (ORDER BY id_num) AS rowID," + param + ",id_num FROM (" + create_sql_query(model, q_array, op) + ") tab ORDER BY rowID) AS t) t1 WHERE (t1.row-1)%%10=0;"
+    # print("### Distinct Row")
+    # print(sql)
+    pag_results = DB.engine.execute(sql)
+    pag_iter = iter(pag_results)
+    try:
+        stop_loop = False
+        curr_pag = next(pag_iter)
+        while not stop_loop:
+            offset = curr_pag.id_num - 1
+            try:
+                curr_pag = next(pag_iter)
+            except StopIteration:
+                stop_loop = True
+            offset_str = "OFFSET " + str(offset)
+            limit_str = " LIMIT " + ("ALL" if stop_loop else str(curr_pag.id_num - offset - 1))
+            # print(offset_str + limit_str)
+            pag_list.append(offset_str + limit_str)
+    except StopIteration:
+        pass
+
+def create_sql_query(model, q_array, op, str_limit=""):
+    if model == 'University':
+        sql = "SELECT * FROM (SELECT U.id_num,MU.university_name,U.num_undergrads,U.cost_to_attend,U.grad_rate,U.public_or_private,U.city_name,MU.major_name,MU.num_students AS major_num_students,EU.ethnicity_name,EU.num_students AS ethnicity_num_students FROM (SELECT * FROM \"UNIVERSITY\" ORDER BY id_num " + str_limit + ") U JOIN \"MAJORTOUNIVERSITY\" MU ON U.id_num=MU.university_id JOIN \"ETHNICITYTOUNIVERSITY\" EU ON U.id_num=EU.university_id) sq WHERE (sq::text ~* '\\y" + q_array[0] + "\\y'"
+    elif model == 'City':
+        sql = "SELECT * FROM (SELECT C.id_num,C.name AS city_name,C.population,C.avg_tuition,C.top_university,C.top_major,C.top_ethnicity,MC.major_name,MC.num_students AS major_num_students,EC.ethnicity_name,EC.num_students AS ethnicity_num_students FROM (SELECT * FROM \"CITY\" ORDER BY id_num " + str_limit + ") C JOIN \"MAJORTOCITY\" MC ON C.id_num=MC.city_id JOIN \"ETHNICITYTOCITY\" EC ON C.id_num=EC.city_id) sq WHERE (sq::text ~* '\\y" + q_array[0] + "\\y'"
+    elif model == 'Major':
+        sql = "SELECT sq.id_num,sq.name AS major_name,sq.num_undergrads,sq.top_city,sq.avg_percentage,sq.top_university,sq.top_city_amt,sq.top_university_amt FROM (SELECT * FROM \"MAJOR\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\y" + q_array[0] + "\\y'"
+    elif model == 'Ethnicity':
+        sql = "SELECT sq.id_num,sq.name AS ethnicity_name,sq.total_count,sq.top_city,sq.top_city_amt,sq.top_university,sq.top_university_amt FROM (SELECT * FROM \"ETHNICITY\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\y" + q_array[0] + "\\y'"
     for q in q_array[1:]:
-        sql += (" " + op + " sq::text ILIKE '%%" + q + "%%'")
+        sql += (" " + op + " sq::text ~* '\\y" + q + "\\y'")
+    sql += ") ORDER BY id_num"
+    return sql
+
+
+def model_search(results, model, op, query, columns, param, page, pag_list):
+    q_array = query.split()
+    if page - 1 >= len(pag_list):
+        return
+    sql = create_sql_query(model, q_array, op, pag_list[page-1])
+    # print("Normal SQL")
+    # print(sql)
     model_results = DB.engine.execute(sql + ';')
     model_results_iter = iter(model_results)
     stop_loop = False
@@ -162,14 +225,16 @@ def city_university_search(results, model, op, query, columns, param):
                     row = None
                     stop_loop = True
             for q in q_array:
-                pattern = re.compile(q, re.IGNORECASE)
-                result['Context'] = pattern.sub("<b>"+q+"</b>", result['Context'])
+                pattern = re.compile(r'\b%s\b' % q,re.IGNORECASE)
+                match_str = pattern.search(result['Context'])
+                if match_str:
+                    result['Context'] = pattern.sub("<b>"+match_str.group(0)+"</b>", result['Context'])
             temp_array = result['Context'].split('\n')
             result['Context'] = ""
             for temp in temp_array:
                 if '<b>' in temp:
                     result['Context'] += temp + '<br>'
-            result['model'] = model_names[model]
+            result['model'] = model
             result['name'] = eval(('old_row.{0}').format(param))
             result['plural'] = plural_names[model]
             result['id_num'] = old_row.id_num
