@@ -183,7 +183,7 @@ def create_sql_query(model, q_array, op, str_limit=""):
     elif model == 'Major':
         sql = "SELECT sq.id_num,sq.name AS major_name,sq.num_undergrads,sq.top_city,sq.avg_percentage,sq.top_university,sq.top_city_amt,sq.top_university_amt FROM (SELECT * FROM \"MAJOR\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\y" + q_array[0] + "\\y'"
     elif model == 'Ethnicity':
-        sql = "SELECT sq.id_num,sq.name AS ethnicity_name,sq.total_count,sq.top_city,sq.top_city_amt,sq.top_university,sq.top_university_amt FROM (SELECT * FROM \"ETHNICITY\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\\y" + q_array[0] + "\\y'"
+        sql = "SELECT sq.id_num,sq.name AS ethnicity_name,sq.total_count,sq.top_city,sq.top_city_amt,sq.top_university,sq.top_university_amt FROM (SELECT * FROM \"ETHNICITY\" ORDER BY id_num " + str_limit + ") sq WHERE sq.assoc_university = 1 AND (sq::text ~* '\\y" + q_array[0] + "\\y'"
     for q in q_array[1:]:
         sql += (" " + op + " sq::text ~* '\\y" + q + "\\y'")
     sql += ") ORDER BY id_num"
