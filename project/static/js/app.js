@@ -216,23 +216,26 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
     $scope.myData = data.results;
   }).then(function() {
     $scope.imageUri = null;
+    var name = $scope.myData.name.toLowerCase();
 
-    if ($scope.myData.name == 'BLACK') {
+    if (name == 'BLACK'.toLowerCase()) {
       $scope.imageUri = 'http://cache2.asset-cache.net/xt/509259793.jpg?v=1&g=fs1|0|FPG|59|793&s=1&b=RjI4';
-    } else if ($scope.myData.name == 'WHITE') {
+    } else if (name == 'WHITE'.toLowerCase()) {
       $scope.imageUri = 'http://cache3.asset-cache.net/xt/555799109.jpg?v=1&g=fs1|0|MIR|99|109&s=1&b=RjI4';
-    } else if ($scope.myData.name == 'HISPANIC') {
+    } else if (name == 'HISPANIC'.toLowerCase()) {
       $scope.imageUri = 'http://cache2.asset-cache.net/xt/508455394.jpg?v=1&g=fs1|0|EPL|55|394&s=1&b=RjI4';
-    } else if ($scope.myData.name == 'ASIAN') {
+    } else if (name == 'ASIAN'.toLowerCase()) {
       $scope.imageUri = 'http://cache2.asset-cache.net/xt/575098377.jpg?v=1&g=fs1|0|FKF|98|377&s=1&b=RjI4';
-    } else if ($scope.myData.name == 'American Indian Alaska Native') {
+    } else if (name == 'American Indian Alaska Native'.toLowerCase()) {
       $scope.imageUri = 'http://cache1.asset-cache.net/xt/115122824.jpg?v=1&g=fs1|0|SKP57|22|824&s=1&b=OEYz';
-    } else if ($scope.myData.name == 'Native Hawaiian Pacific Islander') {
+    } else if (name == 'Native Hawaiian Pacific Islander'.toLowerCase()) {
       $scope.imageUri = 'http://cache2.asset-cache.net/xt/602287064.jpg?v=1&g=fs1|0|EPL|87|064&s=1&b=RjI4';
-    } else if ($scope.myData.name != 'UNKOWN')
+    } else if(name == 'TWO OR MORE'.toLowerCase() || name == 'UNKOWN'.toLowerCase()) {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/532969250.jpg?v=1&g=fs1|0|EPL|69|250&s=1&b=RjI4';
+    } else {
       $http({
         method: 'GET',
-        url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + $scope.myData.name,
+        url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
         headers: {'Api-Key': 'jcav9s3kv2emua4rvn2d8kkc'}
       })
       .success(function(data) {
@@ -241,6 +244,7 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
           $scope.imageUri = data.images[rand].display_sizes[0].uri;
         }
       })
+    }
   });
 });
 
