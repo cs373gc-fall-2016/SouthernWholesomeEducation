@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
 
     <th id="nameCol">
@@ -33,8 +33,8 @@
 
   </thead>
   <tbody>
-  <!-- <tr ng-repeat="row in myData">
-  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td>
   <tr ng-repeat="major in myData">
                 <td>
                   <a ng-href="/#/majors/{{major.id_num}}">
@@ -67,4 +67,43 @@
       </a>
     </li>
   </ul>
-</nav>
+</nav> -->
+
+<table class="table" st-pipe="mc.callServer" st-table="mc.displayed" st-safe-src="mc.rowCollection">
+	<thead>
+	<tr>
+		<th st-sort="name" class="sort">Major</th>
+		<th st-sort="num_undergrads" class="sort">Number of Undergraduates</th>
+		<th st-sort="top_city" class="sort">Top City for Major</th>
+		<th st-sort="top_city_amt" class="sort">Top City Major Count</th>
+		<th st-sort="top_university" class="sort">Top University for Major</th>
+		<th st-sort="top_university_amt" class="sort">Top University Major Count</th>
+	</tr>
+	</thead>
+	<tbody ng-show="!mc.isLoading">
+	<tr ng-repeat="row in mc.displayed">
+		<td><a ng-href="/#/majors/{{row.id_num}}">
+		  <span>{{row.name}}</span></a></td>
+		<td>{{row.num_undergrads}}</td>
+		<td><a ng-href="/#/cities/{{row.top_city_id}}">
+		  <span>{{row.top_city}}</span>
+		</a></td>
+		<td>{{row.top_city_amt}}</td>
+		<td><a ng-href="/#/universities/{{row.top_university_id}}">
+		  <span>{{row.top_university}}</span>
+		</a></td>
+		<td>{{row.top_university_amt}}</td>
+	</tr>
+	</tbody>
+	<tbody ng-show="mc.isLoading">
+	<tr>
+		<td colspan="6" class="text-center">Loading ... </td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td class="text-center" st-pagination="" st-items-by-page="10" colspan="6" st-displayed-pages="8">
+		</td>
+	</tr>
+	</tfoot>
+</table>

@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
 
     <th id="nameCol">
@@ -15,20 +15,20 @@
 
     <th id="university_listCol">
       University Count
-        <a href="" ng-click="query('?sort=university_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=university_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+        <a href="" ng-click="query('?sort=uni_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=uni_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="ethnicity_listCol">
       Ethnicity Count
-        <a href="" ng-click="query('?sort=ethnicity_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=ethnicity_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+        <a href="" ng-click="query('?sort=eth_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=eth_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="major_listCol">
       Major Count
-        <a href="" ng-click="query('?sort=major_list&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
-        <a href="" ng-click="query('?sort=major_list&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
+        <a href="" ng-click="query('?sort=maj_count&order=desc')" class="glyphicon glyphicon-triangle-bottom"></a>
+        <a href="" ng-click="query('?sort=maj_count&order=asc')" class="glyphicon glyphicon-triangle-top"></a>
     </th>
 
     <th id="avg_tuition">
@@ -38,8 +38,8 @@
     </th>
   </thead>
   <tbody>
-  <!-- <tr ng-repeat="row in myData">
-  <td ng-repeat="cell in row">{{cell}}</td> -->
+  <tr ng-repeat="row in myData">
+  <td ng-repeat="cell in row">{{cell}}</td>
   <tr ng-repeat="city in myData">
                 <td>
                   <a ng-href="#/cities/{{city.id_num}}">
@@ -47,9 +47,9 @@
                   </a>
                 </td>
                 <td>{{city.population}}</td>
-                <td>{{city.university_list}}</td>
-                <td>{{city.ethnicity_list}}</td>
-                <td>{{city.major_list}}</td>
+                <td>{{city.uni_count}}</td>
+                <td>{{city.eth_count}}</td>
+                <td>{{city.maj_count}}</td>
                 <td>{{city.avg_tuition}}</td>
 </tr>
   </tr>
@@ -70,4 +70,39 @@
       </a>
     </li>
   </ul>
-</nav>
+</nav> -->
+
+<table class="table" st-pipe="mc.callServer" st-table="mc.displayed" st-safe-src="mc.rowCollection">
+	<thead>
+	<tr>
+		<th st-sort="name" class="sort">City</th>
+		<th st-sort="population" class="sort">Population</th>
+		<th st-sort="uni_count" class="sort">Number of Universities</th>
+		<th st-sort="eth_count" class="sort">Number of Ethnicities</th>
+		<th st-sort="maj_count" class="sort">Number of Majors</th>
+		<th st-sort="avg_tuition" class="sort">Average Tuition($)</th>
+	</tr>
+	</thead>
+	<tbody ng-show="!mc.isLoading">
+	<tr ng-repeat="row in mc.displayed">
+		<td><a ng-href="/#/cities/{{row.id_num}}">
+		  <span>{{row.name}}</span></a></td>
+		<td>{{row.population}}</td>
+		<td>{{row.uni_count}}</td>
+		<td>{{row.eth_count}}</td>
+		<td>{{row.maj_count}}</td>
+		<td>{{row.avg_tuition}}</td>
+	</tr>
+	</tbody>
+	<tbody ng-show="mc.isLoading">
+	<tr>
+		<td colspan="6" class="text-center">Loading ... </td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td class="text-center" st-pagination="" st-items-by-page="10" colspan="6" st-displayed-pages="8">
+		</td>
+	</tr>
+	</tfoot>
+</table>

@@ -33,7 +33,7 @@ def api_call():
             setup_data(school_dict)
             count += 1
             print (count)
-        print('finished the API call... Going to dump pickles(not really pickling)')
+        print('finished the API call... Going to dump pickles')
         # pickle to save items locally
         pickle.dump( universities, open( "universities.p", "wb" ) )
         pickle.dump( cities, open( "cities.p", "wb" ) )
@@ -47,19 +47,27 @@ def api_call():
     eth_objs_city = dict()
     uni_objs = dict()
 
-    print('droping now')
+    # print('droping now')
     DB.drop_all()
 
-    print('creating all now')
+    # print('creating all now')
     DB.create_all()
     
 
     print('finished droping tables... creating objects (majors)')
 
-
+    # Testing code
     for maj in majors:
-        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
-        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=majors[maj]['top_city_name'], avg_percentage=majors[maj]['avg_percentage'])
+        top_count = 0
+        top_city_name = ''
+        for current_city in majors[maj]['cities']:
+            if majors[maj]['cities'][current_city] > top_count:
+                top_count = majors[maj]['cities'][current_city]
+                top_city_name = current_city
+        # print(str(maj) + ' topcityname: ' + str(top_city_name) + ' topcityamount: ' + str(top_count) + ' topuni: ' + str(majors[maj]['top_university_name']) + ' topuniamt: ' + str(majors[maj]['top_university_amt'])  )
+
+        major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_university=majors[maj]['top_university_name'], top_university_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
+        major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_university=majors[maj]['top_university_name'], top_university_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
         major_objs_uni[maj] = major
         major_objs_city[maj] = major2
 
@@ -74,7 +82,7 @@ def api_call():
     print('finished ethnicities... starting universities')
 
     for uni in universities:
-        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'])
+        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'], city_name=universities[uni]['city'])
         for maj in universities[uni]['major_list']:
             if maj in major_objs_uni:
                 university.add_major(universities[uni]['major_list'][maj], major_objs_uni[maj])
@@ -89,19 +97,25 @@ def api_call():
         top_university = ('none', 0)
         top_major = ('none', 0)
         top_ethnicity = ('none', 0)
+        university_count = 0
+        major_count = 0
+        ethnicity_count = 0
         for uni in uni_objs:
             if universities[uni]['city'] == city:
+                university_count += 1
                 if universities[uni]['undergrad_population'] > top_university[1]:
                     top_university = (uni, universities[uni]['undergrad_population'])
         for maj in cities[city]['major_list']:
             if maj in major_objs_city:
+                major_count += 1
                 if cities[city]['major_list'][maj] > top_major[1]:
                     top_major = (maj, cities[city]['major_list'][maj])
         for eth in cities[city]['ethnicity_list']:
             if eth in eth_objs_city:
+                ethnicity_count += 1
                 if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
                     top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
-        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0])
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
         for uni in uni_objs:
             if universities[uni]['city'] == city:
                 cur_city.add_university(uni_objs[uni])
@@ -116,7 +130,9 @@ def api_call():
 
     DB.session.commit()
 
-    print('FINISHED')
+    print('FINISHED RUNNING')
+
+
 
 def setup_data(individual_school_dict):
     # Universities
@@ -185,7 +201,6 @@ def setup_data(individual_school_dict):
             else:
                 if all_eths[eth] is not None:
                     cities[individual_school_dict['school.city']]['ethnicity_list'][eth] += all_eths[eth]
-        #cities[individual_school_dict['school.city']]['ethnicity_list'].update(major_and_ethnicity_dict(individual_school_dict, 'demographics', '2014.student.demographics.race_ethnicity.'))
         cities[individual_school_dict['school.city']]['ethnicity_count'] = len(cities[individual_school_dict['school.city']]['ethnicity_list'])
     else:
         # creating a new city
@@ -210,17 +225,31 @@ def setup_data(individual_school_dict):
         cities[individual_school_dict['school.city']] = citi_temp_dict
 
     # Majors
+    maj_counter = 0
     for major in individual_school_dict:
         if major in majors:
             if individual_school_dict[major] is not None and individual_school_dict['2014.student.size']:
                 majors[major]['total_major_undergrad_population'] += int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
-                student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
-            top_city_amt = top_city_for_major(major)
-            if majors[major]['top_city_amt'] < top_city_amt[1]:
-                majors[major]['top_city_amt'] = top_city_amt[1]
-                majors[major]['top_city_name'] = top_city_amt[0]
+            top_city_amt = top_university_for_major(major)
+            if majors[major]['top_university_amt'] < top_city_amt[1]:
+                majors[major]['top_university_amt'] = top_city_amt[1]
+                majors[major]['top_university_name'] = top_city_amt[0]
             if majors[major]['total_major_undergrad_population'] is not None:
                 majors[major]['avg_percentage'] = majors[major]['total_major_undergrad_population'] / total_undergrads_all_universities()
+
+            if individual_school_dict['2014.student.size'] != None and individual_school_dict[major] != None:
+                majors_student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+                if 'cities' not in majors[major]:
+                    # add cities to dict
+                    majors[major]['cities'] = dict()
+
+                if individual_school_dict['school.city'] in majors[major]['cities']:
+                    majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
+                else:
+                    # add specific city and then the 
+                    if majors_student_count > 0:
+                        majors[major]['cities'][individual_school_dict['school.city']] = 0
+                        majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
         else:
             # Not in major dict need to create
             if '2014.academics.program_percentage.' in major and individual_school_dict[major] != None and individual_school_dict[major] > 0:
@@ -228,11 +257,27 @@ def setup_data(individual_school_dict):
                 major_temp_dict['major_name'] = major
                 if individual_school_dict['2014.student.size'] is not None and individual_school_dict[major] is not None:
                     major_temp_dict['total_major_undergrad_population'] = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
-                major_temp_dict['top_city_amt'] = int(major_temp_dict['total_major_undergrad_population'])
-                major_temp_dict['top_city_name'] = individual_school_dict['school.city']
                 if major_temp_dict['total_major_undergrad_population'] is not None:
                     major_temp_dict['avg_percentage'] = major_temp_dict['total_major_undergrad_population'] / total_undergrads_all_universities()
+                major_temp_dict['top_university_name'] = top_university_for_major(major)[0]
+                major_temp_dict['top_university_amt'] = top_university_for_major(major)[1]
                 majors[major] = major_temp_dict
+
+                if individual_school_dict['2014.student.size'] != None and individual_school_dict[major] != None:
+                    majors_student_count = int(individual_school_dict['2014.student.size'] * individual_school_dict[major])
+                    if 'cities' not in majors[major]:
+                        # add cities to dict
+                        majors[major]['cities'] = dict()
+
+                    if individual_school_dict['school.city'] in majors[major]['cities']:
+                        majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
+                    else:
+                        # add specific city and then the 
+                        if majors_student_count > 0:
+                            majors[major]['cities'][individual_school_dict['school.city']] = 0
+                            majors[major]['cities'][individual_school_dict['school.city']] += majors_student_count
+
+
 
     # Ethnicities
     for ethnicity in individual_school_dict:
@@ -259,8 +304,6 @@ def setup_data(individual_school_dict):
                 ethnicity_temp_dict['top_university_amt'] = top_university_for_ethnicity(ethnicity)[1]
                 ethnicity_temp_dict['top_university_name'] = top_university_for_ethnicity(ethnicity)[0]
                 ethnicities[ethnicity] = ethnicity_temp_dict
-        # if ethnicity in ethnicities:
-        #     print(ethnicities[ethnicity])
 
 
 
@@ -273,11 +316,11 @@ def total_undergrads_all_universities():
         return 1
     return total_undergraduates
 
-def top_city_for_major(major_name):
+def top_university_for_major(major_name):
     result = ("", 0)
-    for city in cities:
-        if major_name in cities[city]['major_list'] and cities[city]['major_list'][major_name] > result[1]:
-            result = (city, cities[city]['major_list'][major_name])
+    for uni in universities:
+        if major_name in universities[uni]['major_list'] and universities[uni]['major_list'][major_name] > result[1]:
+            result = (uni, universities[uni]['major_list'][major_name])
     return result
 
 def top_city_for_ethnicity(ethnicity_name):
@@ -286,6 +329,7 @@ def top_city_for_ethnicity(ethnicity_name):
         if ethnicity_name in cities[city]['ethnicity_list'] and cities[city]['ethnicity_list'][ethnicity_name] > result[1]:
             result = (city, cities[city]['ethnicity_list'][ethnicity_name])
     return result
+
 
 def top_university_for_ethnicity(ethnicity_name):
     result = ("", 0)
@@ -369,7 +413,7 @@ def get_all_school_codes():
     api_key = '&api_key=Xxf2NKtwfcXUd8K2hqawnlur6c0YY93xsNFwq0Dy'
     school_set = set()
     # looping over all pages in the the api results
-    for page_num in range(0,78):
+    for page_num in range(0,78): #tweak
         print('collecting school numbers page ' + str(page_num), end='')
         output = requests.get(start_url + str(page_num) + api_key)
         dict = output.json()

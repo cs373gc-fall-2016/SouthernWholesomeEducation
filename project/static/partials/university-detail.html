@@ -1,64 +1,56 @@
 <!-- {{myData}} -->
 <div class="container">
-  <div class=".col-md-6">
-    <div>
-      <h3>{{myData.name}}</h3>
+  <div class="box">
+      <div align="center" class = "row">
+        <h1>{{myData.name}}</h1>
+      </div>
+  </div>
+
+  <img ng-src="{{image(myData.name)}}"></img>
+  
+  <div class="box">
+    <div align="center" class = "row">
+      <div>
+        <h3>Number of Undergraduate Students</h3>
+        <p>{{myData.num_undergrads}}</p>
+      </div>
+
+      <div>
+        <h3>Cost to Attend</h3>
+        <p>${{myData.cost_to_attend}}</p>
+      </div>
+
+      <div>
+        <h3>Graduation Rate</h3>
+        <p>{{myData.grad_rate}}%</p>
+      </div>
+
+      <div>
+        <h3>Public/Private</h3>
+        <p>{{myData.public_or_private}}</p>
+      </div>
     </div>
+  </div>
 
-    <img ng-src="{{image(myData.name)}}"></img>
-
-    <div>
-      <h3>Number of Undergraduate Students</h3>
-      <p>{{myData.num_undergrads}}</p>
-    </div>
-
-    <div>
-      <h3>Cost to Attend</h3>
-      <p>${{myData.cost_to_attend}}</p>
-    </div>
-
-    <div>
-      <h3>Graduation Rate</h3>
-      <p>{{myData.grad_rate}}%</p>
-    </div>
-
-    <div>
-      <h3>Location</h3>
-      <ul>
-        <li><a ng-href="#/cities/{{myData.city_id}}">{{myData.city_name}}</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>Public/Private</h3>
-      <p>{{myData.public_or_private}}</p>
-    </div>
-
-    <div>
+  <div class = "row">
+    <div class = "col-lg-2" />
+    <div class = "col-lg-4">
+      <div class="box">
         <h3>Majors</h3>
         <ul ng-repeat="maj in myData.majors">
             <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
         </ul>
+      </div>
     </div>
 
-    <div>
+    <div class = "col-lg-4">
+      <div class="box">
         <h3>Ethnicities</h3>
         <ul ng-repeat="eth in myData.ethnicities">
             <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
         </ul>
+      </div>
     </div>
-    
-    <!-- <div>
-      <h3>Current year ethnicity count</h3>
-      <ul>
-        <li><a href="/hispanic.html">Hispanic</a>: 17,900</li>
-        <li><a href="/white.html">White</a>: 8,561</li>
-        <li><a href="/asian.html">Asian</a>: 7,393</li>
-      </ul>
-    </div>
- -->
-
-
+    <div class = "col-lg-2" />
   </div>
-
 </div>
