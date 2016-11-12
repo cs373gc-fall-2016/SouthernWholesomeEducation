@@ -207,7 +207,6 @@ myApp.factory('Resource', ['$q', '$filter', '$timeout', '$http', '$location', fu
 
 }]);
 
-
 myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/';
   $scope.urlPath = $routeParams.model;
@@ -215,11 +214,10 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
 
   $http.get($scope.path).success(function (data, status, headers, config) {
     $scope.myData = data.results;
-  });
-  $scope.getImage = function(name) {
+  }).then(function() {
     $http({
       method: 'GET',
-      url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
+      url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + $scope.myData.name,
       headers: {'Api-Key': 'jcav9s3kv2emua4rvn2d8kkc'}
     })
     .success(function(data) {
@@ -229,7 +227,7 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
     .error(function () {
       $scope.imageUri = null;
     });
-  }
+  });
 });
 
 myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
