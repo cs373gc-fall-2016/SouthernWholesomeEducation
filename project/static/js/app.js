@@ -1,5 +1,5 @@
 'use strict';
-var myApp = angular.module('myApp', ['ngRoute', 'smart-table', 'angular-advanced-searchbox','angularUtils.directives.dirPagination','ngAnimate','vTabs']);
+var myApp = angular.module('myApp', ['ngRoute', 'smart-table', 'angular-advanced-searchbox','angularUtils.directives.dirPagination','ngAnimate','vTabs','ui.bootstrap']);
 
 myApp.config(function($routeProvider) {
 	$routeProvider.
@@ -241,9 +241,26 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
 
 myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, http, sce,q) {
   scope.rowCollection = [];
+  scope.query = "";
  scope.availableSearchParams = [
 ];
 scope.itemsByPage = 10;
+scope.getOR = function(){
+  if(scope.query.length != 0){
+  scope.getPage(1,2,1);
+  scope.getPage(3,2,1);
+  scope.getPage(4,2,1);
+  scope.getPage(2,2,1);
+}
+};
+scope.getAND = function(){
+  if(scope.query.length != 0){
+    scope.getPage(1,1,1);
+    scope.getPage(3,1,1);
+    scope.getPage(4,1,1);
+    scope.getPage(2,1,1);
+}
+};
 scope.renderHtml = function(html_code) {
   return sce.trustAsHtml(html_code);
 };
@@ -300,16 +317,6 @@ scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
   // console.log(model.query);
   scope.query = model.query;
   // console.log(scope.query);
-  if (scope.query.length != 0) {
-    scope.getPage(1,1,1);
-    scope.getPage(3,1,1);
-    scope.getPage(4,1,1);
-    scope.getPage(2,1,1);
-    scope.getPage(1,2,1);
-    scope.getPage(3,2,1);
-    scope.getPage(4,2,1);
-    scope.getPage(2,2,1);
-  }
   // q.all([http.get('/search/University/'+model.query+'/AND/1'),
   //        http.get('/search/University/'+model.query+'/OR/1'),
   //        http.get('/search/City/'+model.query+'/AND/1'),
