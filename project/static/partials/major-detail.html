@@ -1,11 +1,13 @@
 <!-- {{myData}} -->
 <div class="container">
-    <div align="center" class = "row">
-      <div class="box">
+  <div align="center" class="row">
+    <div class="box">
       <div>
         <h1>{{myData.name}}</h1>
       </div>
     </div>
+
+    <img class="detail-img" ng-if="imageUri" ng-src="{{imageUri}}"></img>
 
     <div class="box">
       <div>
@@ -18,20 +20,20 @@
         <p>{{myData.avg_percentage}}%</p>
       </div>
 
-     <div>
-         <h3>Top City for {{myData.name}}</h3>
-         <p><a href="/#/cities/{{myData.top_city_id}}">{{myData.top_city}}</a></p>
-     </div>
+      <div>
+        <h3>Top City for {{myData.name}}</h3>
+        <p><a href="/#/cities/{{myData.top_city_id}}">{{myData.top_city}}</a></p>
+      </div>
 
-     <div>
-         <h3>Number of Associated Universities</h3>
-         <p>{{myData.num_universities}}</p>
-     </div>
+      <div>
+        <h3>Number of Associated Universities</h3>
+        <p>{{myData.num_universities}}</p>
+      </div>
 
-     <div>
-         <h3>Number of Associated Cities</h3>
-         <p>{{myData.num_cities}}</p>
-     </div>
+      <div>
+        <h3>Number of Associated Cities</h3>
+        <p>{{myData.num_cities}}</p>
+      </div>
     </div>
   </div>
 

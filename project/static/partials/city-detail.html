@@ -1,12 +1,14 @@
 <!-- {{myData}} -->
 <div class="container">
-      <div class="box">
-      <div align="center" class = "row">
-        <h1>{{myData.name}}</h1>
-      </div>
+  <div class="box">
+    <div align="center" class = "row">
+      <h1>{{myData.name}}</h1>
     </div>
+  </div>
+    
+  <img class="detail-img" ng-if="imageUri" ng-src="{{imageUri}}"></img>
 
-    <div class="box">
+  <div class="box">
     <div align="center" class = "row">
       <div>
         <h3>Total Number of Undergraduate Students</h3>
@@ -17,40 +19,36 @@
         <h3>Average Tuition</h3>
         <p>${{myData.avg_tuition}}</p>
       </div>
-    </div>
+      </div>
   </div>
 
-
-    <div class = "row">
-      
-      <div class = "col-lg-4">
-        <div class="box">
-          <h3>Universities</h3>
-          <ul ng-repeat="uni in myData.universities">
-              <li><a href="/#/universities/{{uni.id}}">{{uni.name}}</a></li>
-          </ul>
+  <div class = "row">
+    <div class = "col-lg-4">
+      <div class="box">
+        <h3>Universities</h3>
+        <ul ng-repeat="uni in myData.universities">
+          <li><a href="/#/universities/{{uni.id}}">{{uni.name}}</a></li>
+        </ul>
       </div>
     </div>
-      
-      <div class = "col-lg-4">
-        <div class="box">
-          <h3>Majors</h3>
-          <ul ng-repeat="maj in myData.majors">
-              <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
-          </ul>
-      </div>
-    </div>
-
-      
-      <div class = "col-lg-4">
-        <div class="box">
-          <h3>Ethnicities</h3>
-          <ul ng-repeat="eth in myData.ethnicities">
-              <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
-          </ul>
+    
+    <div class = "col-lg-4">
+      <div class="box">
+        <h3>Majors</h3>
+        <ul ng-repeat="maj in myData.majors">
+          <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
+        </ul>
       </div>
     </div>
 
+    <div class = "col-lg-4">
+      <div class="box">
+        <h3>Ethnicities</h3>
+        <ul ng-repeat="eth in myData.ethnicities">
+          <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
+        </ul>
+      </div>
     </div>
+  </div>
 
 </div>

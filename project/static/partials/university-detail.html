@@ -6,6 +6,8 @@
       </div>
   </div>
 
+  <img class="detail-img" ng-if="imageUri" ng-src="{{imageUri}}"></img>
+  
   <div class="box">
     <div align="center" class = "row">
       <div>
@@ -26,7 +28,7 @@
       <div>
         <h3>Location</h3>
         <ul>
-          <li><a ng-href="#/cities/{{myData.city_id}}">{{myData.city_name}}</a></li>
+          <a ng-href="#/cities/{{myData.city_id}}">{{myData.city_name}}</a>
         </ul>
       </div>
 
@@ -37,28 +39,26 @@
     </div>
   </div>
 
-    <div class = "row">
-      <div class = "col-lg-2" />
-      <div class = "col-lg-4">
-        <div class="box">
-          <h3>Majors</h3>
-          <ul ng-repeat="maj in myData.majors">
-              <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
-          </ul>
-        </div>
+  <div class = "row">
+    <div class = "col-lg-2" />
+    <div class = "col-lg-4">
+      <div class="box">
+        <h3>Majors</h3>
+        <ul ng-repeat="maj in myData.majors">
+            <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
+        </ul>
       </div>
-<!--       <div class = "col-lg-4" />
- -->
-      <div class = "col-lg-4">
-        <div class="box">
-          <h3>Ethnicities</h3>
-          <ul ng-repeat="eth in myData.ethnicities">
-              <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
-          </ul>
-        </div>
-      </div>
-      <div class = "col-lg-2" />
     </div>
 
-
+    <div class = "col-lg-4">
+      <div class="box">
+        <h3>Ethnicities</h3>
+        <ul ng-repeat="eth in myData.ethnicities">
+            <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class = "col-lg-2" />
+  </div>
+  
 </div>
