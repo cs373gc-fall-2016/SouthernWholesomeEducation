@@ -216,17 +216,18 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
   $http.get($scope.path).success(function (data, status, headers, config) {
     $scope.myData = data.results;
   });
-  $scope.image = function(name) {
+  $scope.getImage = function(name) {
     $http({
-        method: 'GET',
-        url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
-        headers: {'Api-Key': 'j878g39yx378pa77djthzzpn'}
+      method: 'GET',
+      url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
+      headers: {'Api-Key': 'jcav9s3kv2emua4rvn2d8kkc'}
     })
     .success(function(data) {
-      return data.images[Math.random() * data.images.length].display_sizes[0].uri;
+      var rand = Math.floor(Math.random() * data.images.length);
+      $scope.imageUri = data.images[rand].display_sizes[0].uri;
     })
     .error(function () {
-      console.log('err');
+      $scope.imageUri = null;
     });
   }
 });
@@ -240,122 +241,121 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
 	  });
   }
   $scope.getGithubStats = function() {
-	$http.get('/githubstats').success(function (data, status, headers, config) {
-		$scope.user_stats = data.user_stats;
-    $scope.total_stats = data.total_stats;
-	});
+  	$http.get('/githubstats').success(function (data, status, headers, config) {
+  		$scope.user_stats = data.user_stats;
+      $scope.total_stats = data.total_stats;
+  	});
   }
 });
 
 myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, http, sce,q) {
   scope.rowCollection = [];
   scope.query = "";
- scope.availableSearchParams = [
-];
-scope.itemsByPage = 10;
-scope.getOR = function(){
-  if(scope.query.length != 0){
-  scope.getPage(1,2,1);
-  scope.getPage(3,2,1);
-  scope.getPage(4,2,1);
-  scope.getPage(2,2,1);
-}
-};
-scope.getAND = function(){
-  if(scope.query.length != 0){
-    scope.getPage(1,1,1);
-    scope.getPage(3,1,1);
-    scope.getPage(4,1,1);
-    scope.getPage(2,1,1);
-}
-};
-scope.renderHtml = function(html_code) {
-  return sce.trustAsHtml(html_code);
-};
-scope.getPage = function(model,op,pagenum) {
-  // model 1 -> university
-  // model 2 -> city
-  // model 3 -> major
-  // model 4 -> ethnicity
-  // op 1 -> and
-  // op 2 -> or
-  if (model == 1 && op == 1){
-    http.get('/search/University/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-  		scope.universityAnd = data.results;
-      scope.universityAndPages = data.numpages * 10;
-  	});
-  } else if (model == 1 && op == 2){
-    http.get('/search/University/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-  		scope.universityOr = data.results;
-      scope.universityOrPages = data.numpages * 10;
-  	});
-  } else if (model == 2 && op == 1){
-    http.get('/search/City/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-  		scope.cityAnd = data.results;
-      scope.cityAndPages = data.numpages * 10;
-  	});
-  } else if (model == 2 && op == 2){
-    http.get('/search/City/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-  		scope.cityOr = data.results;
-      scope.cityOrPages = data.numpages * 10;
-  	});
-  } else if (model == 3 && op == 1){
-    http.get('/search/Major/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-  		scope.majorAnd = data.results;
-      scope.majorAndPages = data.numpages * 10;
-  	});
-  } else if (model == 3 && op == 2){
-    http.get('/search/Major/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-  		scope.majorOr = data.results;
-      scope.majorOrPages = data.numpages * 10;
-  	});
-  } else if (model == 4 && op == 1){
-    http.get('/search/Ethnicity/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-  		scope.ethnicityAnd = data.results;
-      scope.ethnicityAndPages = data.numpages * 10;
-  	});
-  } else if (model == 4 && op == 2){
-    http.get('/search/Ethnicity/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-  		scope.ethnicityOr = data.results;
-      scope.ethnicityOrPages = data.numpages * 10;
-  	});
+  scope.availableSearchParams = [];
+  scope.itemsByPage = 10;
+  scope.getOR = function(){
+    if(scope.query.length != 0){
+    scope.getPage(1,2,1);
+    scope.getPage(3,2,1);
+    scope.getPage(4,2,1);
+    scope.getPage(2,2,1);
   }
-};
-scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
-  // console.log(model.query);
-  scope.query = model.query;
-  // console.log(scope.query);
-  // q.all([http.get('/search/University/'+model.query+'/AND/1'),
-  //        http.get('/search/University/'+model.query+'/OR/1'),
-  //        http.get('/search/City/'+model.query+'/AND/1'),
-  //        http.get('/search/City/'+model.query+'/OR/1'),
-  //        http.get('/search/Major/'+model.query+'/AND/1'),
-  //        http.get('/search/Major/'+model.query+'/OR/1'),
-  //        http.get('/search/Ethnicity/'+model.query+'/AND/1'),
-  //        http.get('/search/Ethnicity/'+model.query+'/OR/1')])
-  // .then(function(responses) {
-  //   scope.universityAnd = responses[0].results;
-  //   scope.universityAndPages = responses[0].numpages*10;
-  //   scope.universityOr = responses[1].results;
-  //   scope.universityOrPages = responses[1].numpages*10;
-  //   scope.cityAnd = responses[2].results;
-  //   scope.cityAndPages = responses[2].numpages*10;
-  //   scope.cityOr = responses[3].results;
-  //   scope.cityOrPages = responses[3].numpages*10;
-  //   scope.majorAnd = responses[4].results;
-  //   scope.majorAndPages = responses[4].numpages*10;
-  //   scope.majorOr = responses[5].results;
-  //   scope.majorOrPages = responses[5].numpages*10;
-  //   scope.ethnicityAnd = responses[6].results;
-  //   scope.ethnicityAndPages = responses[6].numpages*10;
-  //   scope.ethnicityOr = responses[7].results;
-  //   scope.ethnicityOrPages = responses[7].numpages*10;
-  // });
-  // console.log(scope.universityAndPages);
-  // http.get('/search/' + model.query).success(function (data, status, headers, config) {
-	// 	scope.andResults = data.andResults;
-  //       scope.orResults = data.orResults;
-	// });
-});
+  };
+  scope.getAND = function(){
+    if(scope.query.length != 0){
+      scope.getPage(1,1,1);
+      scope.getPage(3,1,1);
+      scope.getPage(4,1,1);
+      scope.getPage(2,1,1);
+  }
+  };
+  scope.renderHtml = function(html_code) {
+    return sce.trustAsHtml(html_code);
+  };
+  scope.getPage = function(model,op,pagenum) {
+    // model 1 -> university
+    // model 2 -> city
+    // model 3 -> major
+    // model 4 -> ethnicity
+    // op 1 -> and
+    // op 2 -> or
+    if (model == 1 && op == 1){
+      http.get('/search/University/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+    		scope.universityAnd = data.results;
+        scope.universityAndPages = data.numpages * 10;
+    	});
+    } else if (model == 1 && op == 2){
+      http.get('/search/University/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+    		scope.universityOr = data.results;
+        scope.universityOrPages = data.numpages * 10;
+    	});
+    } else if (model == 2 && op == 1){
+      http.get('/search/City/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+    		scope.cityAnd = data.results;
+        scope.cityAndPages = data.numpages * 10;
+    	});
+    } else if (model == 2 && op == 2){
+      http.get('/search/City/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+    		scope.cityOr = data.results;
+        scope.cityOrPages = data.numpages * 10;
+    	});
+    } else if (model == 3 && op == 1){
+      http.get('/search/Major/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+    		scope.majorAnd = data.results;
+        scope.majorAndPages = data.numpages * 10;
+    	});
+    } else if (model == 3 && op == 2){
+      http.get('/search/Major/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+    		scope.majorOr = data.results;
+        scope.majorOrPages = data.numpages * 10;
+    	});
+    } else if (model == 4 && op == 1){
+      http.get('/search/Ethnicity/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+    		scope.ethnicityAnd = data.results;
+        scope.ethnicityAndPages = data.numpages * 10;
+    	});
+    } else if (model == 4 && op == 2){
+      http.get('/search/Ethnicity/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+    		scope.ethnicityOr = data.results;
+        scope.ethnicityOrPages = data.numpages * 10;
+    	});
+    }
+  };
+  scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
+    // console.log(model.query);
+    scope.query = model.query;
+    // console.log(scope.query);
+    // q.all([http.get('/search/University/'+model.query+'/AND/1'),
+    //        http.get('/search/University/'+model.query+'/OR/1'),
+    //        http.get('/search/City/'+model.query+'/AND/1'),
+    //        http.get('/search/City/'+model.query+'/OR/1'),
+    //        http.get('/search/Major/'+model.query+'/AND/1'),
+    //        http.get('/search/Major/'+model.query+'/OR/1'),
+    //        http.get('/search/Ethnicity/'+model.query+'/AND/1'),
+    //        http.get('/search/Ethnicity/'+model.query+'/OR/1')])
+    // .then(function(responses) {
+    //   scope.universityAnd = responses[0].results;
+    //   scope.universityAndPages = responses[0].numpages*10;
+    //   scope.universityOr = responses[1].results;
+    //   scope.universityOrPages = responses[1].numpages*10;
+    //   scope.cityAnd = responses[2].results;
+    //   scope.cityAndPages = responses[2].numpages*10;
+    //   scope.cityOr = responses[3].results;
+    //   scope.cityOrPages = responses[3].numpages*10;
+    //   scope.majorAnd = responses[4].results;
+    //   scope.majorAndPages = responses[4].numpages*10;
+    //   scope.majorOr = responses[5].results;
+    //   scope.majorOrPages = responses[5].numpages*10;
+    //   scope.ethnicityAnd = responses[6].results;
+    //   scope.ethnicityAndPages = responses[6].numpages*10;
+    //   scope.ethnicityOr = responses[7].results;
+    //   scope.ethnicityOrPages = responses[7].numpages*10;
+    // });
+    // console.log(scope.universityAndPages);
+    // http.get('/search/' + model.query).success(function (data, status, headers, config) {
+  	// 	scope.andResults = data.andResults;
+    //       scope.orResults = data.orResults;
+  	// });
+  });
 
 }]);

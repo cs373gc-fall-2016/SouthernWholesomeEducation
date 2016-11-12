@@ -1,5 +1,5 @@
 <!-- {{myData}} -->
-<div class="container">
+<div class="container" ng-init="getImage()">
   <div align="center" class = "row">
     <div class="box">
       <div>
@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <img ng-src="{{image(myData.name)}}"></img>
+    <img ng-if="imageUri" ng-src="{{imageUri}}"></img>
 
     <div class="box">
       <div>
@@ -36,5 +36,5 @@
       </div>
     </div>
   </div>
-  
+
 </div>
