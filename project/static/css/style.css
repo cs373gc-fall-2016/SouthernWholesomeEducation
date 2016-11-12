@@ -29,12 +29,10 @@
     content: '\25BC';
 }
 
-
 .item img {
 	width: 100%;
 	height: auto;
 }
-
 
 table {
     border-collapse: collapse;
@@ -57,4 +55,11 @@ tr:nth-child(even) {
 
 th.sort:hover {
 	cursor: pointer;
+}
+
+.detail-img {
+    display: block;
+    margin: auto;
+    width: 65%;
+    height: auto;
 }
