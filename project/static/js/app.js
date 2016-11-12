@@ -215,18 +215,19 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
   $http.get($scope.path).success(function (data, status, headers, config) {
     $scope.myData = data.results;
   }).then(function() {
-    $http({
-      method: 'GET',
-      url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + $scope.myData.name,
-      headers: {'Api-Key': 'jcav9s3kv2emua4rvn2d8kkc'}
-    })
-    .success(function(data) {
-      var rand = Math.floor(Math.random() * data.images.length);
-      $scope.imageUri = data.images[rand].display_sizes[0].uri;
-    })
-    .error(function () {
-      $scope.imageUri = null;
-    });
+    $scope.imageUri = null;
+    if ($scope.myData.name != 'UNKOWN')
+      $http({
+        method: 'GET',
+        url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + $scope.myData.name,
+        headers: {'Api-Key': 'jcav9s3kv2emua4rvn2d8kkc'}
+      })
+      .success(function(data) {
+        if (data.images.length) {
+          var rand = Math.floor(Math.random() * data.images.length);
+          $scope.imageUri = data.images[rand].display_sizes[0].uri;
+        }
+      })
   });
 });
 
