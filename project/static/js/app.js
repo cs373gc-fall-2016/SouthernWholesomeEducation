@@ -242,6 +242,8 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
         if (data.images.length) {
           var rand = Math.floor(Math.random() * data.images.length);
           $scope.imageUri = data.images[rand].display_sizes[0].uri;
+        } else {
+          $scope.imageUri = 'http://cache2.asset-cache.net/xt/452716295.jpg?v=1&g=fs1|0|DV|16|295&s=1&b=RTRE';
         }
       })
     }
