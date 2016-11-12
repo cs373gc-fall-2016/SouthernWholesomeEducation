@@ -232,7 +232,7 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
       $scope.imageUri = 'http://cache2.asset-cache.net/xt/602287064.jpg?v=1&g=fs1|0|EPL|87|064&s=1&b=RjI4';
     } else if(name == 'TWO OR MORE'.toLowerCase() || name == 'UNKOWN'.toLowerCase()) {
       $scope.imageUri = 'http://cache2.asset-cache.net/xt/532969250.jpg?v=1&g=fs1|0|EPL|69|250&s=1&b=RjI4';
-    } else {
+    } else if (name != 'NON RESIDENT ALIEN'.toLowerCase()) {
       $http({
         method: 'GET',
         url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
