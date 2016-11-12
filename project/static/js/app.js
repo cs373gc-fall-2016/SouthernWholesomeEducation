@@ -216,7 +216,20 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
     $scope.myData = data.results;
   }).then(function() {
     $scope.imageUri = null;
-    if ($scope.myData.name != 'UNKOWN')
+
+    if ($scope.myData.name == 'BLACK') {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/509259793.jpg?v=1&g=fs1|0|FPG|59|793&s=1&b=RjI4';
+    } else if ($scope.myData.name == 'WHITE') {
+      $scope.imageUri = 'http://cache3.asset-cache.net/xt/555799109.jpg?v=1&g=fs1|0|MIR|99|109&s=1&b=RjI4';
+    } else if ($scope.myData.name == 'HISPANIC') {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/508455394.jpg?v=1&g=fs1|0|EPL|55|394&s=1&b=RjI4';
+    } else if ($scope.myData.name == 'ASIAN') {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/575098377.jpg?v=1&g=fs1|0|FKF|98|377&s=1&b=RjI4';
+    } else if ($scope.myData.name == 'American Indian Alaska Native') {
+      $scope.imageUri = 'http://cache1.asset-cache.net/xt/115122824.jpg?v=1&g=fs1|0|SKP57|22|824&s=1&b=OEYz';
+    } else if ($scope.myData.name == 'Native Hawaiian Pacific Islander') {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/602287064.jpg?v=1&g=fs1|0|EPL|87|064&s=1&b=RjI4';
+    } else if ($scope.myData.name != 'UNKOWN')
       $http({
         method: 'GET',
         url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + $scope.myData.name,
