@@ -155,8 +155,8 @@ def get_search(model, query, op, page):
 def fill_pag_list(model, query, op, param, pag_list):
     q_array = query.split()
     sql = "SELECT t1.* FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY id_num) AS row FROM (SELECT DISTINCT RANK() OVER (ORDER BY id_num) AS rowID," + param + ",id_num FROM (" + create_sql_query(model, q_array, op) + ") tab ORDER BY rowID) AS t) t1 WHERE (t1.row-1)%%10=0;"
-    print("### Distinct Row")
-    print(sql)
+    # print("### Distinct Row")
+    # print(sql)
     pag_results = DB.engine.execute(sql)
     pag_iter = iter(pag_results)
     try:
@@ -195,8 +195,8 @@ def model_search(results, model, op, query, columns, param, page, pag_list):
     if page - 1 >= len(pag_list):
         return
     sql = create_sql_query(model, q_array, op, pag_list[page-1])
-    print("Normal SQL")
-    print(sql)
+    # print("Normal SQL")
+    # print(sql)
     model_results = DB.engine.execute(sql + ';')
     model_results_iter = iter(model_results)
     stop_loop = False
