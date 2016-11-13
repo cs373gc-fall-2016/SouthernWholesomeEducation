@@ -5,7 +5,7 @@
       <h1>{{myData.name}}</h1>
     </div>
   </div>
-    
+
   <img class="detail-img" ng-if="imageUri" ng-src="{{imageUri}}"></img>
 
   <div class="box">
@@ -26,27 +26,86 @@
     <div class = "col-lg-4">
       <div class="box">
         <h3>Universities</h3>
-        <ul ng-repeat="uni in myData.universities">
+        <!-- <ul ng-repeat="uni in myData.universities">
           <li><a href="/#/universities/{{uni.id}}">{{uni.name}}</a></li>
-        </ul>
+        </ul> -->
+        <table class="table table-striped">
+<thead>
+<tr>
+    <th ng-click="unisort('name')">University
+<span class="glyphicon sort-icon" ng-show="unisortKey=='name'" ng-class="{'glyphicon-chevron-down':unireverse,'glyphicon-chevron-up':!unireverse}"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr dir-paginate="uni in universities|orderBy:unisortKey:unireverse|itemsPerPage:10" pagination-id="university">
+    <td><a href="/#/universities/{{uni.id}}">{{uni.name}}</a></td>
+</tr>
+</tbody>
+<tfoot>
+    <tr>
+        <td colspan="1" class="text-center">
+            <dir-pagination-controls pagination-id="university"></dir-pagination-controls>
+        </td>
+    </tr>
+</tfoot>
+</table>
       </div>
     </div>
-    
+
     <div class = "col-lg-4">
       <div class="box">
         <h3>Majors</h3>
-        <ul ng-repeat="maj in myData.majors">
+        <!-- <ul ng-repeat="maj in myData.majors">
           <li><a href="/#/majors/{{maj.id}}">{{maj.name}}</a>: {{maj.num_students}}</li>
-        </ul>
+        </ul> -->
+        <table class="table table-striped">
+		<thead>
+		<tr>
+			<th ng-click="majsort('name')">Major
+        <span class="glyphicon sort-icon" ng-show="majsortKey=='name'" ng-class="{'glyphicon-chevron-down':majreverse,'glyphicon-chevron-up':!majreverse}"></span></th>
+			<th ng-click="majsort('num_students')">Student Number
+        <span class="glyphicon sort-icon" ng-show="majsortKey=='num_students'" ng-class="{'glyphicon-chevron-down':majreverse,'glyphicon-chevron-up':!majreverse}"></span></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr dir-paginate="maj in majors|orderBy:majsortKey:majreverse|itemsPerPage:10" pagination-id="major">
+			<td><a href="/#/majors/{{maj.id}}">{{maj.name}}</a></td>
+			<td>{{maj.num_students}}</td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="5" class="text-center">
+					<dir-pagination-controls pagination-id="major"></dir-pagination-controls>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
       </div>
     </div>
 
     <div class = "col-lg-4">
       <div class="box">
         <h3>Ethnicities</h3>
-        <ul ng-repeat="eth in myData.ethnicities">
+        <!-- <ul ng-repeat="eth in myData.ethnicities">
           <li><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a>: {{eth.num_students}}</li>
-        </ul>
+        </ul> -->
+        <table class="table table-striped">
+		<thead>
+		<tr>
+			<th ng-click="ethsort('name')">Ethnicity
+        <span class="glyphicon sort-icon" ng-show="ethsortKey=='name'" ng-class="{'glyphicon-chevron-down':ethreverse,'glyphicon-chevron-up':!ethreverse}"></span></th>
+			<th ng-click="ethsort('num_students')">Student Number
+        <span class="glyphicon sort-icon" ng-show="ethsortKey=='num_students'" ng-class="{'glyphicon-chevron-down':ethreverse,'glyphicon-chevron-up':!ethreverse}"></span></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="eth in ethnicities|orderBy:ethsortKey:ethreverse">
+			<td><a href="/#/ethnicities/{{eth.id}}">{{eth.name}}</a></td>
+			<td>{{eth.num_students}}</td>
+		</tr>
+		</tbody>
+	</table>
       </div>
     </div>
   </div>
