@@ -211,9 +211,58 @@ myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) 
   $scope.path = '/api/';
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath +'/id/' + $routeParams.ID;
+  $scope.majors = [];
+  // $scope.rowCollection = [];
+  $scope.ethnicities = [];
+  $scope.universities = [];
+  $scope.majsort = function(keyname){
+      // console.log($scope.reverse);
+        if (angular.isUndefined($scope.majreverse)) {
+          $scope.majreverse = false;
+        } else {
 
+          $scope.majreverse = !$scope.majreverse; //if true make it false and vice versa
+        }
+        if ($scope.majsortKey != keyname) {
+          $scope.majreverse = false;
+        }
+        $scope.majsortKey = keyname;   //set the sortKey to the param passed
+  };
+  $scope.ethsort = function(keyname){
+      // console.log($scope.reverse);
+        if (angular.isUndefined($scope.ethreverse)) {
+          $scope.ethreverse = false;
+        } else {
+
+          $scope.ethreverse = !$scope.ethreverse; //if true make it false and vice versa
+        }
+        if ($scope.ethsortKey != keyname) {
+          $scope.ethreverse = false;
+        }
+        $scope.ethsortKey = keyname;   //set the sortKey to the param passed
+  };
+  $scope.unisort = function(keyname){
+      // console.log($scope.reverse);
+        if (angular.isUndefined($scope.unireverse)) {
+          $scope.unireverse = false;
+        } else {
+
+          $scope.unireverse = !$scope.unireverse; //if true make it false and vice versa
+        }
+        if ($scope.unisortKey != keyname) {
+          $scope.unireverse = false;
+        }
+        $scope.unisortKey = keyname;   //set the sortKey to the param passed
+  };
   $http.get($scope.path).success(function (data, status, headers, config) {
     $scope.myData = data.results;
+    if($routeParams.model == "university" || $routeParams.model == "city"){
+        $scope.majors = $scope.myData.majors;
+        $scope.ethnicities = $scope.myData.ethnicities;
+    }
+    if($routeParams.model == "city") {
+      $scope.universities = $scope.myData.universities;
+    }
   }).then(function() {
     $scope.imageUri = null;
     var name = $scope.myData.name.toLowerCase();
