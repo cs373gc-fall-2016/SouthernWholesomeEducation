@@ -12,7 +12,7 @@ myApp.config(function($routeProvider) {
         })
         .when('/visualization', {
              templateUrl : '../static/partials/visualization.html',
-             controller: 'AboutCtrl'
+             controller: 'VisualizationCtrl'
         })
         .when('/cities', {
              templateUrl : '../static/partials/cities.html',
@@ -316,6 +316,16 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
   		$scope.user_stats = data.user_stats;
       $scope.total_stats = data.total_stats;
   	});
+  }
+});
+
+
+myApp.controller('VisualizationCtrl', function($scope, $routeParams, $http, $location) {
+  $scope.path = 'blablabla';
+  $scope.getVisualization = function() {
+    $http.get('http://opensourcery.me/api/projects/1').success(function (data, status, headers, config) {
+      $scope.rec_data = data;
+    });
   }
 });
 
