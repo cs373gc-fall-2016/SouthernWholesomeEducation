@@ -75,6 +75,13 @@ def list_all_models(model_name):
     list_models = [m.attributes() for m in models]
     return jsonify(results=list_models)
 
+@APP.route('/api/<string:model_name>/<int:offset>/<int:limit>')
+def list_models_range(model_name, offset, limit):
+    model = get_model(model_name)
+    models = model.query.offset(offset).limit(limit).all()
+    list_models = [m.attributes() for m in models]
+    return jsonify(results=list_models)
+
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
     """Return information for a model given the model type and ID"""
