@@ -10,6 +10,10 @@ myApp.config(function($routeProvider) {
              templateUrl : '../static/partials/about.html',
              controller: 'AboutCtrl'
         })
+        .when('/visualization', {
+             templateUrl : '../static/partials/visualization.html',
+             controller: 'AboutCtrl'
+        })
         .when('/cities', {
              templateUrl : '../static/partials/cities.html',
              controller : 'pipeCtrl as mc',
