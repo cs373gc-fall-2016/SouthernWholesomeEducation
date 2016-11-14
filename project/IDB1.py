@@ -68,6 +68,13 @@ def error_page(error):
 def run_tests():
     return subprocess.getoutput("python3 tests.py")
 
+@APP.route('/api/<string:model_name>')
+def list_all_models(model_name):
+    model = get_model(model_name)
+    models = model.query.all()
+    list_models = [m.attributes() for m in models]
+    return jsonify(results=list_models)
+
 @APP.route('/api/<string:model_name>/id/<int:id_param>')
 def lookup_model(model_name, id_param):
     """Return information for a model given the model type and ID"""
