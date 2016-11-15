@@ -4,7 +4,7 @@
 		<uib-tab index="1" heading="OR search" ng-click="setSearchType('or')">
 		</uib-tab>
 		<div class="container">
-				<nit-advanced-searchbox ng-model="searchParams" placeholder="Search" style="display: inline-block; width: 90%; margin: 5px 5px 10px" ng-keyup="$event.keyCode == 13 ? search() : null"></nit-advanced-searchbox>
+				<nit-advanced-searchbox ng-model="searchParams" placeholder="Search" style="display: inline-block; width: 90%; margin: 5px 5px 10px" ng-keydown="$event.keyCode == 13 ? search() : null"></nit-advanced-searchbox>
 				<button type="button" class="btn btn-primary" ng-click="search()">Search</button>
 		</div>
 		<div ng-show="searchType == 'and'">

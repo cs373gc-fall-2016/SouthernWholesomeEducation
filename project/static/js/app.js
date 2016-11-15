@@ -285,94 +285,97 @@ myApp.controller('VisualizationCtrl', function($scope, $routeParams, $http, $loc
   }
 });
 
-myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, http, sce,q) {
-  scope.rowCollection = [];
-  scope.query = "";
-  scope.availableSearchParams = [];
-  scope.itemsByPage = 10;
-  scope.searchType = 'and';
-  scope.setSearchType = function(searchType) {
-	  scope.searchType = searchType;
+myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', '$timeout', function($scope, http, sce,q, $timeout) {
+  $scope.rowCollection = [];
+  $scope.query = "";
+  $scope.availableSearchParams = [];
+  $scope.itemsByPage = 10;
+  $scope.searchType = 'and';
+  $scope.setSearchType = function(searchType) {
+	  $scope.searchType = searchType;
   }
-  scope.getOR = function(){
+  $scope.getOR = function(){
 	console.log("searching OR");
-	if(scope.query.length != 0){
-	  scope.getPage(1,2,1);
-	  scope.getPage(3,2,1);
-	  scope.getPage(4,2,1);
-	  scope.getPage(2,2,1);
+	if($scope.query.length != 0){
+	  $scope.getPage(1,2,1);
+	  $scope.getPage(3,2,1);
+	  $scope.getPage(4,2,1);
+	  $scope.getPage(2,2,1);
 	}
   };
-  scope.getAND = function(){
+  $scope.getAND = function(){
 	console.log("searching AND");
-	if(scope.query.length != 0){
-	  scope.getPage(1,1,1);
-	  scope.getPage(3,1,1);
-	  scope.getPage(4,1,1);
-	  scope.getPage(2,1,1);
+	console.log($scope.query);
+	if($scope.query.length != 0){
+	  $scope.getPage(1,1,1);
+	  $scope.getPage(3,1,1);
+	  $scope.getPage(4,1,1);
+	  $scope.getPage(2,1,1);
 	}
   };
 
-  scope.search = function() {
-	if (scope.searchType == 'and') {
-	  scope.getAND();
-	}
-	else if (scope.searchType == 'or') {
-	  scope.getOR();
-	}
-	else {
-	  console.log("ERROR: search type should only be 'and' or 'or', not " + scope.searchType);	
-	}
-
+  $scope.search = function() {
+	$timeout(function() {
+		if ($scope.searchType == 'and') {
+		  $scope.getAND();
+		}
+		else if ($scope.searchType == 'or') {
+		  $scope.getOR();
+		}
+		else {
+		  console.log("ERROR: search type should only be 'and' or 'or', not " + $scope.searchType);
+		}
+	  }, 1000);
   };
-  scope.renderHtml = function(html_code) {
+
+  $scope.renderHtml = function(html_code) {
 	return sce.trustAsHtml(html_code);
   };
-  scope.getPage = function(model,op,pagenum) {
+  $scope.getPage = function(model,op,pagenum) {
 	if (model == 1 && op == 1){
-	  http.get('/search/University/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-		  scope.universityAnd = data.results;
-		scope.universityAndPages = data.numpages * 10;
+	  http.get('/search/University/' + $scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.universityAnd = data.results;
+		$scope.universityAndPages = data.numpages * 10;
 	  });
 	} else if (model == 1 && op == 2){
-	  http.get('/search/University/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-		  scope.universityOr = data.results;
-		scope.universityOrPages = data.numpages * 10;
+	  http.get('/search/University/' + $scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.universityOr = data.results;
+		$scope.universityOrPages = data.numpages * 10;
 	  });
 	} else if (model == 2 && op == 1){
-	  http.get('/search/City/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-		  scope.cityAnd = data.results;
-		scope.cityAndPages = data.numpages * 10;
+	  http.get('/search/City/' + $scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.cityAnd = data.results;
+		$scope.cityAndPages = data.numpages * 10;
 	  });
 	} else if (model == 2 && op == 2){
-	  http.get('/search/City/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-		  scope.cityOr = data.results;
-		scope.cityOrPages = data.numpages * 10;
+	  http.get('/search/City/' + $scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.cityOr = data.results;
+		$scope.cityOrPages = data.numpages * 10;
 	  });
 	} else if (model == 3 && op == 1){
-	  http.get('/search/Major/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-		  scope.majorAnd = data.results;
-		scope.majorAndPages = data.numpages * 10;
+	  http.get('/search/Major/' + $scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.majorAnd = data.results;
+		$scope.majorAndPages = data.numpages * 10;
 	  });
 	} else if (model == 3 && op == 2){
-	  http.get('/search/Major/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-		  scope.majorOr = data.results;
-		scope.majorOrPages = data.numpages * 10;
+	  http.get('/search/Major/' + $scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.majorOr = data.results;
+		$scope.majorOrPages = data.numpages * 10;
 	  });
 	} else if (model == 4 && op == 1){
-	  http.get('/search/Ethnicity/' + scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
-		  scope.ethnicityAnd = data.results;
-		scope.ethnicityAndPages = data.numpages * 10;
+	  http.get('/search/Ethnicity/' + $scope.query + '/AND/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.ethnicityAnd = data.results;
+		$scope.ethnicityAndPages = data.numpages * 10;
 	  });
 	} else if (model == 4 && op == 2){
-	  http.get('/search/Ethnicity/' + scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
-		  scope.ethnicityOr = data.results;
-		scope.ethnicityOrPages = data.numpages * 10;
+	  http.get('/search/Ethnicity/' + $scope.query + '/OR/' + pagenum).success(function (data, status, headers, config) {
+		  $scope.ethnicityOr = data.results;
+		$scope.ethnicityOrPages = data.numpages * 10;
 	  });
 	}
   };
-  scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
-	scope.query = model.query;
+  $scope.$on('advanced-searchbox:modelUpdated', function (event, model) {
+	$scope.query = model.query;
   });
 
 }]);
