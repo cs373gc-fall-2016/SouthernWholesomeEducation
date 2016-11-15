@@ -56,7 +56,7 @@ def api_call():
 
     print('finished droping tables... creating objects (majors)')
 
-    # Testing code
+
     for maj in majors:
         top_count = 0
         top_city_name = ''
@@ -64,7 +64,6 @@ def api_call():
             if majors[maj]['cities'][current_city] > top_count:
                 top_count = majors[maj]['cities'][current_city]
                 top_city_name = current_city
-        # print(str(maj) + ' topcityname: ' + str(top_city_name) + ' topcityamount: ' + str(top_count) + ' topuni: ' + str(majors[maj]['top_university_name']) + ' topuniamt: ' + str(majors[maj]['top_university_amt'])  )
 
         major = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_university=majors[maj]['top_university_name'], top_university_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
         major2 = create_unique(Major, name=maj, num_undergrads=majors[maj]['total_major_undergrad_population'], top_city=top_city_name, top_city_amt=top_count, top_university=majors[maj]['top_university_name'], top_university_amt=majors[maj]['top_university_amt'], avg_percentage=majors[maj]['avg_percentage'])
@@ -82,7 +81,7 @@ def api_call():
     print('finished ethnicities... starting universities')
 
     for uni in universities:
-        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=universities[uni]['cost_to_attend'], grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'], city_name=universities[uni]['city'])
+        university = create_unique(University , name=uni, num_undergrads=universities[uni]['undergrad_population'], cost_to_attend=abs(universities[uni]['cost_to_attend']), grad_rate=universities[uni]['grad_rate'], public_or_private=universities[uni]['public_or_private'], city_name=universities[uni]['city'])
         for maj in universities[uni]['major_list']:
             if maj in major_objs_uni:
                 university.add_major(universities[uni]['major_list'][maj], major_objs_uni[maj])
@@ -115,7 +114,7 @@ def api_call():
                 ethnicity_count += 1
                 if cities[city]['ethnicity_list'][eth] > top_ethnicity[1]:
                     top_ethnicity = (eth, cities[city]['ethnicity_list'][eth])
-        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=cities[city]['average_tuition'], top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
+        cur_city = create_unique(City, name=city, population=cities[city]['population'], avg_tuition=abs(cities[city]['average_tuition']), top_university=top_university[0], top_major=top_major[0], top_ethnicity=top_ethnicity[0], uni_count=university_count, maj_count=major_count, eth_count=ethnicity_count)
         for uni in uni_objs:
             if universities[uni]['city'] == city:
                 cur_city.add_university(uni_objs[uni])

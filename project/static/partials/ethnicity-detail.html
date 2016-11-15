@@ -2,10 +2,12 @@
 <div class="container">
   <div class="box">
     <div align="center" class = "row">
-        <h1>{{myData.name}}</h1>
-      </div>
+      <h1>{{myData.name}}</h1>
+    </div>
     <div class="clearfix"></div>
   </div>
+
+  <img class="detail-img" ng-if="imageUri" ng-src="{{imageUri}}"></img>
 
   <div class="box">
     <div align="center" class="row">
@@ -15,24 +17,24 @@
       </div>
 
       <div>
-          <h3>Ethnic Number at Top University: <a href="/#/universities/{{myData.top_university_id}}">{{myData.top_university}}</a></h3>
-          <p>{{myData.top_university_amt}}</p>
+        <h3>Ethnic Number at Top University: <a href="/#/universities/{{myData.top_university_id}}">{{myData.top_university}}</a></h3>
+        <p>{{myData.top_university_amt}}</p>
       </div>
 
      <div>
-         <h3>Ethnic Number at Top City: <a href="/#/cities/{{myData.top_city_id}}">{{myData.top_city}}</a></h3>
-         <p>{{myData.top_city_amt}}</p>
+        <h3>Ethnic Number at Top City: <a href="/#/cities/{{myData.top_city_id}}">{{myData.top_city}}</a></h3>
+        <p>{{myData.top_city_amt}}</p>
      </div>
 
-     <div>
-         <h3>Number of Associated Universities</h3>
-         <p>{{myData.num_universities}}</p>
-     </div>
+      <div>
+        <h3>Number of Associated Universities</h3>
+        <p>{{myData.num_universities}}</p>
+      </div>
 
-     <div>
-         <h3>Number of Associated Cities</h3>
-         <p>{{myData.num_cities}}</p>
-     </div>
+      <div>
+        <h3>Number of Associated Cities</h3>
+        <p>{{myData.num_cities}}</p>
+      </div>
     </div>
   </div>
 

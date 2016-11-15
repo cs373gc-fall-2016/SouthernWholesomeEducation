@@ -10,6 +10,10 @@ myApp.config(function($routeProvider) {
              templateUrl : '../static/partials/about.html',
              controller: 'AboutCtrl'
         })
+        .when('/visualization', {
+             templateUrl : '../static/partials/visualization.html',
+             controller: 'VisualizationCtrl'
+        })
         .when('/cities', {
              templateUrl : '../static/partials/cities.html',
              controller : 'pipeCtrl as mc',
@@ -167,20 +171,92 @@ myApp.factory('Resource', ['$q', '$filter', '$timeout', '$http', '$location', fu
 
 }]);
 
-
 myApp.controller('DetailCtrl', function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/';
   $scope.urlPath = $routeParams.model;
   $scope.path = $scope.path + $scope.urlPath +'/id/' + $routeParams.ID;
+  $scope.majors = [];
+  $scope.ethnicities = [];
+  $scope.universities = [];
+  $scope.majsort = function(keyname){
+        if (angular.isUndefined($scope.majreverse)) {
+          $scope.majreverse = false;
+        } else {
 
+          $scope.majreverse = !$scope.majreverse; //if true make it false and vice versa
+        }
+        if ($scope.majsortKey != keyname) {
+          $scope.majreverse = false;
+        }
+        $scope.majsortKey = keyname;   //set the sortKey to the param passed
+  };
+  $scope.ethsort = function(keyname){
+        if (angular.isUndefined($scope.ethreverse)) {
+          $scope.ethreverse = false;
+        } else {
+
+          $scope.ethreverse = !$scope.ethreverse; //if true make it false and vice versa
+        }
+        if ($scope.ethsortKey != keyname) {
+          $scope.ethreverse = false;
+        }
+        $scope.ethsortKey = keyname;   //set the sortKey to the param passed
+  };
+  $scope.unisort = function(keyname){
+        if (angular.isUndefined($scope.unireverse)) {
+          $scope.unireverse = false;
+        } else {
+
+          $scope.unireverse = !$scope.unireverse; //if true make it false and vice versa
+        }
+        if ($scope.unisortKey != keyname) {
+          $scope.unireverse = false;
+        }
+        $scope.unisortKey = keyname;   //set the sortKey to the param passed
+  };
   $http.get($scope.path).success(function (data, status, headers, config) {
     $scope.myData = data.results;
+    if($routeParams.model == "university" || $routeParams.model == "city"){
+        $scope.majors = $scope.myData.majors;
+        $scope.ethnicities = $scope.myData.ethnicities;
+    }
+    if($routeParams.model == "city") {
+      $scope.universities = $scope.myData.universities;
+    }
+  }).then(function() {
+    $scope.imageUri = null;
+    var name = $scope.myData.name.toLowerCase();
+
+    if (name == 'BLACK'.toLowerCase()) {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/509259793.jpg?v=1&g=fs1|0|FPG|59|793&s=1&b=RjI4';
+    } else if (name == 'WHITE'.toLowerCase()) {
+      $scope.imageUri = 'http://cache3.asset-cache.net/xt/555799109.jpg?v=1&g=fs1|0|MIR|99|109&s=1&b=RjI4';
+    } else if (name == 'HISPANIC'.toLowerCase()) {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/508455394.jpg?v=1&g=fs1|0|EPL|55|394&s=1&b=RjI4';
+    } else if (name == 'ASIAN'.toLowerCase()) {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/575098377.jpg?v=1&g=fs1|0|FKF|98|377&s=1&b=RjI4';
+    } else if (name == 'American Indian Alaska Native'.toLowerCase()) {
+      $scope.imageUri = 'http://cache1.asset-cache.net/xt/115122824.jpg?v=1&g=fs1|0|SKP57|22|824&s=1&b=OEYz';
+    } else if (name == 'Native Hawaiian Pacific Islander'.toLowerCase()) {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/602287064.jpg?v=1&g=fs1|0|EPL|87|064&s=1&b=RjI4';
+    } else if(name == 'TWO OR MORE'.toLowerCase() || name == 'UNKNOWN'.toLowerCase()) {
+      $scope.imageUri = 'http://cache2.asset-cache.net/xt/532969250.jpg?v=1&g=fs1|0|EPL|69|250&s=1&b=RjI4';
+    } else if (name != 'NON RESIDENT ALIEN'.toLowerCase()) {
+      $http({
+        method: 'GET',
+        url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=' + name,
+        headers: {'Api-Key': 'jcav9s3kv2emua4rvn2d8kkc'}
+      })
+      .success(function(data) {
+        if (data.images.length) {
+          var rand = Math.floor(Math.random() * data.images.length);
+          $scope.imageUri = data.images[rand].display_sizes[0].uri;
+        } else {
+          $scope.imageUri = 'http://cache2.asset-cache.net/xt/452716295.jpg?v=1&g=fs1|0|DV|16|295&s=1&b=RTRE';
+        }
+      })
+    }
   });
-  $scope.image = function(name) {
-    $http.get('/image/'+name).success(function (data, status, headers, config) {
-      $scope.imageUrl = data.Image;
-    });
-  }
 });
 
 myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
@@ -192,10 +268,20 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
 	  });
   }
   $scope.getGithubStats = function() {
-	$http.get('/githubstats').success(function (data, status, headers, config) {
-		$scope.user_stats = data.user_stats;
-    $scope.total_stats = data.total_stats;
-	});
+  	$http.get('/githubstats').success(function (data, status, headers, config) {
+  		$scope.user_stats = data.user_stats;
+      $scope.total_stats = data.total_stats;
+  	});
+  }
+});
+
+
+myApp.controller('VisualizationCtrl', function($scope, $routeParams, $http, $location) {
+  $scope.path = 'blablabla';
+  $scope.getVisualization = function() {
+    $http.get('http://opensourcery.me/api/projects/1').success(function (data, status, headers, config) {
+      $scope.rec_data = data;
+    });
   }
 });
 
