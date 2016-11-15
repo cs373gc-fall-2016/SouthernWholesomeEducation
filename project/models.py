@@ -201,7 +201,8 @@ class University(DB.Model):
 
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
-    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private, city_name):
+    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, \
+        public_or_private, city_name):
         self.name = name
         self.num_undergrads = num_undergrads
         self.cost_to_attend = cost_to_attend
@@ -396,7 +397,8 @@ class Major(DB.Model):
     avg_percentage = DB.Column(DB.Float) # to delete?
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0 ,avg_percentage=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', \
+        top_city_amt=0, top_university='Default', top_university_amt=0, avg_percentage=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
