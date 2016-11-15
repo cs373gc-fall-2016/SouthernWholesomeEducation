@@ -13,9 +13,6 @@ myApp.config(function($routeProvider) {
         .when('/cities', {
              templateUrl : '../static/partials/cities.html',
              controller : 'pipeCtrl as mc',
-        //      resolve: {
-        //         model: function ($route) { $route.current.params.model = "city"; }
-    		// }
         })
         .when('/universities', {
              templateUrl : '../static/partials/universities.html',
@@ -69,24 +66,12 @@ myApp.config(function($routeProvider) {
         .when('/search', {
                 templateUrl : '../static/partials/search.html',
                 controller : 'SearchCtrl',
-                // resolve: {
-                //     model: function ($route) { $route.current.params.model = "ethnicity"; }
-                // }
         })
     	.otherwise({
             redirectTo: '/'
         });
 
 });
-
-// myApp.controller('TableCtrl',function($scope, $routeParams, $http, $location) {
-//   $scope.path = '/api/'
-//   $scope.urlPath = $routeParams.model;
-//   $scope.path = $scope.path + $scope.urlPath;
-//   $http.get($scope.path).success(function (data, status, headers, config) {
-//         $scope.myData = data.results;
-//   });
-// });
 
 myApp.controller('TableCtrl', function($scope, $routeParams, $http, $location) {
   $scope.path = '/api/'
@@ -118,7 +103,6 @@ myApp.controller('TableCtrl', function($scope, $routeParams, $http, $location) {
 
   $scope.order = 'asc';
   $scope.query = function(query) {
-    // $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
     $scope.currentPage = 0;
     $http.get($scope.path+query).success(function (data, status, headers, config) {
       $scope.myData = data.results;
@@ -127,8 +111,6 @@ myApp.controller('TableCtrl', function($scope, $routeParams, $http, $location) {
 
 
   $scope.page = function(page) {
-    // $scope.path += '?sort=' + $scope.urlPath + '&order=' + $scope.order;
-
     $http.get($scope.path+'/'+page).success(function (data, status, headers, config) {
       $scope.myData = data.results;
     });
@@ -140,8 +122,6 @@ myApp.controller('TableCtrl', function($scope, $routeParams, $http, $location) {
 });
 
 myApp.controller('pipeCtrl', ['Resource', '$location', '$http', function (service, $location, $http) {
-  // $route.reload();
-  // console.log(tableName);
   var ctrl = this;
 
   ctrl.rowCollection = [];
@@ -155,24 +135,12 @@ myApp.controller('pipeCtrl', ['Resource', '$location', '$http', function (servic
     var number = pagination.number || 10;  // Number of entries showed per page.
     var map = {"/universities":"University", "/cities":"City", "/majors":"Major", "/ethnicities":"Ethnicity"};
     var tableName = map[$location.path()];
-    // console.log(tableName);
     var callPath = '/model/' + tableName + '/start/' + start + '/number/' + number + '/attr/' + tableState.sort.predicate + '/reverse/' + tableState.sort.reverse;
     $http.get(callPath).success(function(data) {
       ctrl.displayed = data.results,
       tableState.pagination.numberOfPages = data.numpages
     });
     ctrl.isLoading = false;
-    // service.getPage(start, number, tableState).then(function (result) {
-    //   // console.log($window.path());
-    //   ctrl.rowCollection = result.data;
-    //   // ctrl.rowCollection = result.data;
-    //   // console.log(result.data);
-    //   tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
-    //   ctrl.displayed = angular.copy(ctrl.rowCollection);
-    //   ctrl.isLoading = false;
-    //
-    // });
-
   };
 
 }]);
@@ -180,23 +148,15 @@ myApp.controller('pipeCtrl', ['Resource', '$location', '$http', function (servic
 myApp.factory('Resource', ['$q', '$filter', '$timeout', '$http', '$location', function ($q, $filter, $timeout, $http, $location) {
   var map = {"/universities":"University", "/cities":"City", "/majors":"Major", "/ethnicities":"Ethnicity"};
   var tableName = map[$location.path()];
-  // console.log($location.path());
-  // console.log(tableName);
-
 	function getPage(start, number, params) {
-    // console.log(params);
     var callPath = '/model/' + tableName + '/start/' + start + '/number/' + number + '/attr/' + params.sort.predicate + '/reverse/' + params.sort.reverse;
-    // console.log(callPath);
 		var deferred = $q.defer();
-    // $timeout(function(){
     $http.get(callPath).success(function(data) {
       deferred.resolve({
         data: data.results,
         numberOfPages: data.numpages
       });
     });
-    // }, 1500);
-
 
 		return deferred.promise;
 	}
@@ -244,8 +204,12 @@ myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, ht
   scope.query = "";
   scope.availableSearchParams = [];
   scope.itemsByPage = 10;
-  scope.searchType = "and";
+  scope.searchType = 'and';
+  scope.setSearchType = function(searchType) {
+	  scope.searchType = searchType;
+  }
   scope.getOR = function(){
+	console.log("searching OR");
 	if(scope.query.length != 0){
 	  scope.getPage(1,2,1);
 	  scope.getPage(3,2,1);
@@ -254,6 +218,7 @@ myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, ht
 	}
   };
   scope.getAND = function(){
+	console.log("searching AND");
 	if(scope.query.length != 0){
 	  scope.getPage(1,1,1);
 	  scope.getPage(3,1,1);
@@ -263,11 +228,10 @@ myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', function(scope, ht
   };
 
   scope.search = function() {
-	console.log("searching");
-	if (scope.searchType == "and") {
+	if (scope.searchType == 'and') {
 	  scope.getAND();
 	}
-	else if (scope.searchType == "or") {
+	else if (scope.searchType == 'or') {
 	  scope.getOR();
 	}
 	else {
