@@ -295,7 +295,6 @@ myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', '$timeout', functi
 	  $scope.searchType = searchType;
   }
   $scope.getOR = function(){
-	console.log("searching OR");
 	if($scope.query.length != 0){
 	  $scope.getPage(1,2,1);
 	  $scope.getPage(3,2,1);
@@ -304,8 +303,6 @@ myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', '$timeout', functi
 	}
   };
   $scope.getAND = function(){
-	console.log("searching AND");
-	console.log($scope.query);
 	if($scope.query.length != 0){
 	  $scope.getPage(1,1,1);
 	  $scope.getPage(3,1,1);
