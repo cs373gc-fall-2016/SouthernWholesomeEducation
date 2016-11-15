@@ -45,7 +45,7 @@
 							</tr>
 							</thead>
 							<tbody>
-							<tr dir-paginate="row in cityAnd | itemsPerPage: 10" total-items="citAndPages" pagination-id="cityand">
+							<tr dir-paginate="row in cityAnd | itemsPerPage: 10" total-items="cityAndPages" pagination-id="cityand">
 								<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
 								<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
 								<td ng-bind-html="renderHtml(row.Context)"></td>
