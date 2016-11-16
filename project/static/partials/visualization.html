@@ -110,7 +110,7 @@ d3.json("/flare-import.json", function(nodes) {
 
   // Initialize the info display.
   var info = d3.select("#info")
-  .text(defaultInfo = "Showing " + formatNumber(links.length) + " dependencies among " + formatNumber(nodes.length) + " classes.");
+  .text(defaultInfo = "Showing " + formatNumber(links.length) + " dependencies among " + formatNumber(nodes.length) + " projects, companies, contributors, and languages.");
 
   // Normally, Hive Plots sort nodes by degree along each axis. However, since
   // this example visualizes a package hierarchy, we get more interesting
