@@ -54,7 +54,6 @@ def render_searchbox():
 @APP.route('/flare-import.json')
 def render_json():
     """Serves up the json file"""
-    print('SOMETHINGGGGG')
     return send_file('templates/flare-import.json')
 
 @APP.errorhandler(404)
