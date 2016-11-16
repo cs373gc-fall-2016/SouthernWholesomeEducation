@@ -1,3 +1,1037 @@
+commit 529f4e87c9774c23507abb29ed80fac5d6b30f19
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:10:21 2016 -0600
+
+    can click title mobile
+
+commit e300e5f4483778280a8776d4ecd85e2f8b99853b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:08:14 2016 -0600
+
+    added angular to tools in about page
+
+commit c5f7ac20d8b6dc112818198e8d14892e685ac148
+Merge: 8e526a6 31ff6ef
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:02:22 2016 -0600
+
+    Merge branch 'phaseThree' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseThree
+
+commit 8e526a6c0f1f3f87967181471087263866187815
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:01:34 2016 -0600
+
+    changed about page info
+
+commit 31ff6eff50da11c16916af22c3864c3f1c258bce
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Wed Nov 16 20:48:25 2016 +0000
+
+    Fixed makefile
+
+commit 08e64c25d0f0c2d3feff6b52d6fcc246c5a8ded3
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Wed Nov 16 20:44:07 2016 +0000
+
+    Added files
+
+commit ef4bc90b3b9c3672ff3f59f0e36cf88fa2aa18fa
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 16 14:30:40 2016 -0600
+
+    added more tests and coverage output
+
+commit 3c9c8743120c25a31674e8910e220de4b56b2a73
+Author: JiYoung Min <jymin94@cs.utexas.edu>
+Date:   Wed Nov 16 13:02:20 2016 -0600
+
+    Fix the nav bar
+
+commit ef05b41ae3dbc4b796e46604b6dd8f79b51017a3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 19:27:59 2016 -0600
+
+    tweaks to visualization
+
+commit 4d050a86c0aea5f3d0676431ec1ec0c639b1942f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 19:09:55 2016 -0600
+
+    image is now loading
+
+commit 733066f92fd939e0098ceff51458a8492f3b7375
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 17:04:28 2016 -0600
+
+    update to UML3
+
+commit 6a5c6a930899fb56a2ea1ce955b12c72fa17ea30
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 17:04:05 2016 -0600
+
+    update to UML2
+
+commit c9d1db4311f8730e10e27a965c33aaeb4e4bbd25
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 17:03:09 2016 -0600
+
+    update to UML
+
+commit 072df2f7ac99c269dfd0f59d92a9dc20e46d7c93
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 15 01:13:44 2016 -0600
+
+    Fixed bug
+
+commit d2285c01668e560ea88439cda0301072abfdf1c4
+Merge: efbd388 b4c3e7a
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:56:28 2016 -0600
+
+    Merge branch 'phaseThree' into frontEnd
+
+commit efbd388a05234d9c976f972ff192475556664897
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:55:23 2016 -0600
+
+    Take out console.log messages
+
+commit 865d8fc3d7ea4c636588cd89c7666ae1f24172f0
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:50:08 2016 -0600
+
+    Fix the nav bar so all the items, including 'Visualization', fit on one line
+
+commit 0970ce36cae78dd07cf6900268e7200b726190b2
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:47:59 2016 -0600
+
+    Fix the search page so that pressing 'Enter' works for sure
+
+commit b4c3e7ad5a034321fe7efd7b3da8cfdb3db6dd66
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Mon Nov 14 21:31:21 2016 -0600
+
+    Formatted models/IDB1.py
+
+commit b5790e60319eec328ceb85e2639f6bfbcbf4136c
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Tue Nov 15 02:15:37 2016 +0000
+
+    Fixed deploy.sh
+
+commit f21f95bef22ecca349e4173f4e5e3be86af9bdd4
+Merge: eac2834 cc8b6af
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 19:38:36 2016 -0600
+
+    Merge phaseThree into frontEnd
+
+commit eac2834a58ca014990f627bd1ccf6d66339d4c6a
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 19:24:29 2016 -0600
+
+    Allow searching by hitting 'Enter'. Fixes #77
+
+commit 3b7fdb52aa5b476b96506913b4d264abfbb82272
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 19:17:00 2016 -0600
+
+    Set the search type based on which tab is active
+
+commit 6c0c19f5fda20f9f5441c51856729031b176ceb8
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 18:07:25 2016 -0600
+
+    Add tabbed search and fix the width
+
+commit cc8b6afd76ca5a0ae7281afd595f7752a0abc0db
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 15:29:33 2016 -0600
+
+    added visualization page
+
+commit 4757f5bf748648235579d9f60827ec5c2dac3afe
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 15:00:50 2016 -0600
+
+    adding opensourcery on visualization page
+
+commit 0a7f5622a59c22efb9f7cec244277efe00c52ed9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 14:41:50 2016 -0600
+
+    routing
+
+commit 901e21eb3045f362973c963bee203c45dde77ee1
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 14:30:20 2016 -0600
+
+    adding Visualization page
+
+commit d8a674203838afe431af844718e2da43109e4162
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Nov 14 13:46:55 2016 -0600
+
+    Removed async workers
+
+commit 0280e958beb06efa15ba8b87c97828ac0e55b5ee
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Nov 14 13:23:59 2016 -0600
+
+    Added API endpoint
+
+commit 838832104290d23899d55537a5b8a82c61a4d98a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Mon Nov 14 02:18:34 2016 -0600
+
+    Added concurrency with async workers
+
+commit d28fc8742b2439fd74a22bb3ec76314b04b5496f
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Mon Nov 14 01:18:56 2016 -0600
+
+    Added API endpoints for listing all model instances
+
+commit b984ab0cb7216f1413a930e5d161cd274a0678e3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 00:30:50 2016 -0600
+
+    fixing database3
+
+commit 6b75805988c973d874b08512d36e4854053456c8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 00:19:36 2016 -0600
+
+    fixing database2
+
+commit bd31f81b76ba96ee9732f2feec7d076562894cd4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 00:08:43 2016 -0600
+
+    fixing database
+
+commit dfaa995881d59baec728f8047ba12ea5eaa39ac8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Sun Nov 13 17:59:19 2016 -0600
+
+    cost adjustment
+
+commit 09f25873a33d2d6d2283da20f0026e50ecc30b90
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Sun Nov 13 17:16:26 2016 -0600
+
+    removed unused files
+
+commit 094fb5edb9684c9feb3ca3f068c556d24a4bed18
+Author: Brandon Dang <budang@users.noreply.github.com>
+Date:   Sun Nov 13 17:05:10 2016 -0600
+
+    Update app.js
+    
+    typo
+
+commit d9ee4d7c695389779e4120989c28aeba2b57b1a5
+Merge: 8dcbb4a c4d9a57
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 23:10:48 2016 -0600
+
+    Merge pull request #80 from cs373gc-fall-2016/detailPagePagination
+    
+    Updated major detail page
+
+commit c4d9a57183fa39c7955de0bcfbf08809e13ba1bf
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 23:09:41 2016 -0600
+
+    Updated major detail page
+
+commit 8dcbb4a0ad24a21e5ec4bd4cfedd29ce1a038015
+Merge: 6fdb060 bdafee9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 22:34:11 2016 -0600
+
+    Merge pull request #79 from cs373gc-fall-2016/detailPagePagination
+    
+    Added pagination tables to detail pages
+
+commit bdafee9fb9e6d09fc7535422efe6fcfe21c66b87
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 22:32:22 2016 -0600
+
+    Added pagination tables to detail pages
+
+commit 6fdb060781066bdd951a192a81a50a609f3e8c20
+Merge: 66fb495 6d9e626
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 15:14:03 2016 -0600
+
+    Merge pull request #78 from cs373gc-fall-2016/media
+    
+    Media
+
+commit 6d9e626b05ed3e2771613bf052ebee5d81cb5e43
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 15:11:44 2016 -0600
+
+    placeholder image if API does not retrieve any results
+
+commit f18aa742392a68fe66ab48b38a6ca0ed6103f319
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 15:00:34 2016 -0600
+
+    hardcoding race-related image URIs
+
+commit fa5378160ab0b9c33406034f4c09de61d32ee4e5
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:59:01 2016 -0600
+
+    hardcoding race-related image URIs
+
+commit 97a7280e3aa3c5a50491c911f7b621bda08cf638
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:52:49 2016 -0600
+
+    hardcoding race-related image URIs
+
+commit c7399e5b0f7ad9c62133ad691c0b4a030db521c2
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:41:22 2016 -0600
+
+    small edits to bios
+
+commit 97c6d512c260cb3864b2ac61aec5cd0039e18ac4
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:38:13 2016 -0600
+
+    resizing image and better error handling
+
+commit c59403308fdee1db9bb5d0e479be48a62314b3d4
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:26:25 2016 -0600
+
+    css/styling for media
+
+commit f3780b2e4310e8557d44b173726f21a0e5b1848c
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:18:04 2016 -0600
+
+    trying to handle synchronous calls
+
+commit 54d913f27927add146ce9b375240feb5f50d0f7c
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:07:11 2016 -0600
+
+    forgot to pass in params into function
+
+commit bef38609184a9ecd996375c1c1d0950387f27a4b
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:02:13 2016 -0600
+
+    decently major fixes when making API calls to getty
+
+commit 5cfaeeda6fd10d0c47752a9042453f058bca36b9
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 12:53:11 2016 -0600
+
+    missing parts from merge
+
+commit 79dfb0d51807cba73d9357debf07503ef92c9423
+Merge: 9b0e12c 66fb495
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 12:25:55 2016 -0600
+
+    merging and merge conflicts
+
+commit 66fb495dc480681fab7ddb6985a59b4f8cd0afec
+Merge: 5d079f1 3fe4f7e
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Sat Nov 12 01:32:28 2016 -0600
+
+    Merge branch 'phaseThree' into frontEnd
+
+commit 5d079f1e9b022b28d77aae9e83a326988a245789
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Sat Nov 12 01:31:43 2016 -0600
+
+    Fix the navigation bar so that all the menu items are on one line
+
+commit 3fe4f7e1890a102981b17bd7bcc4c39a7d01a323
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 00:43:40 2016 -0600
+
+    Updated tabbing
+
+commit 769d70538f5e6d61165bc17063612f074018b8a2
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 18:16:37 2016 -0600
+
+    Removed prints
+
+commit 59ce456eb957b6a5b24cab064f4a174461621fb5
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 18:02:59 2016 -0600
+
+    Updated files
+
+commit fc092bde6fb3158cf8be33f3e54fb284f553dd52
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 17:59:55 2016 -0600
+
+    Fixed capitalization for context
+
+commit 1af3000bd1a321ee3a64268418635491d05eed3a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 16:16:13 2016 -0600
+
+    Fixed bug
+
+commit caacfffcf7f74903a88155dc061133126d1fea37
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 13:46:52 2016 -0600
+
+    Updated something
+
+commit 6c3f6ddf3672bbe404fd4e2e9057fdfdb6040928
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:59:23 2016 -0600
+
+    Updated tests
+
+commit c6938fb5173cd34003f3265f7ee4a076af5cb846
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:51:45 2016 -0600
+
+    Fixed bug
+
+commit 03281af2199f32017a734a264e80f5c7e01b2a38
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:42:21 2016 -0600
+
+    Fixed bug
+
+commit 8cba3f853bd09784b6a25889687885b554b23037
+Merge: 819ad16 d8b7b62
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:24:41 2016 -0600
+
+    Merge pull request #75 from cs373gc-fall-2016/pagination
+    
+    Pagination
+
+commit d8b7b624d07c027515f178052560d3b30ac410a5
+Merge: a6842ea 819ad16
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:16:42 2016 -0600
+
+    Merged with phase-three
+
+commit a6842ea3a185d57c2ba61a18771feb17ae573e1c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:09:20 2016 -0600
+
+    Added OR tables to front end
+
+commit 819ad16771537e1c55cf4a5f018c98ca51a2fa97
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 22:35:43 2016 -0600
+
+    updating tests2
+
+commit 813a21f7791261b5dfeb68caa0f24cfaad353fb1
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 22:22:47 2016 -0600
+
+    Got AND tables working for all models.
+
+commit 8924b2cfa79318af88e13a55149c9b43e82ad567
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 22:13:40 2016 -0600
+
+    updating tests
+
+commit 2a7e116188501c72aa6b2dffcec844a458a816b8
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 20:44:00 2016 -0600
+
+    Finished search back end
+
+commit fe379f4e4c4051634237a498afb575d99fcfc9b4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 20:04:42 2016 -0600
+
+    Updated search
+
+commit 914ed769f798ded855c801b69947179a428332d2
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 10 18:29:15 2016 -0600
+
+    Add a pointer hover for the column headers in the models page
+
+commit 9b0e12cc667359bc5bb4709bbd7c10c2dba38c96
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Nov 10 18:18:21 2016 -0600
+
+    removing unused assets and commented code; embedding media
+
+commit d8fa1ab2eff0fd28eb25c5cde53aa647a346b969
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 14:54:20 2016 -0600
+
+    readme models updated
+
+commit 883ad4e1441b5a940ba5ce8733f732346c43c6a5
+Merge: 4f59783 fc2f8eb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 14:25:57 2016 -0600
+
+    Merge branch 'jcDB' into phaseThree
+
+commit fc2f8ebcf4e4f33a285a8930662f5864d14201d3
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Thu Nov 10 20:20:40 2016 +0000
+
+    updating pickle files
+
+commit 0f7d2a17e5eca29805f64f49c337e0cbe0e3744e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 08:15:04 2016 -0600
+
+    fixed bug
+
+commit 3611d3eae05da7cdbec749413644def3c2c34f4a
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 03:01:39 2016 -0600
+
+    updating model names
+
+commit 0ca8b3a57a561866067abfeca8c572aa132df7d1
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 02:58:05 2016 -0600
+
+    update to api_calls
+
+commit d543acf60a410048d8afd42249baebfe07fe3834
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 02:41:53 2016 -0600
+
+    updating the pickle files
+
+commit e70f04c77fd810fce107dfd4362ad99ef008f8a6
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:57:41 2016 -0600
+
+    fix bug
+
+commit f555d5c9fcd29d340f9d08dde0722503af9e09da
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:48:59 2016 -0600
+
+    code changed for entire run
+
+commit d4cc67e0e20952855816f9787e7f240b2b75492d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:42:47 2016 -0600
+
+    droping tables update
+
+commit 1ecf2639f71b0af03b6f5d0959cbeaf4adbc9a67
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:40:19 2016 -0600
+
+    updates to models adding comma
+
+commit 8730ace63e1ca1a69b245cbcf85f66e67c7c8729
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:37:18 2016 -0600
+
+    updates to models
+
+commit f1240c4ab52c2e3af057096910c62d0085c79d18
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:28:31 2016 -0600
+
+    fixing calculations for db2
+
+commit 48935ca7b454ee57e69bb8cca4550a16e2abdb4a
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:05:57 2016 -0600
+
+    fixing calculations for db
+
+commit 0cd0f0b1f4d604998f39851cce6da4605cdf5f5c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:38:16 2016 -0600
+
+    Fixed bug
+
+commit eee7c3f2445b77c1def6d025d08b8a1a7d000093
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:06:59 2016 -0600
+
+    Updated search
+
+commit b32f53d4c0e0bace8de4c745f1a20f976a8580b4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:05:20 2016 -0600
+
+    Updated search
+
+commit 92b5b08f9ee5c4f1eba69fabede42014f1466eb9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:02:22 2016 -0600
+
+    Updated searching
+
+commit 67532ac8c2e00fa98bdc83273c1baad34ee57f52
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 17:54:47 2016 -0600
+
+    Updating search
+
+commit 4f597839566806cdbed63a082cf569df3ca833fa
+Merge: fe6e639 0734813
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 16:00:11 2016 -0600
+
+    Merge branch 'phaseThree' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseThree
+
+commit fe6e639d8680ddd192559a356bd788085a9105bc
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 15:59:43 2016 -0600
+
+    fixed carousel kinda
+
+commit a92928861836afb58d1c9295ba53c7af8ef789dd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 15:47:58 2016 -0600
+
+    adding top_city_amt to majors2
+
+commit 965d020fefa54a2cae2e888d57576044ef339a4c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 15:47:05 2016 -0600
+
+    adding top_city_amt to majors
+
+commit 86fe7c63eff8a835305f8f0d0290b9702d256e3f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 15:45:39 2016 -0600
+
+    adding top_city_amt to majors]
+
+commit 0734813219846d1b2535a8e5dad5ed0ecd97dc51
+Merge: f9b6359 5ca9a49
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 14:59:53 2016 -0600
+
+    Merge pull request #69 from cs373gc-fall-2016/jcDB
+    
+    adding city to university table
+
+commit 5ca9a49eb05ea4c709b65a5fdf4726c76b7d15f7
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 14:58:36 2016 -0600
+
+    adding city to university table
+
+commit f9b6359da9383c009c6e865e9edecd9f24606598
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 14:13:25 2016 -0600
+
+    changed bg back to white
+
+commit e21beab2e6e0310fa06ce07953801408c17b7313
+Merge: d040f39 b577684
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 09:59:04 2016 -0600
+
+    Merge branch 'DetailFormat' into phaseThree
+
+commit b577684e5ca2314a0619466357f69743dc5023c9
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 09:30:29 2016 -0600
+
+    Changed format added background
+
+commit e7fec31d2182d2ef8c38e14aafa39b40e5c6c53b
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 00:28:09 2016 -0600
+
+    Searching only Major & Ethnicity
+
+commit e5a98a0de025bf83553bd203575b192214d2e896
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 00:15:24 2016 -0600
+
+    Updated searching
+
+commit 04831b54cdda9305ef73db62bef70fbdc7945e9d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 00:11:39 2016 -0600
+
+    Added searching
+
+commit c82cb881352bcc61f6da4aedcf082821c5c089fb
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 17:40:19 2016 -0600
+
+    Formatted code a bit.
+
+commit c60d071a066b5650c675669a5cac5d17b9ac4c82
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 03:08:45 2016 -0600
+
+    Added formatting
+
+commit b225066c6a4a15c2f83ea0d078fe5a8e4b907d3b
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 02:46:20 2016 -0600
+
+    Removed duplicates
+
+commit d040f391f6c5c5098597526b42eb362c4344acf4
+Merge: ce381df d1e18f8
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 02:20:25 2016 -0600
+
+    Merge pull request #66 from cs373gc-fall-2016/jcTests
+    
+    Jc tests
+
+commit d1e18f891e86be4d22123b82347705885002d95f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 02:11:44 2016 -0600
+
+    attempt of unit test fix20
+
+commit 67a5bec464325a1bec83fa0abb0b97dac0d19f2a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 02:07:52 2016 -0600
+
+    Updated files
+
+commit 449ec48995fb4b0637cd2b77bd98504d50d2d576
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 02:02:01 2016 -0600
+
+    attempt of unit test fix19
+
+commit e13cf1de45e302ff63bcf669d37807c7b655d04e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 02:00:20 2016 -0600
+
+    attempt of unit test fix18
+
+commit 9bd2ef48cbe8a5b1f3ae027c408bdfbcbba692cd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:57:41 2016 -0600
+
+    attempt of unit test fix17
+
+commit 0069e1010602ee9644384590a9784398ac3cb862
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:55:30 2016 -0600
+
+    attempt of unit test fix16
+
+commit b67fb5f853c54499c4d93e349ac901160c90c920
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:48:53 2016 -0600
+
+    attempt of unit test fix15
+
+commit 26005d521c49ca9966a9167442e14dcfb6a6b0eb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:44:01 2016 -0600
+
+    attempt of unit test fix14
+
+commit e242371e14fdebb84889ddc61147d8d88b1e0642
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:42:03 2016 -0600
+
+    attempt of unit test fix13
+
+commit c50373b4d6014efb121f4e93e68d7c19de9294e4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:41:41 2016 -0600
+
+    Removed uni_count from models.Major
+
+commit 18a064f5fc171f703a52f590da522dfe95293a4d
+Merge: 65ed94c ce381df
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:39:02 2016 -0600
+
+    Merge branch 'phaseThree' into pagination
+    
+    Merged phaseThree into pagination
+
+commit 65ed94c38ea4d92ac346cd26848653f4fec5b14e
+Merge: 0be4dc7 0ef487d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:31:52 2016 -0600
+
+    Merge branch 'backEnd' into pagination
+
+commit 0be4dc7cc048df6fa8518988f44f8c160b494859
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:31:37 2016 -0600
+
+    Updated ethnicities.html
+
+commit dd4ecd5646bd371f9a8e023bac2659339938efa9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:28:42 2016 -0600
+
+    attempt of unit test fix12
+
+commit e5ec34fc6452b998db0415555440f138683f05f6
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:26:27 2016 -0600
+
+    attempt of unit test fix11
+
+commit b9dad8bec78bf8cc442bbcb8ba06c9ec99f6c78e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:24:33 2016 -0600
+
+    attempt of unit test fix10
+
+commit aa7fec8f89e1c40fcfe8f1abe7c79c835a1158f4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:21:51 2016 -0600
+
+    attempt of unit test fix9
+
+commit b32a3d4cf00dd5d88abdac5bf53862ace088ca1c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:18:45 2016 -0600
+
+    attempt of unit test fix8
+
+commit 8e17a09a3cd2003348a3673dee571973bbbf58b9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:09:41 2016 -0600
+
+    attempt of unit test fix7
+
+commit bd42b671bc7a4338fccb292b0bc2f43db3495617
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:49:58 2016 -0600
+
+    attempt of unit test fix6
+
+commit 189ac17d8ee2a4527428f9d2cf9de2c33d69912e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:35:50 2016 -0600
+
+    attempt of unit test fix5
+
+commit 3d4e27c75b5e4c31297f00ff1dc242c494b670ea
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:31:32 2016 -0600
+
+    attempt of unit test fix4
+
+commit 4177dd31c3b9ee33d849787a4ddd27785a2cca37
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:23:26 2016 -0600
+
+    attempt of unit test fix3
+
+commit 2066c25a2fdf4c2bdc701f96b325a4d73e5ff904
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:16:57 2016 -0600
+
+    attempt of unit test fix2
+
+commit be16adc8f3053e95833578cb4286b4e1b450d522
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:08:04 2016 -0600
+
+    attempt of unit test fix
+
+commit 2ad1a8144337762897534471933a29d3f7b63bc2
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 00:02:59 2016 -0600
+
+    Added pagination and stuff
+
+commit ce381dfa6b62a50576adb1ad321763405ec1bcd6
+Merge: fb70170 883d71c
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 23:22:47 2016 -0600
+
+    Merge pull request #62 from cs373gc-fall-2016/unit-tests-fix
+    
+    Unit tests should now display on about page
+
+commit fb701705ade3ceec8b90f5d9e45d408148f5791f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 22:50:37 2016 -0600
+
+    finished statistics page update
+
+commit 7b70a7fecf4a1ab42325a117a8bd96e85a04fefc
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 22:06:42 2016 -0600
+
+    updating brandon tweak and total statistics update
+
+commit 5a07ad295d833341c0646a6956466c42df3c3407
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 22:01:55 2016 -0600
+
+    updating totals stats
+
+commit 7fda0969d77accda87c6b0959e9d1a510b5b8ea2
+Merge: df4dff2 7229fab
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:27:17 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 7229fab8ea6c87e1c9ba0d95c8f096c6756212bd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:26:38 2016 -0600
+
+    making statistics API call faster2
+
+commit df4dff22c7c7a6aafd994716e4139add22822753
+Merge: d41cb4e 82f4da9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:20:13 2016 -0600
+
+    Merge branch 'phaseThree' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseThree
+
+commit d41cb4e8ab16d55bfabb6ef3d3b1ecc83672992c
+Merge: 4d72deb 1bb85cb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:19:43 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 1bb85cb59c9d57f67abd75b6360235f1c3c70939
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:16:11 2016 -0600
+
+    making statistics API call faster
+
+commit 82f4da98b51b79f0c502b82aa6b842a485fade67
+Merge: 0b0dc4c 65dcb0f
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Mon Nov 7 23:16:42 2016 +0000
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 883d71cb288c3d1664c5bb18ba45f1af3be48b0f
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Mon Nov 7 22:41:08 2016 +0000
+
+    Unit tests should now display on about page
+
+commit 4d72deb7427fb4c751467339813e1064b04f1328
+Merge: ad80b80 65dcb0f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:34:07 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 65dcb0f90c85b08502e3d8bf049f91534c294a22
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:33:28 2016 -0600
+
+    update to makefile
+
+commit ad80b80d2b4157e7fa626b304619c8c894a1c75d
+Merge: 0b0dc4c 56bba3d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:30:32 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 56bba3d1331669574e5a06a808b31d73a9fc38f3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:25:30 2016 -0600
+
+    removing print from api calls
+
+commit 6d5ca52ce89a980d5c87b882676232efb333921d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Mon Nov 7 16:24:20 2016 -0600
+
+    cities table columns all sortable
+
+commit 027b3cfc13094b674c75bcbb5e8f6bf835fdb2f0
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Mon Nov 7 16:15:11 2016 -0600
+
+    centered the tables
+
+commit 49c10ea125f870d07d3332f873f4703094855b8d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:10:55 2016 -0600
+
+    updating ip in models page
+
+commit 61b34af0e92c92de4a9d25914d12763b1ae39be7
+Merge: 31dcaab e51a90d
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 7 15:54:50 2016 -0600
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 31dcaab971f6b9d59b342dfe2d1fce469edd6e35
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 7 15:54:47 2016 -0600
+
+    Connect the Github API calls to the display of statistics in the About page. Fixes #48
+
+commit e51a90d71b8854c7691b7bf772e2ae7c2c99125c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 15:42:38 2016 -0600
+
+    updating city model and apicall2
+
+commit 64f48cfd0b492569ce6e8bd094d3e2423897bad4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 15:39:32 2016 -0600
+
+    updating city model and apicall
+
+commit 41146a4e8df4487def8e12369c907b19f8ef1a55
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 15:16:53 2016 -0600
+
+    updating city table to include counts
+
+commit 0b0dc4c0fcdeb5609c99543dd02c98c619592968
+Merge: b733cdb 0ef487d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 14:29:13 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit b733cdbc79ee82e31b0a8186f0c5fe79a2ed8509
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 14:28:37 2016 -0600
+
+    updating the AWS instance IP to new machine
+
+commit 0ef487d0d9ec8efb9b3ccf78357e1f3a106df3bb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 13:42:30 2016 -0600
+
+    updating statistics calculation code
+
+commit 55b85c183c5471a989f02774884a7e0e8d7561c4
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 21:57:00 2016 -0500
+
+    Add log and doxyfile
+
 commit 7585b281698b4f88090cfcdbd8e5d337359d514e
 Merge: 91d4eb0 677a935
 Author: Jiyoung Min <jymin94@gmail.com>
