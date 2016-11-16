@@ -116,7 +116,7 @@ populate:
 	ssh ec2-user@ec2-54-187-105-249.us-west-2.compute.amazonaws.com 'cd backEnd/SouthernWholesomeEducation && git pull && python3 project/api_calls.py && PGPASSWORD=ec2-user psql swe'
 
 testTravis:
-ssh -o StrictHostKeyChecking=no -i deploy_key ec2-user@ec2-54-187-105-249.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation && git pull && python3 project/tests.py'
+	ssh -o StrictHostKeyChecking=no -i deploy_key ec2-user@ec2-54-187-105-249.us-west-2.compute.amazonaws.com 'cd SouthernWholesomeEducation && git pull && python3 project/tests.py'
 
 prep:
 	format
