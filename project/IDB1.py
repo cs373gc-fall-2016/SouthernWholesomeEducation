@@ -51,6 +51,12 @@ def render_searchbox():
     """Serves up the searchbox HTML template."""
     return send_file('templates/angular-advanced-searchbox.html')
 
+@APP.route('/flare-import.json')
+def render_json():
+    """Serves up the json file"""
+    print('SOMETHINGGGGG')
+    return send_file('templates/flare-import.json')
+
 @APP.errorhandler(404)
 @APP.errorhandler(500)
 def error_page(error):

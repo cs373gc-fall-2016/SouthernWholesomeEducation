@@ -12,7 +12,7 @@ myApp.config(function($routeProvider) {
         })
         .when('/visualization', {
              templateUrl : '../static/partials/visualization.html',
-             controller: 'VisualizationCtrl'
+             // controller: 'VisualizationCtrl'
         })
         .when('/cities', {
              templateUrl : '../static/partials/cities.html',
@@ -276,14 +276,14 @@ myApp.controller('AboutCtrl', function($scope, $routeParams, $http, $location) {
 });
 
 
-myApp.controller('VisualizationCtrl', function($scope, $routeParams, $http, $location) {
-  $scope.path = 'blablabla';
-  $scope.getVisualization = function() {
-    $http.get('http://opensourcery.me/api/projects/1').success(function (data, status, headers, config) {
-      $scope.rec_data = data;
-    });
-  }
-});
+// myApp.controller('VisualizationCtrl', function($scope, $routeParams, $http, $location) {
+//   $scope.path = 'blablabla';
+//   $scope.getVisualization = function() {
+//     $http.get('http://opensourcery.me/api/projects/1').success(function (data, status, headers, config) {
+//       $scope.rec_data = data;
+//     });
+//   }
+// });
 
 myApp.controller('SearchCtrl', ['$scope','$http','$sce','$q', '$timeout', function($scope, http, sce,q, $timeout) {
   $scope.rowCollection = [];
