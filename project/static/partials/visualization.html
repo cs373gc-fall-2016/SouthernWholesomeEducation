@@ -1,86 +1,82 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF8">
 <div class="container">
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12">
-                <hr>
-                <h2 class="intro-text text-center">Visualization of team
-                    <strong>Open Sourcery</strong>
-                </h2>
-                <hr>
-                <div class="row">
-                  <div class="box">
-                      <div class="col-sm-4 text-center" style="text-align:'center'">
-                          
-                            <h3>Open Sourcery</h3>
-                            <p id="chart" align="center"></p>
-                            <br>
-                            <br>
-                            <iframe width="1120" height="630" src="https://www.youtube.com/embed/NlMzjsCKXt4" frameborder="0" allowfullscreen></iframe>
+  <div class="row">
+    <div class="box">
+      <div class="col-lg-12">
+        <hr>
+        <h2 class="intro-text text-center">Visualization of team
+          <strong>Open Sourcery</strong>
+        </h2>
+        <hr>
+        <div class="row" align="center">
 
-<style>
+              <h3>Open Sourcery</h3>
+              <p id="info">Loading…
+                <p id="chart" align="center"></p>
 
-.axis {
-  stroke: #000;
-  stroke-width: 1.5px;
-}
+                <style>
 
-.node circle {
-  stroke: #000;
-}
+                .axis {
+                  stroke: #000;
+                  stroke-width: 1.5px;
+                }
 
-.link {
-  fill: none;
-  stroke: #999;
-  stroke-width: 1.5px;
-  stroke-opacity: .3;
-}
+                .node circle {
+                  stroke: #000;
+                }
 
-.link.active {
-  stroke: red;
-  stroke-width: 2px;
-  stroke-opacity: 1;
-}
+                .link {
+                  fill: none;
+                  stroke: #999;
+                  stroke-width: 1.5px;
+                  stroke-opacity: .3;
+                }
 
-.node circle.active {
-  stroke: red;
-  stroke-width: 3px;
-}
+                .link.active {
+                  stroke: red;
+                  stroke-width: 2px;
+                  stroke-opacity: 1;
+                }
+
+                .node circle.active {
+                  stroke: red;
+                  stroke-width: 3px;
+                }
 
 
-</style>
+                </style>
 
 
-<script>
+                <script>
 
-var width = 960,
-    height = 850,
-    innerRadius = 40,
-    outerRadius = 640,
-    majorAngle = 2 * Math.PI / 3,
-    minorAngle = 1 * Math.PI / 12;
+                var width = 770,
+                height = 850,
+                innerRadius = 40,
+                outerRadius = 640,
+                majorAngle = 2 * Math.PI / 3,
+                minorAngle = 1 * Math.PI / 12;
 
-var angle = d3.scale.ordinal()
-    .domain(["source", "source-target", "target-source", "target"])
-    .range([0, majorAngle - minorAngle, majorAngle + minorAngle, 2 * majorAngle]);
+                var angle = d3.scale.ordinal()
+                .domain(["source", "source-target", "target-source", "target"])
+                .range([0, majorAngle - minorAngle, majorAngle + minorAngle, 2 * majorAngle]);
 
-var radius = d3.scale.linear()
-    .range([innerRadius, outerRadius]);
+                var radius = d3.scale.linear()
+                .range([innerRadius, outerRadius]);
 
-var color = d3.scale.category10();
+                var color = d3.scale.category10();
 
-var svg = d3.select("#chart").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + outerRadius * .20 + "," + outerRadius * .57 + ")");
+                var svg = d3.select("#chart").append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", "translate(" + outerRadius * .20 + "," + outerRadius * .57 + ")");
 
 // Load the data and display the plot!
 d3.json("/flare-import.json", function(nodes) {
   var nodesByName = {},
-      links = [],
-      formatNumber = d3.format(",d"),
-      defaultInfo;
+  links = [],
+  formatNumber = d3.format(",d"),
+  defaultInfo;
 
   // Construct an index by node name.
   nodes.forEach(function(d) {
@@ -116,7 +112,7 @@ d3.json("/flare-import.json", function(nodes) {
 
   // Initialize the info display.
   var info = d3.select("#info")
-      .text(defaultInfo = "Showing " + formatNumber(links.length) + " dependencies among " + formatNumber(nodes.length) + " classes.");
+  .text(defaultInfo = "Showing " + formatNumber(links.length) + " dependencies among " + formatNumber(nodes.length) + " classes.");
 
   // Normally, Hive Plots sort nodes by degree along each axis. However, since
   // this example visualizes a package hierarchy, we get more interesting
@@ -125,9 +121,9 @@ d3.json("/flare-import.json", function(nodes) {
 
   // Nest nodes by type, for computing the rank.
   var nodesByType = d3.nest()
-      .key(function(d) { return d.type; })
-      .sortKeys(d3.ascending)
-      .entries(nodes);
+  .key(function(d) { return d.type; })
+  .sortKeys(d3.ascending)
+  .entries(nodes);
 
   // Duplicate the target-source axis as source-target.
   nodesByType.push({key: "source-target", values: nodesByType[2].values});
@@ -147,43 +143,43 @@ d3.json("/flare-import.json", function(nodes) {
 
   // Draw the axes.
   svg.selectAll(".axis")
-      .data(nodesByType)
-    .enter().append("line")
-      .attr("class", "axis")
-      .attr("transform", function(d) { return "rotate(" + degrees(angle(d.key)) + ")"; })
-      .attr("x1", radius(-2))
-      .attr("x2", function(d) { return radius(d.count + 2); });
+  .data(nodesByType)
+  .enter().append("line")
+  .attr("class", "axis")
+  .attr("transform", function(d) { return "rotate(" + degrees(angle(d.key)) + ")"; })
+  .attr("x1", radius(-2))
+  .attr("x2", function(d) { return radius(d.count + 2); });
 
   // Draw the links.
   svg.append("g")
-      .attr("class", "links")
-    .selectAll(".link")
-      .data(links)
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", link()
-      .angle(function(d) { return angle(d.type); })
-      .radius(function(d) { return radius(d.node.index); }))
-      .on("mouseover", linkMouseover)
-      .on("mouseout", mouseout);
+  .attr("class", "links")
+  .selectAll(".link")
+  .data(links)
+  .enter().append("path")
+  .attr("class", "link")
+  .attr("d", link()
+    .angle(function(d) { return angle(d.type); })
+    .radius(function(d) { return radius(d.node.index); }))
+  .on("mouseover", linkMouseover)
+  .on("mouseout", mouseout);
 
   // Draw the nodes. Note that each node can have up to two connectors,
   // representing the source (outgoing) and target (incoming) links.
   svg.append("g")
-      .attr("class", "nodes")
-    .selectAll(".node")
-      .data(nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .style("fill", function(d) { return color(d.packageName); })
-    .selectAll("circle")
-      .data(function(d) { return d.connectors; })
-    .enter().append("circle")
-      .attr("transform", function(d) { return "rotate(" + degrees(angle(d.type)) + ")"; })
-      .attr("cx", function(d) { return radius(d.node.index); })
-      .attr("r", 4)
-      .on("mouseover", nodeMouseover)
-      .on("mouseout", mouseout);
+  .attr("class", "nodes")
+  .selectAll(".node")
+  .data(nodes)
+  .enter().append("g")
+  .attr("class", "node")
+  .style("fill", function(d) { return color(d.packageName); })
+  .selectAll("circle")
+  .data(function(d) { return d.connectors; })
+  .enter().append("circle")
+  .attr("transform", function(d) { return "rotate(" + degrees(angle(d.type)) + ")"; })
+  .attr("cx", function(d) { return radius(d.node.index); })
+  .attr("r", 4)
+  .on("mouseover", nodeMouseover)
+  .on("mouseout", mouseout);
 
   // Highlight the link and connected nodes on mouseover.
   function linkMouseover(d) {
@@ -212,41 +208,41 @@ d3.json("/flare-import.json", function(nodes) {
 // This class is modeled after d3.svg.chord.
 function link() {
   var source = function(d) { return d.source; },
-      target = function(d) { return d.target; },
-      angle = function(d) { return d.angle; },
-      startRadius = function(d) { return d.radius; },
-      endRadius = startRadius,
-      arcOffset = -Math.PI / 2;
+  target = function(d) { return d.target; },
+  angle = function(d) { return d.angle; },
+  startRadius = function(d) { return d.radius; },
+  endRadius = startRadius,
+  arcOffset = -Math.PI / 2;
 
   function link(d, i) {
     var s = node(source, this, d, i),
-        t = node(target, this, d, i),
-        x;
+    t = node(target, this, d, i),
+    x;
     if (t.a < s.a) x = t, t = s, s = x;
     if (t.a - s.a > Math.PI) s.a += 2 * Math.PI;
     var a1 = s.a + (t.a - s.a) / 3,
-        a2 = t.a - (t.a - s.a) / 3;
+    a2 = t.a - (t.a - s.a) / 3;
     return s.r0 - s.r1 || t.r0 - t.r1
-        ? "M" + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0
-        + "L" + Math.cos(s.a) * s.r1 + "," + Math.sin(s.a) * s.r1
-        + "C" + Math.cos(a1) * s.r1 + "," + Math.sin(a1) * s.r1
-        + " " + Math.cos(a2) * t.r1 + "," + Math.sin(a2) * t.r1
-        + " " + Math.cos(t.a) * t.r1 + "," + Math.sin(t.a) * t.r1
-        + "L" + Math.cos(t.a) * t.r0 + "," + Math.sin(t.a) * t.r0
-        + "C" + Math.cos(a2) * t.r0 + "," + Math.sin(a2) * t.r0
-        + " " + Math.cos(a1) * s.r0 + "," + Math.sin(a1) * s.r0
-        + " " + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0
-        : "M" + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0
-        + "C" + Math.cos(a1) * s.r1 + "," + Math.sin(a1) * s.r1
-        + " " + Math.cos(a2) * t.r1 + "," + Math.sin(a2) * t.r1
-        + " " + Math.cos(t.a) * t.r1 + "," + Math.sin(t.a) * t.r1;
+    ? "M" + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0
+    + "L" + Math.cos(s.a) * s.r1 + "," + Math.sin(s.a) * s.r1
+    + "C" + Math.cos(a1) * s.r1 + "," + Math.sin(a1) * s.r1
+    + " " + Math.cos(a2) * t.r1 + "," + Math.sin(a2) * t.r1
+    + " " + Math.cos(t.a) * t.r1 + "," + Math.sin(t.a) * t.r1
+    + "L" + Math.cos(t.a) * t.r0 + "," + Math.sin(t.a) * t.r0
+    + "C" + Math.cos(a2) * t.r0 + "," + Math.sin(a2) * t.r0
+    + " " + Math.cos(a1) * s.r0 + "," + Math.sin(a1) * s.r0
+    + " " + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0
+    : "M" + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0
+    + "C" + Math.cos(a1) * s.r1 + "," + Math.sin(a1) * s.r1
+    + " " + Math.cos(a2) * t.r1 + "," + Math.sin(a2) * t.r1
+    + " " + Math.cos(t.a) * t.r1 + "," + Math.sin(t.a) * t.r1;
   }
 
   function node(method, thiz, d, i) {
     var node = method.call(thiz, d, i),
-        a = +(typeof angle === "function" ? angle.call(thiz, node, i) : angle) + arcOffset,
-        r0 = +(typeof startRadius === "function" ? startRadius.call(thiz, node, i) : startRadius),
-        r1 = (startRadius === endRadius ? r0 : +(typeof endRadius === "function" ? endRadius.call(thiz, node, i) : endRadius));
+    a = +(typeof angle === "function" ? angle.call(thiz, node, i) : angle) + arcOffset,
+    r0 = +(typeof startRadius === "function" ? startRadius.call(thiz, node, i) : startRadius),
+    r1 = (startRadius === endRadius ? r0 : +(typeof endRadius === "function" ? endRadius.call(thiz, node, i) : endRadius));
     return {r0: r0, r1: r1, a: a};
   }
 
@@ -298,11 +294,7 @@ function degrees(radians) {
 
 
 
-                      </div>                      
-                  <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
+<div class="clearfix"></div>
+</div>
+</div>
 </div>
