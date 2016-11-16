@@ -1,0 +1,5164 @@
+commit 529f4e87c9774c23507abb29ed80fac5d6b30f19
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:10:21 2016 -0600
+
+    can click title mobile
+
+commit e300e5f4483778280a8776d4ecd85e2f8b99853b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:08:14 2016 -0600
+
+    added angular to tools in about page
+
+commit c5f7ac20d8b6dc112818198e8d14892e685ac148
+Merge: 8e526a6 31ff6ef
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:02:22 2016 -0600
+
+    Merge branch 'phaseThree' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseThree
+
+commit 8e526a6c0f1f3f87967181471087263866187815
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 16 15:01:34 2016 -0600
+
+    changed about page info
+
+commit 31ff6eff50da11c16916af22c3864c3f1c258bce
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Wed Nov 16 20:48:25 2016 +0000
+
+    Fixed makefile
+
+commit 08e64c25d0f0c2d3feff6b52d6fcc246c5a8ded3
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Wed Nov 16 20:44:07 2016 +0000
+
+    Added files
+
+commit ef4bc90b3b9c3672ff3f59f0e36cf88fa2aa18fa
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 16 14:30:40 2016 -0600
+
+    added more tests and coverage output
+
+commit 3c9c8743120c25a31674e8910e220de4b56b2a73
+Author: JiYoung Min <jymin94@cs.utexas.edu>
+Date:   Wed Nov 16 13:02:20 2016 -0600
+
+    Fix the nav bar
+
+commit ef05b41ae3dbc4b796e46604b6dd8f79b51017a3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 19:27:59 2016 -0600
+
+    tweaks to visualization
+
+commit 4d050a86c0aea5f3d0676431ec1ec0c639b1942f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 19:09:55 2016 -0600
+
+    image is now loading
+
+commit 733066f92fd939e0098ceff51458a8492f3b7375
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 17:04:28 2016 -0600
+
+    update to UML3
+
+commit 6a5c6a930899fb56a2ea1ce955b12c72fa17ea30
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 17:04:05 2016 -0600
+
+    update to UML2
+
+commit c9d1db4311f8730e10e27a965c33aaeb4e4bbd25
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 15 17:03:09 2016 -0600
+
+    update to UML
+
+commit 072df2f7ac99c269dfd0f59d92a9dc20e46d7c93
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 15 01:13:44 2016 -0600
+
+    Fixed bug
+
+commit d2285c01668e560ea88439cda0301072abfdf1c4
+Merge: efbd388 b4c3e7a
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:56:28 2016 -0600
+
+    Merge branch 'phaseThree' into frontEnd
+
+commit efbd388a05234d9c976f972ff192475556664897
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:55:23 2016 -0600
+
+    Take out console.log messages
+
+commit 865d8fc3d7ea4c636588cd89c7666ae1f24172f0
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:50:08 2016 -0600
+
+    Fix the nav bar so all the items, including 'Visualization', fit on one line
+
+commit 0970ce36cae78dd07cf6900268e7200b726190b2
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 21:47:59 2016 -0600
+
+    Fix the search page so that pressing 'Enter' works for sure
+
+commit b4c3e7ad5a034321fe7efd7b3da8cfdb3db6dd66
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Mon Nov 14 21:31:21 2016 -0600
+
+    Formatted models/IDB1.py
+
+commit b5790e60319eec328ceb85e2639f6bfbcbf4136c
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Tue Nov 15 02:15:37 2016 +0000
+
+    Fixed deploy.sh
+
+commit f21f95bef22ecca349e4173f4e5e3be86af9bdd4
+Merge: eac2834 cc8b6af
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 19:38:36 2016 -0600
+
+    Merge phaseThree into frontEnd
+
+commit eac2834a58ca014990f627bd1ccf6d66339d4c6a
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 19:24:29 2016 -0600
+
+    Allow searching by hitting 'Enter'. Fixes #77
+
+commit 3b7fdb52aa5b476b96506913b4d264abfbb82272
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 19:17:00 2016 -0600
+
+    Set the search type based on which tab is active
+
+commit 6c0c19f5fda20f9f5441c51856729031b176ceb8
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 14 18:07:25 2016 -0600
+
+    Add tabbed search and fix the width
+
+commit cc8b6afd76ca5a0ae7281afd595f7752a0abc0db
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 15:29:33 2016 -0600
+
+    added visualization page
+
+commit 4757f5bf748648235579d9f60827ec5c2dac3afe
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 15:00:50 2016 -0600
+
+    adding opensourcery on visualization page
+
+commit 0a7f5622a59c22efb9f7cec244277efe00c52ed9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 14:41:50 2016 -0600
+
+    routing
+
+commit 901e21eb3045f362973c963bee203c45dde77ee1
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 14:30:20 2016 -0600
+
+    adding Visualization page
+
+commit d8a674203838afe431af844718e2da43109e4162
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Nov 14 13:46:55 2016 -0600
+
+    Removed async workers
+
+commit 0280e958beb06efa15ba8b87c97828ac0e55b5ee
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Nov 14 13:23:59 2016 -0600
+
+    Added API endpoint
+
+commit 838832104290d23899d55537a5b8a82c61a4d98a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Mon Nov 14 02:18:34 2016 -0600
+
+    Added concurrency with async workers
+
+commit d28fc8742b2439fd74a22bb3ec76314b04b5496f
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Mon Nov 14 01:18:56 2016 -0600
+
+    Added API endpoints for listing all model instances
+
+commit b984ab0cb7216f1413a930e5d161cd274a0678e3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 00:30:50 2016 -0600
+
+    fixing database3
+
+commit 6b75805988c973d874b08512d36e4854053456c8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 00:19:36 2016 -0600
+
+    fixing database2
+
+commit bd31f81b76ba96ee9732f2feec7d076562894cd4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 14 00:08:43 2016 -0600
+
+    fixing database
+
+commit dfaa995881d59baec728f8047ba12ea5eaa39ac8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Sun Nov 13 17:59:19 2016 -0600
+
+    cost adjustment
+
+commit 09f25873a33d2d6d2283da20f0026e50ecc30b90
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Sun Nov 13 17:16:26 2016 -0600
+
+    removed unused files
+
+commit 094fb5edb9684c9feb3ca3f068c556d24a4bed18
+Author: Brandon Dang <budang@users.noreply.github.com>
+Date:   Sun Nov 13 17:05:10 2016 -0600
+
+    Update app.js
+    
+    typo
+
+commit d9ee4d7c695389779e4120989c28aeba2b57b1a5
+Merge: 8dcbb4a c4d9a57
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 23:10:48 2016 -0600
+
+    Merge pull request #80 from cs373gc-fall-2016/detailPagePagination
+    
+    Updated major detail page
+
+commit c4d9a57183fa39c7955de0bcfbf08809e13ba1bf
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 23:09:41 2016 -0600
+
+    Updated major detail page
+
+commit 8dcbb4a0ad24a21e5ec4bd4cfedd29ce1a038015
+Merge: 6fdb060 bdafee9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 22:34:11 2016 -0600
+
+    Merge pull request #79 from cs373gc-fall-2016/detailPagePagination
+    
+    Added pagination tables to detail pages
+
+commit bdafee9fb9e6d09fc7535422efe6fcfe21c66b87
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 22:32:22 2016 -0600
+
+    Added pagination tables to detail pages
+
+commit 6fdb060781066bdd951a192a81a50a609f3e8c20
+Merge: 66fb495 6d9e626
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 15:14:03 2016 -0600
+
+    Merge pull request #78 from cs373gc-fall-2016/media
+    
+    Media
+
+commit 6d9e626b05ed3e2771613bf052ebee5d81cb5e43
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 15:11:44 2016 -0600
+
+    placeholder image if API does not retrieve any results
+
+commit f18aa742392a68fe66ab48b38a6ca0ed6103f319
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 15:00:34 2016 -0600
+
+    hardcoding race-related image URIs
+
+commit fa5378160ab0b9c33406034f4c09de61d32ee4e5
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:59:01 2016 -0600
+
+    hardcoding race-related image URIs
+
+commit 97a7280e3aa3c5a50491c911f7b621bda08cf638
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:52:49 2016 -0600
+
+    hardcoding race-related image URIs
+
+commit c7399e5b0f7ad9c62133ad691c0b4a030db521c2
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:41:22 2016 -0600
+
+    small edits to bios
+
+commit 97c6d512c260cb3864b2ac61aec5cd0039e18ac4
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:38:13 2016 -0600
+
+    resizing image and better error handling
+
+commit c59403308fdee1db9bb5d0e479be48a62314b3d4
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:26:25 2016 -0600
+
+    css/styling for media
+
+commit f3780b2e4310e8557d44b173726f21a0e5b1848c
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:18:04 2016 -0600
+
+    trying to handle synchronous calls
+
+commit 54d913f27927add146ce9b375240feb5f50d0f7c
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:07:11 2016 -0600
+
+    forgot to pass in params into function
+
+commit bef38609184a9ecd996375c1c1d0950387f27a4b
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 14:02:13 2016 -0600
+
+    decently major fixes when making API calls to getty
+
+commit 5cfaeeda6fd10d0c47752a9042453f058bca36b9
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 12:53:11 2016 -0600
+
+    missing parts from merge
+
+commit 79dfb0d51807cba73d9357debf07503ef92c9423
+Merge: 9b0e12c 66fb495
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sat Nov 12 12:25:55 2016 -0600
+
+    merging and merge conflicts
+
+commit 66fb495dc480681fab7ddb6985a59b4f8cd0afec
+Merge: 5d079f1 3fe4f7e
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Sat Nov 12 01:32:28 2016 -0600
+
+    Merge branch 'phaseThree' into frontEnd
+
+commit 5d079f1e9b022b28d77aae9e83a326988a245789
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Sat Nov 12 01:31:43 2016 -0600
+
+    Fix the navigation bar so that all the menu items are on one line
+
+commit 3fe4f7e1890a102981b17bd7bcc4c39a7d01a323
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sat Nov 12 00:43:40 2016 -0600
+
+    Updated tabbing
+
+commit 769d70538f5e6d61165bc17063612f074018b8a2
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 18:16:37 2016 -0600
+
+    Removed prints
+
+commit 59ce456eb957b6a5b24cab064f4a174461621fb5
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 18:02:59 2016 -0600
+
+    Updated files
+
+commit fc092bde6fb3158cf8be33f3e54fb284f553dd52
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 17:59:55 2016 -0600
+
+    Fixed capitalization for context
+
+commit 1af3000bd1a321ee3a64268418635491d05eed3a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 16:16:13 2016 -0600
+
+    Fixed bug
+
+commit caacfffcf7f74903a88155dc061133126d1fea37
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Fri Nov 11 13:46:52 2016 -0600
+
+    Updated something
+
+commit 6c3f6ddf3672bbe404fd4e2e9057fdfdb6040928
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:59:23 2016 -0600
+
+    Updated tests
+
+commit c6938fb5173cd34003f3265f7ee4a076af5cb846
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:51:45 2016 -0600
+
+    Fixed bug
+
+commit 03281af2199f32017a734a264e80f5c7e01b2a38
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:42:21 2016 -0600
+
+    Fixed bug
+
+commit 8cba3f853bd09784b6a25889687885b554b23037
+Merge: 819ad16 d8b7b62
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:24:41 2016 -0600
+
+    Merge pull request #75 from cs373gc-fall-2016/pagination
+    
+    Pagination
+
+commit d8b7b624d07c027515f178052560d3b30ac410a5
+Merge: a6842ea 819ad16
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:16:42 2016 -0600
+
+    Merged with phase-three
+
+commit a6842ea3a185d57c2ba61a18771feb17ae573e1c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 23:09:20 2016 -0600
+
+    Added OR tables to front end
+
+commit 819ad16771537e1c55cf4a5f018c98ca51a2fa97
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 22:35:43 2016 -0600
+
+    updating tests2
+
+commit 813a21f7791261b5dfeb68caa0f24cfaad353fb1
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 22:22:47 2016 -0600
+
+    Got AND tables working for all models.
+
+commit 8924b2cfa79318af88e13a55149c9b43e82ad567
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 22:13:40 2016 -0600
+
+    updating tests
+
+commit 2a7e116188501c72aa6b2dffcec844a458a816b8
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 20:44:00 2016 -0600
+
+    Finished search back end
+
+commit fe379f4e4c4051634237a498afb575d99fcfc9b4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 10 20:04:42 2016 -0600
+
+    Updated search
+
+commit 914ed769f798ded855c801b69947179a428332d2
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 10 18:29:15 2016 -0600
+
+    Add a pointer hover for the column headers in the models page
+
+commit 9b0e12cc667359bc5bb4709bbd7c10c2dba38c96
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Nov 10 18:18:21 2016 -0600
+
+    removing unused assets and commented code; embedding media
+
+commit d8fa1ab2eff0fd28eb25c5cde53aa647a346b969
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 14:54:20 2016 -0600
+
+    readme models updated
+
+commit 883ad4e1441b5a940ba5ce8733f732346c43c6a5
+Merge: 4f59783 fc2f8eb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 14:25:57 2016 -0600
+
+    Merge branch 'jcDB' into phaseThree
+
+commit fc2f8ebcf4e4f33a285a8930662f5864d14201d3
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Thu Nov 10 20:20:40 2016 +0000
+
+    updating pickle files
+
+commit 0f7d2a17e5eca29805f64f49c337e0cbe0e3744e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 08:15:04 2016 -0600
+
+    fixed bug
+
+commit 3611d3eae05da7cdbec749413644def3c2c34f4a
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 03:01:39 2016 -0600
+
+    updating model names
+
+commit 0ca8b3a57a561866067abfeca8c572aa132df7d1
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 02:58:05 2016 -0600
+
+    update to api_calls
+
+commit d543acf60a410048d8afd42249baebfe07fe3834
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 02:41:53 2016 -0600
+
+    updating the pickle files
+
+commit e70f04c77fd810fce107dfd4362ad99ef008f8a6
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:57:41 2016 -0600
+
+    fix bug
+
+commit f555d5c9fcd29d340f9d08dde0722503af9e09da
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:48:59 2016 -0600
+
+    code changed for entire run
+
+commit d4cc67e0e20952855816f9787e7f240b2b75492d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:42:47 2016 -0600
+
+    droping tables update
+
+commit 1ecf2639f71b0af03b6f5d0959cbeaf4adbc9a67
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:40:19 2016 -0600
+
+    updates to models adding comma
+
+commit 8730ace63e1ca1a69b245cbcf85f66e67c7c8729
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:37:18 2016 -0600
+
+    updates to models
+
+commit f1240c4ab52c2e3af057096910c62d0085c79d18
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:28:31 2016 -0600
+
+    fixing calculations for db2
+
+commit 48935ca7b454ee57e69bb8cca4550a16e2abdb4a
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 10 00:05:57 2016 -0600
+
+    fixing calculations for db
+
+commit 0cd0f0b1f4d604998f39851cce6da4605cdf5f5c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:38:16 2016 -0600
+
+    Fixed bug
+
+commit eee7c3f2445b77c1def6d025d08b8a1a7d000093
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:06:59 2016 -0600
+
+    Updated search
+
+commit b32f53d4c0e0bace8de4c745f1a20f976a8580b4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:05:20 2016 -0600
+
+    Updated search
+
+commit 92b5b08f9ee5c4f1eba69fabede42014f1466eb9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 22:02:22 2016 -0600
+
+    Updated searching
+
+commit 67532ac8c2e00fa98bdc83273c1baad34ee57f52
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 17:54:47 2016 -0600
+
+    Updating search
+
+commit 4f597839566806cdbed63a082cf569df3ca833fa
+Merge: fe6e639 0734813
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 16:00:11 2016 -0600
+
+    Merge branch 'phaseThree' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseThree
+
+commit fe6e639d8680ddd192559a356bd788085a9105bc
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 15:59:43 2016 -0600
+
+    fixed carousel kinda
+
+commit a92928861836afb58d1c9295ba53c7af8ef789dd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 15:47:58 2016 -0600
+
+    adding top_city_amt to majors2
+
+commit 965d020fefa54a2cae2e888d57576044ef339a4c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 15:47:05 2016 -0600
+
+    adding top_city_amt to majors
+
+commit 86fe7c63eff8a835305f8f0d0290b9702d256e3f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 15:45:39 2016 -0600
+
+    adding top_city_amt to majors]
+
+commit 0734813219846d1b2535a8e5dad5ed0ecd97dc51
+Merge: f9b6359 5ca9a49
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 14:59:53 2016 -0600
+
+    Merge pull request #69 from cs373gc-fall-2016/jcDB
+    
+    adding city to university table
+
+commit 5ca9a49eb05ea4c709b65a5fdf4726c76b7d15f7
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 9 14:58:36 2016 -0600
+
+    adding city to university table
+
+commit f9b6359da9383c009c6e865e9edecd9f24606598
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 14:13:25 2016 -0600
+
+    changed bg back to white
+
+commit e21beab2e6e0310fa06ce07953801408c17b7313
+Merge: d040f39 b577684
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 09:59:04 2016 -0600
+
+    Merge branch 'DetailFormat' into phaseThree
+
+commit b577684e5ca2314a0619466357f69743dc5023c9
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 9 09:30:29 2016 -0600
+
+    Changed format added background
+
+commit e7fec31d2182d2ef8c38e14aafa39b40e5c6c53b
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 00:28:09 2016 -0600
+
+    Searching only Major & Ethnicity
+
+commit e5a98a0de025bf83553bd203575b192214d2e896
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 00:15:24 2016 -0600
+
+    Updated searching
+
+commit 04831b54cdda9305ef73db62bef70fbdc7945e9d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 9 00:11:39 2016 -0600
+
+    Added searching
+
+commit c82cb881352bcc61f6da4aedcf082821c5c089fb
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 17:40:19 2016 -0600
+
+    Formatted code a bit.
+
+commit c60d071a066b5650c675669a5cac5d17b9ac4c82
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 03:08:45 2016 -0600
+
+    Added formatting
+
+commit b225066c6a4a15c2f83ea0d078fe5a8e4b907d3b
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 02:46:20 2016 -0600
+
+    Removed duplicates
+
+commit d040f391f6c5c5098597526b42eb362c4344acf4
+Merge: ce381df d1e18f8
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 02:20:25 2016 -0600
+
+    Merge pull request #66 from cs373gc-fall-2016/jcTests
+    
+    Jc tests
+
+commit d1e18f891e86be4d22123b82347705885002d95f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 02:11:44 2016 -0600
+
+    attempt of unit test fix20
+
+commit 67a5bec464325a1bec83fa0abb0b97dac0d19f2a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 02:07:52 2016 -0600
+
+    Updated files
+
+commit 449ec48995fb4b0637cd2b77bd98504d50d2d576
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 02:02:01 2016 -0600
+
+    attempt of unit test fix19
+
+commit e13cf1de45e302ff63bcf669d37807c7b655d04e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 02:00:20 2016 -0600
+
+    attempt of unit test fix18
+
+commit 9bd2ef48cbe8a5b1f3ae027c408bdfbcbba692cd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:57:41 2016 -0600
+
+    attempt of unit test fix17
+
+commit 0069e1010602ee9644384590a9784398ac3cb862
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:55:30 2016 -0600
+
+    attempt of unit test fix16
+
+commit b67fb5f853c54499c4d93e349ac901160c90c920
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:48:53 2016 -0600
+
+    attempt of unit test fix15
+
+commit 26005d521c49ca9966a9167442e14dcfb6a6b0eb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:44:01 2016 -0600
+
+    attempt of unit test fix14
+
+commit e242371e14fdebb84889ddc61147d8d88b1e0642
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:42:03 2016 -0600
+
+    attempt of unit test fix13
+
+commit c50373b4d6014efb121f4e93e68d7c19de9294e4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:41:41 2016 -0600
+
+    Removed uni_count from models.Major
+
+commit 18a064f5fc171f703a52f590da522dfe95293a4d
+Merge: 65ed94c ce381df
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:39:02 2016 -0600
+
+    Merge branch 'phaseThree' into pagination
+    
+    Merged phaseThree into pagination
+
+commit 65ed94c38ea4d92ac346cd26848653f4fec5b14e
+Merge: 0be4dc7 0ef487d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:31:52 2016 -0600
+
+    Merge branch 'backEnd' into pagination
+
+commit 0be4dc7cc048df6fa8518988f44f8c160b494859
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 01:31:37 2016 -0600
+
+    Updated ethnicities.html
+
+commit dd4ecd5646bd371f9a8e023bac2659339938efa9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:28:42 2016 -0600
+
+    attempt of unit test fix12
+
+commit e5ec34fc6452b998db0415555440f138683f05f6
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:26:27 2016 -0600
+
+    attempt of unit test fix11
+
+commit b9dad8bec78bf8cc442bbcb8ba06c9ec99f6c78e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:24:33 2016 -0600
+
+    attempt of unit test fix10
+
+commit aa7fec8f89e1c40fcfe8f1abe7c79c835a1158f4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:21:51 2016 -0600
+
+    attempt of unit test fix9
+
+commit b32a3d4cf00dd5d88abdac5bf53862ace088ca1c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:18:45 2016 -0600
+
+    attempt of unit test fix8
+
+commit 8e17a09a3cd2003348a3673dee571973bbbf58b9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 01:09:41 2016 -0600
+
+    attempt of unit test fix7
+
+commit bd42b671bc7a4338fccb292b0bc2f43db3495617
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:49:58 2016 -0600
+
+    attempt of unit test fix6
+
+commit 189ac17d8ee2a4527428f9d2cf9de2c33d69912e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:35:50 2016 -0600
+
+    attempt of unit test fix5
+
+commit 3d4e27c75b5e4c31297f00ff1dc242c494b670ea
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:31:32 2016 -0600
+
+    attempt of unit test fix4
+
+commit 4177dd31c3b9ee33d849787a4ddd27785a2cca37
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:23:26 2016 -0600
+
+    attempt of unit test fix3
+
+commit 2066c25a2fdf4c2bdc701f96b325a4d73e5ff904
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:16:57 2016 -0600
+
+    attempt of unit test fix2
+
+commit be16adc8f3053e95833578cb4286b4e1b450d522
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 8 00:08:04 2016 -0600
+
+    attempt of unit test fix
+
+commit 2ad1a8144337762897534471933a29d3f7b63bc2
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 8 00:02:59 2016 -0600
+
+    Added pagination and stuff
+
+commit ce381dfa6b62a50576adb1ad321763405ec1bcd6
+Merge: fb70170 883d71c
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 23:22:47 2016 -0600
+
+    Merge pull request #62 from cs373gc-fall-2016/unit-tests-fix
+    
+    Unit tests should now display on about page
+
+commit fb701705ade3ceec8b90f5d9e45d408148f5791f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 22:50:37 2016 -0600
+
+    finished statistics page update
+
+commit 7b70a7fecf4a1ab42325a117a8bd96e85a04fefc
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 22:06:42 2016 -0600
+
+    updating brandon tweak and total statistics update
+
+commit 5a07ad295d833341c0646a6956466c42df3c3407
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 22:01:55 2016 -0600
+
+    updating totals stats
+
+commit 7fda0969d77accda87c6b0959e9d1a510b5b8ea2
+Merge: df4dff2 7229fab
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:27:17 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 7229fab8ea6c87e1c9ba0d95c8f096c6756212bd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:26:38 2016 -0600
+
+    making statistics API call faster2
+
+commit df4dff22c7c7a6aafd994716e4139add22822753
+Merge: d41cb4e 82f4da9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:20:13 2016 -0600
+
+    Merge branch 'phaseThree' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseThree
+
+commit d41cb4e8ab16d55bfabb6ef3d3b1ecc83672992c
+Merge: 4d72deb 1bb85cb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:19:43 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 1bb85cb59c9d57f67abd75b6360235f1c3c70939
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 21:16:11 2016 -0600
+
+    making statistics API call faster
+
+commit 82f4da98b51b79f0c502b82aa6b842a485fade67
+Merge: 0b0dc4c 65dcb0f
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Mon Nov 7 23:16:42 2016 +0000
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 883d71cb288c3d1664c5bb18ba45f1af3be48b0f
+Author: EC2 Default User <ec2-user@ip-172-31-43-26.us-west-2.compute.internal>
+Date:   Mon Nov 7 22:41:08 2016 +0000
+
+    Unit tests should now display on about page
+
+commit 4d72deb7427fb4c751467339813e1064b04f1328
+Merge: ad80b80 65dcb0f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:34:07 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 65dcb0f90c85b08502e3d8bf049f91534c294a22
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:33:28 2016 -0600
+
+    update to makefile
+
+commit ad80b80d2b4157e7fa626b304619c8c894a1c75d
+Merge: 0b0dc4c 56bba3d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:30:32 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit 56bba3d1331669574e5a06a808b31d73a9fc38f3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:25:30 2016 -0600
+
+    removing print from api calls
+
+commit 6d5ca52ce89a980d5c87b882676232efb333921d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Mon Nov 7 16:24:20 2016 -0600
+
+    cities table columns all sortable
+
+commit 027b3cfc13094b674c75bcbb5e8f6bf835fdb2f0
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Mon Nov 7 16:15:11 2016 -0600
+
+    centered the tables
+
+commit 49c10ea125f870d07d3332f873f4703094855b8d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 16:10:55 2016 -0600
+
+    updating ip in models page
+
+commit 61b34af0e92c92de4a9d25914d12763b1ae39be7
+Merge: 31dcaab e51a90d
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 7 15:54:50 2016 -0600
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 31dcaab971f6b9d59b342dfe2d1fce469edd6e35
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Nov 7 15:54:47 2016 -0600
+
+    Connect the Github API calls to the display of statistics in the About page. Fixes #48
+
+commit e51a90d71b8854c7691b7bf772e2ae7c2c99125c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 15:42:38 2016 -0600
+
+    updating city model and apicall2
+
+commit 64f48cfd0b492569ce6e8bd094d3e2423897bad4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 15:39:32 2016 -0600
+
+    updating city model and apicall
+
+commit 41146a4e8df4487def8e12369c907b19f8ef1a55
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 15:16:53 2016 -0600
+
+    updating city table to include counts
+
+commit 0b0dc4c0fcdeb5609c99543dd02c98c619592968
+Merge: b733cdb 0ef487d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 14:29:13 2016 -0600
+
+    Merge branch 'backEnd' into phaseThree
+
+commit b733cdbc79ee82e31b0a8186f0c5fe79a2ed8509
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 14:28:37 2016 -0600
+
+    updating the AWS instance IP to new machine
+
+commit 0ef487d0d9ec8efb9b3ccf78357e1f3a106df3bb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Mon Nov 7 13:42:30 2016 -0600
+
+    updating statistics calculation code
+
+commit 55b85c183c5471a989f02774884a7e0e8d7561c4
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 21:57:00 2016 -0500
+
+    Add log and doxyfile
+
+commit 7585b281698b4f88090cfcdbd8e5d337359d514e
+Merge: 91d4eb0 677a935
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 21:54:25 2016 -0500
+
+    Merge branch 'phaseTwo'
+
+commit 677a9359bbdb08836d0548828ca5163aef8ec8ed
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 21:53:05 2016 -0500
+
+    Fixed a syntax error
+
+commit c4d92205b2cd24743736f9d8f0025674a2e718ba
+Author: Michael Volk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:51:07 2016 -0500
+
+    Rename test.out to tests.out
+
+commit 86b39b8acbf10abfd5f51808a93bad3bc2bc8d9f
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:50:07 2016 -0500
+
+    added output file
+
+commit c6eeb830a662ce6fb5a063c6d53c740ba10df01e
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:30:33 2016 -0500
+
+    tests done
+
+commit cd76d557d62f2e2cedb2cf8effa92ab69cb316f9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 21:25:30 2016 -0500
+
+    Updated IDB1
+
+commit 92623797b50231bdddf85b26406ee7a100cf18b0
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:12:59 2016 -0500
+
+    tests passing
+
+commit a53c4c989606dc6d51fc9849b7ba1e09927dad27
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:09:42 2016 -0500
+
+    tests not failing, have errors
+
+commit cf52aff703e2def2696945027ade59ab138de0fa
+Merge: a8f6881 1e714f5
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:09:07 2016 -0500
+
+    Merge branch 'FrontEndMatt' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into FrontEndMatt
+
+commit a8f68818910cb20c446cccc3e3ebc197c2cda583
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 21:09:00 2016 -0500
+
+    tests not failing, have errors
+
+commit 1e714f5bd69c55dcfcbb1212dc2976e2a7327c23
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 21:05:29 2016 -0500
+
+    Added python3
+
+commit 40f130b2d0372fa0a081bea7582b74ca59f77205
+Merge: 04aa9d8 2e73b52
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 21:00:59 2016 -0500
+
+    Updated files
+
+commit 04aa9d850ef31de8d30ac7e94573937f5e9a3176
+Merge: c075534 172ac23
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 20:52:27 2016 -0500
+
+    Merge branch 'backEnd' into FrontEndMatt
+
+commit 172ac2398d643c8460b329edd697203f1bd396b0
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 20:51:26 2016 -0500
+
+    removed idb1
+
+commit 51bc289cbea70d139b878c1f12933c775ef8c2d7
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 20:48:47 2016 -0500
+
+    updted to idb2 files
+
+commit c075534d08d1c84ea64b1e949dcf56ed8d642a2d
+Merge: 43ebd9e e13dbb3
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 20:43:43 2016 -0500
+
+    Merged backEnd to frontEnd
+
+commit 2e73b524507798366525ea25b6b8a2115689b13a
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 20:41:22 2016 -0500
+
+    Implement sorting for the 3 mysterious columns in City
+
+commit 43ebd9e5572817f7f71abf92ae74daa014b11808
+Merge: 6e3415f a5e01b2
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 20:40:32 2016 -0500
+
+    Merge branch 'about-tests' into FrontEndMatt
+
+commit 6e3415f6660f344d151df7784df036807210c54d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 20:39:57 2016 -0500
+
+    Added shit
+
+commit 65d78894be09d7129a534876d4503c7ae156bfce
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 20:33:34 2016 -0500
+
+    Fix allowing sorting of columns
+
+commit a5e01b2aa8c38134a0cd8f6d0289c5fd0273a57c
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Nov 3 20:16:41 2016 -0500
+
+    cleaner
+
+commit a021478a16613432f82c9d8e31ba98f2cb32fa60
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Nov 3 20:01:51 2016 -0500
+
+    displaying unit tests successfully
+
+commit 3e3ef13507a67b983ae359cc1726b1921bbc8e57
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Nov 3 19:35:54 2016 -0500
+
+    work on running tests; not yet working
+
+commit 8111864b6a472cca0c9e94682051fc4879580533
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 19:31:17 2016 -0500
+
+    adding statistics file
+
+commit f5e36584709da19693dba860690b6e0564cb14f2
+Merge: a67182c a16402a
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 17:28:19 2016 -0500
+
+    Merge FrontEndMatt into AddErrorEndpoint
+
+commit a67182c322d7e4d37ddbc2a169e6d21b51d17399
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 17:27:10 2016 -0500
+
+    Fix routing for sorting the universities page
+
+commit a16402a38da10549956812953ae9c4034ae7c605
+Merge: 247a54f 4742598
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 17:21:07 2016 -0500
+
+    Merge branch 'FrontEndMatt' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into FrontEndMatt
+
+commit 247a54f89f339c0db6c2ed7fc3231b84a10c5a80
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 17:17:52 2016 -0500
+
+    Updated files
+
+commit 47a96477d4337fa638fec9b3b4e42ecf941926fb
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 17:14:29 2016 -0500
+
+    Updated files
+
+commit e13dbb3ed6fca939853b027a158afdf7c9af3f86
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 17:08:12 2016 -0500
+
+    maybe a retry
+
+commit 4742598df6c6bac9a9db49925a511e7d95a88810
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 16:39:00 2016 -0500
+
+    Change the error page so that only the error code is displayed
+
+commit f8b6d0b7454ba718069cdaa6f996f52c46473c28
+Merge: 483b0fa c436d83
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 16:35:40 2016 -0500
+
+    Merge AddErrorEndpoint into FrontEndMatt
+
+commit f978a7035befc95265e77a66f0fe75517df844a8
+Merge: e8a7cb6 b13cd06
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 16:33:18 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit e8a7cb6512d76201952d20aa8f17ada16fcc287d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 16:33:06 2016 -0500
+
+    adding additional tests
+
+commit c436d83e4f1c8743c74a5bbc593b9fdb5b570fab
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 16:32:51 2016 -0500
+
+    Add an endpoint for handling errors
+
+commit 483b0fa77e48bc90e9a50fabd74c159f3e30e14c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 16:25:07 2016 -0500
+
+    Added dynamic model instances
+
+commit b13cd0631efa8cdfb240b09ccb9be27083b98055
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 16:13:48 2016 -0500
+
+    added ethnicity queries
+
+commit dc9fe32023abcfaba3f54132eda626b2e40e14a7
+Merge: caf405c cf53ace
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 16:02:52 2016 -0500
+
+    adding city tests4
+
+commit caf405caf2be3f19d0189bbbdd0960213a40bd2f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 15:59:11 2016 -0500
+
+    adding city tests3
+
+commit c54e421a9e6b6d172a31c2b1e19816def0a93d17
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 15:58:06 2016 -0500
+
+    adding city tests2
+
+commit cf53acefea1677319897435c4550f01c65f12bc1
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 15:53:16 2016 -0500
+
+    typo
+
+commit a60425243e326ed769cff4fbed64151ae874a858
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 15:49:14 2016 -0500
+
+    chnaged pickle bool
+
+commit e7b7582f9a25fa77989aca7c84e660ffbd1aca0f
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 15:47:21 2016 -0500
+
+    changing ethnicity count
+
+commit e800876861046d4387d0561354a1b86c1fce1d90
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 15:35:30 2016 -0500
+
+    adding city tests
+
+commit c820ad62b751cfee390fed909b9f1d1a35977f71
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 15:18:27 2016 -0500
+
+    tweak to university attributes tests
+
+commit 2063240f3fd6a02e331c3d2e398faa506e03e39c
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 15:15:05 2016 -0500
+
+    added attributes tests for university
+
+commit a06f3eb52381c257647fbc78eef0430f9866b444
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 14:54:49 2016 -0500
+
+    added city query tests
+
+commit 9783020078b53865ab8c0ef28d223c3c7dc95c54
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 14:39:54 2016 -0500
+
+    added tests
+
+commit fde7e4840efe17dffeb533d1132aace0e04aa671
+Merge: 51da646 415e539
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 14:39:16 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 51da6461f10d9d2000500c049dcdfeea9bd12834
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 14:39:08 2016 -0500
+
+    added tests
+
+commit 415e539ff48eae046d7f81b6a9ea3a63656c428d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 14:37:41 2016 -0500
+
+    updated the UML diagram
+
+commit 91d4eb0674fd42c05ded284f09b090761d109416
+Author: JiYoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 14:28:33 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit bc5da5ed1dd3e3e91e0a9c128566f56be7087f56
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 14:10:19 2016 -0500
+
+    Updated paginate
+
+commit e17a3377ef379ffbda464ca36676ed3663845c6d
+Merge: 9dc7f6e 772dc4a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 13:55:18 2016 -0500
+
+    Merged paginate into MATT
+
+commit 9dc7f6ecd1df681243c755536ccecc541725c042
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 13:48:09 2016 -0500
+
+    Add an endpoint to look up models by name
+
+commit 772dc4afcccaeca8c48fea3b075d6e84f653f4b6
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 13:44:43 2016 -0500
+
+    Added pagination for other models.
+
+commit b80a926075bbc77e4373faae2b3203da71c3d6a9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Nov 3 13:13:06 2016 -0500
+
+    Added pagination.
+
+commit 895db1907355645fc880f752f7172174dead5e2d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Nov 3 03:50:31 2016 -0500
+
+    starting detail pages, only university-detail had html in it
+
+commit 724dafefca602b123e326239e29f259cb2d5a524
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 03:50:09 2016 -0500
+
+    added pickle update3
+
+commit 3b5173c8fa800e807f11accd06866b0bac8e95d7
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 03:49:21 2016 -0500
+
+    Add a City Name and query distinctly
+
+commit 5c9502cfcf55114a9fdb89bd01068564e0ca8e85
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 03:38:28 2016 -0500
+
+    added pickle update2
+
+commit 6c88fb53ea86a3866d488c033e07d0772cfe4dff
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 03:36:00 2016 -0500
+
+    defaulting issue fixed
+
+commit 0b0ec18f6114e358b5e5ec272bf194358759ceb9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Nov 3 03:32:49 2016 -0500
+
+    added pickle update
+
+commit 360304f46cfb5d8fa7a77feff4dd79a71f2f7d44
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Thu Nov 3 03:32:02 2016 -0500
+
+    adding additional columns to city
+
+commit 511048c0ecb6b25ea554f911a49e1ce195fb142e
+Merge: 5a6c728 af5d17c
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Thu Nov 3 01:06:45 2016 -0500
+
+    Merge FrontEndMatt to FrontEndPaginate
+
+commit af5d17cd1ac50c3d3e458032b1de9d9dc8365bc5
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Nov 3 01:02:33 2016 -0500
+
+    The tables load and sort
+
+commit 09aeb3c82652bb951974506f0b1d73f0e8193e9e
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Thu Nov 3 06:00:11 2016 +0000
+
+    added pickles
+
+commit bdbcf238b88f8a30ddf2c730244c75466d4fedd4
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Nov 3 00:34:42 2016 -0500
+
+    maybe
+
+commit a36f1595432494500d35e72cd0191ee8d83c35e5
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Nov 3 00:05:09 2016 -0500
+
+    only uni routing and detail sorting works
+
+commit e78708c8ad9913cddd0d3ba787bcdd845ecc93d0
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:39:27 2016 -0500
+
+    filling database attempt 2
+
+commit 20de3b5afe064f4f7b1eb35fd11b1b6f6f438ba5
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:38:42 2016 -0500
+
+    filling database attempt 2
+
+commit 51e4f96ef5ee8a2fbf06fc5c8bb85e529ce6e9d0
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:29:56 2016 -0500
+
+    testing database10
+
+commit cacb3117623c4d105a39cd4fe30422aa65733063
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:29:21 2016 -0500
+
+    testing database9
+
+commit a4aaab6fd2371d5a68c210d8703c6c5098b2a2ee
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:27:44 2016 -0500
+
+    testing database8
+
+commit 5a6c72841288857cdfe7b29cf827018d30471e52
+Author: Brandon <budang@utexas.edu>
+Date:   Wed Nov 2 23:25:06 2016 -0500
+
+    more robust
+
+commit 2ab716efc8dd84fd8e9cf411d4a363621abcc918
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:23:42 2016 -0500
+
+    testing database7
+
+commit 450422df5f7a66c2c274777600dd525fc7f06fcc
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:22:58 2016 -0500
+
+    testing database6
+
+commit f0f32392b7f18c63d09bf8395b34e0206f50e4cc
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:19:20 2016 -0500
+
+    testing database5
+
+commit af69d2e4a33b9c2db3caade3375de4022ecfa81b
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:15:54 2016 -0500
+
+    testing database4
+
+commit b2c0e6fb4287436164302d335be29ca8a990f3ba
+Merge: 2d9fba4 9ba8857
+Author: Brandon <budang@utexas.edu>
+Date:   Wed Nov 2 23:14:44 2016 -0500
+
+    Merge branch 'FrontEndPaginate' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into FrontEndPaginate
+
+commit 9ba885716656bd55fe95f747dffec4af13c42771
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 23:13:15 2016 -0500
+
+    Add in a column keys dictionary for the rendered column names to their database column names
+
+commit 6c5e4e8abbe71972c18cd153df316bee744d7116
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:11:37 2016 -0500
+
+    testing database3
+
+commit 1e6db18e5e8b10e273657fd57584e8b7acdbdad8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:08:52 2016 -0500
+
+    testing database2
+
+commit 2d9fba451b8b6feb56ece12f8bb0380ef47adb27
+Author: Brandon <budang@utexas.edu>
+Date:   Wed Nov 2 23:07:38 2016 -0500
+
+    fixed routing
+
+commit 57920bdc6aae9cafa333fc490dc5443a238f1a25
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 23:04:30 2016 -0500
+
+    testing database
+
+commit 8bc8b1d3e898a0eeaf8f74cdf1f8f4652683d4b0
+Merge: 2c00118 272840a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 23:02:30 2016 -0500
+
+    Merge branch 'backEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 2c00118c81a68e72f5db5a89c6f5498b51348e63
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 23:02:26 2016 -0500
+
+    Updated tests
+
+commit 272840a397764b3f7c3b80ebf2af99e53c2e7080
+Merge: 715244d 0e6d8c3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 22:54:49 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 715244d17f76c2f11579e9c152f9f1c0641d1189
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 22:54:45 2016 -0500
+
+    adding pickles and droping at very end
+
+commit aca41e478a871b158f88ef0f5e63e838aafbb8a6
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 22:51:42 2016 -0500
+
+    adding pickles and droping at very end
+
+commit 5b514709862fffa868433f43470fc9c24e5b6909
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 22:44:28 2016 -0500
+
+    added city columns in models.py
+
+commit 40657b39e648e24f7eb72eb4b40482372e274999
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 22:13:46 2016 -0500
+
+    Updated tests
+
+commit 0e6d8c319ae13a64a299332e5db0fa8939280edb
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 22:00:03 2016 -0500
+
+    Updated tests
+
+commit a3b9808f3206594a3c83cb36737063838721ab6a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 21:59:19 2016 -0500
+
+    Updated tests
+
+commit e182457a728e5f4e04d27636fcbf21f18e8843d7
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 21:53:01 2016 -0500
+
+    Updated tests
+
+commit 3749b0a089f705d5326ab4725b198d8ddadf14fe
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 21:52:56 2016 -0500
+
+    Fix more merge conflicts
+
+commit 8e72b5c5a1e2d33e6d6ce67e4678df4454f15f66
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 21:49:48 2016 -0500
+
+    Updated tests
+
+commit f9bdadd24047ccf2dfa8b08c3cafcb87cf8a95a1
+Merge: 91f2fd1 0d625f0
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 21:43:39 2016 -0500
+
+    Merge branch 'backEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 91f2fd1e5d425eb26eded66235873e09d407e038
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 21:43:36 2016 -0500
+
+    Updated tests
+
+commit 84ccfebac3b2c313793002e0eed5a950969d0c1b
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 21:38:19 2016 -0500
+
+    Fix merge conflicts
+
+commit 0d625f064ae49ba2b6169445b4147464fc39923d
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 21:20:05 2016 -0500
+
+    setting retries to 50
+
+commit bcce7a8bf162dba0f9bcbbf3b0dbb16db2fb4ac3
+Merge: 776bb80 4ff7e1f
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 21:18:09 2016 -0500
+
+    Merge Partials from FrontEndLaura into FrontEndPaginate
+
+commit 17d38a2331b7cb2cf5208560e9656c3bee0103fd
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 21:17:56 2016 -0500
+
+    setting retries to 5
+
+commit 4ff7e1f757ef85211b244da870ffcdf85f01b9a3
+Merge: cabc922 249e937
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 21:14:18 2016 -0500
+
+    Merge branch 'FrontEndMatt' into FrontEndLaura
+
+commit cabc922d7b73cce78d84a7d6cf09d5af4732b013
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 21:09:51 2016 -0500
+
+    before Matt megre
+
+commit 9d001b79302b826cae58e29b9da88e474b0f44fb
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 21:00:00 2016 -0500
+
+    table col changed
+
+commit 776bb801999de4f6cf97c6da13c8900c84b39228
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 19:53:27 2016 -0500
+
+    Get rid of print statements
+
+commit ba84542f629229654baaad9b84e1000256f50d08
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 19:48:05 2016 -0500
+
+    removed unnecessary imports
+
+commit 21def81ece567e4d2be067ba69426a9b35e01eee
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 19:37:36 2016 -0500
+
+    Updated name display
+
+commit d68cb20d3e9bdb4962a8099ff1b295cafe53f273
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 19:37:01 2016 -0500
+
+    Support sorting by column
+
+commit 79e4989fdae13eddf0311cdc549e24aa2df68b57
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 19:29:55 2016 -0500
+
+    updated UML diagram
+
+commit 249e937315b78886b082044c49ae90f35fef6bb0
+Merge: 87d910c 9848ccc
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 19:20:29 2016 -0500
+
+    Merged backEnd
+
+commit 9848ccc288637e8ed2ccd75deb148f73202d30d9
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 19:10:00 2016 -0500
+
+    200 data points
+
+commit eab45b65608fbb167705652cafd59b52174cc5d9
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 19:09:09 2016 -0500
+
+    adding unknonw
+
+commit 80498660754cb059c92f33daf00e378a692b42e5
+Merge: c4d149e ea63862
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 19:08:49 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit c4d149e5106ec556fe6841684934a84da003bb0f
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 19:08:38 2016 -0500
+
+    adding unknowns
+
+commit ea63862ae78e7f9f9c5e23abbba229affb47be48
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 19:07:53 2016 -0500
+
+    Removed duplicate checking
+
+commit 87d910c2b532ea0b62a09b2219ea5619d9f2b3de
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 19:06:44 2016 -0500
+
+    patrials and angular routing working
+
+commit 333f90aad8b9a9d87aa58f7b15b5f6c7d5b2683b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 18:44:22 2016 -0500
+
+    sample database
+
+commit f01455ad97cabd17cd27e8e85c5bc4bf9e9177c6
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 18:43:44 2016 -0500
+
+    Changed varchar length
+
+commit ed4b0f389ab106123080f1f53943ae409cd2706b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 17:19:07 2016 -0500
+
+    run full script
+
+commit ccf4b7ac14b6a6fd8dda953e36b585beb3bcb646
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 17:13:56 2016 -0500
+
+    updated randoms
+
+commit 87056233f80f2877ff537374dff8a4e6001f4f58
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 17:12:26 2016 -0500
+
+    added randoms
+
+commit d94de7a580af723b6cc7d1b27f35cd7af1e7531f
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 17:06:05 2016 -0500
+
+    test partials
+
+commit a9faf3da25ea18ece811f60cd7591580083b6ff1
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 17:05:39 2016 -0500
+
+    test partials
+
+commit def5743ff210c79b346552e58154a975344f3c31
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 17:02:28 2016 -0500
+
+    test partials
+
+commit de8f2522f555f886a3593ad49cbeec01e638d6a9
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 17:02:25 2016 -0500
+
+    test again
+
+commit eadb1313e734e0aff9572d4935a4cf9d7d097bca
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 17:00:12 2016 -0500
+
+    test
+
+commit af6b6c37cfbf427827010ff456e010d042f602df
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:58:43 2016 -0500
+
+    test partials
+
+commit 45de572d9d260f3dd7f74ba58b181831f013c072
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:57:02 2016 -0500
+
+    test partials
+
+commit 6bbb91171837f64da7186c063be2e352a94b6ce2
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:55:31 2016 -0500
+
+    100 school test
+
+commit edae988881b6986216ab52bb2180f2e7a6bc9323
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:55:02 2016 -0500
+
+    test partials
+
+commit fbbeffe67b40249dbf5a19a8b81f49d1248f1468
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:52:39 2016 -0500
+
+    test partials
+
+commit b14a9bf94f05ed5be588da80afbc53ca43ed3c6f
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:50:39 2016 -0500
+
+    testing more cities
+
+commit e681dbfc298f0a971eeaf38eead4aecdf6d1616b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:49:53 2016 -0500
+
+    test partials
+
+commit 2ea845be919a1ec035b9dcf20f21a4cb70c717ef
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:49:41 2016 -0500
+
+    hope this works
+
+commit d04ccd3b950db3ed6a03c1016c27b3af0509782e
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:47:05 2016 -0500
+
+    test partials
+
+commit 19f3fd207bd89afe6f1ecc69ab23b4fbbfd99a11
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:35:59 2016 -0500
+
+    joaquin test
+
+commit bc9d9d05a63d8b199614f799ca5cfd1f9882344b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:34:39 2016 -0500
+
+    I think this actually might work
+
+commit 22c7d69980c56685c3f99ee1ad59c73a23981a17
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:32:29 2016 -0500
+
+    count edits
+
+commit 688447781f2d84a7bcf349ce06fe683c4a3b13b8
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Nov 2 16:31:49 2016 -0500
+
+    test partials
+
+commit e14d1f456df5c6044d6c326d468f5835d00f5564
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:27:18 2016 -0500
+
+    did some magic
+
+commit acb1d73839fbe4c69f87580a37e5ec8bedc8cb5a
+Merge: 1fc86ab bf154e4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 16:25:05 2016 -0500
+
+    Merge branch 'backEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit bf154e4a8db2435887c3b3cb128d542198738eb3
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:24:48 2016 -0500
+
+    changed dicts
+
+commit 1fc86ab5bff9f3cd74a85ce04e61c2eb13e3d9b4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 16:24:38 2016 -0500
+
+    Updated models
+
+commit 58f727a32d0ea8ab96e92b6baf7dc4d3f30b23ed
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 16:22:13 2016 -0500
+
+    Experimenting wih making the column clickable in Angular
+
+commit 243cada58ff0a2b6d412f09269dc23b20ce3d6b4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 16:15:36 2016 -0500
+
+    Updated models
+
+commit 8780f387b1914ab9e52fa3ffa2a407f2e07c7e3a
+Merge: 29d0faa e784a0c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 16:13:38 2016 -0500
+
+    Merge branch 'backEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 29d0faa65701e60fb5c7aebc8814afc89607347e
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 16:13:36 2016 -0500
+
+    Updated models
+
+commit e784a0c70d1ede7a4fa38e46fce1fa5b41d538fb
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:12:05 2016 -0500
+
+    flipped order for testing
+
+commit 9e5b564a5da3bd19234cea3caca3fd4aebd12a71
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:10:10 2016 -0500
+
+    fixed syntax error
+
+commit 583f581f976d3790e5be3c7b7f86b55077af5b26
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:04:55 2016 -0500
+
+    adding majors and ethnicities to cities
+
+commit ae85dbd7f92ba5f5a0157d71dbb179afe2ba132a
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:03:35 2016 -0500
+
+    adding majors and ethnicities to cities
+
+commit 3731533e07a0320585cfcf5bfb17f21765359547
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 16:00:55 2016 -0500
+
+    adding majors and ethnicities to university
+
+commit 70a2c51a712a72711f17438a32c437f015a40ddc
+Merge: 8e501d5 1cf1aad
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 15:53:59 2016 -0500
+
+    Merge branch 'backEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 8e501d5836a8dff6cb45caecc2e0aca302edee1e
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 15:53:55 2016 -0500
+
+    Updated moldes
+
+commit 1cf1aad006989b2c9f26de875f3bb7861702a5da
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 15:50:03 2016 -0500
+
+    tweak to models
+
+commit b4e4499637bc32b687f8d9c3ee015da1470b476f
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 15:49:03 2016 -0500
+
+    testing db
+
+commit 27f7ff10545795dd74fd68a06d678039c7e7df17
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Wed Nov 2 15:48:28 2016 -0500
+
+    Support sorting and pagination in the backend
+
+commit ae47b3d5bfdb61611711b01bd689ec6965a46fac
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 15:46:03 2016 -0500
+
+    testing
+
+commit 09da760d1065f5c681d4861ad79681d2c7b15b41
+Merge: e0cf088 26e4477
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 15:45:35 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit e0cf088b8a43c566147c58672da3789970de4699
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 15:45:11 2016 -0500
+
+    testing
+
+commit 26e4477d0bec6137b3a14757bd9319f47bf4e349
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 15:27:13 2016 -0500
+
+    Updated tests
+
+commit b31d1642cb35e23143627845953bb9776e5881fb
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 15:26:30 2016 -0500
+
+    Update tests
+
+commit af52b4088e5689b5a7419cf866def74db366ee99
+Merge: 9483ecb 799f4c3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 15:24:24 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 9483ecb6ea4f59c73b79b833e0b817393e04c923
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 15:24:10 2016 -0500
+
+    tweak to ethnicity model
+
+commit 799f4c312102ffd394156036b77e5d93108ae46b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 15:18:56 2016 -0500
+
+    adding ethnicities
+
+commit 574970debc0d8741c220d5a966a5d62bae6bf4b3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 15:18:00 2016 -0500
+
+    updates to ethnicity model
+
+commit 5f6dd4875163a1548c7a99757f41224bf6ddbe2e
+Merge: 3c6aa92 8b1d137
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 15:00:54 2016 -0500
+
+    Merge branch 'backEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit 8b1d137d9faba2cda8906f6416a6ad3c31fbeb3b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 15:00:42 2016 -0500
+
+    adding majors to db
+
+commit 3c6aa9259fb33e3ee4e99c00b21d8f6c9e7dd080
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:57:48 2016 -0500
+
+    Updated makefile
+
+commit 47dd95be1393f5063b5e31939885cfee07749b1b
+Merge: d842bbc 9bd3dfd
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 14:57:23 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit d842bbc6847d3f68f12c1e07154d03ee8fcafd9b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 14:57:04 2016 -0500
+
+    adding majors
+
+commit 9bd3dfd2c86c28b04ee6555b5a88f512cb7baac8
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:49:15 2016 -0500
+
+    Update makefile
+
+commit ce2911a8cd83aedbb73c22d81f78ca31c9c528c4
+Merge: d9c86b0 eb8d789
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 14:44:17 2016 -0500
+
+    Merge branch 'backEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into backEnd
+
+commit d9c86b0878878b18eea15a72b12b2ba09aeb6eaf
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Nov 2 14:42:39 2016 -0500
+
+    adding cities to db
+
+commit eb8d789fbd98ded1f2a53ff6e270f97b462d69e6
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:40:02 2016 -0500
+
+    Updated models
+
+commit 12c461012799113dbabe41fa9b5d55880b3fdff4
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:37:30 2016 -0500
+
+    Updated models
+
+commit 4de5fe4dd8beb61a431bd86bd539a52fb56e5d02
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:07:25 2016 -0500
+
+    Updated files
+
+commit d17d47ebb8b5c39f511f8709bcf252f607623da0
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:06:10 2016 -0500
+
+    Updated files
+
+commit af26fcbda1ae97142f970e73f74cd22f3cd1c055
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:05:17 2016 -0500
+
+    Updated files
+
+commit ce2ea538149d1da87261849438b10581127314f7
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:03:09 2016 -0500
+
+    Updated models
+
+commit ee4fb65a36b65a3a2b8fb3442ab30a57e2fe1a81
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 14:01:55 2016 -0500
+
+    Updated models
+
+commit 2bb2ae03f38d3b27b5ffefe503ac85f4d3a9af49
+Merge: dce4a13 7f80ad2
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 13:55:26 2016 -0500
+
+    Merge branch 'apicalls' into backEnd
+
+commit 7f80ad29773db0e461992133806c4569215a5266
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Nov 2 13:54:38 2016 -0500
+
+    testing inital database entries
+
+commit 80e914faa53615d0ffec0bbb2be08f5681d7f717
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 00:23:19 2016 -0500
+
+    Updated files
+
+commit b1a69db7ec2ee45d7802cceea4558a27ba82612b
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 00:18:04 2016 -0500
+
+    Updated files
+
+commit 630818ebceec59cfc22f810cd5022629428eb609
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 00:14:11 2016 -0500
+
+    Updated files
+
+commit ef49e7ab67f6b460b1c36a81ad9757e6d89ef50a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 00:04:48 2016 -0500
+
+    Updated files
+
+commit 50d689c5b07d2999c5e7776eb8bec659ee15793a
+Merge: 82741c0 dce4a13
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 00:01:04 2016 -0500
+
+    Merge branch 'backEnd' into FrontEndMatt
+
+commit 82741c0f9e7be95cc670d441d7440026e38fe719
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Wed Nov 2 00:00:56 2016 -0500
+
+    Updated files
+
+commit 7e79bcdddd5fce75077c3caa36240a1c366e5a1d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:55:39 2016 -0500
+
+    Updated files
+
+commit 6016800c409351aa2eae26fe65de9cbfcd3f207d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:54:42 2016 -0500
+
+    Updated files
+
+commit f53364226c5377dfc1a7c9f90c962a140d147e4c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:45:49 2016 -0500
+
+    Update files
+
+commit d98043f9ce500495dd299315583f9c3304f5dc1a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:39:35 2016 -0500
+
+    Updated files
+
+commit b5e1ea18112bb6f8472af07dfa6dc22bc80fa41f
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:35:05 2016 -0500
+
+    Updated files
+
+commit 7dd0978be3fc9aba6062ed615c3f62fa7d5c3cda
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Tue Nov 1 23:33:45 2016 -0500
+
+    maybe done
+
+commit c2e095d2eb156513a1f783d6a59aae2f7fc1cd88
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:33:05 2016 -0500
+
+    Updated files
+
+commit d8df98e25fea9e4e05306d043d15837bfff896a5
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:31:46 2016 -0500
+
+    Updated files
+
+commit 1842a04ec88ce86fc5d8f6b4ba0891a6a8c8e0f6
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:28:19 2016 -0500
+
+    Updated files
+
+commit de49d760d054857833203e28f316f6549c2bddd6
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:18:53 2016 -0500
+
+    Updated files
+
+commit c5e073bd893acd2da53868da3be25036a68629b7
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:17:00 2016 -0500
+
+    Updated files
+
+commit ff4ec67f0b62a9c6575621c402869c95b04dda76
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:03:50 2016 -0500
+
+    Updated files
+
+commit 1266812065b0f1ddb0b89a5d0daf55007b127b7b
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 23:00:08 2016 -0500
+
+    Updated files
+
+commit bd894912ccb6decf9df0c445e982f9326f65388a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 22:46:19 2016 -0500
+
+    Updated files
+
+commit a00c24bd124a0bc6a6ce529de5a7ef75a42a53cd
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 22:41:39 2016 -0500
+
+    Updated files
+
+commit adf8abc26eded698129fc4b69518c15324c7d4e9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 22:34:06 2016 -0500
+
+    Added new branch
+
+commit 31b0a2e076337b314c6e69b241d92ca9ed9dc93b
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Tue Nov 1 22:04:23 2016 -0500
+
+    None checking
+
+commit 822d0023a4a2bbcc8454309b4d1343dd90349c58
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Tue Nov 1 21:20:34 2016 -0500
+
+    updating all ethnicities
+
+commit 4c8999fd80cb846f9e2130eb9f9c74d936bc5287
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Tue Nov 1 21:13:47 2016 -0500
+
+    top ethnicity by university
+
+commit fa508700c09a444e84bf1162260076769d40f43a
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Tue Nov 1 20:49:47 2016 -0500
+
+    top city for major working
+
+commit 426d68a4ac65b8caf73b81e4b643682f85500ec1
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Tue Nov 1 20:28:49 2016 -0500
+
+    updating major counts
+
+commit 3d0961f04e4557e4a1c02c76830fe7457f39a393
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 1 19:41:29 2016 -0500
+
+    updated the sets to dicts
+
+commit dca3bfd076e69f95efab23bf90d09e82c97202d8
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 19:38:30 2016 -0500
+
+    stuff
+
+commit 4b6eb9ef3264f200aefe0257bb26335e06fc6b0c
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 19:33:19 2016 -0500
+
+    stuff
+
+commit cf1d36e87744a6392e3e8f49e63129b040d53993
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:40:30 2016 -0500
+
+    test routing
+
+commit e80206549b1a0fb1e9ca345137fa0e8c8a14007a
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:40:01 2016 -0500
+
+    test routing
+
+commit f1e73302a19549a4df54e3e95900dbce4425b935
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:39:22 2016 -0500
+
+    test routing
+
+commit ee29956a38238840ba66257fc342905c4022edd9
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:38:37 2016 -0500
+
+    test routing
+
+commit 867bf6cfe5af7881470f6c6ae478b383cdcf0b97
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:37:41 2016 -0500
+
+    test routing
+
+commit d8dc468eb4e7d5b0153cec675450f530a63f658e
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:35:22 2016 -0500
+
+    test routing
+
+commit 8d3ce40a203ef3351083a687bc7c2c53e914bc74
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:29:10 2016 -0500
+
+    test routing
+
+commit dce4a138868a4acaafa7fdac7bd0124b5a384484
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 18:17:34 2016 -0500
+
+    Updated models.py
+
+commit dbf4c23bdf97c966a06f959c24871447ccf50cce
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:12:39 2016 -0500
+
+    test routing
+
+commit ee1703db55d7e010d470731ae7cd2716dbef1c64
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:11:26 2016 -0500
+
+    test routing
+
+commit c7cc641d7b0c57bc6699a9a4aabb690807fc2cab
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:07:00 2016 -0500
+
+    test routing
+
+commit 37382d6659fc286dced00a1c5bc193037186c29f
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:04:37 2016 -0500
+
+    test routing
+
+commit d14cd46bc01fcb7fdc0ca90c3d3c2682131a10d3
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 18:03:18 2016 -0500
+
+    Updated models.py
+
+commit 64ef399d83f5122893ba5d4123515855c3c30a98
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:02:42 2016 -0500
+
+    test routing
+
+commit 4824a1664dbfcbf5006672f72ddaf6f2e12a7dac
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 18:02:02 2016 -0500
+
+    Updated models & makefile
+
+commit 6d7579073e1a4b07cba27817d5dc98236291c4b5
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:01:58 2016 -0500
+
+    test routing
+
+commit 5ac4e07b9112fb5b867bb55995107a5548c28b11
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 18:00:59 2016 -0500
+
+    test routing
+
+commit 22e533b4f377a0300e6081adf036a67b4471492b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:59:49 2016 -0500
+
+    test routing
+
+commit 753ab2032e5a7d7e1ec58d4d8a0a60c41cbac103
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:57:41 2016 -0500
+
+    test routing
+
+commit 9d53fc515ec08e6098ab21f7a638e68178e6139b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:56:23 2016 -0500
+
+    test routing
+
+commit c4cd1bc06f1ee23e54c783a90d99bd326c717ae3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:54:43 2016 -0500
+
+    test routing
+
+commit 53fc6f87136b65ed5c9085fa5c7b65dbe1add66f
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:47:14 2016 -0500
+
+    test routing
+
+commit 67fe6e18b7afee3066f2ef31197764d84af9ddca
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:45:12 2016 -0500
+
+    test routing
+
+commit 4ca9014bb4109019d45f15dec8de49d4438a1602
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:44:32 2016 -0500
+
+    test routing
+
+commit b86c06eb24ca65a6b8eef91f693176c086d894ac
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:42:11 2016 -0500
+
+    test routing
+
+commit e16557ddaec5cc76cbddb58371806ef982eb12df
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:40:50 2016 -0500
+
+    test routing
+
+commit 2fced29b76438ae3d6bf7bb60bf58d5ca0423b8d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:22:13 2016 -0500
+
+    test ref
+
+commit 832941ae521605070c44a48acf4d13ab59660c25
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:20:41 2016 -0500
+
+    test ref
+
+commit 1e48776e45fb25ce579c6fd0548ab3e6f12bea69
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:16:39 2016 -0500
+
+    test ref
+
+commit b9723e4052b407b97a3d67d3cbf6ec4beedeb7d7
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:13:19 2016 -0500
+
+    test ref
+
+commit b00552e00c540f263562d180c9ac5c62eef682e9
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 1 17:08:29 2016 -0500
+
+    tweak to finished majors section
+
+commit 219b4e79a0040d2966d1de54e04c47709cfd0ea5
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 17:08:04 2016 -0500
+
+    test ref
+
+commit 60c6fabdfd2247f0060ff3c841d0f8fa8c8bfa87
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 1 17:06:25 2016 -0500
+
+    finished the majors section
+
+commit e93ce6ed172ce65ab03d3a237b8366c10377c062
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:41:03 2016 -0500
+
+    test ref
+
+commit 445761c017fe154adc98d13e186f249203a657ca
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:35:05 2016 -0500
+
+    test ref
+
+commit e552bb2ee7685e452e0474fc518d2daef96aa6d3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:28:15 2016 -0500
+
+    test ref
+
+commit 877cde950dd4a6445d10111bc9d53476073cdb79
+Merge: 8b37502 9c9e7af
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:18:03 2016 -0500
+
+    small changes to models.py
+
+commit 9c9e7af66defeda9c1e9d68afe5096964df34a14
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:08:13 2016 -0500
+
+    test ref
+
+commit 68d5d3488d2073a0d073508466944046043c068c
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:05:55 2016 -0500
+
+    test ref
+
+commit 2e5866cf70e2d565841943051e179578a813df2b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 16:02:16 2016 -0500
+
+    test ref
+
+commit 11bdaf4a22efee0a16fef5b457313b30385b9b13
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:56:21 2016 -0500
+
+    test ref
+
+commit aa0e9bc754d655200a5a084ee943b6d86a2bb387
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:53:47 2016 -0500
+
+    test ref
+
+commit 06bb8f6747d0fb4b0583e9a9d5942cefadf14a45
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:50:03 2016 -0500
+
+    test ref
+
+commit 1bb5615381d37ac2db978aac99afa6f471673a20
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:47:27 2016 -0500
+
+    test ref
+
+commit 10ee1b40fd49a3cd995b16f438c363d2e1454811
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:45:00 2016 -0500
+
+    test ref
+
+commit 2b801c1b1f390d2c857740bd977b31a78c4e5533
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:37:04 2016 -0500
+
+    test ref
+
+commit f560b66c71aebc0a9067ea63c5a241af44a1d689
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 15:28:46 2016 -0500
+
+    import not working
+
+commit 458aa5801e00b1c88500686d78658d35a501b54b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:17:43 2016 -0500
+
+    test ref
+
+commit 7d6884edee347ccc8638cda8c1eec86eb80d6fe6
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:16:59 2016 -0500
+
+    test ref
+
+commit 524fdfb1aeb93fe67a9375b40632c4249519d101
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:15:28 2016 -0500
+
+    test ref
+
+commit 994507c757e8dc068e206c9d7d88ce0eb5140032
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:14:47 2016 -0500
+
+    test ref
+
+commit caa163b5ca1adc0b9b087917d07724f3a9e9c936
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:14:08 2016 -0500
+
+    test ref
+
+commit 5943aa5dc68a97e39c46241a3d345d1afc4eca17
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:13:24 2016 -0500
+
+    test ref
+
+commit b729b5d8aaac9d4fca21ba59c1d1328ae38bf840
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:11:26 2016 -0500
+
+    test ref
+
+commit b05b96a592df2dc40154fb0271453865058f7322
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 14:09:05 2016 -0500
+
+    test ref
+
+commit db1fe45d491074e568a29877c4211caa22184335
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:59:01 2016 -0500
+
+    test ref
+
+commit c15127e9555f1bfae4a42c4338ce5d5af4259387
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:55:26 2016 -0500
+
+    test ref
+
+commit d514508b65da327c9704d2153649792bd38947ee
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:55:00 2016 -0500
+
+    test ref
+
+commit 2af75b0387921d24bc0dc50beb64226b9490f0ab
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:54:03 2016 -0500
+
+    test ref
+
+commit d67a6f00eb12ce0c5d52023ad7759ecedf26c3bc
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:49:24 2016 -0500
+
+    test ref
+
+commit e00fb1dab8fd5a00b28e71bec120af30da254abb
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:42:59 2016 -0500
+
+    testref
+
+commit 8b7a05c66cddc81ad418c6ba646e9f27bc653d84
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:42:19 2016 -0500
+
+    test ref
+
+commit 9ef3ea516a93be8a22a7747bf8b673efad2c9738
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:41:48 2016 -0500
+
+    test ref
+
+commit 3a70dc67350d2204c4626e6074da15b0c285f635
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:41:04 2016 -0500
+
+    test ref
+
+commit 39dbfccfa07b726fcf4e2aea56f07da0c99c1d12
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 1 13:35:03 2016 -0500
+
+    adding new majors is now complete
+
+commit c359427244a27be5cdaa494ca3a81fcc6f8f2d93
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:30:45 2016 -0500
+
+    test ref
+
+commit 76275d975f3ce7521f8c77b1c799bbb38f065a42
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:26:35 2016 -0500
+
+    test ref
+
+commit 6fa24f858c792c6b1f056bf2f02f69665adf7f1a
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:23:17 2016 -0500
+
+    test ref
+
+commit 4c0597ffd2d7fd67e6dd24c861a1e6540c6157fd
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:22:15 2016 -0500
+
+    test ref
+
+commit e1ecc17752e0fe99d32b47485ceb0e88bbdb81d9
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:19:21 2016 -0500
+
+    test ref
+
+commit 0dfb8ad0c21a968c6ae0c8bbd1f23fb155a45387
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:12:11 2016 -0500
+
+    test ref
+
+commit b02710e714d0c33a6fb878ae6933dc814de0ae4d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:10:24 2016 -0500
+
+    test ref
+
+commit 5171b355db6b509ebe59da57a4205dd50be8a713
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:09:01 2016 -0500
+
+    test ref
+
+commit 4d189c83512bb962af4af32f6a8b56f9cf64c2d3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:06:45 2016 -0500
+
+    test ref
+
+commit c77778a017a260770ebcfc0cb52cff4950354c30
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:06:08 2016 -0500
+
+    test ref
+
+commit 80ddc2255da01e0aa3fc4b0d0d7497ce973ec516
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:03:57 2016 -0500
+
+    test ref
+
+commit 4a76d719d669986b71789da94730be1333283f29
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:02:15 2016 -0500
+
+    test ref
+
+commit 950268cf3aa590020be0f879b4c000d1f02720ac
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:01:08 2016 -0500
+
+    test ref
+
+commit 3af4e21342b72a8e2b9ff3f701e53de715985601
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 13:00:20 2016 -0500
+
+    test ref
+
+commit cf0d49eb4f0be81f1897ad786d5830946b5cd194
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 12:58:54 2016 -0500
+
+    test references
+
+commit f99cb8d355490315da151ce47154a50a1f0ae657
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 12:57:14 2016 -0500
+
+    test references
+
+commit a2a3b0df9c0f50e43ebfc0d7b939be0a54b75937
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 12:51:22 2016 -0500
+
+    refernce test
+
+commit a8684e849ddca642d54e936c9b9c659c67fe6123
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 12:44:34 2016 -0500
+
+    testing db references
+
+commit 88b9a5c8807757215302edcb795df2ab7c3cf26f
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Nov 1 12:36:54 2016 -0500
+
+    testing database references
+
+commit bb5b423620974d80bcea869bbc21c2e91a497c37
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 1 12:02:42 2016 -0500
+
+    updating demographics in cities dictionary
+
+commit 8b37502ba2ddaee8e24049e80cbdb9eb20a99ba1
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Nov 1 05:07:00 2016 -0500
+
+    Updated tests.py
+
+commit 844cd131d8dc44b9632f8c1f193a797acc0b8c76
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Nov 1 04:54:40 2016 -0500
+
+    adding api calls with 2 sections complete
+
+commit bb4d8b3772137c05a88725feb8294756101a2574
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 03:50:04 2016 -0500
+
+    Updated files
+
+commit 5c3af8fec578f9ce82ec0b255c9f5c0ddbc27051
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 03:49:38 2016 -0500
+
+    Updated files
+
+commit c86b544741b947db098a02a77e4d7c856e099a83
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 03:31:19 2016 -0500
+
+    Updated files
+
+commit dc62b30bba4f69283daee9294b39073507a7d846
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 03:26:36 2016 -0500
+
+    Updated files
+
+commit 41899cb667c688a9a128e5aef132ce7ccbac80d2
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 03:09:04 2016 -0500
+
+    Updated files
+
+commit ed946f1f305fc94c016e7429d694485cfe8e308e
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 03:04:37 2016 -0500
+
+    Updated files
+
+commit 9e27b17f867b92a4a5a425089b5ef0b809d80e6e
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:55:39 2016 -0500
+
+    Updated files
+
+commit d537ac190baa1ba1f969f419303382d8763602ce
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:55:03 2016 -0500
+
+    Updated files
+
+commit 4367024af5b0356d397befab2287a96f07a0c39f
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:50:06 2016 -0500
+
+    Updated files
+
+commit 3a208fcd36a566c29bd91fa5b120bdefe8b15098
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:49:07 2016 -0500
+
+    Updated files
+
+commit 01f64324f7a12e743a39b6a00a1e8dc21d51e23d
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:44:17 2016 -0500
+
+    Updated files
+
+commit 9dd27d46229082ed33488f2137994b8b0b88e256
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:42:01 2016 -0500
+
+    Updated files
+
+commit dba51cd219a564a21cd8e79e252da5d527824c50
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:41:31 2016 -0500
+
+    Updated files
+
+commit 6dc551c3ff374ba663f1112e3b3f6f1452e6ec61
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:40:46 2016 -0500
+
+    Updated files
+
+commit 53656112ed59911535a928baa7f7d3c9f5ad91f8
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:31:46 2016 -0500
+
+    Updated files
+
+commit 56a9e6725e6e7f042c0e519f32d5b4bcb8fd24e0
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:25:17 2016 -0500
+
+    Updated files
+
+commit 2c4d9986b7b24f2fbbf1283bdf9d9f81963e05cf
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:15:46 2016 -0500
+
+    Updated files
+
+commit 0c22bc8ac1ced8136dc474941cad8507ba83c4fa
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:11:17 2016 -0500
+
+    Updated files
+
+commit 22993bcdcfdd7e7fead02578c05b95f9f4a336ec
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:10:26 2016 -0500
+
+    Updated files
+
+commit 4bbfac6867e9fc5b59a01da602ce36b67113b6b8
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:04:25 2016 -0500
+
+    Updated files
+
+commit 919627b5e15da26085bfd7989aacdf84ce94b774
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 02:03:50 2016 -0500
+
+    Updated files
+
+commit 652cd7ee054f0d939a131cdfdf2666eb3fbe0964
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:59:16 2016 -0500
+
+    Updated files
+
+commit 856a5867f1da1af79f8a848626a83f6cda4ff8ee
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:58:50 2016 -0500
+
+    Updated files
+
+commit 056ad501c1080d58941c1a6a0023fb2ebb2e261e
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:55:16 2016 -0500
+
+    Updated files
+
+commit 2942d9e86cbc0f1c86cdb42a8b6075a9d5655257
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:53:35 2016 -0500
+
+    Updated files
+
+commit 6e29f56805fcbfe242d8dc3db0ef9f06cd11f8ab
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:52:45 2016 -0500
+
+    Updated files
+
+commit 904dd03ec19101fa3a1cf14569a9aa5676bc3f2f
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:49:16 2016 -0500
+
+    Updated files
+
+commit 624947223a25c154520ae63c7af6ac88c131abe5
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:48:46 2016 -0500
+
+    Updated files
+
+commit 877fd9022d914f6b59b6093e3611f803ca374e79
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:48:22 2016 -0500
+
+    Updated files
+
+commit 7f8b5592e9d650b2f16b11e0b14a3612442ea321
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:45:03 2016 -0500
+
+    Updated files
+
+commit c922af257bcaf2e40e9dbd5e9afbdadaadfa490a
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:44:41 2016 -0500
+
+    Updated files
+
+commit 6fa5396f170168e326c922d97d8b48774ad586a3
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:43:50 2016 -0500
+
+    Updated files
+
+commit 577386121de71cd6ba35a886c732d431d356d9f4
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:43:01 2016 -0500
+
+    Updated files
+
+commit 2a66efda2351bea187b5f8623820407acd9f24e1
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:42:14 2016 -0500
+
+    Updated files
+
+commit 34995c02f2f3e6b079b5d4912c35c05d8582dfa8
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:32:50 2016 -0500
+
+    Updated files
+
+commit 97eb68c8af17c1347efad29967db19bb3c420e73
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:31:55 2016 -0500
+
+    Updated files
+
+commit 91a6d85c5bbacb22f2b401f9c44e267e0ee50157
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:31:37 2016 -0500
+
+    Updated files
+
+commit c77f492b44be77605bcf9f3c768765e4c7883332
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:30:59 2016 -0500
+
+    Updated files
+
+commit 2bc3c935c91690785f53786f20394081dddbd505
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:27:51 2016 -0500
+
+    Updated files
+
+commit 99302c83e77441bc10050b6dd4ae9d10fb9cbcdb
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 01:27:36 2016 -0500
+
+    Updated files
+
+commit d152844bd51d8324ccae812bc74e3ac6b604a7ff
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:56:09 2016 -0500
+
+    Updated files
+
+commit 412c7a4dbc45013b670bc0d2d77b4fe754e78bdd
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:55:19 2016 -0500
+
+    Updated files
+
+commit 50b7043b513d6fc3ad5706113f54f249d5e47101
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:53:05 2016 -0500
+
+    Updated files
+
+commit 0733fdbf682bdc1e03fcb276df728567680241ed
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:52:36 2016 -0500
+
+    Updated files
+
+commit 591c489e966621f30cacc3b021b2c99ed079c8c0
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:31:47 2016 -0500
+
+    Updated files
+
+commit 71bc0491928a7fbdf629eeac7f44d3f4f046c4c8
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:22:17 2016 -0500
+
+    Updated files
+
+commit 610d762ef98505d63cdd1232f8cdc3575d0b0707
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:19:03 2016 -0500
+
+    Updated files
+
+commit 978ebe6b4bb3d3e02aedc95c9725d846f4d23a8b
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:14:49 2016 -0500
+
+    Updated files
+
+commit 5381315414354752942f787c0862ca7725c03afa
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:14:22 2016 -0500
+
+    Updated files
+
+commit 7bd2ee3dc58bd9208fab1b4453a474451d2026a0
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:05:30 2016 -0500
+
+    Updated files
+
+commit b58da73b1fc4067291c0d9263fec368a47532455
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Nov 1 00:01:24 2016 -0500
+
+    Updated files
+
+commit 50af706e43aa7e83f2f48eec0cdc85946cb1266a
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:58:37 2016 -0500
+
+    Updated files
+
+commit fdcb242b2299aa00cac8dd6f141543c591fd148a
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:49:28 2016 -0500
+
+    Updated files
+
+commit 377aa4f70dd3623d20850892fdd30c104ed7b6ee
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:48:16 2016 -0500
+
+    Updated files
+
+commit 1b54a217c1673b41ee2f898af3aeb498a77c2f23
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:47:23 2016 -0500
+
+    Updated files
+
+commit 58f4a81483795090ad36b3b9470fc19e432d99e2
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:39:23 2016 -0500
+
+    Updated files
+
+commit 2c86df82f8c096a542af545e94495017cfbee68e
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:29:18 2016 -0500
+
+    Updated files
+
+commit 63a486c345bd2637dfccbd2b6c78691e70a2db60
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:28:33 2016 -0500
+
+    Updated files
+
+commit a4ab4882cbbd01ba9f6d66ef507adbf43dfb2134
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:27:27 2016 -0500
+
+    Updated files
+
+commit f394fbacbb9ac401041877952e5fdb0f9352de92
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:19:58 2016 -0500
+
+    Updated files
+
+commit 8a0f997eb94e1a51fabdc58da30be02702f260c9
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:11:10 2016 -0500
+
+    Updated files
+
+commit 1d01fb998f94682a4fc74ea8827de3f07aea90db
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 23:03:26 2016 -0500
+
+    Updated files
+
+commit 373fdcab0f46c8914a894408481fbd3267c396d9
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 22:53:20 2016 -0500
+
+    Updated files
+
+commit b0e3617dca567739eba1041cbdc4f71a6bb12fc9
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 22:46:30 2016 -0500
+
+    Updated files
+
+commit 6018e0ebd7d0edaf8ccf579b94c92b3abef4c2e0
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 22:22:33 2016 -0500
+
+    Updated files
+
+commit 3892951424073c9e55fcabf7e7e1590398eb6775
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 22:15:29 2016 -0500
+
+    Updated files
+
+commit 840c0bfb07560c536a3614197348e51ed79b3297
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 21:25:17 2016 -0500
+
+    Updated files
+
+commit b8a45809de660d3420ddd6fd18afead0ec52594a
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 21:19:45 2016 -0500
+
+    Updated files
+
+commit fbeb81a933a327d42fae6be5da2ef089c6865e5d
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 21:17:48 2016 -0500
+
+    Updated files
+
+commit 500f4af3d01853a6886c286d142af1d69b2d611d
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 21:08:39 2016 -0500
+
+    Updated files
+
+commit 603466592d9b6e06107503d9bd2ffdd0e0ce54f2
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 21:03:29 2016 -0500
+
+    Updated files
+
+commit 2613dc0eedb256f1437f0148e8870f52c5dd3bb5
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:46:24 2016 -0500
+
+    Updated files
+
+commit d0f4a838b00e76cc56ded3f6ab68029a1884522a
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:44:54 2016 -0500
+
+    Updated files
+
+commit 8f1e4ac8a8daf8e0cd78728539374ca911c814ec
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:44:31 2016 -0500
+
+    Updated files
+
+commit afbeb2064e4893d4b59e58c4cd69821dd5991399
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:42:00 2016 -0500
+
+    Updated files
+
+commit ad706921a4b4a3eae54d637066b91f1d52cc129f
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:24:21 2016 -0500
+
+    Updated models
+
+commit ba6d25c2ded25fe5d66fe93cc2ca583ad43c281a
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:23:54 2016 -0500
+
+    Updated models
+
+commit 26ba466452ded4739466537fa708e81003053b5e
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:22:03 2016 -0500
+
+    Updated models
+
+commit 180fad298beb8e40f8fedc125fa8c32f692d9690
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:10:07 2016 -0500
+
+    Updated models
+
+commit 3e3b5c4bcff88d4a798ac7bb9a2c548e275e5b7b
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 31 20:07:43 2016 -0500
+
+    a lot of things that don't work yet, mostly just setting up angular
+
+commit 94676dc5e72b06008ec66793cdbb18c04a26b1f7
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:07:35 2016 -0500
+
+    Updated models
+
+commit e283368876a0467a2eb8e5511b0a4e8d846bf539
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 20:01:28 2016 -0500
+
+    Updated tests
+
+commit 9ff8e5dc1f7dc719d86cb9ec2099b0b6ff4e650c
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:59:54 2016 -0500
+
+    Updated tests
+
+commit fcdaf47b639dcd1432fc3a8ef071b9d65d826f73
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:56:35 2016 -0500
+
+    Updated models.py
+
+commit 9ccb35051a69a4177362c6e51ecf8307a2f5e4d9
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:53:39 2016 -0500
+
+    Updated models.py
+
+commit 3da7444fbc825da0afb94c2270f8e29afafbc335
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:45:40 2016 -0500
+
+    Updated tests.py
+
+commit 5689e69e24b7024112e5fb2c446d4dac395ada4c
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:40:30 2016 -0500
+
+    Updated tests.py
+
+commit 9c0306465df2ee669a92cd1ffbc52108cd2a8d75
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:34:49 2016 -0500
+
+    Updated models.py
+
+commit dfbdcab98e0206f47c5c3e153ddb7498d08a2da8
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:27:09 2016 -0500
+
+    Updated tests.py
+
+commit 71a0196876843daca0872c3392f65aa2dcade62f
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:26:12 2016 -0500
+
+    Added association tables
+
+commit b967398a94904abf6c1705c4c72e8fde2676a930
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:25:44 2016 -0500
+
+    Added association tables
+
+commit 05268f6c0e0a277b46118cfb0e36e55e1aee1e96
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:24:26 2016 -0500
+
+    Added association tables
+
+commit 11856f8ec3b7b01ddcd1985c20d030a142499574
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:22:46 2016 -0500
+
+    Added association tables
+
+commit 35e3ae5a7827dee4e7afd3baef17a8558d9b4f63
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:21:31 2016 -0500
+
+    Added association tables
+
+commit 74a4e8b8785422ada8f728b4dc3e783f27d2f5df
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:15:25 2016 -0500
+
+    Added association tables
+
+commit ff8fad3c4bbf2bf9133fae0662934d65c5ae14c2
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 19:13:55 2016 -0500
+
+    Added association tables
+
+commit ea76c47e293b9a99b37a7c7fc27000f2f1c1b5c0
+Author: Jiyoung Min <jymin94@gmail.com>
+Date:   Mon Oct 31 19:09:45 2016 -0500
+
+    Add plans for handling api calls
+
+commit aee1fd6b57e3baecaf62bb0736f68a04c0821e6e
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:38:15 2016 -0500
+
+    Updated tests
+
+commit 38664774798dfa78611e491824ebd78bfe4aa567
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:33:49 2016 -0500
+
+    Updated tests
+
+commit 9c869b7ca33eebfeb3323d1d601bb62c22728d63
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:22:37 2016 -0500
+
+    Updated models.py
+
+commit af0b4ad576bde9f3d4013d68e57399ee7049ce75
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:14:05 2016 -0500
+
+    Updated models.py
+
+commit 6995b4f0c5a032b9b1dfcfa21b95634457905948
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:12:09 2016 -0500
+
+    Updated models.py
+
+commit efe03fccd127d999b123b832e32217fdf09b5ef5
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:10:30 2016 -0500
+
+    Updated models.py
+
+commit 16ffc41659e6bcf534a07a2303b48ae7ddb7d3c6
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:09:35 2016 -0500
+
+    Updated models.py
+
+commit 2bd1317c44b8c18d01d9db4ce2c1783f68a3f41b
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 17:05:00 2016 -0500
+
+    Updated models.py
+
+commit a9c65eb0ff3773434f64ef20bb2a7024e89fe06b
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 16:59:17 2016 -0500
+
+    Updated models.py
+
+commit 6cfea878bee833d61ce9ffba9234b2c8d8a4bfea
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 16:58:34 2016 -0500
+
+    Updated models.py
+
+commit c9ef0e9cc4b9a9cb1ea91cf267d53542cc611b49
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 16:53:07 2016 -0500
+
+    Added add_unique method
+
+commit 2748405217b5f209debf13e1e39414b07d130e0b
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 16:31:48 2016 -0500
+
+    Updated tests.py
+
+commit 6a9ce77020742cf7f9e8c8a065b78430ba83f0ad
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Mon Oct 31 16:30:26 2016 -0500
+
+    Added create_unique
+
+commit b49dab099f44872188f3fb5aa8f29d6e717862de
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Sun Oct 30 23:42:47 2016 +0000
+
+    Updated travis
+
+commit 4de44b6e7bd656efb3b5b1748f4f39b01cee0efc
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Sun Oct 30 23:39:22 2016 +0000
+
+    Updated travis
+
+commit 9f90f2ec44e7c1a733eff42c506db380d4f70161
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Sun Oct 30 23:33:54 2016 +0000
+
+    Added travis stuff
+
+commit 1544bc9e87903a5cb98c18ff067f5897dcb8ef9f
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sun Oct 30 17:12:18 2016 -0500
+
+    Fixed security issue with postgresql
+
+commit 75bebadf1ee4a096836e8b6b9cca1070988ff173
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Sun Oct 30 08:36:20 2016 +0000
+
+    Running postgresql on AWS
+
+commit 85198ade4adba7850538806f32383f140f3db02d
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Sun Oct 30 00:52:31 2016 -0500
+
+    Updated models.py. Got postgresql database working
+
+commit 5d168eccabafeea981c9565802b44be7ab792c7e
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 17:34:22 2016 -0500
+
+    Updated commit
+
+commit 8f265b3fa6147d47207a629820191d1bbf684d50
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 17:32:40 2016 -0500
+
+    All unit tests passing
+
+commit 51636feaa51d59d79fed48a34fc8fbbc3360348a
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 17:05:22 2016 -0500
+
+    Fixed City -> University relationship
+
+commit 341188cfd2c587eb5c8563272cbc51d51581d701
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 16:52:31 2016 -0500
+
+    Working on City -> University Relationship
+
+commit 6978590f026394c3f6a0e851d5285235ce1e0323
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 16:34:06 2016 -0500
+
+    Changing camelcase
+
+commit e3b7f90745bc1188bae1ec39ca52afc15fb14f33
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 16:18:56 2016 -0500
+
+    Passing all tests for university
+
+commit 8af55969fa5d778a7dd89999682f8c2d84de872c
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 27 16:02:22 2016 -0500
+
+    Fixed addMajor() and repr
+
+commit 5ea83943a9d6e527dd138e4798a5544218d5be84
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 27 14:30:25 2016 -0500
+
+    passing some tests
+
+commit 0ec482f22468905d949cc566b8c28f1243e6790e
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 27 14:12:30 2016 -0500
+
+    adding phase2/backend
+
+commit a45922fd2dccd58be33828809c205026321f416b
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 18:00:30 2016 -0500
+
+    creating log and merging phaseOne into master
+
+commit 47977066671a9bbffa9091fc39e8297dd6cc8628
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 17:56:20 2016 -0500
+
+    update to filenames
+
+commit f335933b6154d7ce57374d071d0300ef006cf753
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 20 17:49:53 2016 -0500
+
+    Added some changes.
+
+commit 4cfe9a377f1fe3d35a31baf2806ef04df92504aa
+Merge: e527133 076cf08
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 20 17:42:14 2016 -0500
+
+    Merge pull request #28 from cs373gc-fall-2016/documentation
+    
+    Added formatting
+
+commit 076cf08cac7cb790dd49f9b85f8b9ad797238f13
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 20 17:38:21 2016 -0500
+
+    Added formatting
+
+commit e5271332963f698279f29ec91cf9e4617d72f6fc
+Merge: b3ed2e5 a911a57
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Oct 20 17:15:09 2016 -0500
+
+    Merge branch 'master' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseOne
+
+commit b3ed2e50ca77aa01e8fa1adbb8e78ec071bddd22
+Merge: 9383270 709fad2
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 17:13:55 2016 -0500
+
+    Merge pull request #27 from cs373gc-fall-2016/frontEndUI
+    
+    Front end ui
+
+commit 709fad2c72a16e35b72566e21ee505993f46336d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 17:12:58 2016 -0500
+
+    added total commits
+
+commit b0591494476610197e426cebe9cc40b5a0f394f3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 17:09:46 2016 -0500
+
+    formatted mission statement
+
+commit 0325e1589a46bb1775fae482c9fcccb42a2b2c77
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 17:09:10 2016 -0500
+
+    formatted mission statement
+
+commit a911a578b495bf90c0a357c3da47c4ace7abc5c9
+Merge: 5802242 288a311
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 17:08:58 2016 -0500
+
+    Merge pull request #24 from cs373gc-fall-2016/travis
+    
+    Travis
+
+commit 23e6019fffbeffd868c8d45cfa362341a7ccfe79
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 17:06:05 2016 -0500
+
+    added mission statement
+
+commit 288a311833972f1f9104b32b151fc4c759541299
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Oct 20 17:02:41 2016 -0500
+
+    Added test command to makefile
+
+commit 38be70e72d366413930dd3f994062e6f50a2d0bc
+Merge: 7a4362e 9383270
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Oct 20 16:37:47 2016 -0500
+
+    Merge branch 'phaseOne' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into travis
+
+commit 93832709b67cb3bc0a0a9b1f0488e1f1b98909cf
+Merge: a2b474f 77465a4
+Author: Brandon Dang <budang@users.noreply.github.com>
+Date:   Thu Oct 20 16:37:34 2016 -0500
+
+    Merge pull request #26 from cs373gc-fall-2016/frontEndUI
+    
+    Front end ui
+
+commit 77465a405fc670d9252a7880984cdf61f6ecc049
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 16:33:07 2016 -0500
+
+    changed navi bar
+
+commit 0394706d453605a5eda1f0fc7e511edb890115f7
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 16:32:06 2016 -0500
+
+    finalized front end information
+
+commit a2b474faefa9a3388ebc81c5521fb87482a0ecdd
+Merge: 03a6dcd 2d22723
+Author: Brandon Dang <budang@users.noreply.github.com>
+Date:   Thu Oct 20 16:30:56 2016 -0500
+
+    Merge pull request #25 from cs373gc-fall-2016/frontEnd
+    
+    Merging frontEnd into phaseOne
+
+commit 2d22723e5cfbb73616765d7edca7e4563544dbdf
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 20 16:26:37 2016 -0500
+
+    Added black.html stuff back
+
+commit cab924ca33c8cf0a91de53b2c7b79bc6fdd1107b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 16:25:28 2016 -0500
+
+    finished about page and changed front page
+
+commit f26cc87e8819bfe81865534c16053871741e9ee7
+Merge: db7f18e 03a6dcd
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 20 16:21:03 2016 -0500
+
+    Updated files
+
+commit 7a4362e8536493b709569b4fb7368b53f484772d
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Oct 20 16:19:11 2016 -0500
+
+    Adding .travis.yml
+
+commit 03a6dcdc6e69e93a395296a8001b0fc528b227ae
+Merge: 5e282b0 b89ba88
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:54:30 2016 -0500
+
+    Merge pull request #23 from cs373gc-fall-2016/models
+    
+    Models
+
+commit b89ba88eadafbc6e9363aa538083f93dbb60fd01
+Merge: 43a15ab 5e282b0
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Oct 20 15:51:15 2016 -0500
+
+    Git pull and resolving merge conflicts
+
+commit db7f18e6ed310b9104153fc18871b84471968da9
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Thu Oct 20 15:44:54 2016 -0500
+
+    Added pydoc
+
+commit 5e282b057da247381a2d0d29dd2ccaf950c85796
+Merge: 014d5e2 f785b8c
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:43:20 2016 -0500
+
+    Merge pull request #22 from cs373gc-fall-2016/tests
+    
+    Tests
+
+commit f785b8ca50810e8386dad5b42cf45cab52ad571a
+Merge: 6edfef9 014d5e2
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Thu Oct 20 15:40:41 2016 -0500
+
+    Merge branch 'phaseOne' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into tests
+
+commit 014d5e27f227994509549b9dc17e385c567bfd37
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:35:59 2016 -0500
+
+    removing old files and adding models
+
+commit 9650a23fb269d5e76b13dc1ebf12afce88e659b4
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:25:20 2016 -0500
+
+    updating readme3
+
+commit cca96e7ad1d3d0686a86d4af54666bb1ea01529e
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:24:15 2016 -0500
+
+    updating readme2
+
+commit a93e426c60b63c8febb0de77b830244dc5a7f6ef
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:21:27 2016 -0500
+
+    updating readme
+
+commit f16ef2822131731b73b11fd40e3825cfbf9545cf
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 15:15:12 2016 -0500
+
+    added brandon's photo
+
+commit c95af9c4d13865b07772277f1f3874486b563c4e
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 15:09:26 2016 -0500
+
+    added city youtube vids
+
+commit 2e61f128960aef76bf2f42e4574581f03dd7de5b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 15:07:45 2016 -0500
+
+    format
+
+commit 1adda91b456d8328470759b8ad27d8bc4c124e17
+Merge: 70c9bfc c552a2b
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Thu Oct 20 15:03:06 2016 -0500
+
+    Merge pull request #21 from cs373gc-fall-2016/frontEndUI
+    
+    Front end ui
+
+commit 119f61d033767b49662a23ad3bc5e614f775a592
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Thu Oct 20 19:56:40 2016 +0000
+
+    Updated stuff
+
+commit 43a15ab33415f279d185d90bad741911f1749da5
+Author: Michael Volk <mjv732@cs.utexas.edu>
+Date:   Thu Oct 20 14:46:29 2016 -0500
+
+    documented models and changed init in Major
+
+commit c552a2b0e4c9e70f2b685118b5988fc7570cd1d2
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 14:31:19 2016 -0500
+
+    added format
+
+commit 5c957716cc97c002648fe9e03f50c487d4fcac52
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 14:24:42 2016 -0500
+
+    fixed black ethnicity
+
+commit 37ca8a08dc7a4e3d20f9279084f5b76463d6bdac
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 14:23:51 2016 -0500
+
+    added black people
+
+commit 4275cad7d93ae7ead776197c9f6f9e656193e5f9
+Merge: f1d3546 9f968a5
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Thu Oct 20 19:22:16 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 9f968a5281840ac9c218eb91ce6aa8566cd9f0e5
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Thu Oct 20 14:19:49 2016 -0500
+
+    Updated app.py
+
+commit 5d7d6a3dc07a5a2ad9ebd9986a38fe855b2b44b3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 14:18:37 2016 -0500
+
+    added happy ethnicities
+
+commit 9400c4ac787bfa49ba16bd77e99b7c4c30b20cdf
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 13:51:15 2016 -0500
+
+    format
+
+commit 094169daa62efeae16c4c140e97010f79d267858
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 13:47:33 2016 -0500
+
+    trying to fix formatting
+
+commit c119c90573f357479fde8754590fe477ad51bd20
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 13:43:02 2016 -0500
+
+    resized image
+
+commit 2a2201b3b7396e1024c71bcfa4423be1706885d8
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 13:34:23 2016 -0500
+
+    all bio photos added
+
+commit b76ac4c3d08092cfb421e11bc72cb538dba9d11d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 10:17:18 2016 -0500
+
+    added some bios
+
+commit 7820bca481076d8bb4f098ddff0325e9aba885fe
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 10:10:30 2016 -0500
+
+    images
+
+commit 2100e957ee828f3e894141d3cc9444fd7ada48b3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 10:06:46 2016 -0500
+
+    images
+
+commit ebcc93407c27fe882ad97569f8e3105bfcc96b67
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 10:05:47 2016 -0500
+
+    images
+
+commit 0c04ccbb4eb2f80920a6cc2177ef0744c833c689
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 10:00:30 2016 -0500
+
+    images
+
+commit 5cb4ade8fe336125fa0a704590d26002e1c8351c
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 09:56:57 2016 -0500
+
+    images
+
+commit 98147ff53543d7ae741535286e94bdecdf46e2f7
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 09:55:30 2016 -0500
+
+    changed images
+
+commit f3098d9d134a6669aa250348eb3d70daa611e299
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Thu Oct 20 09:49:43 2016 -0500
+
+    added some about images
+
+commit 50afc6fcbc0a740aae71e03398f6ca33dd339d14
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 21:08:40 2016 -0500
+
+    added media
+
+commit 760a955af1adf466f7a2f9655d31a899a04277c1
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:59:28 2016 -0500
+
+    ut austin details
+
+commit 458ba61a874f0a02b2efe661bc480274f325bf25
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:57:47 2016 -0500
+
+    testing detail layout and image
+
+commit 2daa6ed90471c2be4e40b7cab687317d9cecd318
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:50:59 2016 -0500
+
+    testing youtube videos
+
+commit ca2d16f978dea0d64b963cb031be7b44ddb9a8e1
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:49:15 2016 -0500
+
+    changed heigh of carousel images
+
+commit 5f13bd0f2b943b9aa3e3af7ba07827c2da5f37b3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:43:24 2016 -0500
+
+    added some about page info
+
+commit 658fa8e6f1867d9b4dc24cd6d32896126f87dab1
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:37:25 2016 -0500
+
+    chanegd carousel css
+
+commit 9b652df015e4a554c763353785f3adaa17b2b902
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:36:22 2016 -0500
+
+    made images links
+
+commit 6edfef988b48a971d2ec53cbc7bc697f2d4b8997
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Wed Oct 19 20:31:40 2016 -0500
+
+    Unit tests for City and Ethnicity classes
+
+commit d2ec37ff001a4493801e5bf9515bf0716caa6ea2
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:31:19 2016 -0500
+
+    added Joaquin's discrptions
+
+commit eae5f84ce6b3cda689ab5802a9b02a5d5a8ba6f8
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Wed Oct 19 20:20:53 2016 -0500
+
+    A lot of unit tests for University and City
+
+commit 17f83efb66064463d32e112e8fe237ad2b2f0173
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:04:47 2016 -0500
+
+    csl
+
+commit a6ae1304ccf3b81638c46f819dc5cd93054b0892
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 20:02:51 2016 -0500
+
+    carousel
+
+commit 44e4012730dc2528e168089ab06e34973faa4dfb
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:52:56 2016 -0500
+
+    trying to fix carousel images
+
+commit 965941d62fa08fcef497664e846defcabe7751d8
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:50:55 2016 -0500
+
+    added carousel images
+
+commit 161bebbedf7650787a1f952f19195deba5c7bc45
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:32:21 2016 -0500
+
+    changed some font sizes in about
+
+commit 4bed9998cdaa72da069f4ab39c7795ce3e8fb414
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:30:39 2016 -0500
+
+    fixed some links
+
+commit e7a7e35211922646bdfb071549bad4471734a793
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:29:47 2016 -0500
+
+    added some about page info
+
+commit 378cea320cfb35ff0816263e4884798c3ec89dae
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Oct 19 19:27:20 2016 -0500
+
+    updated data model
+
+commit c2559c37427d9f5c27d038f1b947c229ed31cebb
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:21:01 2016 -0500
+
+    formatted data and tools section of about page
+
+commit fa16339fd6eadb243de77fb5f48697bdac6b93c6
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:03:06 2016 -0500
+
+    fixed about page format
+
+commit 2a39c00f5edc7002806e9f171cfc49812976471d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 19:02:17 2016 -0500
+
+    formatted about page
+
+commit 5607915b4b30042db8ef8bce135646622f34984e
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Wed Oct 19 18:52:59 2016 -0500
+
+    Init commit of unit tests
+
+commit dfd518ac5caee7f7e498a3afcf6e2df94f1296d5
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 18:44:06 2016 -0500
+
+    added background
+
+commit 623fc2ee48f9f98b975caa34c09a879b42ae23ea
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 18:19:01 2016 -0500
+
+    ui test
+
+commit f1d3546a4d9a3fec885fbfdcb91125bcdef6e463
+Merge: 7014c78 6c7c77a
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 23:15:40 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 6c7c77a58855e5ead3f9b5608c8468db44805ca4
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 18:15:31 2016 -0500
+
+    adding links to ethnic groups
+
+commit 7014c78242407748ba32a730ed8603897461e31b
+Merge: bdd221c 253ad30
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 23:14:08 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 253ad303d82cabeb52a8a721eeb50326dcfb56bb
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 18:14:01 2016 -0500
+
+    updating the ethnicity page
+
+commit bdd221ce6032e001c2aefb2a3f8701dbb69147b5
+Merge: 4c6c50f 22e8763
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 23:07:48 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 22e876376622271ef2fd13a415a28c1ce5236ed1
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 18:07:41 2016 -0500
+
+    updating the city,major, and university pages2
+
+commit 4c6c50fc03e745025b27df558c40a9b757b8c36b
+Merge: 2c049f5 f2b0b7a
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 23:05:26 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit f2b0b7ab4a7a15e70f3f567c52fa4d98f5b0c6d8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 18:05:18 2016 -0500
+
+    updating the city,major, and university pages
+
+commit 5802242545f64359f9c59f3625e5495084a54e48
+Author: JiYoung Min <jymin94@gmail.com>
+Date:   Wed Oct 19 17:58:43 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit cfb2fca2986668c905d92de945ce0c2e1650b29e
+Author: mjvolk <michaelvolk@utexas.edu>
+Date:   Wed Oct 19 17:55:05 2016 -0500
+
+    updated models
+
+commit 2c049f5db6fdbfb8fb526862803da645329109aa
+Merge: b6fab1f 077aa7e
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 22:37:19 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 077aa7e52f0f09d2d493bf606404b604e4e01ce3
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 17:37:11 2016 -0500
+
+    updating the universities page2
+
+commit b6fab1fbd44817af28e37d88b549a7bdf9dd2253
+Merge: 2b32a74 3c22ed4
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 22:31:08 2016 +0000
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 3c22ed4a8486f53fb2681da500cbdde35567da34
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 17:17:38 2016 -0500
+
+    updating the universities page
+
+commit 2b32a749e950d7b4332f86f2c76b02b7ca965e2f
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 17:17:38 2016 -0500
+
+    updating the universities page
+
+commit b1070830a2a62542f0549c8ae8b5c4891fb2e084
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 17:15:53 2016 -0500
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 66f0b5a36abecc097502298fdc2efd0f01368e9a
+Merge: 0927a23 0cec773
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 17:15:53 2016 -0500
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 0cec7734bc3fa3c12506a3adb20e83b816e91e60
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:58:10 2016 -0500
+
+    update to layout
+
+commit 0927a2345fec42ce4ca4238bc935c6341d9819c1
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:58:10 2016 -0500
+
+    update to layout
+
+commit 8990e0e658ca3bf407ef5f0bacae7c848459365d
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:56:29 2016 -0500
+
+    updating models frontend pages
+
+commit 33850ed6833f00407881779898f73b1211f55d99
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:56:29 2016 -0500
+
+    updating models frontend pages
+
+commit 7429dd68d801d02888ac0783aa6f73160e4105a5
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:35:01 2016 -0500
+
+    update to layout
+
+commit fd1a87feb8b979ee74f548c21e77602a5303a73b
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:35:01 2016 -0500
+
+    update to layout
+
+commit 4f5c4b3a0c5dd0a4e5892ed5e8ed1d0b38ee624a
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:32:54 2016 -0500
+
+    updating cities main page
+
+commit e32c121cdc3c4fe8ae40a7938936fc33ab9d1901
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Wed Oct 19 12:32:54 2016 -0500
+
+    updating cities main page
+
+commit d0bd6d3b4072b77d5f6b7cc830b66dee1711b61b
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 08:52:19 2016 -0500
+
+    Update journalism.html
+
+commit ce18821e9c5425b345f5778280477969116f8b1f
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Wed Oct 19 08:52:19 2016 -0500
+
+    Update journalism.html
+
+commit e72fe2b1988a45fdb39c036611a105febba75455
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:57:23 2016 -0500
+
+    changed html to not reference diretcories
+
+commit 708a60cc2d98b04a93a3d10fe09e42c96731ab84
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:57:23 2016 -0500
+
+    changed html to not reference diretcories
+
+commit 4f561a38fc4cc8d45e0f9f29512a7dd2d4db1955
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:50:53 2016 -0500
+
+    pulled files out of directories
+
+commit 4a4980944c2a9e6a9298cffd0b6917506880d801
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:50:53 2016 -0500
+
+    pulled files out of directories
+
+commit 64268e29a953d76970f82b9151d094dd058dc7f3
+Author: JiYoung Min <jymin94@gmail.com>
+Date:   Tue Oct 18 21:40:19 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 6a6eb852613971e8901b27122424e6905202fffb
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:38:47 2016 -0500
+
+    added layout.html to directories
+
+commit 99a65f8ea9a2154863d99d0ed342f988a21fc22b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:38:47 2016 -0500
+
+    added layout.html to directories
+
+commit 9aab93ac6fca226a67b3d9453e9d4a6b2977a16d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:31:25 2016 -0500
+
+    UVMain changed
+
+commit 4c93f81ee3dff7acfd926f9321cb15421de7fdf6
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:31:25 2016 -0500
+
+    UVMain changed
+
+commit ce8a945a159abc16feaf2d5ac05df4b2b68a6736
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:25:46 2016 -0500
+
+    edited UVMain
+
+commit 7cfbdfe9543853f938b4818eb47da2f5127d8f0e
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:25:46 2016 -0500
+
+    edited UVMain
+
+commit 965922c3d5fa07bff7cabe1584c31204d0224c90
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:24:25 2016 -0500
+
+    edited major.html
+
+commit 7d06e9ffb06e399c4097ef7e9285db1c3c90e515
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:24:25 2016 -0500
+
+    edited major.html
+
+commit 51a0b1cdfc43dc037fd5768697bc87dce2632b55
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:21:44 2016 -0500
+
+    updated layout and makefile
+
+commit a22259ff80249e66071722905f87a3b733c706b1
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:21:44 2016 -0500
+
+    updated layout and makefile
+
+commit a64312a1c2e20be879c0c03a8cbbda8b16c6c849
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:20:35 2016 -0500
+
+    updated layout references
+
+commit 6bff555ada2ade9da7672539e855ca33e5cc2387
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:20:35 2016 -0500
+
+    updated layout references
+
+commit a2b8a85bc0ac1faa2bfe1e86fb5d2a0cfb3dd57b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:19:29 2016 -0500
+
+    Updated files
+
+commit 6b9df47ff511a65840acfb83ac145cc909f3188b
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:19:29 2016 -0500
+
+    Updated files
+
+commit be4072e03ff099eb040e364c3b8269175bef79fa
+Merge: 22a567c d9587bc
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:16:00 2016 -0500
+
+    Updated files
+
+commit 0386f2dc1da60570c3eede92d8c69484a371c973
+Merge: 9fab210 0f622c9
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 21:16:00 2016 -0500
+
+    Updated files
+
+commit dec588776e2a91e97125ed30fcec4460eb1942a0
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 21:04:01 2016 -0500
+
+    updating ethnicity data again
+
+commit 22a567c3292103e3ba7f113905da95dae2d900a1
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:59:55 2016 -0500
+
+    Updated files
+
+commit 9fab210294d576af9e73fc8b53f8a04897e654df
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:59:55 2016 -0500
+
+    Updated files
+
+commit d9587bc36f820c84bed0289c8aa890e122bc46bf
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Oct 18 20:57:27 2016 -0500
+
+    Update app.py
+
+commit 0f622c9cd392586c96fb2d9fd10964e5c79b49e7
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Oct 18 20:57:27 2016 -0500
+
+    Update app.py
+
+commit b32c9e408be3251e05e1599ee533f1665a3bc501
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:44:10 2016 -0500
+
+    Update about.html
+
+commit 011c98086a1220e4379cc57364cca6565ad5cacb
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:44:10 2016 -0500
+
+    Update about.html
+
+commit f7544a3e53eeaf1dcc62c9455b923947168513ae
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:46 2016 -0500
+
+    Update UVMain.html
+
+commit cdf83927d30dbcf9959bc3180c7b4d7a9904ef31
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:46 2016 -0500
+
+    Update UVMain.html
+
+commit c76e0e5226b9bc39196ba5ae453879620e658a1d
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:34 2016 -0500
+
+    Update UTAustin.html
+
+commit 2da3904feba2cadc604dd83247408b6fe51217f0
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:34 2016 -0500
+
+    Update UTAustin.html
+
+commit 25a2ffa6c7e6555ff795824d0f63fa3181444ac0
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:20 2016 -0500
+
+    Update USC.html
+
+commit c987bfb9368a9ed46d45325d33adaf4c8d7637eb
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:20 2016 -0500
+
+    Update USC.html
+
+commit c6defc4f1d0df51a4d308a5a73c6778f9f24f59b
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:01 2016 -0500
+
+    Update LosAngeles.html
+
+commit 0fa6c2d63a5bda2a6b975bf9eb6f9fe62a09a851
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:43:01 2016 -0500
+
+    Update LosAngeles.html
+
+commit 3099c276c9b7530a5903b442b1b3919a471680b7
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:42:47 2016 -0500
+
+    Update Charlottesville.html
+
+commit a29015f65c3f1cdfe2a516bce406d9b89b643ffb
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:42:47 2016 -0500
+
+    Update Charlottesville.html
+
+commit 9119969acd6cb9eea195cc8ce01a707bebc17a44
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:42:35 2016 -0500
+
+    Update Austin.html
+
+commit 8af8df113ad2af906385287e7324bf6cb1d1c93f
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:42:35 2016 -0500
+
+    Update Austin.html
+
+commit 8a2b2f9ca634036c694b2397ce3fdb7e1d904f9e
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:40:08 2016 -0500
+
+    Update socialsciences.html
+
+commit 62bbcef19ede4f0061786adc45d18b5cd9eb12c3
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:40:08 2016 -0500
+
+    Update socialsciences.html
+
+commit ad0af4638e195a753c07d62143ab210732098a1c
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:39:50 2016 -0500
+
+    Update journalism.html
+
+commit df995a4423729a2f98af1a936a99bdae1157ca69
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:39:50 2016 -0500
+
+    Update journalism.html
+
+commit f3cfc7dfa676665d09851eedf75d9b42493ac9f5
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:39:36 2016 -0500
+
+    Update engineering.html
+
+commit 8c4330f4550e2a0eb7df11abbdee3d1fcc58738a
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:39:36 2016 -0500
+
+    Update engineering.html
+
+commit 8bb9db6bff224c87ce00a9a2a4a6aa892e1d2ec8
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:39:19 2016 -0500
+
+    Update app.py
+
+commit c510ba99208b389ab314f66739fdfa0cb5f06e8b
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:39:19 2016 -0500
+
+    Update app.py
+
+commit 9c2153c3cfbd39e1051583ddb48a385e76450697
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 20:36:21 2016 -0500
+
+    updating ethnicity data
+
+commit 27ba456cb0b41509de5ea8a51f9d6d04cf5c9abb
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:32:34 2016 -0500
+
+    Updated files
+
+commit 2ac9f1b7431a59bd7a2591547908300914979f82
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:32:34 2016 -0500
+
+    Updated files
+
+commit 47fab859a4b488557006548c961969c73c59b542
+Author: JiYoung Min <jymin94@gmail.com>
+Date:   Tue Oct 18 20:29:44 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit d4106aba3d3716fd057bc99050bcad09b9c384f0
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:26:00 2016 -0500
+
+    Updated files
+
+commit 4ced68271a5d39e3a98fa568e8abdc41e0648b1d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 20:26:00 2016 -0500
+
+    Updated files
+
+commit 637471f311fe30d5119cae03a1d59e5a4889a6f1
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:23:38 2016 -0500
+
+    Updated files
+
+commit 689c82b4f73a6334b3e8e597d937b099f8678b40
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:23:38 2016 -0500
+
+    Updated files
+
+commit a80fa0a0b617a3094a6b5db7d7cdba25f97f02fc
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:20:15 2016 -0500
+
+    Updated files
+
+commit c487af2ebe8d0cb9b7c8b38b7200a3bb23a53284
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:20:15 2016 -0500
+
+    Updated files
+
+commit 34ad41eaf6982e19134dd34d834fbf9939787ed8
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 20:17:23 2016 -0500
+
+    updating major data
+
+commit 061a433f64cbe0f937789511473817d38df99ba7
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 20:12:22 2016 -0500
+
+    updating city data
+
+commit f7778876922962747b2d918b865761852c88ed31
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:11:09 2016 -0500
+
+    Updated files
+
+commit 1166526ddf1450dd9a010783246d4138d6d1b182
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:11:09 2016 -0500
+
+    Updated files
+
+commit b1eedb716f6eaebb5e6154a4b26e527de9d4210b
+Author: jc <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 20:08:41 2016 -0500
+
+    updating university data
+
+commit 16c90db71c39058c28d7b998c93217f58cea8191
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:03:37 2016 -0500
+
+    Updated files
+
+commit 56ccc4b7a49f5f4e0a7928e7daa0a68cd1e30ac8
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 20:03:37 2016 -0500
+
+    Updated files
+
+commit 46d555f43b1a77d8149b5cb687e5c1280241ee7c
+Author: Joaquin I Casaubon <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 19:55:28 2016 -0500
+
+    saving dummy data
+
+commit a329e3be1e192b5f5531d4fd105cb8bfdd975577
+Merge: c2d2dff 9d1e2a6
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 00:36:54 2016 +0000
+
+    Updated files
+
+commit d12f41ad23206df17e9a26f1faa77d51bf0287c4
+Merge: a5a686e 9d1e2a6
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Wed Oct 19 00:36:54 2016 +0000
+
+    Updated files
+
+commit 9d1e2a65febe31c83cc97e860e7f7b366a663256
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:35:03 2016 -0500
+
+    Updated files
+
+commit c2d2dff1aece68408d1421d4c252d52ad02edc9a
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:26:28 2016 -0500
+
+    Updated files
+
+commit a5a686e8d42de429c994939442f8e146b2acfed0
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:26:28 2016 -0500
+
+    Updated files
+
+commit 2fcca9918a81c6e1c643c56f1d1f18bb522d0db9
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Tue Oct 18 19:24:15 2016 -0500
+
+    Updated UML and worked on models.py
+
+commit 247cdbe7cb2535e8d6f48eb1945eacee41160b9d
+Merge: ca0022c 8360fe8
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:16:06 2016 -0500
+
+    changed app.py
+
+commit 55c6a0a1920f0c91dd3b5fbdcd15e695aaa3d494
+Merge: 83469fc 8e6e872
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:16:06 2016 -0500
+
+    changed app.py
+
+commit 8360fe848770ee8e878336e7521b0f20c5028023
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:09:58 2016 -0500
+
+    Updated files
+
+commit 8e6e87206702e39aef4ba3d2ef718700b2d1b072
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:09:58 2016 -0500
+
+    Updated files
+
+commit 1fbce14c99fbe9586a866293a663fb155f706e1f
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:05:12 2016 -0500
+
+    Update
+
+commit fc23b68d47bf860ac3f5173ce6499b0e6f16c867
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:05:12 2016 -0500
+
+    Update
+
+commit 212b3d134c2b79ede5dbb6f821ecf01a06e1bdf7
+Merge: 46c5dc8 3fa7211
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:04:35 2016 -0500
+
+    Merge branch 'frontEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+    hello
+
+commit a41a19e7a8949376a185f4a7a0f39d2b9717893f
+Merge: acaae6a 6fa229b
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:04:35 2016 -0500
+
+    Merge branch 'frontEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+    hello
+
+commit 46c5dc8cf21b63171488633a9c3be58fe1609270
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:04:12 2016 -0500
+
+    Updated files
+
+commit acaae6af39f6f9bb62b73c522169c444ccf5e463
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:04:12 2016 -0500
+
+    Updated files
+
+commit 3fa72111bb7ac592debdce1389b0a1d2db9f675c
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:03:54 2016 -0500
+
+    Update Austin.html
+
+commit 6fa229bbb770311836d3718d13f7674ce2f5209d
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:03:54 2016 -0500
+
+    Update Austin.html
+
+commit b8eac95496d1d041f5b6b8b0ace7323a9c8f25ac
+Merge: 0a76de0 25b1657
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:03:47 2016 -0500
+
+    Merge branch 'frontEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit ee1797a12d256fdbe3d00a1d89b62803fa90f9c6
+Merge: 444c037 597c9f0
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:03:47 2016 -0500
+
+    Merge branch 'frontEnd' of github.com:cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 0a76de0fa8dc57f7fa4c331bf6a51ad63b433138
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:03:27 2016 -0500
+
+    Updated changes
+
+commit 444c0374ce885f5f75faae4025a8ca526af2c922
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:03:27 2016 -0500
+
+    Updated changes
+
+commit 25b1657f1560a2760c777daeffd00c73cc882054
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:03:22 2016 -0500
+
+    added city details
+
+commit 597c9f04a4b492365c2355a8abe9dd331382c519
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 19:03:22 2016 -0500
+
+    added city details
+
+commit c483e7f662c1c00c8cf0bf014cd21b12cb640f62
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:00:36 2016 -0500
+
+    Updated files
+
+commit 17515c74a1b6497e6754786e596a58610268533c
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 19:00:36 2016 -0500
+
+    Updated files
+
+commit ba406d0c2f6475b2d52583d22c6f8fbd9a40e0bf
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:57:29 2016 -0500
+
+    Update city.html
+
+commit 7853441907010d171bdbcb95ec39f9bec79af916
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:57:29 2016 -0500
+
+    Update city.html
+
+commit c4398ac2f1be4000695563bdf536c517d36804e3
+Author: JiYoung Min <jymin94@gmail.com>
+Date:   Tue Oct 18 18:53:38 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit ca0022ca60d4582e5ce18c5e4cb30adb2d223146
+Merge: a9d1b7c ab714d3
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:51:14 2016 -0500
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 83469fc7b6cee82d88d820977578fa057c0b49db
+Merge: a9d1b7c 96664b4
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:51:14 2016 -0500
+
+    Merge branch 'frontEnd' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit ab714d33cb176f33a4cb51ab751abcd71f935f5e
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:50:32 2016 -0500
+
+    Add files via upload
+
+commit 96664b44908bf9ac1b15cea12591e0dad95e8834
+Author: ninean <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:50:32 2016 -0500
+
+    Add files via upload
+
+commit e915c4fee6aed310dae4214900acb88b6f3553b3
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 18:49:43 2016 -0500
+
+    Updated makefile
+
+commit f70a8fde9bc4b647aebaa97933a2447bb6aaaac0
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 18:49:43 2016 -0500
+
+    Updated makefile
+
+commit c83ccbd05bafc61d135ddc60fdb8fed526054dfd
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 18:48:19 2016 -0500
+
+    Updated files
+
+commit 6aabe208a0fb61219e9889aea9cc9507af468235
+Author: mxavier6 <matthewxavier95@gmail.com>
+Date:   Tue Oct 18 18:48:19 2016 -0500
+
+    Updated files
+
+commit a9d1b7c80b6077bc6f366e0dfb3685cdf2d7683d
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:43:26 2016 -0500
+
+    changes
+
+commit 6dc71271d15136b003f82f1b45177930f381be02
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:40:38 2016 -0500
+
+    changes
+
+commit e7badaafc11e0fff036e3a5e5bacf8b9815509aa
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:40:31 2016 +0000
+
+    Updated makefile
+
+commit e99293dd24171e9ea75fc2ad026905596b0da7b1
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:40:31 2016 +0000
+
+    Updated makefile
+
+commit 79abe84b8c7af54e0985684194fa3eaa58e3f4f4
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:37:47 2016 +0000
+
+    Updated makefile
+
+commit 40067493be37ab9db7f3eca1bb128a1afe79f96a
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:37:47 2016 +0000
+
+    Updated makefile
+
+commit 72b49d93960950657fe8ed6783a3ec4480d6ccee
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:35:05 2016 +0000
+
+    Updated makefile
+
+commit 620d7e8ccf964eac0bf55e832d93a05db8aa9357
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:35:05 2016 +0000
+
+    Updated makefile
+
+commit 1bc9a252a2faf75dd52247eb7de9dadae29d77c5
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:34:10 2016 +0000
+
+    Updated stuff
+
+commit 1a0e6ec9c5e0da24b7452f770d85a428900017b2
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 23:34:10 2016 +0000
+
+    Updated stuff
+
+commit 9b7f552a3c977d4afaa6f37f8a48d45bba6e97e4
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:27:21 2016 -0500
+
+    initial detail page linking
+
+commit e70cae96c865e6a7aca5cd730f705daca635b518
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 18:21:24 2016 -0500
+
+    testing layout.html
+
+commit 7e9b005cf2c957bada3b4d960b5bd31c833ba592
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Tue Oct 18 18:10:26 2016 -0500
+
+    Added UML image, moved temp models to projects/models.py
+
+commit 6cd8e917c6b981571d2c2fe2d3df5292f61b5dfe
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 17:54:54 2016 -0500
+
+    added / back to app.py
+
+commit a319b570384c779f468434564b347f91edce9498
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Tue Oct 18 17:48:50 2016 -0500
+
+    inital front end changes
+
+commit b527f860f102f8c0b917a743482f108a5a140fc2
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 22:43:09 2016 +0000
+
+    Updated stuff
+
+commit cb2da4ce99f1d6d2f11fa6412b4b44e3b0f8ef41
+Author: Michael Volk <mjv732@cs.utexas.edu>
+Date:   Tue Oct 18 17:36:23 2016 -0500
+
+    updated dummy data
+
+commit 76b8df20806e74e31724bf0b91b0bb874ea58f8b
+Author: Michael Volk <mjv732@cs.utexas.edu>
+Date:   Tue Oct 18 17:16:56 2016 -0500
+
+    changed industry pillar to ethnicity
+
+commit f84a65106ba6bf92d03e294467ba813458c556ea
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Tue Oct 18 13:40:45 2016 -0500
+
+    idea
+
+commit 81610049836a7baad7cdeebe0bef2702d3ebf0df
+Author: Matthew Xavier <mxavier6@cs.utexas.edu>
+Date:   Tue Oct 18 01:43:13 2016 -0500
+
+    Add files via upload
+
+commit 57f3eb4a05942b8332a114d4210cf0fa65c1da21
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 02:50:59 2016 +0000
+
+    Fixed hrefs
+
+commit c2e8a30e41e0318c52ef474b4bdd47c8addbf069
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Mon Oct 17 21:46:23 2016 -0500
+
+    more models
+
+commit 5bf98445dccee824df30d2bad67bdd038dd6bf23
+Merge: 9239e2e 70c9bfc
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 01:52:17 2016 +0000
+
+    Merge branch 'phaseOne' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit 70c9bfcf43a286b5e4c39ff506a9d3562ea1a4cf
+Merge: a5cb527 bdf70c3
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 01:51:02 2016 +0000
+
+    Merge branch 'phaseOne' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into phaseOne
+
+commit a5cb52775f9c1b05b0cec62069115d42c2a9230a
+Author: EC2 Default User <ec2-user@ip-172-31-21-227.us-west-2.compute.internal>
+Date:   Tue Oct 18 01:49:54 2016 +0000
+
+    Updated app.py
+
+commit 9239e2e64ce760e90fdc9f84aa0a356f0da5fc6a
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 17 18:14:51 2016 -0500
+
+    Fixing header
+
+commit 036b24e56e5a0dd315aebec900c4fe7a8bb0f8e5
+Merge: ef5c6c3 bdf70c3
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 17 18:08:25 2016 -0500
+
+    Merge branch 'phaseOne' of https://github.com/cs373gc-fall-2016/SouthernWholesomeEducation into frontEnd
+
+commit bdf70c38d0f00d6b1d88ec6bcaae8692ed79ce56
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 17 18:08:05 2016 -0500
+
+    Updating 'update' command
+
+commit ef5c6c35e51a0cf3e6766b477c8fdcb02e94d766
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 17 18:03:54 2016 -0500
+
+    Fixing an address
+
+commit e641eef816946b862865cb980f17c47801194219
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 17 18:01:46 2016 -0500
+
+    Adding HTML pages and cleaning up code
+
+commit 3e1f8ac8b999eb34cf9af9e5e268b85bb041c7ed
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Mon Oct 17 17:28:51 2016 -0500
+
+    Organizing project structure and adding makefile commands
+
+commit bdc7b5b3867242272df628f48a271ae4e0dcb12a
+Author: Wanshui Yu <yu.wanshui@utexas.edu>
+Date:   Mon Oct 17 16:42:07 2016 -0500
+
+    Added base html files
+
+commit 6983f559db7ccd268aa3fa010209ee4af82acb3e
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Mon Oct 17 13:49:46 2016 -0500
+
+    more notes
+
+commit 63d6bac006291a99b831a9c0933f5f94fbfa4a10
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Sun Oct 16 17:57:26 2016 -0500
+
+    dummy data version 0.51
+
+commit 5e57e40de3987597121245818d6359321cada4eb
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Sun Oct 16 17:24:07 2016 -0500
+
+    dummy data version 0.5
+
+commit 4c76fcf72feb3925fb17407ed636935306d9e673
+Author: ace-jc <ace-jc@users.noreply.github.com>
+Date:   Sun Oct 16 15:42:53 2016 -0500
+
+    updated readme
+
+commit 4b3d79cf0544330cb97f2530d4ff40d9df170117
+Author: Brandon Dang <budang@cs.utexas.edu>
+Date:   Sun Oct 16 13:03:15 2016 -0500
+
+    Init commit

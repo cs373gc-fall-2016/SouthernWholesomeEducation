@@ -1,74 +1,40 @@
 <!-- {{myData}} -->
 <div class="container">
-      <div class=".col-md-6">
+  <div align="center" class="row">
+    <div class="box">
       <div>
-        <h3>{{myData.name}}</h3>
+        <h1>{{myData.name}}</h1>
       </div>
+    </div>
 
+    <img class="detail-img" ng-if="imageUri" ng-src="{{imageUri}}"></img>
+
+    <div class="box">
       <div>
         <h3>Number of Undergraduate Students</h3>
         <p>{{myData.num_undergrads}}</p>
       </div>
 
       <div>
-        <h3>Percentage of Students</h3>
+        <h3>Average Percentage of Students</h3>
         <p>{{myData.avg_percentage}}%</p>
       </div>
 
-     <div>
-         <h3>Top City for {{myData.name}}</h3>
-         <p><a href="/#/cities/{{myData.top_city_id}}">{{myData.top_city}}</a></h3>
-     </div>
-
-     <div>
-         <h3>Number of Associated Universities</h3>
-         <p>{{myData.num_universities}}</p>
-     </div>
-
-     <div>
-         <h3>Number of Associated Cities</h3>
-         <p>{{myData.num_cities}}</p>
-     </div>
-
-     <!-- <div id="output"></div>
-
-     <script>
-     var apiKey = 'j878g39yx378pa77djthzzpn';
-     var urlN = "https://api.gettyimages.com/v3/search/images/?phrase=major";
-   //   document.write(elem);
-$.ajax(
-   {
-       type:'GET',
-       url: urlN ,
-        beforeSend: function (request)
-           {
-               request.setRequestHeader("Api-Key", apiKey);
-           }})
-   .done(function(data){
-       console.log("Success with data");
-       console.log(urlN);
-          $("#output").append("<img src='" + data.images[0].display_sizes[0].uri + "'/>");
-   })
-   .fail(function(data){
-       alert(JSON.stringify(data,2))
-   });
-     </script> -->
-
-
-
-
-
-      <!-- <div>
-        <h3>Current year ethnicity count</h3>
-        <ul>
-          <li><a href="/hispanic.html">Hispanic</a>: 17,900</li>
-          <li><a href="/white.html">White</a>: 8,561</li>
-          <li><a href="/asian.html">Asian</a>: 7,393</li>
-        </ul>
+      <div>
+          <h3>Major Number at Top University: <a href="/#/universities/{{myData.top_university_id}}">{{myData.top_university}}</a></h3>
+          <p>{{myData.top_university_amt}}</p>
       </div>
- -->
 
+      <div>
+          <h3>Major Number at Top City: <a href="/#/cities/{{myData.top_city_id}}">{{myData.top_city}}</a></h3>
+          <p>{{myData.top_city_amt}}</p>
+      </div>
 
+      <div>
+        <h3>Number of Associated Cities</h3>
+        <p>{{myData.num_cities}}</p>
+      </div>
     </div>
+  </div>
 
 </div>

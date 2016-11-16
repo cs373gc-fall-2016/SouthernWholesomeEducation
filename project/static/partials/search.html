@@ -1,0 +1,223 @@
+<uib-tabset active="active">
+		<uib-tab index="0" heading="AND search" ng-click="setSearchType('and')">
+		</uib-tab>
+		<uib-tab index="1" heading="OR search" ng-click="setSearchType('or')">
+		</uib-tab>
+		<div class="container">
+				<nit-advanced-searchbox ng-model="searchParams" placeholder="Search" style="display: inline-block; width: 90%; margin: 5px 5px 10px" ng-keydown="$event.keyCode == 13 ? search() : null"></nit-advanced-searchbox>
+				<button type="button" class="btn btn-primary" ng-click="search()">Search</button>
+		</div>
+		<div ng-show="searchType == 'and'">
+			<div class="container">
+					<h3>University Table</h3>
+					<table class="table table-striped">
+							<thead>
+							<tr>
+								<th>Model Type</th>
+								<th>Model Name</th>
+								<th>Context</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr dir-paginate="row in universityAnd | itemsPerPage: 10" total-items="universityAndPages" pagination-id="universityand">
+								<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+								<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+								<td ng-bind-html="renderHtml(row.Context)"></td>
+							</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3" class="text-center">
+										<dir-pagination-controls pagination-id="universityand" on-page-change="getPage(1,1,newPageNumber)"></dir-pagination-controls>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<div class="container">
+					<h3>City Table</h3>
+					<table class="table table-striped">
+							<thead>
+							<tr>
+								<th>Model Type</th>
+								<th>Model Name</th>
+								<th>Context</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr dir-paginate="row in cityAnd | itemsPerPage: 10" total-items="cityAndPages" pagination-id="cityand">
+								<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+								<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+								<td ng-bind-html="renderHtml(row.Context)"></td>
+							</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3" class="text-center">
+										<dir-pagination-controls pagination-id="cityand" on-page-change="getPage(2,1,newPageNumber)"></dir-pagination-controls>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<div class="container">
+					<h3>Major Table</h3>
+					<table class="table table-striped">
+							<thead>
+							<tr>
+								<th>Model Type</th>
+								<th>Model Name</th>
+								<th>Context</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr dir-paginate="row in majorAnd | itemsPerPage: 10" total-items="majorAndPages" pagination-id="majorand">
+								<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+								<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+								<td ng-bind-html="renderHtml(row.Context)"></td>
+							</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3" class="text-center">
+										<dir-pagination-controls pagination-id="majorand" on-page-change="getPage(3,1,newPageNumber)"></dir-pagination-controls>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<div class="container">
+					<h3>Ethnicity Table</h3>
+					<table class="table table-striped">
+						<thead>
+						<tr>
+							<th>Model Type</th>
+							<th>Model Name</th>
+							<th>Context</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr dir-paginate="row in ethnicityAnd | itemsPerPage: 10" total-items="ethnicityAndPages" pagination-id="ethnicityand">
+							<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+							<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+							<td ng-bind-html="renderHtml(row.Context)"></td>
+						</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3" class="text-center">
+									<dir-pagination-controls pagination-id="ethnicityand" on-page-change="getPage(4,1,newPageNumber)"></dir-pagination-controls>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+			</div>
+		</div>
+		<div ng-show="searchType == 'or'">
+			<div class="container">
+			<h3>University Table</h3>
+			<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>Model Type</th>
+						<th>Model Name</th>
+						<th>Context</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr dir-paginate="row in universityOr | itemsPerPage: 10" total-items="universityOrPages" 			pagination-id="universityor">
+						<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+						<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+						<td ng-bind-html="renderHtml(row.Context)"></td>
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3" class="text-center">
+								<dir-pagination-controls pagination-id="universityor" on-page-change="getPage(1,2,newPageNumber)"></dir-pagination-controls>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<div class="container">
+			<h3>City Table</h3>
+			<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>Model Type</th>
+						<th>Model Name</th>
+						<th>Context</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr dir-paginate="row in cityOr | itemsPerPage: 10" total-items="cityOrPages" pagination-id="cityor">
+						<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+						<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+						<td ng-bind-html="renderHtml(row.Context)"></td>
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3" class="text-center">
+								<dir-pagination-controls pagination-id="cityor" on-page-change="getPage(2,2,newPageNumber)"></dir-pagination-controls>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<div class="container">
+			<h3>Major Table</h3>
+			<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>Model Type</th>
+						<th>Model Name</th>
+						<th>Context</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr dir-paginate="row in majorOr | itemsPerPage: 10" total-items="majorOrPages" pagination-id="majoror">
+						<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+						<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+						<td ng-bind-html="renderHtml(row.Context)"></td>
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3" class="text-center">
+								<dir-pagination-controls pagination-id="majoror" on-page-change="getPage(3,2,newPageNumber)"></dir-pagination-controls>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<div class="container">
+			<h3>Ethnicity Table</h3>
+			<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>Model Type</th>
+						<th>Model Name</th>
+						<th>Context</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr dir-paginate="row in ethnicityOr | itemsPerPage: 10" total-items="ethnicityOrPages" pagination-id="ethnicityor">
+						<td><a href="/#/{{row.plural}}">{{row.model}}</a></td>
+						<td><a href="/#/{{row.plural}}/{{row.id_num}}">{{row.name}}</a></td>
+						<td ng-bind-html="renderHtml(row.Context)"></td>
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3" class="text-center">
+								<dir-pagination-controls pagination-id="ethnicityor" on-page-change="getPage(4,2,newPageNumber)"></dir-pagination-controls>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+</uib-tabset>
+<!--<div ng-include src="'searchTable.html'"></div>-->

@@ -1,13 +1,14 @@
-# pylint: disable=E1101, R0913, R0903
+# pylint: disable=E1101, R0913, R0903, R0902, W0611
 """Implements the models that will be used in database"""
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 
 APP = Flask(__name__)
 
 APP.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@54.244.68.148/swe'
+    'SQLALCHEMY_DATABASE_URI'] = 'postgresql://ec2-user:ec2-user@54.187.105.249/swe'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 DB = SQLAlchemy(APP)
 
@@ -20,14 +21,6 @@ def create_unique(model, **args):
         DB.session.add(is_exist)
     return is_exist
 
-
-# def add_unique(obj):
-#     is_exist = obj.__class__.query.filter_by(
-#         **obj.primary_attributes()).first()
-#     if not is_exist:
-#         DB.session.add(obj)
-#     else:
-#         is_exist.update(obj)
 
 def get_association(model, **args):
     """Gets model object given arguments"""
@@ -97,12 +90,6 @@ class MAJORTOCITY(DB.Model):
         """Attributes of MAJORTOCITY"""
         return {'city': self.city, 'major': self.major, 'num_students': self.num_students}
 
-    # def primary_attributes(self):
-    #     return {'city': self.city, 'major': self.major}
-
-    # def update(self, rhs):
-    #     self.num_students = rhs.num_students
-
     def __repr__(self):
         return '<City ' + self.city.name + ', Major ' + self.major.name + '>'
 
@@ -130,15 +117,9 @@ class ETHNICITYTOCITY(DB.Model):
     def __repr__(self):
         return '<City ' + self.city.name + ', Ethnicity ' + self.ethnicity.name + '>'
 
-    # def primary_attributes(self):
-    #     return {'city': self.city, 'ethnicity': self.ethnicity}
-
     def attributes(self):
         """Get attributes from ETHNICITYTOCITY"""
         return {'city': self.city, 'ethnicity': self.ethnicity, 'num_students': self.num_students}
-
-    # def update(self, rhs):
-    #     self.num_students = rhs.num_students
 
 
 class MAJORTOUNIVERSITY(DB.Model):
@@ -164,16 +145,10 @@ class MAJORTOUNIVERSITY(DB.Model):
     def __repr__(self):
         return '<University ' + self.university.name + ', Major ' + self.major.name + '>'
 
-    # def primary_attributes(self):
-    #     return {'university': self.university, 'major': self.major}
-
     def attributes(self):
         """Get attributes for MAJORTOUNIVERSITY"""
         return {'university': self.university, 'major': self.major, \
             'num_students': self.num_students}
-
-    # def update(self, rhs):
-    #     self.num_students = rhs.num_students
 
 
 class ETHNICITYTOUNIVERSITY(DB.Model):
@@ -199,16 +174,10 @@ class ETHNICITYTOUNIVERSITY(DB.Model):
     def __repr__(self):
         return '<University ' + self.university.name + ', Ethnicity ' + self.ethnicity.name + '>'
 
-    # def primary_attributes(self):
-    #     return {'university': self.university, 'ethnicity': self.ethnicity}
-
     def attributes(self):
         """Attributes for ETHNICITYTOUNIVERSITY"""
         return {'university': self.university, 'ethnicity': self.ethnicity, \
             'num_students': self.num_students}
-
-    # def update(self, rhs):
-    #     self.num_students = rhs.num_students
 
 
 class University(DB.Model):
@@ -225,17 +194,21 @@ class University(DB.Model):
     cost_to_attend = DB.Column(DB.Integer)
     grad_rate = DB.Column(DB.Float)
     public_or_private = DB.Column(DB.String(225))
+    city_name = DB.Column(DB.String(225))
     ethnicity_list = DB.relationship('ETHNICITYTOUNIVERSITY')
     major_list = DB.relationship('MAJORTOUNIVERSITY')
+    city_name = DB.Column(DB.String(225))
 
     city_id = DB.Column(DB.Integer, DB.ForeignKey('CITY.id_num'))
 
-    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private):
+    def __init__(self, name, num_undergrads, cost_to_attend, grad_rate, \
+        public_or_private, city_name):
         self.name = name
         self.num_undergrads = num_undergrads
         self.cost_to_attend = cost_to_attend
         self.grad_rate = grad_rate
         self.public_or_private = public_or_private
+        self.city_name = city_name
 
 
     def __repr__(self):
@@ -261,28 +234,18 @@ class University(DB.Model):
 
     def attributes(self):
         """Get attributes for university"""
-        city_name = City.query.filter_by(id_num=self.city_id).first().name
         return {
             'id_num': self.id_num,
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'cost_to_attend': self.cost_to_attend,
-            'grad_rate': self.grad_rate,
+            'grad_rate': round(self.grad_rate*100),
             'public_or_private': self.public_or_private,
             'city_id': self.city_id,
-            'city_name': city_name,
+            'city_name': self.city_name,
             'majors': self.get_majors(),
             'ethnicities': self.get_ethnicities()
         }
-
-    # def primary_attributes(self):
-    #     return {'name': self.name, 'city_id': self.city_id}
-
-    # def update(self, rhs):
-    #     self.num_undergrads = rhs.num_undergrads
-    #     self.cost_to_attend = rhs.cost_to_attend
-    #     self.grad_rate = rhs.grad_rate
-    #     self.public_or_private = rhs.public_or_private
 
     # These functions create relationships between Universities and Majors and
     # Ethnicities.
@@ -323,18 +286,27 @@ class City(DB.Model):
     top_university = DB.Column(DB.String(225))
     top_major = DB.Column(DB.String(225))
     top_ethnicity = DB.Column(DB.String(225))
+    uni_count = DB.Column(DB.Integer)
+    maj_count = DB.Column(DB.Integer)
+    eth_count = DB.Column(DB.Integer)
 
-    def __init__(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none'):
+    def __init__(self, name, population=0, avg_tuition=0, top_university='none', \
+        top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0):
         self.name = name
         self.population = population
         self.avg_tuition = avg_tuition
         self.top_university = top_university
-        self.top_major = top_major.replace("2014.academics.program_percentage.", "").replace("_", " ").title()
+        self.top_major = top_major.replace( \
+            "2014.academics.program_percentage.", "").replace("_", " ").title()
         self.top_ethnicity = top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
-        self.top_ethnicity = self.top_ethnicity.replace("2014.student.demographics.race_ethnicity.", "")
+        self.top_ethnicity = self.top_ethnicity.replace( \
+            "2014.student.demographics.race_ethnicity.", "")
         self.top_ethnicity = self.top_ethnicity.replace('nhpi', 'native_hawaiian_pacific_islander')
         self.top_ethnicity = self.top_ethnicity.replace('aian', 'american_indian_alaska_native')
         self.top_ethnicity = self.top_ethnicity.replace("_", " ").title()
+        self.uni_count = uni_count
+        self.maj_count = maj_count
+        self.eth_count = eth_count
 
     def __repr__(self):
         return '<City ' + self.name + '>'
@@ -345,9 +317,9 @@ class City(DB.Model):
             'id_num': self.id_num,
             'name': self.name,
             'population': self.population,
-            'university_list': len(self.university_list),
-            'ethnicity_list': len(self.ethnicity_list),
-            'major_list': len(self.major_list),
+            'uni_count': self.uni_count,
+            'eth_count': self.eth_count,
+            'maj_count': self.maj_count,
             'avg_tuition': self.avg_tuition,
             'universities': self.get_universities(),
             'majors': self.get_majors(),
@@ -379,14 +351,6 @@ class City(DB.Model):
         for i in uni_list:
             uni_list_json.append({'name': i.name, 'id': i.id_num})
         return uni_list_json
-
-
-    # def primary_attributes(self):
-    #     return {'name': self.name}
-    #
-    # def update(self, rhs):
-    #     self.population = rhs.population
-    #     self.avg_tuition = rhs.avg_tuition
 
     # These functions create relationships between Cities and Majors,
     # Ethnicities, and Universities.
@@ -427,16 +391,23 @@ class Major(DB.Model):
     name = DB.Column(DB.String(225))
     num_undergrads = DB.Column(DB.Integer)
     top_city = DB.Column(DB.String(225))
-    avg_percentage = DB.Column(DB.Float)
+    top_city_amt = DB.Column(DB.Integer)
+    top_university = DB.Column(DB.String(225))
+    top_university_amt = DB.Column(DB.Integer)
+    avg_percentage = DB.Column(DB.Float) # to delete?
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, num_undergrads=0, top_city='Default', avg_percentage=0):
+    def __init__(self, name, num_undergrads=0, top_city='Default', \
+        top_city_amt=0, top_university='Default', top_university_amt=0, avg_percentage=0):
         name = name.replace("2014.academics.program_percentage.", "")
         name = name.replace("_", " ").title()
         self.name = name
         self.num_undergrads = num_undergrads
         self.top_city = top_city
-        self.avg_percentage = avg_percentage
+        self.top_city_amt = top_city_amt
+        self.top_university = top_university
+        self.top_university_amt = top_university_amt
+        self.avg_percentage = avg_percentage # to delte?
 
     def __repr__(self):
         return '<Major ' + self.name + '>'
@@ -445,26 +416,22 @@ class Major(DB.Model):
         """Get attributes for major"""
         top_city_id = MAJORTOCITY.query.filter_by(major_name=self.name, \
             city_name=self.top_city).first().city_id
-        num_universities = len(MAJORTOUNIVERSITY.query.filter_by(major_name=self.name).all())
         num_cities = len(MAJORTOCITY.query.filter_by(major_name=self.name).all())
+        top_university_id = MAJORTOUNIVERSITY.query.filter_by(major_name=self.name, \
+            university_name=self.top_university).first().university_id
         return {
             'id_num': self.id_num,
             'name': self.name,
             'num_undergrads': self.num_undergrads,
             'top_city': self.top_city,
-            'top_city_id': top_city_id,
-            'avg_percentage': self.avg_percentage,
-            'num_universities': num_universities,
-            'num_cities': num_cities
+            'top_city_amt': self.top_city_amt,
+            'top_university': self.top_university,
+            'top_university_amt': self.top_university_amt,
+            'avg_percentage': round(self.avg_percentage * 100), # to delete
+            'top_university_id': top_university_id,
+            'top_city_id': top_city_id, # what is this?
+            'num_cities': num_cities  # what is this?
         }
-
-    # def primary_attributes(self):
-    #     return {'name': self.name}
-    #
-    # def update(self, rhs):
-    #     self.num_undergrads = rhs.num_undergrads
-    #     self.top_city = rhs.top_city
-    #     self.avg_percentage = rhs.avg_percentage
 
 
 class Ethnicity(DB.Model):
@@ -483,7 +450,8 @@ class Ethnicity(DB.Model):
     top_university_amt = DB.Column(DB.Integer)
     assoc_university = DB.Column(DB.Integer)
 
-    def __init__(self, name, total_count=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0):
+    def __init__(self, name, total_count=0, top_city='Default', \
+        top_city_amt=0, top_university='Default', top_university_amt=0):
         name = name.replace("2014.student.demographics.race_ethnicity.", "")
         name = name.replace('nhpi', 'native_hawaiian_pacific_islander')
         name = name.replace('aian', 'american_indian_alaska_native')
@@ -519,9 +487,3 @@ class Ethnicity(DB.Model):
             'num_universities': num_universities,
             'num_cities': num_cities
         }
-
-    # def primary_attributes(self):
-    #     return {'name': self.name}
-    #
-    # def update(self, rhs):
-    #     self.total_count = rhs.total_count

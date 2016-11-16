@@ -9,7 +9,7 @@
     margin-left: auto;
     margin-right: auto
 }
-    
+
 .carousel {
     max-height: 600px;
     overflow: hidden;
@@ -21,18 +21,26 @@
     border: 3px solid LightGrey;
     padding: 10px;
 }
+.st-sort-ascent:before{
+    content: '\25B2';
+}
 
-/*
+.st-sort-descent:before{
+    content: '\25BC';
+}
+
 .item img {
 	width: 100%;
 	height: auto;
 }
-*/
 
-}
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
 }
 
 td, th {
@@ -43,4 +51,15 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+th.sort:hover {
+	cursor: pointer;
+}
+
+.detail-img {
+    display: block;
+    margin: auto;
+    width: 25%;
+    height: auto;
 }

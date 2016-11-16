@@ -31,28 +31,28 @@ class Tests(TestCase):
         Test University class
         '''
         uni = University.query.filter_by(name='University of East-West Medicine').first()
-        self.assertEqual(uni.num_undergrads, 1066)
+        self.assertEqual(uni.num_undergrads, 3306)
 
     def test_university_2(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Charlotte School of Law').first()
-        self.assertEqual(uni.num_undergrads, 4355)
+        self.assertEqual(uni.num_undergrads, 3512)
 
     def test_university_3(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Marinello School of Beauty-Visalia').first()
-        self.assertEqual(uni.num_undergrads, 3780)
+        self.assertEqual(uni.num_undergrads, 2244)
 
     def test_university_4(self):
         '''
         Test University class
         '''
         uni = University.query.filter_by(name='Brite Divinity School').first()
-        self.assertEqual(uni.num_undergrads, 2853)
+        self.assertEqual(uni.num_undergrads, 532)
 
     def test_university_5(self):
         '''
@@ -142,7 +142,7 @@ class Tests(TestCase):
         Test University attributes
         '''
         uni = University.query.filter_by(name='Young Harris College').first()
-        self.assertEqual(uni.attributes()['grad_rate'], 0.38154256198347)
+        self.assertEqual(uni.attributes()['grad_rate'], 38)
 
 
     def test_university_attr_6(self):
@@ -185,7 +185,7 @@ class Tests(TestCase):
         Test University attributes
         '''
         uni = University.query.filter_by(name='College of the Marshall Islands').first()
-        self.assertEqual(uni.attributes()['grad_rate'], 0.04389054054054)
+        self.assertEqual(uni.attributes()['grad_rate'], 4)
 
     # -------------------
     # university __repr__
@@ -195,49 +195,49 @@ class Tests(TestCase):
         '''
         Test University __repr__
         '''
-        university = University('UT', 0, 0, 0, '')
+        university = University('UT', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University UT>')
 
     def test_university_repr_2(self):
         '''
         Test University __repr__
         '''
-        university = University('A&M', 0, 0, 0, '')
+        university = University('A&M', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University A&M>')
 
     def test_university_repr_3(self):
         '''
         Test University __repr__
         '''
-        university = University('Rice', 0, 0, 0, '')
+        university = University('Rice', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University Rice>')
 
     def test_university_repr_4(self):
         '''
         Test University __repr__
         '''
-        university = University('Southwestern', 0, 0, 0, '')
+        university = University('Southwestern', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University Southwestern>')
 
     def test_university_repr_5(self):
         '''
         Test University __repr__
         '''
-        university = University('MD Anderson', 0, 0, 0, '')
+        university = University('MD Anderson', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University MD Anderson>')
 
     def test_university_repr_6(self):
         '''
         Test University __repr__
         '''
-        university = University('UTMB', 0, 0, 0, '')
+        university = University('UTMB', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University UTMB>')
 
     def test_university_repr_7(self):
         '''
         Test University __repr__
         '''
-        university = University('McGovern Medical School', 0, 0, 0, '')
+        university = University('McGovern Medical School', 0, 0, 0, '', '')
         self.assertEqual(university.__repr__(), '<University McGovern Medical School>')
 
 
@@ -511,7 +511,7 @@ class Tests(TestCase):
         Test City class
         '''
         city = City.query.filter_by(name='Sunnyvale').first()
-        self.assertEqual(city.population, 40685)
+        self.assertEqual(city.population, 38940)
         self.assertEqual(city.top_major, 'Visual Performing')
 
     def test_city_4(self):
@@ -535,7 +535,7 @@ class Tests(TestCase):
         Test City class
         '''
         city = City.query.filter_by(name='Villanova').first()
-        self.assertEqual(city.population, 15471)
+        self.assertEqual(city.population, 41682)
         self.assertEqual(city.top_major, 'Business Marketing')
 
     def test_city_7(self):
@@ -651,7 +651,7 @@ class Tests(TestCase):
         self.assertEqual(city.attributes()['name'], 'Keshena')
 
 
-    def test_city_attr_5(self):
+    def test_city_attr_6(self):
         '''
         Test City attributes
         '''
@@ -659,7 +659,7 @@ class Tests(TestCase):
         self.assertEqual(city.attributes()['name'], 'Las Vegas')
 
 
-    def test_city_attr_6(self):
+    def test_city_attr_7(self):
         '''
         Test City attributes
         '''
@@ -667,7 +667,7 @@ class Tests(TestCase):
         self.assertEqual(city.attributes()['name'], 'Ontario')
 
 
-    def test_city_attr_7(self):
+    def test_city_attr_8(self):
         '''
         Test City attributes
         '''
@@ -775,9 +775,25 @@ class Tests(TestCase):
         self.assertEqual(maj.num_undergrads, 125860)
         self.assertEqual(maj.top_city, "College Station")
 
-    # # -------------
+    def test_major_11(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Construction').first()
+        self.assertEqual(maj.num_undergrads, 83954)
+        self.assertEqual(maj.top_city, "Indianapolis")
+
+    def test_major_12(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Architecture').first()
+        self.assertEqual(maj.num_undergrads, 48375)
+        self.assertEqual(maj.top_city, "Boston")
+
+    # # ---------------
     # # major __repr__
-    # # -------------
+    # # ---------------
 
     def test_major_repr_1(self):
         '''
@@ -827,6 +843,14 @@ class Tests(TestCase):
         '''
         major = Major('family consumer sciences')
         self.assertEqual(major.__repr__(), '<Major Family Consumer Sciences>')
+
+    def test_major_repr_8(self):
+        major = Major('history')
+        self.assertEqual(major.__repr__(), '<Major History>')
+
+    def test_major_repr_9(self):
+        major = Major('language')
+        self.assertEqual(major.__repr__(), '<Major Language>')
 
     # ---------------
     # ethnicity class
@@ -1010,4 +1034,3 @@ class Tests(TestCase):
 
 if __name__ == "__main__":
     main()
-

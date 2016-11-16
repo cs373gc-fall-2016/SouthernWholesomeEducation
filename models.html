@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/jiyoungmin/Library/Mobile%20Documents/com%7Eapple%7ECloudDocs/Stuffs/CS373/SouthernWholesomeEducation/project/models.py">/Users/jiyoungmin/Library/Mobile Documents/com~apple~CloudDocs/Stuffs/CS373/SouthernWholesomeEducation/project/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/ec2-user/SouthernWholesomeEducation/project/models.py">/home/ec2-user/SouthernWholesomeEducation/project/models.py</a></font></td></tr></table>
     <p><tt>Implements&nbsp;the&nbsp;models&nbsp;that&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;database</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -51,7 +51,7 @@ and&nbsp;avgTuition&nbsp;variables&nbsp;will&nbsp;be&nbsp;aggregated&nbsp;from&n
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="City-__init__"><strong>__init__</strong></a>(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none')</dt></dl>
+<dl><dt><a name="City-__init__"><strong>__init__</strong></a>(self, name, population=0, avg_tuition=0, top_university='none', top_major='none', top_ethnicity='none', uni_count=0, maj_count=0, eth_count=0)</dt></dl>
 
 <dl><dt><a name="City-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
 
@@ -73,9 +73,13 @@ Methods defined here:<br>
 Data descriptors defined here:<br>
 <dl><dt><strong>avg_tuition</strong></dt>
 </dl>
+<dl><dt><strong>eth_count</strong></dt>
+</dl>
 <dl><dt><strong>ethnicity_list</strong></dt>
 </dl>
 <dl><dt><strong>id_num</strong></dt>
+</dl>
+<dl><dt><strong>maj_count</strong></dt>
 </dl>
 <dl><dt><strong>major_list</strong></dt>
 </dl>
@@ -89,13 +93,15 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>top_university</strong></dt>
 </dl>
+<dl><dt><strong>uni_count</strong></dt>
+</dl>
 <dl><dt><strong>university_list</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103ee6748; City&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dcde0b8; City&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('CITY', MetaData(bind=None), Column('id_nu..., String(length=225), table=&lt;CITY&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('CITY', MetaData(bind=None), Column('id_nu...th_count', Integer(), table=&lt;CITY&gt;), schema=None)</dl>
 
 <dl><dt><strong>__tablename__</strong> = 'CITY'</dl>
 
@@ -163,7 +169,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103eb77f0; ETHNICITYTOCITY&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dd0ef60; ETHNICITYTOCITY&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('ETHNICITYTOCITY', MetaData(bind=None), Co...ngth=225), table=&lt;ETHNICITYTOCITY&gt;), schema=None)</dl>
 
@@ -233,7 +239,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103ed7710; ETHNICITYTOUNIVERSITY&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dd3be80; ETHNICITYTOUNIVERSITY&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('ETHNICITYTOUNIVERSITY', MetaData(bind=Non...25), table=&lt;ETHNICITYTOUNIVERSITY&gt;), schema=None)</dl>
 
@@ -311,7 +317,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103ef7160; Ethnicity&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dcdebe0; Ethnicity&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('ETHNICITY', MetaData(bind=None), Column('...ity', Integer(), table=&lt;ETHNICITY&gt;), schema=None)</dl>
 
@@ -381,7 +387,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103eb7048; MAJORTOCITY&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dd0e7b8; MAJORTOCITY&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('MAJORTOCITY', MetaData(bind=None), Column...g(length=225), table=&lt;MAJORTOCITY&gt;), schema=None)</dl>
 
@@ -451,7 +457,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103eb7f60; MAJORTOUNIVERSITY&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dd3b710; MAJORTOUNIVERSITY&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('MAJORTOUNIVERSITY', MetaData(bind=None), ...th=225), table=&lt;MAJORTOUNIVERSITY&gt;), schema=None)</dl>
 
@@ -500,7 +506,7 @@ from&nbsp;<a href="#University">University</a>&nbsp;(university)&nbsp;and&nbsp;<
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Major-__init__"><strong>__init__</strong></a>(self, name, num_undergrads=0, top_city='Default', avg_percentage=0)</dt></dl>
+<dl><dt><a name="Major-__init__"><strong>__init__</strong></a>(self, name, num_undergrads=0, top_city='Default', top_city_amt=0, top_university='Default', top_university_amt=0, avg_percentage=0)</dt></dl>
 
 <dl><dt><a name="Major-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
 
@@ -522,11 +528,17 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>top_city</strong></dt>
 </dl>
+<dl><dt><strong>top_city_amt</strong></dt>
+</dl>
+<dl><dt><strong>top_university</strong></dt>
+</dl>
+<dl><dt><strong>top_university_amt</strong></dt>
+</dl>
 <dl><dt><strong>universities</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103ee6ba8; Major&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dcde668; Major&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('MAJOR', MetaData(bind=None), Column('id_n...versity', Integer(), table=&lt;MAJOR&gt;), schema=None)</dl>
 
@@ -575,7 +587,7 @@ variable&nbsp;will&nbsp;also&nbsp;be&nbsp;included&nbsp;from&nbsp;a&nbsp;backref
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="University-__init__"><strong>__init__</strong></a>(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private)</dt></dl>
+<dl><dt><a name="University-__init__"><strong>__init__</strong></a>(self, name, num_undergrads, cost_to_attend, grad_rate, public_or_private, city_name)</dt></dl>
 
 <dl><dt><a name="University-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
 
@@ -594,6 +606,8 @@ Data descriptors defined here:<br>
 <dl><dt><strong>city</strong></dt>
 </dl>
 <dl><dt><strong>city_id</strong></dt>
+</dl>
+<dl><dt><strong>city_name</strong></dt>
 </dl>
 <dl><dt><strong>cost_to_attend</strong></dt>
 </dl>
@@ -617,7 +631,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103ed7ef0; University&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f418dcca710; University&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('UNIVERSITY', MetaData(bind=None), Column(...'CITY.id_num'), table=&lt;UNIVERSITY&gt;), schema=None)</dl>
 
@@ -666,5 +680,5 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>APP</strong> = &lt;Flask 'models'&gt;<br>
-<strong>DB</strong> = &lt;SQLAlchemy engine='postgresql://ec2-user:ec2-user@54.244.68.148/swe'&gt;</td></tr></table>
+<strong>DB</strong> = &lt;SQLAlchemy engine='postgresql://ec2-user:ec2-user@54.187.105.249/swe'&gt;</td></tr></table>
 </body></html>
