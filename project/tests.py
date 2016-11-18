@@ -775,9 +775,25 @@ class Tests(TestCase):
         self.assertEqual(maj.num_undergrads, 125860)
         self.assertEqual(maj.top_city, "College Station")
 
-    # # -------------
+    def test_major_11(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Construction').first()
+        self.assertEqual(maj.num_undergrads, 83954)
+        self.assertEqual(maj.top_city, "Indianapolis")
+
+    def test_major_12(self):
+        '''
+        Test Major class
+        '''
+        maj = Major.query.filter_by(name='Architecture').first()
+        self.assertEqual(maj.num_undergrads, 48375)
+        self.assertEqual(maj.top_city, "Boston")
+
+    # # ---------------
     # # major __repr__
-    # # -------------
+    # # ---------------
 
     def test_major_repr_1(self):
         '''
@@ -827,6 +843,14 @@ class Tests(TestCase):
         '''
         major = Major('family consumer sciences')
         self.assertEqual(major.__repr__(), '<Major Family Consumer Sciences>')
+
+    def test_major_repr_8(self):
+        major = Major('history')
+        self.assertEqual(major.__repr__(), '<Major History>')
+
+    def test_major_repr_9(self):
+        major = Major('language')
+        self.assertEqual(major.__repr__(), '<Major Language>')
 
     # ---------------
     # ethnicity class

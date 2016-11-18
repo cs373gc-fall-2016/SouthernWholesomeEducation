@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module IDB1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>IDB1</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/ec2-user/SouthernWholesomeEducation/project/IDB1.py">/home/ec2-user/SouthernWholesomeEducation/project/IDB1.py</a></font></td></tr></table>
+    <p><tt>Implementation&nbsp;of&nbsp;flask&nbsp;app&nbsp;for&nbsp;serving&nbsp;HTML&nbsp;pages</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-create_sql_query"><strong>create_sql_query</strong></a>(model, q_array, bool_op, str_limit='')</dt><dd><tt>Creates&nbsp;a&nbsp;SQL&nbsp;query&nbsp;given&nbsp;certain&nbsp;arguments.</tt></dd></dl>
+ <dl><dt><a name="-error_page"><strong>error_page</strong></a>(error)</dt><dd><tt>Error&nbsp;handler&nbsp;for&nbsp;Flask</tt></dd></dl>
+ <dl><dt><a name="-favicon"><strong>favicon</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;favicon.ico</tt></dd></dl>
+ <dl><dt><a name="-fill_pag_list"><strong>fill_pag_list</strong></a>(model, query, bool_op, param, pag_list)</dt><dd><tt>Fills&nbsp;in&nbsp;the&nbsp;pagination&nbsp;list&nbsp;to&nbsp;provide&nbsp;server&nbsp;side&nbsp;pagination.</tt></dd></dl>
+ <dl><dt><a name="-get_num_pages"><strong>get_num_pages</strong></a>(model_name)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;pages</tt></dd></dl>
+ <dl><dt><a name="-get_search"><strong>get_search</strong></a>(model, query, bool_op, page)</dt><dd><tt>Method&nbsp;that&nbsp;provides&nbsp;search&nbsp;functionality</tt></dd></dl>
+ <dl><dt><a name="-list_all_models"><strong>list_all_models</strong></a>(model_name)</dt><dd><tt>List&nbsp;all&nbsp;models&nbsp;in&nbsp;the&nbsp;database&nbsp;given&nbsp;a&nbsp;model&nbsp;name</tt></dd></dl>
+ <dl><dt><a name="-list_models_range"><strong>list_models_range</strong></a>(model_name, offset, limit)</dt><dd><tt>List&nbsp;models&nbsp;within&nbsp;a&nbsp;given&nbsp;range</tt></dd></dl>
+ <dl><dt><a name="-lookup_model"><strong>lookup_model</strong></a>(model_name, id_param)</dt><dd><tt>Return&nbsp;information&nbsp;for&nbsp;a&nbsp;model&nbsp;given&nbsp;the&nbsp;model&nbsp;type&nbsp;and&nbsp;ID</tt></dd></dl>
+ <dl><dt><a name="-lookup_model_by_name"><strong>lookup_model_by_name</strong></a>(model_name, name)</dt><dd><tt>Return&nbsp;information&nbsp;for&nbsp;a&nbsp;model&nbsp;given&nbsp;the&nbsp;model&nbsp;type&nbsp;and&nbsp;name</tt></dd></dl>
+ <dl><dt><a name="-model_search"><strong>model_search</strong></a>(results, model, bool_op, query, columns, param, page, pag_list)</dt><dd><tt>Creates&nbsp;the&nbsp;contextualized&nbsp;field&nbsp;for&nbsp;every&nbsp;relevant&nbsp;model&nbsp;instance.</tt></dd></dl>
+ <dl><dt><a name="-pagination_sort"><strong>pagination_sort</strong></a>(model_name, start, num_items, attr, is_reverse)</dt><dd><tt>Server&nbsp;side&nbsp;pagination&nbsp;with&nbsp;sorting</tt></dd></dl>
+ <dl><dt><a name="-render_github_stats"><strong>render_github_stats</strong></a>()</dt><dd><tt>Render&nbsp;github&nbsp;statistics&nbsp;for&nbsp;group&nbsp;members</tt></dd></dl>
+ <dl><dt><a name="-render_home"><strong>render_home</strong></a>()</dt><dd><tt>Return&nbsp;index.html&nbsp;page&nbsp;when&nbsp;no&nbsp;path&nbsp;is&nbsp;given</tt></dd></dl>
+ <dl><dt><a name="-render_json"><strong>render_json</strong></a>()</dt><dd><tt>Serves&nbsp;up&nbsp;the&nbsp;json&nbsp;file</tt></dd></dl>
+ <dl><dt><a name="-render_searchbox"><strong>render_searchbox</strong></a>()</dt><dd><tt>Serves&nbsp;up&nbsp;the&nbsp;searchbox&nbsp;HTML&nbsp;template.</tt></dd></dl>
+ <dl><dt><a name="-run_tests"><strong>run_tests</strong></a>()</dt><dd><tt>Runs&nbsp;the&nbsp;unit&nbsp;tests&nbsp;for&nbsp;the&nbsp;About&nbsp;page.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>APP</strong> = &lt;Flask 'models'&gt;<br>
+<strong>CITY_AND_LIST</strong> = []<br>
+<strong>CITY_OR_LIST</strong> = []<br>
+<strong>CONVERT_NAMES</strong> = {'avg_percentage': 'Average Percentage', 'avg_tuition': 'Average Tuition', 'city_name': 'City', 'cost_to_attend': 'Yearly Tuition', 'ethnicities': 'Ethnicity', 'ethnicity_name': 'Ethnicity', 'ethnicity_num_students': 'Ethnicity Student Number', 'grad_rate': 'Graduation Rate', 'maj_count': 'Major Count', 'major_name': 'Major', ...}<br>
+<strong>CURRENT_QUERY</strong> = ''<br>
+<strong>DB</strong> = &lt;SQLAlchemy engine='postgresql://ec2-user:ec2-user@54.187.105.249/swe'&gt;<br>
+<strong>DEFAULT_PAGE</strong> = 10<br>
+<strong>ETHNICITY_AND_LIST</strong> = []<br>
+<strong>ETHNICITY_OR_LIST</strong> = []<br>
+<strong>MAJOR_AND_LIST</strong> = []<br>
+<strong>MAJOR_OR_LIST</strong> = []<br>
+<strong>PLURAL_NAMES</strong> = {'City': 'cities', 'Ethnicity': 'ethnicities', 'Major': 'majors', 'University': 'universities'}<br>
+<strong>UNIVERSITY_AND_LIST</strong> = []<br>
+<strong>UNIVERSITY_OR_LIST</strong> = []<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>
