@@ -6,10 +6,10 @@ import json
 
 def api_call():
     # setting up url to collect all school codes
-    projects_url = 'http://opensourcery.me/api/projects/?start=0&end=3' # 0-6676
+    projects_url = 'http://opensourcery.me/api/projects/?start=0&end=4' # 0-6676
     companies_url = 'http://opensourcery.me/api/companies/?start=0&end=3' # 0-299
-    contributors_url = 'http://opensourcery.me/api/contributors/?start=0&end=3' #0-35420
-    languages_url = 'http://opensourcery.me/api/languages/?start=0&end=3' # 0-95
+    contributors_url = 'http://opensourcery.me/api/contributors/?start=0&end=10' #0-35420
+    languages_url = 'http://opensourcery.me/api/languages/?start=0&end=10' # 0-95
 
     
     projects = setup_projects(projects_url)
