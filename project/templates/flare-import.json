@@ -1,1 +1,39 @@
-[{"name": "p1", "imports": ["c1", "c2", "l1", "l3", "l6"]}, {"name": "p2", "imports": ["c24"]}, {"name": "p4", "imports": []}, {"name": "i1", "imports": ["p1", "p2", "p4"]}, {"name": "i2", "imports": []}, {"name": "i3", "imports": []}, {"name": "c1", "imports": ["p1"]}, {"name": "c2", "imports": ["p1"]}, {"name": "c24", "imports": ["p2"]}, {"name": "l1", "imports": ["p1"]}, {"name": "l3", "imports": ["p1"]}, {"name": "l6", "imports": ["p1"]}]
+[  
+   {  
+      "imports":[  
+         "p1",
+         "p2",
+         "p4"
+      ],
+      "name":"i1"
+   },
+   {  
+      "imports":[ 
+         "c2"
+      ],
+      "name":"p1"
+   },
+   {  
+      "imports":[
+      ],
+      "name":"p2"
+   },
+   {  
+      "imports":[  
+
+      ],
+      "name":"p4"
+   },
+   {  
+      "imports":[  
+         "p1"
+      ],
+      "name":"c1"
+   },
+   {  
+      "imports":[  
+         "p1"
+      ],
+      "name":"c2"
+   }
+]
