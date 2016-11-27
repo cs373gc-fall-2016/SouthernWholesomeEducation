@@ -24,6 +24,7 @@
           <p>Company -> Contributors (yellow)
           <p>Contributors -> Project (green)
           <p>Language -> Project (purple)
+          <p id="chart">
 
 <!-- 
 http://bl.ocks.org/mbostock/1153292
@@ -118,7 +119,7 @@ var force = d3.layout.force()
     .on("tick", tick)
     .start();
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("chart").append("svg")
     .attr("width", width)
     .attr("height", height);
 
