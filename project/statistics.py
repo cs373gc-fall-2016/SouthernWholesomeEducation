@@ -24,7 +24,7 @@ def get_github_stats():
         else:
             user_statistics[login_name]['issues'] += 1
 
-    user_statistics['mjvolk']['unit_tests'] = 23
+    user_statistics['mjvolk']['unit_tests'] = 31
     user_statistics['jymin94']['unit_tests'] = 14
     user_statistics['ace-jc']['unit_tests'] = 12
     user_statistics['mxavier6']['unit_tests'] = 33
