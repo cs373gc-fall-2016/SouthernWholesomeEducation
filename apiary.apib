@@ -5,8 +5,12 @@ HOST: http://wholesomeeducation.me/api/
 
 Southern Wholesome Education API is a simple API that allows consumers to view information regarding universities, cities, majors, and ethnic groups.
 
-## Universities Collection [/university]
+## Universities Collection [/university/{page_number}/{page_size}]
 
++ Parameters
+    + page_number (int) - page number in the pages of universities
+    + page_size (int) - number of entries per page
+    
 ### List All Universities [GET]
 Returns a list of all universities and colleges and basic details about them.
 + Response 200 (application/json)
@@ -331,7 +335,11 @@ Returns a list of details about the specific university when searching by name.
         }
 
 
-## Cities Collection [/city]
+## Cities Collection [/city/{page_number}/{page_size}]
+
++ Parameters
+    + page_number (int) - page number in the pages of cities
+    + page_size (int) - number of entries per page
 
 ### List All Cities [GET]
 Returns a list of all cities and basic details about them.
@@ -397,7 +405,11 @@ Returns a list of details about the specific city when searching by name.
             }
         }   
         
-## Majors Collection [/major]
+## Majors Collection [/major/{page_number}/{page_size}]
+
++ Parameters
+    + page_number (int) - page number in the pages of majors
+    + page_size (int) - number of entries per page
 
 ### List All Majors [GET]
 Returns a list of all majors and specialties and basic details about them.
@@ -462,7 +474,11 @@ Returns a list of details about the specific major when searching by name.
             }
         }     
         
-## Ethnic Groups Collection [/ethnicity]
+## Ethnic Groups Collection [/ethnicity/{page_number}/{page_size}]
+
++ Parameters
+    + page_number (int) - page number in the pages of ethnicities
+    + page_size (int) - number of entries per page
 
 ### List All Ethnic Groups [GET]
 Returns a list of all ethnic and race groups and basic details about them.
